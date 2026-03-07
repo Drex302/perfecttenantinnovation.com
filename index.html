@@ -721,6 +721,7 @@ footer{padding:52px 48px 32px;border-top:1px solid rgba(38,140,166,.1);display:f
           <div class="form-group"><label>Last Name</label><input class="form-input" type="text" id="eco-lname" placeholder="Johnson" required></div>
         </div>
         <div class="form-group"><label>Email Address</label><input class="form-input" type="email" id="eco-email" placeholder="maria@email.com" required></div>
+        <div class="form-group"><label>Phone Number</label><input class="form-input" type="tel" id="eco-phone" placeholder="(555) 000-0000"></div>
         <div class="form-group"><label>I am joining as a...</label>
           <select class="form-select" id="eco-role"><option value="" disabled selected>Select your role</option><option value="tenant">🏠 Tenant</option><option value="service_provider">🔧 Service Provider</option><option value="merchant">🛍️ Merchant</option><option value="swarm_boss">⚡ Swarm Boss</option></select>
         </div>
@@ -880,6 +881,7 @@ function submitEco() {
     firstName: f,
     lastName: l,
     email: e,
+    phone: document.getElementById('eco-phone').value.trim(),
     location: document.getElementById('eco-location').value.trim(),
     createdAt: firebase.firestore.FieldValue.serverTimestamp()
   }).then(function() {
