@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfect Tenant Innovation — The PropTech Super App</title>
+<meta name="description" content="Perfect Tenant Innovation is the PropTech super app that automates landlord operations, holds tenants accountable, and builds a thriving economic ecosystem — all in one platform. 11 user roles, AI-powered inspections, and a tenant reward system.">
+<link rel="canonical" href="https://www.perfecttenantinnovation.com">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.perfecttenantinnovation.com">
+<meta property="og:title" content="Perfect Tenant Innovation — The PropTech Super App">
+<meta property="og:description" content="Automate landlord operations, reward responsible tenants, and build a thriving housing ecosystem — all in one platform. 11 user roles. AI-powered. Section 8 supported.">
+<meta property="og:site_name" content="Perfect Tenant Innovation">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Perfect Tenant Innovation — The PropTech Super App">
+<meta name="twitter:description" content="Automate landlord operations, reward responsible tenants, and build a thriving housing ecosystem — all in one platform.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #268CA6;
+  --teal-light: #2FA8C4;
+  --teal-dim: #1D7089;
+  --teal-glow: rgba(38,140,166,0.18);
+  --orange: #F29940;
+  --amber: #E6B34D;
+  --green-mid: #599980;
+  --ink: #14141A;
+  --ink-2: #1F1F24;
+  --slate: #1A2535;
+  --muted: #4B5C6B;
+  --ghost: #8AA5B5;
+  --white: #FFFFFF;
+  --red: #EF4444;
+  --grad: linear-gradient(135deg, #268CA6 0%, #599980 40%, #E6B34D 70%, #F29940 100%);
+  --grad-hover: linear-gradient(135deg, #2FA8C4 0%, #66AD90 40%, #E6B34D 70%, #F5A852 100%);
+  --grad-text: linear-gradient(135deg, #2FA8C4, #66AD90, #E6B34D, #F29940);
+  --font-d: 'Syne', sans-serif;
+  --font-b: 'DM Sans', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--ink);color:var(--white);overflow-x:hidden;line-height:1.6}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(20,20,26,.7);backdrop-filter:blur(20px);border-bottom:1px solid rgba(38,140,166,.12);transition:all .3s}
+.nav-logo{font-family:var(--font-d);font-weight:800;font-size:1.1rem;letter-spacing:-.02em;color:var(--white);text-decoration:none}
+.nav-logo span{background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:26px;list-style:none;align-items:center}
+.nav-links a{font-size:.8rem;font-weight:400;color:var(--ghost);text-decoration:none;letter-spacing:.04em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--teal-light)}
+.nav-cta{background:var(--grad)!important;color:var(--white)!important;padding:10px 20px;border-radius:6px;font-weight:600!important;text-transform:none!important;letter-spacing:0!important;font-size:.86rem!important;transition:opacity .2s,transform .2s!important}
+.nav-cta:hover{opacity:.9!important;transform:translateY(-1px)}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(38,140,166,.2) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 80% 80%,rgba(242,153,64,.09) 0%,transparent 60%),radial-gradient(ellipse 30% 30% at 10% 60%,rgba(89,153,128,.08) 0%,transparent 50%)}
+.orb{position:absolute;border-radius:50%;filter:blur(60px);animation:drift 8s ease-in-out infinite alternate}
+.orb-1{width:400px;height:400px;background:rgba(38,140,166,.15);top:-100px;left:-100px;animation-duration:9s}
+.orb-2{width:300px;height:300px;background:rgba(242,153,64,.1);bottom:0;right:-80px;animation-duration:11s;animation-delay:-3s}
+.orb-3{width:200px;height:200px;background:rgba(89,153,128,.1);top:40%;left:60%;animation-duration:7s;animation-delay:-5s}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(30px,20px) scale(1.05)}}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(38,140,166,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(38,140,166,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(38,140,166,.12);border:1px solid rgba(38,140,166,.3);border-radius:100px;padding:6px 18px;font-size:.75rem;font-weight:500;color:var(--teal-light);letter-spacing:.07em;text-transform:uppercase;margin-bottom:32px;position:relative;z-index:2;animation:fadeUp .8s ease both}
+.badge-dot{width:6px;height:6px;background:var(--orange);border-radius:50%;animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero h1{font-family:var(--font-d);font-size:clamp(2.8rem,7vw,6rem);font-weight:800;line-height:1;letter-spacing:-.03em;position:relative;z-index:2;animation:fadeUp .8s ease .1s both;max-width:920px}
+.hero h1 .line-grad{background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block}
+.hero h1 .line-outline{-webkit-text-stroke:1px rgba(255,255,255,.25);color:transparent;display:block}
+.hero-sub{font-size:clamp(1rem,2vw,1.15rem);font-weight:300;color:var(--ghost);max-width:580px;margin:24px auto 48px;position:relative;z-index:2;line-height:1.75;animation:fadeUp .8s ease .2s both}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;position:relative;z-index:2;animation:fadeUp .8s ease .3s both}
+.btn-primary{background:var(--grad);color:var(--white);padding:16px 36px;border-radius:8px;font-family:var(--font-d);font-size:1rem;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:all .25s;position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px}
+.btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.12) 0%,transparent 60%);pointer-events:none}
+.btn-primary:hover{background:var(--grad-hover);transform:translateY(-2px);box-shadow:0 8px 32px rgba(38,140,166,.3),0 4px 16px rgba(242,153,64,.2)}
+.btn-secondary{background:transparent;color:var(--white);padding:16px 36px;border-radius:8px;font-size:1rem;font-weight:400;text-decoration:none;border:1px solid rgba(255,255,255,.15);cursor:pointer;transition:all .25s;display:inline-flex;align-items:center;gap:8px}
+.btn-secondary:hover{border-color:var(--teal-light);color:var(--teal-light);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:48px;margin-top:72px;position:relative;z-index:2;animation:fadeUp .8s ease .4s both;flex-wrap:wrap;justify-content:center}
+.stat-item{text-align:center}
+.stat-num{font-family:var(--font-d);font-size:2rem;font-weight:800;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block}
+.stat-label{font-size:.75rem;color:var(--ghost);letter-spacing:.07em;text-transform:uppercase}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.ticker-wrap{overflow:hidden;background:rgba(38,140,166,.07);border-top:1px solid rgba(38,140,166,.1);border-bottom:1px solid rgba(38,140,166,.1);padding:13px 0;white-space:nowrap}
+.ticker-inner{display:inline-flex;animation:ticker 35s linear infinite}
+.ticker-item{display:inline-flex;align-items:center;gap:12px;font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ghost);padding:0 32px}
+.ticker-dot{width:4px;height:4px;background:var(--orange);border-radius:50%}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.section-label{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-light);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.section-label::before{content:'';width:24px;height:1px;background:var(--grad)}
+.section-title{font-family:var(--font-d);font-size:clamp(1.9rem,4vw,3rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;max-width:700px;margin-bottom:20px}
+.section-body{font-size:1rem;color:var(--ghost);max-width:560px;line-height:1.8;font-weight:300}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.grad-line{position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--teal),var(--orange),transparent)}
+.problem{padding:120px 48px;background:var(--ink-2);position:relative;overflow:hidden}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:56px;border:1px solid rgba(38,140,166,.15);border-radius:16px;overflow:hidden;max-width:1100px;margin-left:auto;margin-right:auto}
+.problem-col{padding:48px 40px}
+.problem-col.before{background:rgba(239,68,68,.04);border-right:1px solid rgba(38,140,166,.1)}
+.problem-col.after{background:rgba(38,140,166,.04)}
+.col-tag{display:inline-block;padding:4px 14px;border-radius:4px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:24px}
+.col-tag.bad{background:rgba(239,68,68,.12);color:#F87171;border:1px solid rgba(239,68,68,.2)}
+.col-tag.good{background:rgba(38,140,166,.12);color:var(--teal-light);border:1px solid rgba(38,140,166,.2)}
+.problem-list{list-style:none;display:flex;flex-direction:column;gap:13px}
+.problem-list li{display:flex;align-items:flex-start;gap:11px;font-size:.88rem;color:var(--ghost);line-height:1.55;font-weight:300}
+.problem-list li .icon{font-size:.9rem;flex-shrink:0;margin-top:2px}
+.voucher-strip{padding:0 48px 72px;background:var(--ink-2)}
+.voucher-box{max-width:1100px;margin:0 auto;background:linear-gradient(135deg,rgba(38,140,166,.1),rgba(89,153,128,.07));border:1px solid rgba(38,140,166,.25);border-radius:16px;padding:36px 44px;display:flex;align-items:center;gap:36px;position:relative;overflow:hidden}
+.voucher-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad)}
+.voucher-icon{font-size:2.6rem;flex-shrink:0}
+.voucher-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(230,179,77,.12);border:1px solid rgba(230,179,77,.25);border-radius:100px;padding:3px 12px;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+.voucher-title{font-family:var(--font-d);font-size:1.15rem;font-weight:800;color:var(--white);margin-bottom:7px}
+.voucher-body{font-size:.86rem;color:var(--ghost);line-height:1.6;font-weight:300}
+.landlord{padding:140px 48px;position:relative;overflow:hidden}
+.landlord-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 100% 50%,rgba(38,140,166,.09) 0%,transparent 60%);pointer-events:none}
+.landlord-layout{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.feature-cards{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.feature-card{background:rgba(255,255,255,.03);border:1px solid rgba(38,140,166,.12);border-radius:12px;padding:20px;transition:all .3s;position:relative;overflow:hidden}
+.feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad);opacity:0;transition:opacity .3s}
+.feature-card:hover{border-color:rgba(38,140,166,.3);background:rgba(38,140,166,.06);transform:translateY(-4px)}
+.feature-card:hover::before{opacity:1}
+.feature-card.wide{grid-column:span 2}
+.card-icon{width:36px;height:36px;background:rgba(38,140,166,.13);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:12px;border:1px solid rgba(38,140,166,.2)}
+.card-title{font-family:var(--font-d);font-size:.9rem;font-weight:700;margin-bottom:5px;color:var(--white)}
+.card-text{font-size:.78rem;color:var(--ghost);line-height:1.6;font-weight:300}
+.tenant-section{padding:120px 48px;background:var(--ink-2);position:relative;overflow:hidden}
+.tenant-layout{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.tenant-features{display:flex;flex-direction:column;gap:16px}
+.tenant-feature{display:flex;align-items:flex-start;gap:16px;padding:20px 22px;background:rgba(255,255,255,.03);border:1px solid rgba(38,140,166,.1);border-radius:12px;transition:all .3s}
+.tenant-feature:hover{border-color:rgba(38,140,166,.28);background:rgba(38,140,166,.05);transform:translateX(4px)}
+.tf-icon{width:42px;height:42px;background:var(--grad);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.tf-title{font-family:var(--font-d);font-size:.92rem;font-weight:700;color:var(--white);margin-bottom:4px}
+.tf-body{font-size:.8rem;color:var(--ghost);line-height:1.55;font-weight:300}
+.badges-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-top:18px}
+.badge-card{background:rgba(255,255,255,.03);border:1px solid rgba(38,140,166,.12);border-radius:10px;padding:13px 8px;text-align:center;transition:all .25s}
+.badge-card:hover{border-color:rgba(242,153,64,.3);transform:translateY(-3px)}
+.badge-emoji{font-size:1.3rem;display:block;margin-bottom:5px}
+.badge-label{font-size:.65rem;color:var(--ghost);line-height:1.3}
+.trophy-row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.trophy-chip{display:flex;align-items:center;gap:5px;padding:5px 13px;border-radius:100px;font-size:.7rem;font-weight:600;letter-spacing:.06em}
+.trophy-chip.bronze{background:rgba(180,120,60,.12);border:1px solid rgba(180,120,60,.25);color:#CD7F32}
+.trophy-chip.silver{background:rgba(160,160,170,.12);border:1px solid rgba(160,160,170,.25);color:#C0C0C8}
+.trophy-chip.gold{background:rgba(230,179,77,.12);border:1px solid rgba(230,179,77,.25);color:var(--amber)}
+.trophy-chip.platinum{background:rgba(38,140,166,.12);border:1px solid rgba(38,140,166,.25);color:var(--teal-light)}
+.literacy-section{padding:120px 48px;position:relative;overflow:hidden}
+.literacy-bg{position:absolute;inset:0;background:radial-gradient(ellipse 50% 70% at 0% 50%,rgba(89,153,128,.07) 0%,transparent 60%);pointer-events:none}
+.literacy-layout{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.literacy-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:36px}
+.lit-stat{background:rgba(255,255,255,.03);border:1px solid rgba(38,140,166,.12);border-radius:12px;padding:22px;text-align:center}
+.lit-stat-num{font-family:var(--font-d);font-size:1.9rem;font-weight:800;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:3px}
+.lit-stat-label{font-size:.72rem;color:var(--ghost);letter-spacing:.06em;text-transform:uppercase}
+.category-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.cat-pill{padding:6px 16px;border-radius:100px;font-size:.76rem;font-weight:500;background:rgba(38,140,166,.1);border:1px solid rgba(38,140,166,.2);color:var(--teal-light)}
+.literacy-visual{background:rgba(255,255,255,.03);border:1px solid rgba(38,140,166,.15);border-radius:16px;padding:28px;position:relative;overflow:hidden}
+.literacy-visual::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad)}
+.lv-title{font-family:var(--font-d);font-size:.95rem;font-weight:700;margin-bottom:18px;color:var(--white)}
+.progress-row{display:flex;flex-direction:column;gap:13px}
+.prog-item{display:flex;flex-direction:column;gap:5px}
+.prog-label{display:flex;justify-content:space-between;font-size:.75rem;color:var(--ghost)}
+.prog-bar{height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+.prog-fill{height:100%;border-radius:3px;background:var(--grad);transition:width 1s ease}
+.points-box{margin-top:18px;background:rgba(242,153,64,.07);border:1px solid rgba(242,153,64,.2);border-radius:10px;padding:13px 16px;display:flex;align-items:center;gap:11px}
+.points-text{font-size:.8rem;color:var(--ghost);line-height:1.4}
+.points-text strong{color:var(--amber);font-weight:600}
+.shopping-section{padding:120px 48px;background:var(--ink-2);position:relative;overflow:hidden}
+.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1100px;margin:44px auto 0}
+.shop-card{background:rgba(255,255,255,.03);border:1px solid rgba(38,140,166,.12);border-radius:14px;padding:26px 22px;transition:all .3s;position:relative;overflow:hidden}
+.shop-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad);opacity:0;transition:opacity .3s}
+.shop-card:hover{border-color:rgba(242,153,64,.25);background:rgba(242,153,64,.03);transform:translateY(-5px)}
+.shop-card:hover::before{opacity:1}
+.shop-emoji{font-size:1.7rem;margin-bottom:13px;display:block}
+.shop-title{font-family:var(--font-d);font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:7px}
+.shop-body{font-size:.8rem;color:var(--ghost);line-height:1.6;font-weight:300}
+.partner-strip{max-width:1100px;margin:44px auto 0;text-align:center}
+.partner-label{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.partner-logos{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.partner-chip{padding:7px 18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;font-size:.8rem;font-weight:500;color:var(--ghost);transition:all .2s}
+.partner-chip:hover{border-color:rgba(38,140,166,.3);color:var(--teal-light)}
+.swarm-section{padding:120px 48px;position:relative;overflow:hidden}
+.swarm-layout{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.swarm-steps{display:flex;flex-direction:column}
+.swarm-step{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid rgba(38,140,166,.08)}
+.swarm-step:last-child{border-bottom:none}
+.step-num{width:34px;height:34px;background:var(--grad);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:.82rem;font-weight:800;color:var(--white);flex-shrink:0}
+.step-title{font-family:var(--font-d);font-size:.92rem;font-weight:700;color:var(--white);margin-bottom:3px}
+.step-body{font-size:.8rem;color:var(--ghost);line-height:1.55;font-weight:300}
+.earn-visual{background:rgba(255,255,255,.03);border:1px solid rgba(38,140,166,.15);border-radius:16px;padding:28px;position:relative;overflow:hidden}
+.earn-visual::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad)}
+.ev-title{font-family:var(--font-d);font-size:.92rem;font-weight:700;margin-bottom:18px;color:var(--white)}
+.earn-row{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(38,140,166,.07)}
+.earn-row:last-child{border-bottom:none}
+.earn-action{font-size:.8rem;color:var(--ghost);display:flex;align-items:center;gap:8px}
+.earn-pts{font-family:var(--font-d);font-size:.88rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ai-section{padding:120px 48px;background:var(--ink-2);position:relative;overflow:hidden}
+.ai-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;max-width:1100px;margin:52px auto 0}
+.ai-card{background:rgba(255,255,255,.03);border:1px solid rgba(38,140,166,.1);border-radius:12px;padding:22px;transition:all .3s}
+.ai-card:hover{border-color:rgba(38,140,166,.3);transform:translateY(-4px)}
+.ai-domain{font-size:.66rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-light);margin-bottom:9px}
+.ai-title{font-family:var(--font-d);font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:6px}
+.ai-body{font-size:.76rem;color:var(--ghost);line-height:1.55;font-weight:300}
+.pricing{padding:120px 48px;position:relative;overflow:hidden}
+.pricing-bg{position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 50% 100%,rgba(38,140,166,.07) 0%,transparent 70%);pointer-events:none}
+.pricing-center{text-align:center;margin-bottom:60px;position:relative;z-index:2}
+.cost-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(38,140,166,.12);border-radius:16px;overflow:hidden;max-width:900px;margin:0 auto 64px;position:relative;z-index:2}
+.cost-cell{background:var(--ink-2);padding:30px 22px;text-align:center;position:relative}
+.cost-arrow{position:absolute;right:-15px;top:50%;transform:translateY(-50%);width:30px;height:30px;background:var(--ink);border:1px solid rgba(38,140,166,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.82rem;z-index:3;color:var(--teal-light)}
+.cost-label{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ghost);margin-bottom:7px}
+.cost-amount{font-family:var(--font-d);font-size:1.9rem;font-weight:800;color:#F87171;line-height:1;margin-bottom:4px}
+.cost-sub{font-size:.72rem;color:var(--muted)}
+.compare-wrap{max-width:900px;margin:0 auto;position:relative;z-index:2}
+.compare-header{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:3px}
+.compare-col-label{text-align:center;padding:13px;border-radius:9px 9px 0 0;font-family:var(--font-d);font-size:.82rem;font-weight:700}
+.compare-col-label.feature-col{background:transparent}
+.compare-col-label.old-col{background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.15);border-bottom:none;color:#F87171}
+.compare-col-label.new-col{background:rgba(38,140,166,.09);border:1px solid rgba(38,140,166,.2);border-bottom:none;color:var(--teal-light)}
+.compare-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:3px}
+.compare-cell{padding:15px 16px;font-size:.82rem;display:flex;align-items:center;gap:7px;line-height:1.4}
+.compare-cell.feature-col{color:var(--ghost);padding-left:0;font-size:.8rem}
+.compare-cell.old-col{background:rgba(239,68,68,.04);border-left:1px solid rgba(239,68,68,.1);border-right:1px solid rgba(239,68,68,.1);color:#FCA5A5}
+.compare-cell.new-col{background:rgba(38,140,166,.04);border-left:1px solid rgba(38,140,166,.1);border-right:1px solid rgba(38,140,166,.1);color:#5EEAD4}
+.compare-row:last-child .compare-cell.old-col{border-radius:0 0 8px 8px}
+.compare-row:last-child .compare-cell.new-col{border-radius:0 0 8px 8px}
+.founder-callout{max-width:900px;margin:44px auto 0;background:linear-gradient(135deg,rgba(38,140,166,.1),rgba(89,153,128,.06));border:1px solid rgba(38,140,166,.22);border-radius:16px;padding:34px 40px;display:flex;align-items:center;justify-content:space-between;gap:28px;position:relative;z-index:2;overflow:hidden}
+.founder-callout::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad)}
+.founder-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(230,179,77,.1);border:1px solid rgba(230,179,77,.22);border-radius:100px;padding:3px 12px;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);margin-bottom:12px}
+.founder-title{font-family:var(--font-d);font-size:1.25rem;font-weight:800;color:var(--white);margin-bottom:7px;line-height:1.2}
+.founder-body{font-size:.86rem;color:var(--ghost);font-weight:300;line-height:1.6}
+.trust-section{padding:80px 48px;background:var(--ink-2);position:relative;overflow:hidden}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1100px;margin:44px auto 0}
+.trust-card{background:rgba(255,255,255,.03);border:1px solid rgba(38,140,166,.1);border-radius:12px;padding:22px;text-align:center;transition:border-color .3s}
+.trust-card:hover{border-color:rgba(38,140,166,.3)}
+.trust-icon{font-size:1.7rem;margin-bottom:11px;display:block}
+.trust-title{font-family:var(--font-d);font-size:.85rem;font-weight:700;color:var(--white);margin-bottom:5px}
+.trust-body{font-size:.73rem;color:var(--ghost);line-height:1.55}
+.landlord-cta-section{padding:100px 48px;background:var(--ink);position:relative;overflow:hidden}
+.cta-box{max-width:680px;margin:0 auto;text-align:center}
+.form-wrapper{background:rgba(255,255,255,.03);border:1px solid rgba(38,140,166,.2);border-radius:16px;padding:40px;text-align:left;position:relative;overflow:hidden}
+.form-wrapper::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad)}
+.form-title{font-family:var(--font-d);font-size:1.2rem;font-weight:700;margin-bottom:5px;color:var(--white)}
+.form-sub{font-size:.84rem;color:var(--ghost);margin-bottom:24px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+.form-group label{font-size:.72rem;font-weight:600;color:var(--ghost);letter-spacing:.05em;text-transform:uppercase}
+.form-input,.form-select{background:rgba(255,255,255,.05);border:1px solid rgba(38,140,166,.18);border-radius:8px;padding:11px 14px;color:var(--white);font-family:var(--font-b);font-size:.9rem;outline:none;transition:border-color .2s,background .2s;width:100%;-webkit-appearance:none}
+.form-input::placeholder{color:rgba(138,165,181,.35)}
+.form-input:focus,.form-select:focus{border-color:var(--teal);background:rgba(38,140,166,.06)}
+.form-select option{background:var(--slate);color:var(--white)}
+.form-submit{width:100%;background:var(--grad);color:var(--white);border:none;padding:14px;border-radius:8px;font-family:var(--font-d);font-size:.98rem;font-weight:700;cursor:pointer;transition:all .25s;position:relative;overflow:hidden;margin-top:5px}
+.form-submit::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.1) 0%,transparent 60%)}
+.form-submit:hover{background:var(--grad-hover);transform:translateY(-2px);box-shadow:0 8px 32px rgba(38,140,166,.3),0 4px 16px rgba(242,153,64,.2)}
+.form-submit:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
+.form-note{font-size:.7rem;color:var(--muted);text-align:center;margin-top:9px}
+.success-msg{display:none;text-align:center;padding:36px}
+.success-msg .check{width:60px;height:60px;background:rgba(38,140,166,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin:0 auto 16px;border:2px solid var(--teal)}
+.success-msg h3{font-family:var(--font-d);font-size:1.35rem;font-weight:800;margin-bottom:7px;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.success-msg p{color:var(--ghost);font-size:.86rem}
+.ecosystem{padding:120px 48px;position:relative;overflow:hidden}
+.ecosystem-center{text-align:center;margin-bottom:60px}
+.roles-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1100px;margin:0 auto}
+.role-card{background:rgba(255,255,255,.03);border:1px solid rgba(38,140,166,.1);border-radius:14px;padding:26px 18px;text-align:center;transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
+.role-card::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 120%,var(--teal-glow) 0%,transparent 70%);opacity:0;transition:opacity .3s}
+.role-card:hover{border-color:rgba(38,140,166,.32);transform:translateY(-5px)}
+.role-card:hover::after{opacity:1}
+.role-emoji{font-size:1.8rem;display:block;margin-bottom:9px}
+.role-name{font-family:var(--font-d);font-size:.92rem;font-weight:700;color:var(--white);margin-bottom:7px}
+.role-desc{font-size:.76rem;color:var(--ghost);line-height:1.55;font-weight:300}
+.ecosystem-form-section{padding:80px 48px;background:var(--ink-2);position:relative}
+.ecosystem-form-section::before{content:'';position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--teal),var(--orange),transparent)}
+.eco-form-wrapper{max-width:580px;margin:0 auto;text-align:center}
+.eco-form-inner{background:rgba(255,255,255,.03);border:1px solid rgba(38,140,166,.15);border-radius:16px;padding:32px;margin-top:32px;text-align:left;position:relative;overflow:hidden}
+.eco-form-inner::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad)}
+.faq-section{padding:100px 48px;position:relative;overflow:hidden}
+.faq-center{text-align:center;margin-bottom:52px}
+.faq-list{max-width:740px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq-item{background:rgba(255,255,255,.03);border:1px solid rgba(38,140,166,.12);border-radius:12px;overflow:hidden;transition:border-color .2s}
+.faq-item:hover{border-color:rgba(38,140,166,.28)}
+.faq-q{width:100%;text-align:left;background:transparent;border:none;padding:18px 22px;color:var(--white);font-family:var(--font-d);font-size:.92rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.faq-arrow{font-size:.9rem;color:var(--teal-light);transition:transform .3s;flex-shrink:0}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-a-inner{padding:0 22px 18px;font-size:.86rem;color:var(--ghost);line-height:1.7;font-weight:300;border-top:1px solid rgba(38,140,166,.08);padding-top:14px}
+.life-section{padding:100px 48px;text-align:center;position:relative;overflow:hidden}
+.life-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(38,140,166,.09) 0%,transparent 70%)}
+.life-number{font-family:var(--font-d);font-size:clamp(5rem,15vw,11rem);font-weight:800;line-height:1;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:2px rgba(38,140,166,.35);position:relative;z-index:2}
+.life-number span{background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;-webkit-text-stroke:0}
+.life-label{font-family:var(--font-d);font-size:clamp(1.1rem,3vw,1.8rem);font-weight:700;color:var(--white);position:relative;z-index:2;margin-top:-10px;margin-bottom:16px}
+.life-sub{font-size:.95rem;color:var(--ghost);max-width:480px;margin:0 auto;font-weight:300;position:relative;z-index:2}
+.mobile-section{padding:100px 48px;background:var(--ink-2);position:relative;overflow:hidden}
+.mobile-layout{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.phone-mock{background:rgba(255,255,255,.04);border:1px solid rgba(38,140,166,.2);border-radius:24px;padding:28px;position:relative;overflow:hidden}
+.phone-mock::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad)}
+.phone-screen{background:var(--ink);border-radius:16px;padding:20px;border:1px solid rgba(38,140,166,.12)}
+.phone-row{display:flex;align-items:center;gap:11px;padding:9px 0;border-bottom:1px solid rgba(38,140,166,.07)}
+.phone-row:last-child{border-bottom:none}
+.phone-icon{width:30px;height:30px;background:var(--grad);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
+.phone-row-text{font-size:.76rem;color:var(--ghost);font-weight:300}
+.phone-row-text strong{color:var(--white);font-weight:600;display:block;font-size:.78rem}
+.app-badges{display:flex;flex-direction:column;gap:11px;margin-top:28px;max-width:320px}
+.app-badge{display:flex;align-items:center;gap:13px;background:rgba(255,255,255,.05);border:1px solid rgba(38,140,166,.18);border-radius:12px;padding:13px 18px;transition:all .25s;cursor:pointer}
+.app-badge:hover{border-color:rgba(38,140,166,.35);background:rgba(38,140,166,.07);transform:translateX(4px)}
+.ab-icon{font-size:1.5rem}
+.ab-sub{font-size:.68rem;color:var(--ghost)}
+.ab-main{font-family:var(--font-d);font-size:.9rem;font-weight:700;color:var(--white)}
+footer{padding:52px 48px 32px;border-top:1px solid rgba(38,140,166,.1);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.footer-logo{font-family:var(--font-d);font-weight:800;font-size:1.05rem;color:var(--white)}
+.footer-logo span{background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.footer-links{display:flex;gap:22px;list-style:none;flex-wrap:wrap}
+.footer-links a{font-size:.78rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--teal-light)}
+.footer-copy{font-size:.72rem;color:var(--muted)}
+@media(max-width:900px){
+  nav{padding:14px 18px}.nav-links{display:none}
+  .problem,.landlord,.tenant-section,.literacy-section,.shopping-section,.swarm-section,.ai-section,.pricing,.trust-section,.ecosystem,.faq-section,.life-section,.mobile-section{padding:64px 18px}
+  .problem-grid{grid-template-columns:1fr}.problem-col.before{border-right:none;border-bottom:1px solid rgba(38,140,166,.1)}
+  .landlord-layout,.tenant-layout,.literacy-layout,.swarm-layout,.mobile-layout{grid-template-columns:1fr;gap:40px}
+  .feature-cards{grid-template-columns:1fr}.feature-card.wide{grid-column:span 1}
+  .form-wrapper{padding:24px 18px}.form-row{grid-template-columns:1fr}
+  .roles-grid{grid-template-columns:1fr 1fr}.ai-grid,.shop-grid,.trust-grid{grid-template-columns:1fr 1fr}
+  .compare-header,.compare-row{grid-template-columns:1fr 1fr}
+  .compare-cell.feature-col,.compare-col-label.feature-col{display:none}
+  .founder-callout{flex-direction:column;padding:24px 18px}
+  .cost-strip{grid-template-columns:1fr}.cost-arrow{display:none}
+  .badges-grid{grid-template-columns:repeat(3,1fr)}
+  .voucher-box{flex-direction:column;gap:16px;padding:24px 18px}.voucher-strip{padding:0 18px 52px}
+  footer{padding:32px 18px 24px;flex-direction:column;align-items:flex-start}
+}
+@media(max-width:480px){
+  .hero{padding:96px 14px 52px}.hero-stats{gap:22px}
+  .roles-grid,.ai-grid,.shop-grid,.trust-grid{grid-template-columns:1fr}
+  .eco-form-inner{padding:22px 14px}.badges-grid{grid-template-columns:repeat(2,1fr)}
+  .literacy-stats{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="nav-logo">Perfect<span>Tenant</span></a>
+  <ul class="nav-links">
+    <li><a href="#landlords">For Landlords</a></li>
+    <li><a href="#tenants">For Tenants</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#ecosystem">Ecosystem</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#landlord-waitlist" class="nav-cta">Join Waitlist</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div><div class="hero-grid"></div>
+  <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+  <div class="hero-badge"><span class="badge-dot"></span>Now Accepting Waitlist — v1.2 Beta</div>
+  <h1><span>The End of</span><span class="line-grad">Property Management</span><span class="line-outline">As You Know It</span></h1>
+  <p class="hero-sub">Perfect Tenant Innovation is the PropTech super app that automates landlord operations, holds tenants accountable, and builds a thriving economic ecosystem — all in one platform.</p>
+  <div class="hero-ctas">
+    <a href="#landlord-waitlist" class="btn-primary">Get Early Access as Landlord →</a>
+    <a href="#ecosystem" class="btn-secondary">Explore the Platform</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item"><span class="stat-num">11</span><span class="stat-label">User Roles</span></div>
+    <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">Automated Workflows</span></div>
+    <div class="stat-item"><span class="stat-num">10–15</span><span class="stat-label">Extra Years of Life</span></div>
+    <div class="stat-item"><span class="stat-num">$0</span><span class="stat-label">Property Manager Needed</span></div>
+  </div>
+</section>
+
+<div class="ticker-wrap" aria-hidden="true"><div class="ticker-inner">
+  <span class="ticker-item"><span class="ticker-dot"></span>Automated Rent Collection</span>
+  <span class="ticker-item"><span class="ticker-dot"></span>AI-Powered Tenant Matching</span>
+  <span class="ticker-item"><span class="ticker-dot"></span>Section 8 &amp; Voucher Supported</span>
+  <span class="ticker-item"><span class="ticker-dot"></span>Quarterly AI Property Reports</span>
+  <span class="ticker-item"><span class="ticker-dot"></span>Financial Empowerment for Tenants</span>
+  <span class="ticker-item"><span class="ticker-dot"></span>Earn Real Money via PTI Wallet</span>
+  <span class="ticker-item"><span class="ticker-dot"></span>Maintenance Automation</span>
+  <span class="ticker-item"><span class="ticker-dot"></span>Rewards &amp; Accountability System</span>
+  <span class="ticker-item"><span class="ticker-dot"></span>Digital Lease Signing</span>
+  <span class="ticker-item"><span class="ticker-dot"></span>Automated Rent Collection</span>
+  <span class="ticker-item"><span class="ticker-dot"></span>AI-Powered Tenant Matching</span>
+  <span class="ticker-item"><span class="ticker-dot"></span>Section 8 &amp; Voucher Supported</span>
+  <span class="ticker-item"><span class="ticker-dot"></span>Quarterly AI Property Reports</span>
+  <span class="ticker-item"><span class="ticker-dot"></span>Financial Empowerment for Tenants</span>
+  <span class="ticker-item"><span class="ticker-dot"></span>Earn Real Money via PTI Wallet</span>
+  <span class="ticker-item"><span class="ticker-dot"></span>Maintenance Automation</span>
+  <span class="ticker-item"><span class="ticker-dot"></span>Rewards &amp; Accountability System</span>
+  <span class="ticker-item"><span class="ticker-dot"></span>Digital Lease Signing</span>
+</div></div>
+
+<section class="problem" id="platform">
+  <div class="grad-line"></div>
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="section-label reveal">The Problem We Solve</div>
+    <h2 class="section-title reveal">The landlord-tenant relationship is broken by design.</h2>
+    <p class="section-body reveal">Property managers charge 8–12% of rent, do very little, and leave both sides frustrated. We replace that entire layer with intelligent automation that works 24/7.</p>
+    <div class="problem-grid reveal">
+      <div class="problem-col before">
+        <span class="col-tag bad">❌ Without Perfect Tenant</span>
+        <ul class="problem-list">
+          <li><span class="icon">💸</span>Property managers charging 8–12% of every dollar collected</li>
+          <li><span class="icon">📞</span>Late-night maintenance calls with zero accountability</li>
+          <li><span class="icon">📋</span>Manual lease tracking, paper documents, missed deadlines</li>
+          <li><span class="icon">😤</span>No visibility into how tenants are treating your property</li>
+          <li><span class="icon">🔄</span>High tenant turnover with no incentive to stay</li>
+          <li><span class="icon">🚫</span>No system to reward responsible, long-term tenants</li>
+          <li><span class="icon">💰</span>Tenants with no path to financial empowerment or stability</li>
+        </ul>
+      </div>
+      <div class="problem-col after">
+        <span class="col-tag good">✅ With Perfect Tenant</span>
+        <ul class="problem-list">
+          <li><span class="icon">🤖</span>Fully automated operations — no property manager needed</li>
+          <li><span class="icon">🔧</span>AI-dispatched maintenance with verified service providers</li>
+          <li><span class="icon">📱</span>Digital leases, e-signatures, and document management</li>
+          <li><span class="icon">📸</span>Quarterly AI photo inspections — room by room</li>
+          <li><span class="icon">🏆</span>Tenant reward system that incentivizes staying and elevating</li>
+          <li><span class="icon">📊</span>Real-time analytics on every property, tenant, and dollar</li>
+          <li><span class="icon">🎓</span>Built-in financial literacy that builds better tenants</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="voucher-strip">
+  <div class="voucher-box reveal">
+    <div class="voucher-icon">🏛️</div>
+    <div>
+      <div class="voucher-tag">🔑 Section 8 &amp; Housing Vouchers Supported</div>
+      <div class="voucher-title">2.3 million voucher holders — fully supported on this platform.</div>
+      <div class="voucher-body">Perfect Tenant has built-in Housing Choice Voucher support across tenant matching filters, compliance document management, and landlord verification workflows. Accept HCV tenants with confidence — fully documented, automated, and stress-free from day one.</div>
+    </div>
+  </div>
+</div>
+
+<section class="landlord" id="landlords">
+  <div class="landlord-bg"></div>
+  <div class="landlord-layout">
+    <div>
+      <div class="section-label reveal">Built for Landlords</div>
+      <h2 class="section-title reveal">Run your entire portfolio from one screen.</h2>
+      <p class="section-body reveal">Whether you own 1 unit or 100, Perfect Tenant gives you the tools that used to require a full property management company — automated, intelligent, and always on.</p>
+      <div style="margin-top:32px"><a href="#landlord-waitlist" class="btn-primary reveal">Get Landlord Early Access →</a></div>
+    </div>
+    <div class="feature-cards reveal">
+      <div class="feature-card"><div class="card-icon">🏘️</div><div class="card-title">Property Management</div><div class="card-text">Add properties, track occupancy, manage details and photos — all in one place.</div></div>
+      <div class="feature-card"><div class="card-icon">👥</div><div class="card-title">AI Tenant Pool</div><div class="card-text">AI-matched tenant profiles with credit, budget, move-in, and voucher type filters.</div></div>
+      <div class="feature-card"><div class="card-icon">💳</div><div class="card-title">Payments &amp; Payouts</div><div class="card-text">Automated rent collection with ACH &amp; card. Instant Stripe payouts to your bank.</div></div>
+      <div class="feature-card"><div class="card-icon">🔧</div><div class="card-title">Maintenance Hub</div><div class="card-text">Tenants submit requests, AI dispatches vetted providers. You just approve.</div></div>
+      <div class="feature-card"><div class="card-icon">📄</div><div class="card-title">Digital Leases</div><div class="card-text">Send, track, and e-sign leases. Built-in termination and renewal flows.</div></div>
+      <div class="feature-card"><div class="card-icon">📊</div><div class="card-title">Analytics Hub</div><div class="card-text">Portfolio health, net cashflow, occupancy rates, and expense tracking.</div></div>
+      <div class="feature-card wide"><div class="card-icon">🤖</div><div class="card-title">AI Landlord Assistant</div><div class="card-text">Ask anything about your portfolio, tenants at risk, or market insights. Your 24/7 property intelligence engine — without the property manager markup.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="tenant-section" id="tenants">
+  <div class="grad-line"></div>
+  <div class="tenant-layout">
+    <div>
+      <div class="section-label reveal">Built for Tenants</div>
+      <h2 class="section-title reveal">Being a great tenant finally pays — literally.</h2>
+      <p class="section-body reveal">Perfect Tenant isn't a portal for paying rent. It's a full earning and growth platform. Build your reputation, earn real money, and elevate your life — all through how you live.</p>
+      <div style="margin-top:28px">
+        <div style="font-family:var(--font-d);font-size:.82rem;font-weight:700;color:var(--white);margin-bottom:12px;letter-spacing:.04em">Earn Trophy Tiers</div>
+        <div class="trophy-row">
+          <div class="trophy-chip bronze">🥉 Bronze</div>
+          <div class="trophy-chip silver">🥈 Silver</div>
+          <div class="trophy-chip gold">🥇 Gold</div>
+          <div class="trophy-chip platinum">💎 Platinum</div>
+        </div>
+      </div>
+      <div style="margin-top:24px">
+        <div style="font-family:var(--font-d);font-size:.82rem;font-weight:700;color:var(--white);margin-bottom:12px;letter-spacing:.04em">30 Earnable Badges</div>
+        <div class="badges-grid">
+          <div class="badge-card"><span class="badge-emoji">🏠</span><div class="badge-label">Tenancy</div></div>
+          <div class="badge-card"><span class="badge-emoji">💰</span><div class="badge-label">Rewards</div></div>
+          <div class="badge-card"><span class="badge-emoji">📚</span><div class="badge-label">Learning</div></div>
+          <div class="badge-card"><span class="badge-emoji">🗓️</span><div class="badge-label">Planning</div></div>
+          <div class="badge-card"><span class="badge-emoji">⚡</span><div class="badge-label">Speed</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="tenant-features reveal">
+      <div class="tenant-feature"><div class="tf-icon">💳</div><div><div class="tf-title">PTI Wallet</div><div class="tf-body">Earn PTI Points from missions, campaigns, and challenges. Cash out as rent credits or spend in the in-app marketplace. Real money for real behavior.</div></div></div>
+      <div class="tenant-feature"><div class="tf-icon">⭐</div><div><div class="tf-title">Stay Grade</div><div class="tf-body">Your portable rental reputation score — built over time by how you live, pay, and maintain your space. Carry it to every future landlord.</div></div></div>
+      <div class="tenant-feature"><div class="tf-icon">🎯</div><div><div class="tf-title">Missions &amp; Campaigns</div><div class="tf-body">Complete tasks, submit proof, earn points. Brand-funded campaigns mean you earn from day one — even before your first month of rent.</div></div></div>
+      <div class="tenant-feature"><div class="tf-icon">📸</div><div><div class="tf-title">Quarterly Q Report</div><div class="tf-body">Submit room-by-room photos each quarter. AI grades your space on cleanliness and surfaces. Your proof of responsible tenancy — on record.</div></div></div>
+      <div class="tenant-feature"><div class="tf-icon">💬</div><div><div class="tf-title">Social Rooms</div><div class="tf-body">Property-specific, topic-based, and interest-based live community rooms with chat and reactions — turning your building into a community.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="literacy-section">
+  <div class="literacy-bg"></div>
+  <div class="literacy-layout">
+    <div class="literacy-visual reveal">
+      <div class="lv-title">📚 Your Financial Curriculum</div>
+      <div class="progress-row">
+        <div class="prog-item"><div class="prog-label"><span>Budgeting</span><span style="color:var(--teal-light)">10 pts/question</span></div><div class="prog-bar"><div class="prog-fill" style="width:80%"></div></div></div>
+        <div class="prog-item"><div class="prog-label"><span>Saving</span><span style="color:var(--teal-light)">10 pts/question</span></div><div class="prog-bar"><div class="prog-fill" style="width:60%"></div></div></div>
+        <div class="prog-item"><div class="prog-label"><span>Credit Building</span><span style="color:var(--teal-light)">10 pts/question</span></div><div class="prog-bar"><div class="prog-fill" style="width:45%"></div></div></div>
+        <div class="prog-item"><div class="prog-label"><span>Insurance</span><span style="color:var(--teal-light)">10 pts/question</span></div><div class="prog-bar"><div class="prog-fill" style="width:30%"></div></div></div>
+      </div>
+      <div class="points-box"><div style="font-size:1.3rem">🎬</div><div class="points-text">Complete a video lesson to 90% and earn <strong>+25 PTI Points</strong>. Finish the full curriculum to unlock your AI Coach.</div></div>
+    </div>
+    <div>
+      <div class="section-label reveal">Financial Empowerment</div>
+      <h2 class="section-title reveal">A degree in personal finance — built into your apartment.</h2>
+      <p class="section-body reveal">No other rental app teaches you to build wealth. Perfect Tenant embeds financial literacy directly into the tenant experience — quizzes, video lessons, and real rewards for learning.</p>
+      <div class="literacy-stats reveal">
+        <div class="lit-stat"><span class="lit-stat-num">400+</span><span class="lit-stat-label">Quiz Questions</span></div>
+        <div class="lit-stat"><span class="lit-stat-num">12</span><span class="lit-stat-label">Video Lessons</span></div>
+        <div class="lit-stat"><span class="lit-stat-num">4</span><span class="lit-stat-label">Categories</span></div>
+        <div class="lit-stat"><span class="lit-stat-num">3</span><span class="lit-stat-label">Difficulty Tiers</span></div>
+      </div>
+      <div class="category-pills reveal">
+        <div class="cat-pill">💵 Budgeting</div>
+        <div class="cat-pill">🏦 Saving</div>
+        <div class="cat-pill">📈 Credit</div>
+        <div class="cat-pill">🛡️ Insurance</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shopping-section">
+  <div class="grad-line"></div>
+  <div style="max-width:1100px;margin:0 auto">
+    <div style="text-align:center">
+      <div class="section-label reveal" style="justify-content:center">PTI Shopping Universe</div>
+      <h2 class="section-title reveal" style="text-align:center;margin:0 auto 14px">Your points. Your picks. Your marketplace.</h2>
+      <p class="section-body reveal" style="text-align:center;margin:0 auto">Tenants earn PTI Points and spend them in an in-app marketplace built for renters. 1,000 pts = $1. Shop partner brands, essential services, and PTI Picks — all without leaving the app.</p>
+    </div>
+    <div class="shop-grid">
+      <div class="shop-card reveal"><span class="shop-emoji">🛍️</span><div class="shop-title">PTI Picks</div><div class="shop-body">Curated products and services selected specifically for renters — furniture, insurance, moving, and more — hand-picked for your lifestyle.</div></div>
+      <div class="shop-card reveal"><span class="shop-emoji">🏪</span><div class="shop-title">Shopify-Powered Merchants</div><div class="shop-body">Independent merchants list products directly in the app. Every purchase can use PTI Points as currency, creating a circular economy inside the platform.</div></div>
+      <div class="shop-card reveal"><span class="shop-emoji">🤝</span><div class="shop-title">Partner Brand Offers</div><div class="shop-body">Exclusive offers from renter-focused partners. Tenants access them through the app, earn points for engagement, and unlock better deals as they level up.</div></div>
+    </div>
+    <div class="partner-strip reveal">
+      <div class="partner-label">Featured Partners &amp; Integrations</div>
+      <div class="partner-logos">
+        <div class="partner-chip">🍋 Lemonade Insurance</div>
+        <div class="partner-chip">🛋️ CORT Furniture</div>
+        <div class="partner-chip">📦 Two Men &amp; a Truck</div>
+        <div class="partner-chip">🔨 Handy</div>
+        <div class="partner-chip">💳 Boom Credit</div>
+        <div class="partner-chip">💳 Stripe</div>
+        <div class="partner-chip">🛒 Shopify</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="swarm-section" id="swarm">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="swarm-layout">
+      <div>
+        <div class="section-label reveal">The Swarm Boss</div>
+        <h2 class="section-title reveal">Run campaigns. Build teams. Pay tenants to spread the word.</h2>
+        <p class="section-body reveal">Swarm Bosses are the growth engine of the ecosystem. Create brand campaigns with real budgets, build a task force of tenants, and let the platform verify and pay automatically.</p>
+        <div class="swarm-steps reveal">
+          <div class="swarm-step"><div class="step-num">1</div><div><div class="step-title">Create a Campaign</div><div class="step-body">Set a budget, define the task, target by location or tenant type. Funds go into escrow automatically.</div></div></div>
+          <div class="swarm-step"><div class="step-num">2</div><div><div class="step-title">Tenants Complete Tasks</div><div class="step-body">Tenants see campaigns, complete tasks, and submit photo or video proof directly in the app.</div></div></div>
+          <div class="swarm-step"><div class="step-num">3</div><div><div class="step-title">AI Verifies &amp; Pays</div><div class="step-body">AI verifies proof submissions. Approved work triggers automatic Stripe Connect payouts instantly.</div></div></div>
+          <div class="swarm-step"><div class="step-num">4</div><div><div class="step-title">Track Performance</div><div class="step-body">Full analytics — completions, budget spend, reach, and ROI tracked in real time.</div></div></div>
+        </div>
+      </div>
+      <div class="earn-visual reveal">
+        <div class="ev-title">⚡ How Tenants Earn</div>
+        <div class="earn-row"><div class="earn-action">📝 Complete a quiz question</div><div class="earn-pts">+10 pts</div></div>
+        <div class="earn-row"><div class="earn-action">🎬 Watch a video lesson (90%+)</div><div class="earn-pts">+25 pts</div></div>
+        <div class="earn-row"><div class="earn-action">📸 Submit Q Report</div><div class="earn-pts">+50 pts</div></div>
+        <div class="earn-row"><div class="earn-action">✅ Complete a Mission</div><div class="earn-pts">+Variable</div></div>
+        <div class="earn-row"><div class="earn-action">📋 Complete a Campaign Task</div><div class="earn-pts">+Variable</div></div>
+        <div class="earn-row"><div class="earn-action">📄 Upload a Document</div><div class="earn-pts">+Points</div></div>
+        <div class="earn-row" style="border-bottom:none;padding-top:14px;margin-top:6px;border-top:1px solid rgba(38,140,166,.15)">
+          <div class="earn-action" style="color:var(--white);font-weight:600">💳 1,000 pts</div>
+          <div class="earn-pts">= $1.00 cash value</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ai-section">
+  <div class="grad-line"></div>
+  <div style="max-width:1100px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:52px">
+      <div class="section-label reveal" style="justify-content:center">Powered by AI</div>
+      <h2 class="section-title reveal" style="text-align:center;margin:0 auto 14px">AI isn't a feature. It's the foundation.</h2>
+      <p class="section-body reveal" style="text-align:center;margin:0 auto">Most apps bolt on a chatbot and call it AI. Perfect Tenant runs 12+ AI systems working behind the scenes across every domain of the platform.</p>
+    </div>
+    <div class="ai-grid">
+      <div class="ai-card reveal"><div class="ai-domain">Inspection</div><div class="ai-title">Vision Inspection Engine</div><div class="ai-body">5 AI vision tools analyze tenant-submitted photos for surface damage, moisture, mold, cleanliness, and electrical hazards — room-by-room, quarter over quarter.</div></div>
+      <div class="ai-card reveal"><div class="ai-domain">Tenant Intelligence</div><div class="ai-title">Churn &amp; Risk Prediction</div><div class="ai-body">Predicts which tenants are at risk of leaving or missing payments before it happens. Landlords see portfolio-wide early warning signals automatically.</div></div>
+      <div class="ai-card reveal"><div class="ai-domain">Maintenance</div><div class="ai-title">Smart Maintenance Triage</div><div class="ai-body">AI categorizes, prioritizes, and routes maintenance requests to the right verified provider automatically — no landlord intervention needed.</div></div>
+      <div class="ai-card reveal"><div class="ai-domain">Document Security</div><div class="ai-title">Fraud Detection</div><div class="ai-body">Every uploaded document is run through AI fraud detection. Fake IDs, altered leases, and fraudulent proof submissions are flagged before they cause damage.</div></div>
+      <div class="ai-card reveal"><div class="ai-domain">Content</div><div class="ai-title">AI Content Moderation</div><div class="ai-body">Social rooms, mission submissions, and campaign content are automatically moderated by AI with human governance oversight for edge cases.</div></div>
+      <div class="ai-card reveal"><div class="ai-domain">Platform Intelligence</div><div class="ai-title">Agent Zero Orchestrator</div><div class="ai-body">The master AI orchestrator routing tasks across 12+ specialized AI workers. Admins converse with it directly to oversee and intervene in any automated workflow.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="pricing-bg"></div>
+  <div class="pricing-center">
+    <div class="section-label reveal" style="justify-content:center">The Real Cost of Doing Nothing</div>
+    <h2 class="section-title reveal" style="text-align:center;margin:0 auto 14px">Your property manager is your most expensive employee.</h2>
+    <p class="section-body reveal" style="text-align:center;margin:0 auto">On a $1,500/month unit, traditional property management costs you $1,800–$2,160 per year — per door. Multiply that across your portfolio.</p>
+  </div>
+  <div class="cost-strip reveal">
+    <div class="cost-cell"><div class="cost-arrow">→</div><div class="cost-label">Avg. Monthly Rent (1 unit)</div><div class="cost-amount">$1,500</div><div class="cost-sub">National average single-family rental</div></div>
+    <div class="cost-cell"><div class="cost-arrow">→</div><div class="cost-label">Property Manager Cut (10%)</div><div class="cost-amount">$150<span style="font-size:.9rem">/mo</span></div><div class="cost-sub">Per door, every single month</div></div>
+    <div class="cost-cell"><div class="cost-label">Annual Cost Per Door</div><div class="cost-amount">$1,800</div><div class="cost-sub">Before vacancy, leasing &amp; markup fees</div></div>
+  </div>
+  <div class="compare-wrap">
+    <div class="compare-header reveal">
+      <div class="compare-col-label feature-col"></div>
+      <div class="compare-col-label old-col">🏢 Traditional Property Manager</div>
+      <div class="compare-col-label new-col">⚡ Perfect Tenant</div>
+    </div>
+    <div class="compare-row reveal"><div class="compare-cell feature-col">Monthly cost structure</div><div class="compare-cell old-col">❌ 8–12% of every dollar collected, forever</div><div class="compare-cell new-col">✅ Flat platform fee — you keep more as you grow</div></div>
+    <div class="compare-row reveal"><div class="compare-cell feature-col">Leasing a vacant unit</div><div class="compare-cell old-col">❌ 50–100% of first month's rent as a leasing fee</div><div class="compare-cell new-col">✅ AI-matched tenant pool included in your plan</div></div>
+    <div class="compare-row reveal"><div class="compare-cell feature-col">Maintenance coordination</div><div class="compare-cell old-col">❌ Marked-up vendor invoices, slow response times</div><div class="compare-cell new-col">✅ Vetted provider network, AI-dispatched automatically</div></div>
+    <div class="compare-row reveal"><div class="compare-cell feature-col">Rent collection</div><div class="compare-cell old-col">❌ Manual follow-ups, late payment headaches</div><div class="compare-cell new-col">✅ Automated ACH &amp; card with autopay support</div></div>
+    <div class="compare-row reveal"><div class="compare-cell feature-col">Property inspections</div><div class="compare-cell old-col">❌ Infrequent, subjective, easy to dispute</div><div class="compare-cell new-col">✅ Quarterly AI-graded photo reports from tenants</div></div>
+    <div class="compare-row reveal"><div class="compare-cell feature-col">Tenant accountability</div><div class="compare-cell old-col">❌ No system — complaints and evictions only option</div><div class="compare-cell new-col">✅ Reward &amp; accountability system built in</div></div>
+    <div class="compare-row reveal"><div class="compare-cell feature-col">Scales with portfolio</div><div class="compare-cell old-col">❌ Costs more every time you add a door</div><div class="compare-cell new-col">✅ Flat structure — savings grow with every unit added</div></div>
+  </div>
+  <div class="founder-callout reveal">
+    <div>
+      <div class="founder-tag">⭐ Limited Time — Founding Landlord Pricing</div>
+      <div class="founder-title">Early access landlords lock in founder pricing — permanently.</div>
+      <div class="founder-body">Founding members get our lowest pricing tier locked in for life, priority onboarding, and direct access to our product team. Once the waitlist closes, this offer goes away for good.</div>
+    </div>
+    <div style="flex-shrink:0"><a href="#landlord-waitlist" class="btn-primary" style="white-space:nowrap">Lock In Founder Pricing →</a></div>
+  </div>
+</section>
+
+<section class="trust-section">
+  <div class="grad-line"></div>
+  <div style="max-width:1100px;margin:0 auto">
+    <div style="text-align:center">
+      <div class="section-label reveal" style="justify-content:center">Security &amp; Compliance</div>
+      <h2 class="section-title reveal" style="text-align:center;margin:0 auto;font-size:1.75rem">Enterprise-grade security under the hood.</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card reveal"><span class="trust-icon">🔒</span><div class="trust-title">GDPR &amp; CCPA Compliant</div><div class="trust-body">Full compliance with US and EU data privacy laws. Consent records logged and auditable at all times.</div></div>
+      <div class="trust-card reveal"><span class="trust-icon">🛡️</span><div class="trust-title">PII Access Logging</div><div class="trust-body">Every access to personal data is logged, timestamped, and monitored for anomalies by our Compliance Admin system.</div></div>
+      <div class="trust-card reveal"><span class="trust-icon">📋</span><div class="trust-title">Full Audit Trails</div><div class="trust-body">Legal holds, investigation trails, and full audit pack exports available for any property, user, or transaction.</div></div>
+      <div class="trust-card reveal"><span class="trust-icon">🔐</span><div class="trust-title">133 Rate-Limited Functions</div><div class="trust-body">Every platform function is individually rate-limited and monitored. AI fraud detection runs on every document upload.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="landlord-cta-section" id="landlord-waitlist">
+  <div class="grad-line"></div>
+  <div class="cta-box">
+    <div class="section-label reveal" style="justify-content:center">Landlord Early Access</div>
+    <h2 class="section-title reveal" style="text-align:center;margin:0 auto 14px">Be the first landlord on the platform.</h2>
+    <p class="section-body reveal" style="text-align:center;margin:0 auto 40px">Join today. Early access landlords get founder pricing locked in for life, priority onboarding, and direct access to our founding team.</p>
+    <div class="form-wrapper reveal">
+      <div id="landlord-form-content">
+        <div class="form-title">Landlord Waitlist</div>
+        <div class="form-sub">Takes 60 seconds. We'll reach out within 48 hours with your access details.</div>
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input class="form-input" type="text" id="ll-fname" placeholder="James" required></div>
+          <div class="form-group"><label>Last Name</label><input class="form-input" type="text" id="ll-lname" placeholder="Williams" required></div>
+        </div>
+        <div class="form-group"><label>Email Address</label><input class="form-input" type="email" id="ll-email" placeholder="james@email.com" required></div>
+        <div class="form-group"><label>Phone Number</label><input class="form-input" type="tel" id="ll-phone" placeholder="(555) 000-0000"></div>
+        <div class="form-row">
+          <div class="form-group"><label>Number of Units</label>
+            <select class="form-select" id="ll-units"><option value="" disabled selected>Select range</option><option>1–5 units</option><option>6–20 units</option><option>21–50 units</option><option>51–100 units</option><option>100+ units</option></select>
+          </div>
+          <div class="form-group"><label>City / State</label><input class="form-input" type="text" id="ll-location" placeholder="Philadelphia, PA"></div>
+        </div>
+        <div class="form-group"><label>Do you accept Housing Choice Vouchers (Section 8)?</label>
+          <select class="form-select" id="ll-voucher"><option value="" disabled selected>Select one</option><option>Yes, currently</option><option>Open to it</option><option>No</option></select>
+        </div>
+        <button class="form-submit" id="ll-submit-btn" onclick="submitLandlord()">Reserve My Spot as Landlord →</button>
+        <p class="form-note">🔒 No spam. No credit card. Founder pricing locked in on signup.</p>
+      </div>
+      <div class="success-msg" id="landlord-success">
+        <div class="check">✓</div>
+        <h3>You're on the list!</h3>
+        <p>We'll be in touch within 48 hours with your early access details. Welcome to the future of property management.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="life-section">
+  <div class="life-bg"></div>
+  <div class="life-number"><span>10</span>–15</div>
+  <div class="life-label">Extra Years of Life</div>
+  <p class="life-sub">Research shows that living in a healthy, well-maintained space can extend your life by 10–15 years. We don't just manage properties. We improve lives.</p>
+</section>
+
+<section class="ecosystem" id="ecosystem">
+  <div class="ecosystem-center">
+    <div class="section-label reveal" style="justify-content:center">The Full Ecosystem</div>
+    <h2 class="section-title reveal" style="text-align:center;margin:0 auto 14px">Everyone has a role on this platform.</h2>
+    <p class="section-body reveal" style="text-align:center;margin:0 auto">Perfect Tenant isn't just for landlords. It's a living economic engine with a role for every participant in the housing ecosystem.</p>
+  </div>
+  <div class="roles-grid">
+    <div class="role-card reveal"><span class="role-emoji">🏠</span><div class="role-name">Tenants</div><div class="role-desc">Earn rewards for good behavior, build your Stay Grade, access financial literacy tools, and unlock a rental history that opens every door.</div></div>
+    <div class="role-card reveal"><span class="role-emoji">🔧</span><div class="role-name">Service Providers</div><div class="role-desc">Get verified, accept maintenance jobs from the platform, submit invoices, and build a verified portfolio of property work.</div></div>
+    <div class="role-card reveal"><span class="role-emoji">🛍️</span><div class="role-name">Merchants</div><div class="role-desc">Sell products directly to tenants via Shopify integration. PTI Points accepted as currency — no separate payment setup needed.</div></div>
+    <div class="role-card reveal"><span class="role-emoji">⚡</span><div class="role-name">Swarm Bosses</div><div class="role-desc">Create campaigns, build task forces of tenants, and drive platform engagement — auto-verification and instant Stripe payouts included.</div></div>
+  </div>
+</section>
+
+<section class="ecosystem-form-section">
+  <div class="eco-form-wrapper">
+    <div class="section-label reveal" style="justify-content:center">Join the Ecosystem</div>
+    <h2 class="section-title reveal" style="text-align:center;margin:0 auto 10px;font-size:1.75rem">Not a landlord? Join here.</h2>
+    <p class="section-body reveal" style="text-align:center;margin:0 auto">Tenants, service providers, merchants, and swarm bosses — get your spot.</p>
+    <div class="eco-form-inner reveal">
+      <div id="eco-form-content">
+        <div class="form-title">Ecosystem Waitlist</div>
+        <div class="form-sub">Tell us your role and we'll send your onboarding details.</div>
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input class="form-input" type="text" id="eco-fname" placeholder="Maria" required></div>
+          <div class="form-group"><label>Last Name</label><input class="form-input" type="text" id="eco-lname" placeholder="Johnson" required></div>
+        </div>
+        <div class="form-group"><label>Email Address</label><input class="form-input" type="email" id="eco-email" placeholder="maria@email.com" required></div>
+        <div class="form-group"><label>I am joining as a...</label>
+          <select class="form-select" id="eco-role"><option value="" disabled selected>Select your role</option><option value="tenant">🏠 Tenant</option><option value="service_provider">🔧 Service Provider</option><option value="merchant">🛍️ Merchant</option><option value="swarm_boss">⚡ Swarm Boss</option></select>
+        </div>
+        <div class="form-group"><label>City / State</label><input class="form-input" type="text" id="eco-location" placeholder="Atlanta, GA"></div>
+        <button class="form-submit" id="eco-submit-btn" onclick="submitEco()">Join the Waitlist →</button>
+        <p class="form-note">🔒 No spam. No credit card. We'll be in touch shortly.</p>
+      </div>
+      <div class="success-msg" id="eco-success">
+        <div class="check">✓</div>
+        <h3>Welcome to the ecosystem!</h3>
+        <p>You're on the list. We'll send role-specific onboarding details within 48 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mobile-section">
+  <div class="grad-line"></div>
+  <div class="mobile-layout">
+    <div>
+      <div class="section-label reveal">Native Mobile App</div>
+      <h2 class="section-title reveal">Built for iOS. Designed to live on your home screen.</h2>
+      <p class="section-body reveal">Perfect Tenant is a native SwiftUI iOS app — not a web wrapper. Every interaction is fast, responsive, and built for the way landlords and tenants actually use their phones.</p>
+      <div class="app-badges reveal">
+        <div class="app-badge"><div class="ab-icon">🍎</div><div><div class="ab-sub">Available on the</div><div class="ab-main">App Store</div></div></div>
+        <div class="app-badge"><div class="ab-icon">🧪</div><div><div class="ab-sub">Currently in</div><div class="ab-main">TestFlight Beta</div></div></div>
+      </div>
+    </div>
+    <div class="phone-mock reveal">
+      <div class="phone-screen">
+        <div class="phone-row"><div class="phone-icon">🏘️</div><div class="phone-row-text"><strong>Property Dashboard</strong>Real-time portfolio health</div></div>
+        <div class="phone-row"><div class="phone-icon">💳</div><div class="phone-row-text"><strong>PTI Wallet</strong>Balance: 2,450 pts ($2.45)</div></div>
+        <div class="phone-row"><div class="phone-icon">📸</div><div class="phone-row-text"><strong>Q Report Due</strong>Submit by March 31</div></div>
+        <div class="phone-row"><div class="phone-icon">🔧</div><div class="phone-row-text"><strong>Maintenance Request</strong>Plumbing — In Progress</div></div>
+        <div class="phone-row"><div class="phone-icon">🎓</div><div class="phone-row-text"><strong>Learning</strong>Credit Basics — 60% complete</div></div>
+        <div class="phone-row"><div class="phone-icon">🤖</div><div class="phone-row-text"><strong>AI Assistant</strong>Tap to ask anything</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section" id="faq">
+  <div class="faq-center">
+    <div class="section-label reveal" style="justify-content:center">FAQ</div>
+    <h2 class="section-title reveal" style="text-align:center;margin:0 auto">Questions before you sign up?</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Is this available in my city? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">We are currently onboarding landlords and tenants nationwide across the US. Some features like local service provider matching are rolling out city by city — join the waitlist and include your location so we can prioritize your area.</div></div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">How do tenants earn money on the platform? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">Tenants earn PTI Points by completing quizzes, watching video lessons, submitting quarterly reports, completing missions, and participating in Swarm Boss campaigns. Points convert to real cash value (1,000 pts = $1) and can be cashed out as rent credits or spent in the PTI Shopping Universe.</div></div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">What exactly is a Swarm Boss? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">A Swarm Boss creates and manages tenant engagement campaigns. Set a budget, define tasks for tenants, and the platform handles proof verification and Stripe Connect payouts automatically. Think of it as a brand campaign manager built directly into the housing ecosystem.</div></div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Does Perfect Tenant support Section 8 / Housing Choice Vouchers? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">Yes. The platform has built-in Housing Choice Voucher support including voucher type filtering in the Tenant Pool, compliance document management, and workflows designed specifically for HCV landlords and tenants. This is a first-class feature, not an afterthought.</div></div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Is my data safe? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">Absolutely. The platform is built with GDPR and CCPA compliance, full PII access logging, AI-powered document fraud detection, legal hold capabilities, and audit trail exports. Enterprise-grade security is part of the foundation, not an add-on.</div></div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Do I need to replace my current lease documents? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">No. You upload your existing lease as a PDF and send it through the platform for e-signing. Perfect Tenant handles the digital signature workflow, date tracking, and storage. Your lease documents stay yours.</div></div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">What does "11 User Roles" mean? <span class="faq-arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">Perfect Tenant supports 11 distinct user types: Tenant, Landlord, Service Provider, Merchant, and Swarm Boss on the consumer side — plus 6 professional admin roles: Super Admin, Maintenance Manager, Tenant Relations, Finance Admin, AI Moderator, and Compliance Admin. The admin layer means there is always trained human oversight running behind every automated workflow.</div></div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Perfect<span>Tenant</span> Innovation</div>
+  <ul class="footer-links">
+    <li><a href="#landlords">For Landlords</a></li>
+    <li><a href="#tenants">For Tenants</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#ecosystem">Ecosystem</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="mailto:hello@perfecttenantinnovation.com">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Perfect Tenant Innovation. All rights reserved.</div>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script>
+firebase.initializeApp({
+  apiKey: "AIzaSyBaOnRBpdRvU-6qvZJHiqfwTnWnxVt8nh8",
+  authDomain: "perfect-tenant-app-bfaf7.firebaseapp.com",
+  projectId: "perfect-tenant-app-bfaf7",
+  storageBucket: "perfect-tenant-app-bfaf7.firebasestorage.app",
+  messagingSenderId: "637835334506",
+  appId: "1:637835334506:ios:c46d9e852c1eb8a8c1cb13"
+});
+var db = firebase.firestore();
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
+}, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+document.querySelectorAll('.roles-grid,.feature-cards,.ai-grid,.shop-grid,.trust-grid').forEach(c => {
+  c.querySelectorAll('[class$="-card"]').forEach((el,i) => { el.style.transitionDelay = `${i * 0.06}s` });
+});
+
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const ans = item.querySelector('.faq-a');
+  const open = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.faq-a').style.maxHeight = '0';
+  });
+  if(!open) { item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 40 + 'px'; }
+}
+
+function validateEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e) }
+
+function submitLandlord() {
+  var f = document.getElementById('ll-fname').value.trim();
+  var l = document.getElementById('ll-lname').value.trim();
+  var e = document.getElementById('ll-email').value.trim();
+  var u = document.getElementById('ll-units').value;
+  if(!f||!l){alert('Please enter your full name.');return}
+  if(!validateEmail(e)){alert('Please enter a valid email address.');return}
+  if(!u){alert('Please select your number of units.');return}
+
+  var btn = document.getElementById('ll-submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+
+  db.collection('waitlist_submissions').add({
+    source: 'landlord_form',
+    role: 'landlord',
+    firstName: f,
+    lastName: l,
+    email: e,
+    phone: document.getElementById('ll-phone').value.trim(),
+    units: u,
+    location: document.getElementById('ll-location').value.trim(),
+    voucher: document.getElementById('ll-voucher').value || '',
+    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+  }).then(function() {
+    document.getElementById('landlord-form-content').style.display='none';
+    document.getElementById('landlord-success').style.display='block';
+  }).catch(function(err) {
+    console.error('Waitlist submission failed:', err);
+    alert('Something went wrong. Please try again in a moment.');
+    btn.disabled = false;
+    btn.textContent = 'Reserve My Spot as Landlord →';
+  });
+}
+
+function submitEco() {
+  var f = document.getElementById('eco-fname').value.trim();
+  var l = document.getElementById('eco-lname').value.trim();
+  var e = document.getElementById('eco-email').value.trim();
+  var r = document.getElementById('eco-role').value;
+  if(!f||!l){alert('Please enter your full name.');return}
+  if(!validateEmail(e)){alert('Please enter a valid email address.');return}
+  if(!r){alert('Please select your role.');return}
+
+  var btn = document.getElementById('eco-submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+
+  db.collection('waitlist_submissions').add({
+    source: 'ecosystem_form',
+    role: r,
+    firstName: f,
+    lastName: l,
+    email: e,
+    location: document.getElementById('eco-location').value.trim(),
+    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+  }).then(function() {
+    document.getElementById('eco-form-content').style.display='none';
+    document.getElementById('eco-success').style.display='block';
+  }).catch(function(err) {
+    console.error('Ecosystem submission failed:', err);
+    alert('Something went wrong. Please try again in a moment.');
+    btn.disabled = false;
+    btn.textContent = 'Join the Waitlist →';
+  });
+}
+
+window.addEventListener('scroll',function(){
+  document.getElementById('nav').style.background =
+    window.scrollY>60?'rgba(20,20,26,.97)':'rgba(20,20,26,.7)';
+});
+</script>
+</body>
+</html>
