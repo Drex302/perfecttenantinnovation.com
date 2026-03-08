@@ -307,6 +307,10 @@ footer{padding:52px 48px 32px;border-top:1px solid rgba(38,140,166,.1);display:f
 .footer-copy{font-size:.72rem;color:var(--muted)}
 @media(max-width:900px){
   nav{padding:14px 18px}.nav-links{display:none}
+  .hero h1{font-size:clamp(2.2rem,6vw,4rem)}
+  .section-title{font-size:clamp(1.6rem,3.5vw,2.4rem)}
+  .stat-num{font-size:1.6rem}
+  .life-number{font-size:clamp(4rem,14vw,8rem)}
   .problem,.landlord,.tenant-section,.literacy-section,.shopping-section,.swarm-section,.ai-section,.pricing,.trust-section,.ecosystem,.faq-section,.life-section,.mobile-section{padding:64px 18px}
   .problem-grid{grid-template-columns:1fr}.problem-col.before{border-right:none;border-bottom:1px solid rgba(38,140,166,.1)}
   .landlord-layout,.tenant-layout,.literacy-layout,.swarm-layout,.mobile-layout{grid-template-columns:1fr;gap:40px}
@@ -322,7 +326,24 @@ footer{padding:52px 48px 32px;border-top:1px solid rgba(38,140,166,.1);display:f
   footer{padding:32px 18px 24px;flex-direction:column;align-items:flex-start}
 }
 @media(max-width:480px){
-  .hero{padding:96px 14px 52px}.hero-stats{gap:22px}
+  .hero{padding:96px 14px 52px}
+  .hero h1{font-size:clamp(1.8rem,8.5vw,2.6rem)}
+  .hero-sub{font-size:.92rem}
+  .hero-badge{font-size:.68rem;padding:5px 13px}
+  .hero-stats{gap:18px}
+  .stat-num{font-size:1.35rem}
+  .stat-label{font-size:.68rem}
+  .section-title{font-size:clamp(1.4rem,5vw,1.9rem)}
+  .section-body{font-size:.92rem}
+  .life-number{font-size:clamp(3rem,16vw,6rem)}
+  .life-label{font-size:clamp(1rem,4vw,1.4rem)}
+  .btn-primary,.btn-secondary{padding:14px 24px;font-size:.9rem}
+  .voucher-title{font-size:1rem}
+  .voucher-body{font-size:.8rem}
+  .cost-amount{font-size:1.5rem}
+  .founder-title{font-size:1.05rem}
+  .faq-q{font-size:.84rem;padding:14px 16px}
+  .faq-a-inner{font-size:.82rem;padding:0 16px 14px}
   .roles-grid,.ai-grid,.shop-grid,.trust-grid{grid-template-columns:1fr}
   .eco-form-inner{padding:22px 14px}.badges-grid{grid-template-columns:repeat(2,1fr)}
   .literacy-stats{grid-template-columns:1fr 1fr}
