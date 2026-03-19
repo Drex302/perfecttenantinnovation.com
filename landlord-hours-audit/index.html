@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landlord Hours Audit — Perfect Tenant Innovation</title>
+<meta name="description" content="See how many hours and dollars your portfolio costs you each year — and how much automation can return. Unlocks after joining the landlord waitlist.">
+<link rel="canonical" href="https://www.perfecttenantinnovation.com/landlord-hours-audit/">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal: #268CA6;
+    --teal-dark: #1A6E85;
+    --teal-light: #E8F4F8;
+    --teal-mid: #3AAAC6;
+    --orange: #F29940;
+    --orange-light: #FEF5EA;
+    --amber: #E6B34D;
+    --dark: #0D1117;
+    --dark2: #161B24;
+    --dark3: #1E2532;
+    --gray: #8B9CB0;
+    --gray-light: #C5D3DE;
+    --white: #FFFFFF;
+    --off: #F8FAFB;
+    --red: #E05252;
+    --green: #2D9E6B;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--dark);
+    color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(38,140,166,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(38,140,166,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page { position: relative; z-index: 1; }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(38,140,166,0.15);
+  }
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    color: var(--teal);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .nav-cta {
+    font-size: 12px;
+    color: var(--gray);
+    text-decoration: none;
+  }
+  .nav-cta span { color: var(--teal); }
+
+  #gate {
+    min-height: calc(100vh - 65px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+    text-align: center;
+  }
+  #gate.hidden { display: none; }
+
+  .gate-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(38,140,166,0.1);
+    border: 1px solid rgba(38,140,166,0.3);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .gate-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  .gate-headline {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 5.5vw, 52px);
+    font-weight: 800;
+    line-height: 1.08;
+    margin-bottom: 20px;
+    max-width: 720px;
+  }
+  .gate-headline em {
+    font-style: normal;
+    color: var(--teal);
+  }
+
+  .gate-sub {
+    font-size: 17px;
+    color: var(--gray);
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0 auto 32px;
+    font-weight: 300;
+  }
+
+  .gate-note {
+    font-size: 14px;
+    color: var(--gray-light);
+    max-width: 480px;
+    margin: 0 auto 28px;
+    line-height: 1.55;
+  }
+
+  .preview-stats {
+    display: flex;
+    gap: 0;
+    border: 1px solid rgba(38,140,166,0.2);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 36px;
+    max-width: 560px;
+    width: 100%;
+  }
+  .ps-item {
+    flex: 1;
+    padding: 18px 16px;
+    text-align: center;
+    border-right: 1px solid rgba(38,140,166,0.15);
+    background: rgba(38,140,166,0.04);
+  }
+  .ps-item:last-child { border-right: none; }
+  .ps-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--orange);
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .ps-label {
+    font-size: 11px;
+    color: var(--gray);
+    line-height: 1.3;
+  }
+
+  .gate-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .btn-waitlist {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 16px 24px;
+    background: var(--teal);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .btn-waitlist:hover { background: var(--teal-dark); }
+  .btn-waitlist:active { transform: scale(0.99); }
+
+  .btn-ghost {
+    font-size: 13px;
+    color: var(--gray);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(139,156,176,0.35);
+    padding-bottom: 2px;
+  }
+  .btn-ghost:hover { color: var(--teal); border-color: var(--teal); }
+
+  .gate-privacy {
+    font-size: 11px;
+    color: rgba(139,156,176,0.6);
+    margin-top: 24px;
+    line-height: 1.5;
+    max-width: 420px;
+  }
+
+  #calculator {
+    display: none;
+    padding: 60px 24px 80px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  #calculator.unlocked { display: block; }
+
+  .calc-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .calc-header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(26px, 4vw, 44px);
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  .calc-header h1 span { color: var(--teal); }
+  .calc-header p {
+    font-size: 15px;
+    color: var(--gray);
+    font-weight: 300;
+  }
+
+  .inputs-panel {
+    background: var(--dark2);
+    border: 1px solid rgba(38,140,166,0.2);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 32px;
+  }
+  .inputs-panel h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 24px;
+  }
+
+  .slider-group { margin-bottom: 24px; }
+  .slider-group:last-child { margin-bottom: 0; }
+  .slider-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+  }
+  .slider-top .slabel {
+    font-size: 14px;
+    color: var(--gray-light);
+    font-weight: 400;
+  }
+  .slider-top .sval {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .slider-top .sval span { color: var(--teal); font-size: 13px; font-weight: 400; font-family: 'DM Sans', sans-serif; margin-left: 2px; }
+
+  input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(38,140,166,0.2);
+    outline: none;
+    cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--teal);
+    border: 3px solid var(--dark2);
+    box-shadow: 0 0 0 1px var(--teal);
+    cursor: pointer;
+  }
+  input[type=range]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--teal);
+    border: 3px solid var(--dark2);
+    cursor: pointer;
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+  @media (min-width: 600px) {
+    .results-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
+  }
+
+  .res-card {
+    background: var(--dark2);
+    border: 1px solid rgba(38,140,166,0.15);
+    border-radius: 14px;
+    padding: 20px 18px;
+  }
+  .res-card.hero {
+    background: rgba(38,140,166,0.12);
+    border-color: rgba(38,140,166,0.4);
+  }
+  .res-card .rc-label {
+    font-size: 11px;
+    color: var(--gray);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .res-card .rc-val {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .res-card.hero .rc-val { color: var(--orange); }
+  .res-card .rc-sub {
+    font-size: 11px;
+    color: var(--gray);
+    line-height: 1.4;
+  }
+
+  .breakdown-wrap {
+    background: var(--dark2);
+    border: 1px solid rgba(38,140,166,0.2);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+  .breakdown-title {
+    padding: 18px 24px 14px;
+    border-bottom: 1px solid rgba(38,140,166,0.15);
+  }
+  .breakdown-title h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+  .breakdown-title p {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 2px;
+  }
+
+  .bd-header {
+    display: grid;
+    grid-template-columns: 1fr 90px 90px 90px;
+    padding: 10px 24px;
+    border-bottom: 1px solid rgba(38,140,166,0.1);
+    font-size: 11px;
+    color: var(--gray);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .bd-header span { text-align: right; }
+  .bd-header span:first-child { text-align: left; }
+
+  .bd-row {
+    display: grid;
+    grid-template-columns: 1fr 90px 90px 90px;
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(38,140,166,0.08);
+    align-items: center;
+    transition: background 0.15s;
+  }
+  .bd-row:last-child { border-bottom: none; }
+  .bd-row:hover { background: rgba(38,140,166,0.04); }
+  .bd-task { font-size: 13px; color: var(--gray-light); }
+  .bd-bar {
+    height: 3px;
+    background: rgba(38,140,166,0.15);
+    border-radius: 2px;
+    margin-top: 6px;
+    max-width: 160px;
+  }
+  .bd-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: var(--teal);
+    transition: width 0.4s cubic-bezier(0.4,0,0.2,1);
+  }
+  .bd-hrs {
+    text-align: right;
+    font-size: 13px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    color: var(--white);
+  }
+  .bd-cost {
+    text-align: right;
+    font-size: 13px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    color: var(--white);
+  }
+  .bd-auto {
+    text-align: right;
+    font-size: 12px;
+    color: var(--green);
+    font-weight: 500;
+  }
+
+  .savings-panel {
+    background: linear-gradient(135deg, #0D1F27 0%, #0A1920 100%);
+    border: 1px solid rgba(38,140,166,0.4);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .savings-panel::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(38,140,166,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .savings-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .savings-top .left h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 10px;
+  }
+  .savings-top .left .big-save {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 800;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .savings-top .left .save-sub {
+    font-size: 14px;
+    color: var(--gray);
+    font-weight: 300;
+  }
+
+  .waitlist-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--orange);
+    color: var(--dark);
+    border: none;
+    border-radius: 12px;
+    padding: 16px 28px;
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.15s, background 0.2s;
+    white-space: nowrap;
+    align-self: center;
+  }
+  .waitlist-btn:hover { background: #e08830; transform: translateY(-1px); }
+  .waitlist-btn:active { transform: scale(0.99); }
+  .waitlist-btn svg { width: 16px; height: 16px; }
+
+  .savings-bottom {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(38,140,166,0.15);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 20px;
+  }
+  .sb-item .sb-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .sb-item .sb-label {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.4;
+  }
+
+  .sources {
+    text-align: center;
+    font-size: 11px;
+    color: rgba(139,156,176,0.5);
+    line-height: 1.8;
+    padding-bottom: 60px;
+  }
+  .sources strong { color: rgba(139,156,176,0.7); }
+
+  .waitlist-footer {
+    background: var(--dark2);
+    border-top: 1px solid rgba(38,140,166,0.2);
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .waitlist-footer h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .waitlist-footer h3 span { color: var(--teal); }
+  .waitlist-footer p {
+    font-size: 14px;
+    color: var(--gray);
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 16px 20px; }
+    .inputs-panel { padding: 20px; }
+    .bd-header, .bd-row { grid-template-columns: 1fr 70px 75px; }
+    .bd-auto-col { display: none; }
+    .savings-bottom { grid-template-columns: 1fr; gap: 12px; }
+    .breakdown-wrap { overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <nav>
+    <a href="https://www.perfecttenantinnovation.com/" class="logo">PERFECT TENANT INNOVATION</a>
+    <a href="https://www.perfecttenantinnovation.com/#landlord-waitlist" class="nav-cta">Landlord waitlist <span>→</span></a>
+  </nav>
+
+  <!-- Locked: join waitlist on main site first (same origin sets sessionStorage) -->
+  <section id="gate">
+    <div class="gate-badge">Free tool — Landlord Hours Audit</div>
+
+    <h1 class="gate-headline">
+      Find out how many hours<br>
+      you're losing — and what it's<br>
+      <em>actually costing you.</em>
+    </h1>
+
+    <p class="gate-sub">
+      Interactive breakdown by task — maintenance, rent, leasing, inspections, and more.
+      Adjust sliders to match your portfolio and your hourly rate.
+    </p>
+
+    <p class="gate-note">
+      This tool unlocks automatically after you join the <strong>free landlord waitlist</strong> on our main site (same browser). No second email form.
+    </p>
+
+    <div class="preview-stats">
+      <div class="ps-item">
+        <span class="ps-num">960</span>
+        <span class="ps-label">hrs/yr at<br>10 units</span>
+      </div>
+      <div class="ps-item">
+        <span class="ps-num">38%</span>
+        <span class="ps-label">of time is<br>automatable</span>
+      </div>
+      <div class="ps-item">
+        <span class="ps-num">$48K</span>
+        <span class="ps-label">annual time<br>cost at $50/hr</span>
+      </div>
+    </div>
+
+    <div class="gate-actions">
+      <a href="https://www.perfecttenantinnovation.com/#landlord-waitlist" class="btn-waitlist">Join the landlord waitlist to unlock →</a>
+      <a href="https://www.perfecttenantinnovation.com/" class="btn-ghost">Back to home</a>
+    </div>
+
+    <p class="gate-privacy">Already joined? Open this page in the same browser you used to submit the waitlist, or complete the waitlist again — it only takes a minute.</p>
+  </section>
+
+  <section id="calculator">
+    <div class="calc-header">
+      <h1>Your <span>Hours Audit</span> results</h1>
+      <p>Every number below updates from your portfolio — drag the sliders to refine.</p>
+    </div>
+
+    <div class="inputs-panel">
+      <h3>Your portfolio</h3>
+
+      <div class="slider-group">
+        <div class="slider-top">
+          <span class="slabel">Number of rental units</span>
+          <span class="sval" id="disp-units">5 <span>units</span></span>
+        </div>
+        <input type="range" id="s-units" min="1" max="50" value="5" step="1">
+      </div>
+
+      <div class="slider-group">
+        <div class="slider-top">
+          <span class="slabel">Average rent per unit / month</span>
+          <span class="sval" id="disp-rent">$1,500 <span>/mo</span></span>
+        </div>
+        <input type="range" id="s-rent" min="500" max="5000" value="1500" step="50">
+      </div>
+
+      <div class="slider-group">
+        <div class="slider-top">
+          <span class="slabel">What is your time worth?</span>
+          <span class="sval" id="disp-rate">$50 <span>/hr</span></span>
+        </div>
+        <input type="range" id="s-rate" min="15" max="200" value="50" step="5">
+      </div>
+    </div>
+
+    <div class="results-grid">
+      <div class="res-card hero">
+        <div class="rc-label">Hours lost per year</div>
+        <div class="rc-val" id="r-hrs">—</div>
+        <div class="rc-sub" id="r-wks">— full work weeks</div>
+      </div>
+      <div class="res-card hero">
+        <div class="rc-label">Dollar cost / year</div>
+        <div class="rc-val" id="r-cost">—</div>
+        <div class="rc-sub" id="r-rate-note">at your time rate</div>
+      </div>
+      <div class="res-card">
+        <div class="rc-label">Hours per month</div>
+        <div class="rc-val" id="r-mo">—</div>
+        <div class="rc-sub">across all units</div>
+      </div>
+      <div class="res-card">
+        <div class="rc-label">Automatable hours</div>
+        <div class="rc-val" id="r-auto">—</div>
+        <div class="rc-sub">weighted by task</div>
+      </div>
+    </div>
+
+    <div class="breakdown-wrap">
+      <div class="breakdown-title">
+        <h3>Full breakdown by task</h3>
+        <p>Illustrative model based on common property-management time studies (AppFolio, NAA, Hemlane, and industry benchmarks).</p>
+      </div>
+      <div class="bd-header">
+        <span>Task</span>
+        <span>Hrs / yr</span>
+        <span>Cost / yr</span>
+        <span class="bd-auto-col">Automatable</span>
+      </div>
+      <div id="bd-rows"></div>
+    </div>
+
+    <div class="savings-panel">
+      <div class="savings-top">
+        <div class="left">
+          <h2>If automation reclaimed this share of workload</h2>
+          <div class="big-save" id="r-save-cost">—</div>
+          <div class="save-sub" id="r-save-sub">saved per year · — hours returned</div>
+        </div>
+        <a href="https://www.perfecttenantinnovation.com/#landlord-waitlist" class="waitlist-btn">
+          Reserve founder pricing
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="savings-bottom">
+        <div class="sb-item">
+          <div class="sb-num" id="r-sb-hrs">—</div>
+          <div class="sb-label">Hours returned to you annually</div>
+        </div>
+        <div class="sb-item">
+          <div class="sb-num" id="r-sb-wks">—</div>
+          <div class="sb-label">Full work weeks reclaimed every year</div>
+        </div>
+        <div class="sb-item">
+          <div class="sb-num" id="r-sb-cost">—</div>
+          <div class="sb-label">Dollar value of reclaimed time</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sources">
+      <strong>Sources:</strong> AppFolio Property Management Benchmark Report · National Apartment Association ·
+      Hemlane · industry time-use estimates for DIY / small-portfolio landlords. Model is illustrative, not tax or legal advice.
+    </div>
+  </section>
+
+  <footer class="waitlist-footer" id="footer-cta" style="display:none;">
+    <h3>Ready to buy your <span>time back?</span></h3>
+    <p>Founder pricing is still available — locked in for life for landlords who join before launch.</p>
+    <a href="https://www.perfecttenantinnovation.com/#landlord-waitlist" class="waitlist-btn" style="display:inline-flex;">
+      Landlord waitlist →
+    </a>
+  </footer>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script>
+(function () {
+  var UNLOCK_KEY = 'pti_calc_unlock';
+  var BUCKET_PARAM = 'bucket';
+  var analyticsWriteStarted = false;
+
+  var BUCKET_TO_UNITS = {
+    '1-5': 3,
+    '6-20': 13,
+    '21-50': 35,
+    '51-100': 50,
+    '100+': 50
+  };
+
+  var TASKS = [
+    { name: 'Day-to-day management', moPerUnit: 4, autoP: 0.40 },
+    { name: 'Maintenance coordination', moPerUnit: 1.2, autoP: 0.80 },
+    { name: 'Rent collection & follow-up', moPerUnit: 0.6, autoP: 0.90 },
+    { name: 'Tenant communication', moPerUnit: 0.8, autoP: 0.60 },
+    { name: 'Leasing & tenant turnover', yrPerUnit: 8, autoP: 0.50 },
+    { name: 'Inspections & compliance', yrPerUnit: 4, autoP: 0.70 },
+    { name: 'Reporting & documentation', moPerUnit: 0.4, autoP: 0.75 }
+  ];
+
+  function fmt(n) { return Math.round(n).toLocaleString(); }
+  function fmtD(n) { return '$' + fmt(n); }
+
+  var db = null;
+  try {
+    firebase.initializeApp({
+      apiKey: 'AIzaSyBaOnRBpdRvU-6qvZJHiqfwTnWnxVt8nh8',
+      authDomain: 'perfect-tenant-app-bfaf7.firebaseapp.com',
+      projectId: 'perfect-tenant-app-bfaf7',
+      storageBucket: 'perfect-tenant-app-bfaf7.firebasestorage.app',
+      messagingSenderId: '637835334506',
+      appId: '1:637835334506:ios:c46d9e852c1eb8a8c1cb13'
+    });
+    db = firebase.firestore();
+  } catch (e) {
+    console.warn('Firebase init skipped:', e);
+  }
+
+  function isUnlocked() {
+    try {
+      return sessionStorage.getItem(UNLOCK_KEY) === '1';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function applyBucketFromUrl() {
+    var params = new URLSearchParams(window.location.search);
+    var b = params.get(BUCKET_PARAM);
+    if (b && BUCKET_TO_UNITS.hasOwnProperty(b)) {
+      var el = document.getElementById('s-units');
+      el.value = String(BUCKET_TO_UNITS[b]);
+    }
+  }
+
+  var lastTotals = null;
+
+  function recalc() {
+    var units = +document.getElementById('s-units').value;
+    var rent = +document.getElementById('s-rent').value;
+    var rate = +document.getElementById('s-rate').value;
+
+    document.getElementById('disp-units').innerHTML = units + ' <span>unit' + (units === 1 ? '' : 's') + '</span>';
+    document.getElementById('disp-rent').innerHTML = '$' + rent.toLocaleString() + ' <span>/mo</span>';
+    document.getElementById('disp-rate').innerHTML = '$' + rate + ' <span>/hr</span>';
+
+    var totalHrs = 0;
+    var autoHrs = 0;
+    var rows = TASKS.map(function (t) {
+      var yrPerUnit = t.moPerUnit ? t.moPerUnit * 12 : t.yrPerUnit;
+      var hrs = yrPerUnit * units;
+      var saved = hrs * t.autoP;
+      totalHrs += hrs;
+      autoHrs += saved;
+      return { name: t.name, hrs: hrs, cost: hrs * rate, saved: saved, autoP: t.autoP };
+    });
+
+    var maxHrs = Math.max.apply(null, rows.map(function (r) { return r.hrs; }));
+
+    var html = '';
+    rows.forEach(function (r) {
+      var pct = maxHrs > 0 ? Math.round((r.hrs / maxHrs) * 100) : 0;
+      html += '<div class="bd-row">' +
+        '<div class="bd-task"><div>' + r.name + '</div><div class="bd-bar"><div class="bd-bar-fill" style="width:' + pct + '%"></div></div></div>' +
+        '<div class="bd-hrs">' + fmt(r.hrs) + '</div>' +
+        '<div class="bd-cost">' + fmtD(r.cost) + '</div>' +
+        '<div class="bd-auto bd-auto-col">~' + fmt(r.saved) + ' hrs</div>' +
+        '</div>';
+    });
+    document.getElementById('bd-rows').innerHTML = html;
+
+    var totalCost = totalHrs * rate;
+    var savedCost = autoHrs * rate;
+    var wks = (totalHrs / 40).toFixed(1);
+    var savedWks = (autoHrs / 40).toFixed(1);
+
+    document.getElementById('r-hrs').textContent = fmt(totalHrs);
+    document.getElementById('r-wks').textContent = wks + ' full work weeks/year';
+    document.getElementById('r-cost').textContent = fmtD(totalCost);
+    document.getElementById('r-rate-note').textContent = 'at $' + rate + '/hr';
+    document.getElementById('r-mo').textContent = fmt(totalHrs / 12);
+    document.getElementById('r-auto').textContent = fmt(autoHrs);
+
+    document.getElementById('r-save-cost').textContent = fmtD(savedCost) + ' /yr';
+    document.getElementById('r-save-sub').textContent = fmt(autoHrs) + ' hours returned annually (modeled)';
+    document.getElementById('r-sb-hrs').textContent = fmt(autoHrs) + ' hrs';
+    document.getElementById('r-sb-wks').textContent = savedWks + ' weeks';
+    document.getElementById('r-sb-cost').textContent = fmtD(savedCost);
+
+    lastTotals = {
+      units: units,
+      hourlyRate: rate,
+      totalHours: Math.round(totalHrs * 100) / 100,
+      totalCost: Math.round(totalCost * 100) / 100,
+      automatableHours: Math.round(autoHrs * 100) / 100,
+      automatableDollarValue: Math.round(savedCost * 100) / 100
+    };
+
+    logCalculatorRunOnce();
+  }
+
+  function logCalculatorRunOnce() {
+    if (!db || !lastTotals || analyticsWriteStarted) return;
+    analyticsWriteStarted = true;
+
+    var payload = {
+      source: 'landlord_hours_audit',
+      units: lastTotals.units,
+      hourlyRate: lastTotals.hourlyRate,
+      totalHours: lastTotals.totalHours,
+      totalCost: lastTotals.totalCost,
+      automatableHours: lastTotals.automatableHours,
+      automatableDollarValue: lastTotals.automatableDollarValue,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    };
+
+    var params = new URLSearchParams(window.location.search);
+    var b = params.get(BUCKET_PARAM);
+    if (b && BUCKET_TO_UNITS.hasOwnProperty(b)) {
+      payload.unitsBucket = b;
+    }
+
+    db.collection('calculator_runs').add(payload).catch(function (err) {
+      console.warn('calculator_runs log skipped:', err);
+      analyticsWriteStarted = false;
+    });
+  }
+
+  function showCalculator() {
+    document.getElementById('gate').classList.add('hidden');
+    var calc = document.getElementById('calculator');
+    calc.classList.add('unlocked');
+    document.getElementById('footer-cta').style.display = 'block';
+    applyBucketFromUrl();
+    recalc();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  if (isUnlocked()) {
+    showCalculator();
+  }
+
+  ['s-units', 's-rent', 's-rate'].forEach(function (id) {
+    document.getElementById(id).addEventListener('input', recalc);
+  });
+})();
+</script>
+</body>
+</html>
