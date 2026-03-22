@@ -83,6 +83,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:18px 48px;display:fl
 .ticker-item{display:inline-flex;align-items:center;gap:12px;font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ghost);padding:0 32px}
 .ticker-dot{width:4px;height:4px;background:var(--orange);border-radius:50%}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.hero-teaser{font-size:.9rem;color:var(--ghost);max-width:640px;margin:-32px auto 30px;position:relative;z-index:2;line-height:1.65;animation:fadeUp .8s ease .25s both;padding:14px 22px;border-radius:12px;background:rgba(38,140,166,.08);border:1px solid rgba(38,140,166,.2)}
+.hero-teaser a{color:var(--teal-light);font-weight:500;text-decoration:underline;text-underline-offset:3px}
+.hero-teaser a:hover{color:var(--white)}
+.hero-teaser strong{color:var(--white);font-weight:600}
+.cred-strip{max-width:1100px;margin:0 auto;padding:28px 48px 4px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 32px;font-size:.72rem;color:var(--ghost);letter-spacing:.08em;text-transform:uppercase}
+.cred-names{font-family:var(--font-d);font-weight:700;letter-spacing:.14em;color:var(--white);font-size:.8rem}
+.cred-note{text-transform:none;letter-spacing:0;font-size:.82rem;opacity:.9;max-width:540px;text-align:center;line-height:1.55;font-weight:300}
+.form-privacy{font-size:.72rem;color:var(--muted);margin-top:14px;line-height:1.55;max-width:520px}
+.form-privacy a{color:var(--teal-light)}
+a.role-card{text-decoration:none;color:inherit;display:block}
+.mobile-hierarchy{margin-top:20px!important;max-width:560px!important}
+.mobile-cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:22px;align-items:center}
+.app-badge.app-badge-secondary{opacity:.68;border:1px dashed rgba(255,255,255,.2)}
 .section-label{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-light);margin-bottom:16px;display:flex;align-items:center;gap:10px}
 .section-label::before{content:'';width:24px;height:1px;background:var(--grad)}
 .section-title{font-family:var(--font-d);font-size:clamp(1.9rem,4vw,3rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;max-width:700px;margin-bottom:20px}
@@ -307,6 +320,7 @@ footer{padding:52px 48px 32px;border-top:1px solid rgba(38,140,166,.1);display:f
 .footer-copy{font-size:.72rem;color:var(--muted)}
 @media(max-width:900px){
   nav{padding:14px 18px}.nav-links{display:none}
+  .cred-strip{padding:22px 18px 0;flex-direction:column;gap:10px}
   .problem,.landlord,.tenant-section,.literacy-section,.shopping-section,.swarm-section,.ai-section,.pricing,.trust-section,.ecosystem,.faq-section,.life-section,.mobile-section{padding:64px 18px}
   .problem-grid{grid-template-columns:1fr}.problem-col.before{border-right:none;border-bottom:1px solid rgba(38,140,166,.1)}
   .landlord-layout,.tenant-layout,.literacy-layout,.swarm-layout,.mobile-layout{grid-template-columns:1fr;gap:40px}
@@ -334,9 +348,10 @@ footer{padding:52px 48px 32px;border-top:1px solid rgba(38,140,166,.1);display:f
 <nav id="nav">
   <a href="#" class="nav-logo">Perfect<span>Tenant</span></a>
   <ul class="nav-links">
-    <li><a href="#landlords">For Landlords</a></li>
+    <li><a href="/landlords/">Landlords</a></li>
     <li><a href="#tenants">For Tenants</a></li>
     <li><a href="#pricing">Pricing</a></li>
+    <li><a href="/join/">Join ecosystem</a></li>
     <li><a href="#ecosystem">Ecosystem</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#landlord-waitlist" class="nav-cta">Join Waitlist</a></li>
@@ -349,6 +364,7 @@ footer{padding:52px 48px 32px;border-top:1px solid rgba(38,140,166,.1);display:f
   <div class="hero-badge"><span class="badge-dot"></span>Now Accepting Waitlist — v1.2 Beta</div>
   <h1><span>The End of</span><span class="line-grad">Property Management</span><span class="line-outline">As You Know It</span></h1>
   <p class="hero-sub">Perfect Tenant Innovation is the PropTech super app that automates landlord operations, holds tenants accountable, and builds a thriving economic ecosystem — all in one platform.</p>
+  <p class="hero-teaser"><strong>Ungated preview:</strong> at about <strong>10 units</strong>, DIY landlording often means <strong>300+ hours/year</strong> of admin and coordination alone (modeled). <a href="#landlord-waitlist">Join the landlord waitlist</a> to unlock the free <strong>Landlord Hours Audit</strong> and see your numbers.</p>
   <div class="hero-ctas">
     <a href="#landlord-waitlist" class="btn-primary">Get Early Access as Landlord →</a>
     <a href="#ecosystem" class="btn-secondary">Explore the Platform</a>
@@ -381,6 +397,12 @@ footer{padding:52px 48px 32px;border-top:1px solid rgba(38,140,166,.1);display:f
   <span class="ticker-item"><span class="ticker-dot"></span>Rewards &amp; Accountability System</span>
   <span class="ticker-item"><span class="ticker-dot"></span>Digital Lease Signing</span>
 </div></div>
+
+<div class="cred-strip" aria-label="Payments and commerce">
+  <span>Built for real money movement</span>
+  <span class="cred-names">Stripe · Shopify</span>
+  <span class="cred-note">Payouts to tenants &amp; pros, commerce in-app — same classes of tools we integrate on the roadmap.</span>
+</div>
 
 <section class="problem" id="platform">
   <div class="grad-line"></div>
@@ -627,7 +649,7 @@ footer{padding:52px 48px 32px;border-top:1px solid rgba(38,140,166,.1);display:f
     <div>
       <div class="founder-tag">⭐ Limited Time — Founding Landlord Pricing</div>
       <div class="founder-title">Early access landlords lock in founder pricing — permanently.</div>
-      <div class="founder-body">Founding members get our lowest pricing tier locked in for life, priority onboarding, and direct access to our product team. Once the waitlist closes, this offer goes away for good.</div>
+      <div class="founder-body">Founding members get our lowest pricing tier locked in for life, priority onboarding, and direct access to our product team. The founding cohort is intentionally limited — join while the waitlist is open. When we close this cohort for new signups, this pricing path ends.</div>
     </div>
     <div style="flex-shrink:0"><a href="#landlord-waitlist" class="btn-primary" style="white-space:nowrap">Lock In Founder Pricing →</a></div>
   </div>
@@ -676,6 +698,7 @@ footer{padding:52px 48px 32px;border-top:1px solid rgba(38,140,166,.1);display:f
         </div>
         <button class="form-submit" id="ll-submit-btn" onclick="submitLandlord()">Reserve My Spot as Landlord →</button>
         <p class="form-note">🔒 No spam. No credit card. Founder pricing locked in on signup.</p>
+        <p class="form-privacy">We use what you submit only to follow up about early access and onboarding. Questions? <a href="mailto:hello@perfecttenantinnovation.com">hello@perfecttenantinnovation.com</a></p>
       </div>
       <div class="success-msg" id="landlord-success">
         <div class="check">✓</div>
@@ -683,7 +706,10 @@ footer{padding:52px 48px 32px;border-top:1px solid rgba(38,140,166,.1);display:f
         <p>We'll be in touch within 48 hours with your early access details. Welcome to the future of property management.</p>
         <p class="section-body" style="max-width:none;margin:20px auto 0;text-align:center;font-size:.95rem">Next: run your free <strong>Landlord Hours Audit</strong> — see annual hours and dollar cost for your portfolio (pre-filled from your unit range).</p>
         <a id="ll-calc-link" class="btn-primary" style="display:inline-flex;margin-top:20px" href="https://www.perfecttenantinnovation.com/landlord-hours-audit/">Open Landlord Hours Audit →</a>
-        <p class="form-note" style="margin-top:14px">Use this same browser so the tool stays unlocked.</p>
+        <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center">
+          <button type="button" class="btn-secondary" id="ll-copy-calc" onclick="copyLandlordAuditLink()">Copy audit link</button>
+        </div>
+        <p class="form-note" style="margin-top:14px">Use this same browser so the tool stays unlocked. Copy the link if you might switch devices.</p>
       </div>
     </div>
   </div>
@@ -703,10 +729,10 @@ footer{padding:52px 48px 32px;border-top:1px solid rgba(38,140,166,.1);display:f
     <p class="section-body reveal" style="text-align:center;margin:0 auto">Perfect Tenant isn't just for landlords. It's a living economic engine with a role for every participant in the housing ecosystem.</p>
   </div>
   <div class="roles-grid">
-    <div class="role-card reveal"><span class="role-emoji">🏠</span><div class="role-name">Tenants</div><div class="role-desc">Earn rewards for good behavior, build your Stay Grade, access financial literacy tools, and unlock a rental history that opens every door.</div></div>
-    <div class="role-card reveal"><span class="role-emoji">🔧</span><div class="role-name">Service Providers</div><div class="role-desc">Get verified, accept maintenance jobs from the platform, submit invoices, and build a verified portfolio of property work.</div></div>
-    <div class="role-card reveal"><span class="role-emoji">🛍️</span><div class="role-name">Merchants</div><div class="role-desc">Sell products directly to tenants via Shopify integration. PTI Points accepted as currency — no separate payment setup needed.</div></div>
-    <div class="role-card reveal"><span class="role-emoji">⚡</span><div class="role-name">Swarm Bosses</div><div class="role-desc">Create campaigns, build task forces of tenants, and drive platform engagement — auto-verification and instant Stripe payouts included.</div></div>
+    <a href="/?role=tenant#ecosystem" class="role-card reveal"><span class="role-emoji">🏠</span><div class="role-name">Tenants</div><div class="role-desc">Earn rewards for good behavior, build your Stay Grade, access financial literacy tools, and unlock a rental history that opens every door.</div></a>
+    <a href="/?role=service_provider#ecosystem" class="role-card reveal"><span class="role-emoji">🔧</span><div class="role-name">Service Providers</div><div class="role-desc">Get verified, accept maintenance jobs from the platform, submit invoices, and build a verified portfolio of property work.</div></a>
+    <a href="/?role=merchant#ecosystem" class="role-card reveal"><span class="role-emoji">🛍️</span><div class="role-name">Merchants</div><div class="role-desc">Sell products directly to tenants via Shopify integration. PTI Points accepted as currency — no separate payment setup needed.</div></a>
+    <a href="/?role=swarm_boss#ecosystem" class="role-card reveal"><span class="role-emoji">⚡</span><div class="role-name">Swarm Bosses</div><div class="role-desc">Create campaigns, build task forces of tenants, and drive platform engagement — auto-verification and instant Stripe payouts included.</div></a>
   </div>
 </section>
 
@@ -731,6 +757,7 @@ footer{padding:52px 48px 32px;border-top:1px solid rgba(38,140,166,.1);display:f
         <div class="form-group"><label>City / State</label><input class="form-input" type="text" id="eco-location" placeholder="Atlanta, GA"></div>
         <button class="form-submit" id="eco-submit-btn" onclick="submitEco()">Join the Waitlist →</button>
         <p class="form-note">🔒 No spam. No credit card. We'll be in touch shortly.</p>
+        <p class="form-privacy">We use your info only to send role-specific onboarding. <a href="mailto:hello@perfecttenantinnovation.com">Contact us</a> anytime.</p>
       </div>
       <div class="success-msg" id="eco-success">
         <div class="check">✓</div>
@@ -748,9 +775,11 @@ footer{padding:52px 48px 32px;border-top:1px solid rgba(38,140,166,.1);display:f
       <div class="section-label reveal">Native Mobile App</div>
       <h2 class="section-title reveal">Built for iOS. Designed to live on your home screen.</h2>
       <p class="section-body reveal">Perfect Tenant is a native SwiftUI iOS app — not a web wrapper. Every interaction is fast, responsive, and built for the way landlords and tenants actually use their phones.</p>
-      <div class="app-badges reveal">
-        <div class="app-badge"><div class="ab-icon">🍎</div><div><div class="ab-sub">Available on the</div><div class="ab-main">App Store</div></div></div>
-        <div class="app-badge"><div class="ab-icon">🧪</div><div><div class="ab-sub">Currently in</div><div class="ab-main">TestFlight Beta</div></div></div>
+      <p class="section-body reveal mobile-hierarchy"><strong>Start here:</strong> <a href="#landlord-waitlist" style="color:var(--teal-light);font-weight:600">Join the waitlist</a> for early access and founder pricing. <strong>Already invited to beta?</strong> Install via <strong>TestFlight</strong> on your iPhone to exercise the current build — we’ll align your account with your waitlist spot.</p>
+      <div class="app-badges reveal mobile-cta-row">
+        <a href="#landlord-waitlist" class="btn-primary" style="display:inline-flex">Join waitlist →</a>
+        <div class="app-badge app-badge-secondary"><div class="ab-icon">🧪</div><div><div class="ab-sub">Beta testers</div><div class="ab-main">TestFlight</div></div></div>
+        <div class="app-badge"><div class="ab-icon">🍎</div><div><div class="ab-sub">Shipping toward</div><div class="ab-main">App Store</div></div></div>
       </div>
     </div>
     <div class="phone-mock reveal">
@@ -785,7 +814,8 @@ footer{padding:52px 48px 32px;border-top:1px solid rgba(38,140,166,.1);display:f
 <footer>
   <div class="footer-logo">Perfect<span>Tenant</span> Innovation</div>
   <ul class="footer-links">
-    <li><a href="#landlords">For Landlords</a></li>
+    <li><a href="/landlords/">Landlords</a></li>
+    <li><a href="/join/">Join ecosystem</a></li>
     <li><a href="#tenants">For Tenants</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#ecosystem">Ecosystem</a></li>
@@ -831,6 +861,20 @@ function toggleFaq(btn) {
 
 function validateEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e) }
 
+function copyLandlordAuditLink() {
+  var a = document.getElementById('ll-calc-link');
+  if (!a || !a.href) return;
+  var url = a.href;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(function () {
+      var b = document.getElementById('ll-copy-calc');
+      if (b) { var t = b.textContent; b.textContent = 'Copied!'; setTimeout(function () { b.textContent = t; }, 2000); }
+    }).catch(function () { alert('Copy this link: ' + url); });
+  } else {
+    alert('Copy this link: ' + url);
+  }
+}
+
 function landlordUnitsBucketSlug(unitsLabel) {
   var m = {
     '1–5 units': '1-5',
@@ -875,6 +919,9 @@ function submitLandlord() {
     if (bucket) calcHref += '?bucket=' + encodeURIComponent(bucket);
     var calcLink = document.getElementById('ll-calc-link');
     if (calcLink) calcLink.href = calcHref;
+    if (typeof gtag === 'function') {
+      gtag('event', 'waitlist_landlord_submit', { form_type: 'landlord' });
+    }
     document.getElementById('landlord-form-content').style.display='none';
     document.getElementById('landlord-success').style.display='block';
   }).catch(function(err) {
@@ -908,6 +955,9 @@ function submitEco() {
     location: document.getElementById('eco-location').value.trim(),
     createdAt: firebase.firestore.FieldValue.serverTimestamp()
   }).then(function() {
+    if (typeof gtag === 'function') {
+      gtag('event', 'waitlist_ecosystem_submit', { role: r });
+    }
     document.getElementById('eco-form-content').style.display='none';
     document.getElementById('eco-success').style.display='block';
   }).catch(function(err) {
@@ -922,6 +972,20 @@ window.addEventListener('scroll',function(){
   document.getElementById('nav').style.background =
     window.scrollY>60?'rgba(20,20,26,.97)':'rgba(20,20,26,.7)';
 });
+
+(function () {
+  var allowed = { tenant: 1, service_provider: 1, merchant: 1, swarm_boss: 1 };
+  var params = new URLSearchParams(window.location.search);
+  var role = params.get('role');
+  if (role && allowed[role]) {
+    var sel = document.getElementById('eco-role');
+    if (sel) sel.value = role;
+    setTimeout(function () {
+      var el = document.getElementById('ecosystem');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 350);
+  }
+})();
 </script>
 </body>
 </html>

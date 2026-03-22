@@ -3,9 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8EF20FCMTK"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8EF20FCMTK');</script>
 <title>Landlord Hours Audit — Perfect Tenant Innovation</title>
 <meta name="description" content="See how many hours and dollars your portfolio costs you each year — and how much automation can return. Unlocks after joining the landlord waitlist.">
 <link rel="canonical" href="https://www.perfecttenantinnovation.com/landlord-hours-audit/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.perfecttenantinnovation.com/landlord-hours-audit/">
+<meta property="og:title" content="Landlord Hours Audit — Perfect Tenant Innovation">
+<meta property="og:description" content="Model hours and dollar cost by task for your portfolio. Unlocks free after joining the landlord waitlist.">
+<meta property="og:site_name" content="Perfect Tenant Innovation">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Landlord Hours Audit — Perfect Tenant Innovation">
+<meta name="twitter:description" content="See what DIY property management costs you in time and money — before you download the app.">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -892,6 +902,7 @@
     });
   }
 
+  var gaCalculatorEventFired = false;
   function showCalculator() {
     document.getElementById('gate').classList.add('hidden');
     var calc = document.getElementById('calculator');
@@ -900,6 +911,10 @@
     applyBucketFromUrl();
     recalc();
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (!gaCalculatorEventFired && typeof gtag === 'function') {
+      gaCalculatorEventFired = true;
+      gtag('event', 'calculator_unlocked', { page_location: '/landlord-hours-audit/' });
+    }
   }
 
   if (isUnlocked()) {
