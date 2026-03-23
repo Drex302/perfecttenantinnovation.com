@@ -52,7 +52,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:18px 48px;display:fl
 .nav-links a:hover{color:var(--teal-light)}
 .nav-cta{background:var(--grad)!important;color:var(--white)!important;padding:10px 20px;border-radius:6px;font-weight:600!important;text-transform:none!important;letter-spacing:0!important;font-size:.86rem!important;transition:opacity .2s,transform .2s!important}
 .nav-cta:hover{opacity:.9!important;transform:translateY(-1px)}
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px clamp(16px,4vw,32px) 80px;position:relative;overflow:visible}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(38,140,166,.2) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 80% 80%,rgba(242,153,64,.09) 0%,transparent 60%),radial-gradient(ellipse 30% 30% at 10% 60%,rgba(89,153,128,.08) 0%,transparent 50%)}
 .orb{position:absolute;border-radius:50%;filter:blur(60px);animation:drift 8s ease-in-out infinite alternate}
 .orb-1{width:400px;height:400px;background:rgba(38,140,166,.15);top:-100px;left:-100px;animation-duration:9s}
@@ -63,9 +63,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:18px 48px;display:fl
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(38,140,166,.12);border:1px solid rgba(38,140,166,.3);border-radius:100px;padding:6px 18px;font-size:.75rem;font-weight:500;color:var(--teal-light);letter-spacing:.07em;text-transform:uppercase;margin-bottom:32px;position:relative;z-index:2;animation:fadeUp .8s ease both}
 .badge-dot{width:6px;height:6px;background:var(--orange);border-radius:50%;animation:pulse 2s ease infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-.hero h1{font-family:var(--font-d);font-size:clamp(2.8rem,7vw,6rem);font-weight:800;line-height:1;letter-spacing:-.03em;position:relative;z-index:2;animation:fadeUp .8s ease .1s both;max-width:920px}
-.hero h1 .line-grad{background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block}
-.hero h1 .line-outline{-webkit-text-stroke:1px rgba(255,255,255,.25);color:transparent;display:block}
+.hero h1{font-family:var(--font-d);font-size:clamp(1.95rem,5vw + 0.35rem,4.75rem);font-weight:800;line-height:1.12;letter-spacing:-.025em;position:relative;z-index:2;animation:fadeUp .8s ease .1s both;max-width:min(920px,100%);width:100%;padding:0.12em 0 0.2em;box-sizing:border-box;overflow:visible;-webkit-font-smoothing:antialiased}
+.hero h1>span:first-child{display:block;line-height:1.15;margin-bottom:0.02em}
+.hero h1 .line-grad{background:var(--grad-text);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;display:block;line-height:1.18;padding:0.08em 0 0.18em;overflow:visible;word-break:break-word;overflow-wrap:break-word;max-width:100%}
+.hero h1 .line-outline{-webkit-text-stroke:1px rgba(255,255,255,.25);color:transparent;display:block;line-height:1.18;padding:0.1em 0 0.2em;overflow:visible;word-break:break-word;overflow-wrap:break-word;max-width:100%}
+.hero h1 .headline-split{display:inline}
 .hero-sub{font-size:clamp(1rem,2vw,1.15rem);font-weight:300;color:var(--ghost);max-width:580px;margin:24px auto 48px;position:relative;z-index:2;line-height:1.75;animation:fadeUp .8s ease .2s both}
 .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;position:relative;z-index:2;animation:fadeUp .8s ease .3s both}
 .btn-primary{background:var(--grad);color:var(--white);padding:16px 36px;border-radius:8px;font-family:var(--font-d);font-size:1rem;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:all .25s;position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px}
@@ -83,7 +85,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:18px 48px;display:fl
 .ticker-item{display:inline-flex;align-items:center;gap:12px;font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ghost);padding:0 32px}
 .ticker-dot{width:4px;height:4px;background:var(--orange);border-radius:50%}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.hero-teaser{font-size:.9rem;color:var(--ghost);max-width:640px;margin:-32px auto 30px;position:relative;z-index:2;line-height:1.65;animation:fadeUp .8s ease .25s both;padding:14px 22px;border-radius:12px;background:rgba(38,140,166,.08);border:1px solid rgba(38,140,166,.2)}
+.hero-teaser{font-size:.9rem;color:var(--ghost);max-width:min(640px,100%);margin:-24px auto 30px;position:relative;z-index:2;line-height:1.65;animation:fadeUp .8s ease .25s both;padding:14px clamp(16px,4vw,22px);border-radius:12px;background:rgba(38,140,166,.08);border:1px solid rgba(38,140,166,.2);box-sizing:border-box}
 .hero-teaser a{color:var(--teal-light);font-weight:500;text-decoration:underline;text-underline-offset:3px}
 .hero-teaser a:hover{color:var(--white)}
 .hero-teaser strong{color:var(--white);font-weight:600}
@@ -335,8 +337,13 @@ footer{padding:52px 48px 32px;border-top:1px solid rgba(38,140,166,.1);display:f
   .voucher-box{flex-direction:column;gap:16px;padding:24px 18px}.voucher-strip{padding:0 18px 52px}
   footer{padding:32px 18px 24px;flex-direction:column;align-items:flex-start}
 }
+@media(max-width:720px){
+  .hero h1 .headline-split{display:block}
+  .hero h1 .headline-split--gap{margin-top:0.06em}
+}
 @media(max-width:480px){
-  .hero{padding:96px 14px 52px}.hero-stats{gap:22px}
+  .hero{padding:96px max(14px,env(safe-area-inset-right)) 52px max(14px,env(safe-area-inset-left))}.hero-stats{gap:22px}
+  .hero h1{font-size:clamp(1.75rem,7.5vw + 0.2rem,2.65rem);line-height:1.15}
   .roles-grid,.ai-grid,.shop-grid,.trust-grid{grid-template-columns:1fr}
   .eco-form-inner{padding:22px 14px}.badges-grid{grid-template-columns:repeat(2,1fr)}
   .literacy-stats{grid-template-columns:1fr 1fr}
@@ -362,7 +369,7 @@ footer{padding:52px 48px 32px;border-top:1px solid rgba(38,140,166,.1);display:f
   <div class="hero-bg"></div><div class="hero-grid"></div>
   <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
   <div class="hero-badge"><span class="badge-dot"></span>Now Accepting Waitlist — v1.2 Beta</div>
-  <h1><span>The End of</span><span class="line-grad">Property Management</span><span class="line-outline">As You Know It</span></h1>
+  <h1><span>The End of</span><span class="line-grad"><span class="headline-split">Property</span> <span class="headline-split headline-split--gap">Management</span></span><span class="line-outline">As You Know It</span></h1>
   <p class="hero-sub">Perfect Tenant Innovation is the PropTech super app that automates landlord operations, holds tenants accountable, and builds a thriving economic ecosystem — all in one platform.</p>
   <p class="hero-teaser"><strong>Ungated preview:</strong> at about <strong>10 units</strong>, DIY landlording often means <strong>300+ hours/year</strong> of admin and coordination alone (modeled). <a href="#landlord-waitlist">Join the landlord waitlist</a> to unlock the free <strong>Landlord Hours Audit</strong> and see your numbers.</p>
   <div class="hero-ctas">
