@@ -1,20 +1,20 @@
 :root{
-:  --teal:#268CA6;
-:  --teal-light:#2FA8C4;
-:  --teal-glow:rgba(38,140,166,0.18);
-:  --orange:#F29940;
-:  --amber:#E6B34D;
-:  --ink:#14141A;
-:  --ink-2:#1F1F24;
-:  --muted:#4B5C6B;
-:  --ghost:#8AA5B5;
-:  --white:#FFFFFF;
-:  --grad:linear-gradient(135deg,#268CA6 0%,#599980 40%,#E6B34D 70%,#F29940 100%);
-:  --grad-hover:linear-gradient(135deg,#2FA8C4 0%,#66AD90 40%,#E6B34D 70%,#F5A852 100%);
-:  --grad-text:linear-gradient(135deg,#2FA8C4,#66AD90,#E6B34D,#F29940);
-:  --font-d:'Syne',sans-serif;
-:  --font-b:'DM Sans',sans-serif;
-:}
+  --teal:#268CA6;
+  --teal-light:#2FA8C4;
+  --teal-glow:rgba(38,140,166,0.18);
+  --orange:#F29940;
+  --amber:#E6B34D;
+  --ink:#14141A;
+  --ink-2:#1F1F24;
+  --muted:#4B5C6B;
+  --ghost:#8AA5B5;
+  --white:#FFFFFF;
+  --grad:linear-gradient(135deg,#268CA6 0%,#599980 40%,#E6B34D 70%,#F29940 100%);
+  --grad-hover:linear-gradient(135deg,#2FA8C4 0%,#66AD90 40%,#E6B34D 70%,#F5A852 100%);
+  --grad-text:linear-gradient(135deg,#2FA8C4,#66AD90,#E6B34D,#F29940);
+  --font-d:'Syne',sans-serif;
+  --font-b:'DM Sans',sans-serif;
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--font-b);background:var(--ink);color:var(--white);overflow-x:hidden;line-height:1.6}
