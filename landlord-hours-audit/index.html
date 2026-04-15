@@ -70,6 +70,31 @@
     padding: 20px 40px;
     border-bottom: 1px solid rgba(38,140,166,0.15);
   }
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+  }
+  .back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(38,140,166,0.25);
+    background: rgba(22,27,36,0.6);
+    color: var(--white);
+    text-decoration: none;
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: transform 0.15s, border-color 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+  .back-home:hover { transform: translateY(-1px); border-color: rgba(38,140,166,0.45); background: rgba(22,27,36,0.8); }
+  .back-home:active { transform: scale(0.99); }
   .logo {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
@@ -586,7 +611,10 @@
 <body>
 <div class="page">
   <nav>
-    <a href="https://www.perfecttenantinnovation.com/" class="logo">PERFECT TENANT INNOVATION</a>
+    <div class="nav-left">
+      <a class="back-home" href="https://www.perfecttenantinnovation.com/">← Back to home</a>
+      <a href="https://www.perfecttenantinnovation.com/" class="logo">PERFECT TENANT INNOVATION</a>
+    </div>
     <a href="https://www.perfecttenantinnovation.com/#landlord-waitlist" class="nav-cta">Landlord waitlist <span>→</span></a>
   </nav>
 
