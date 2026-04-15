@@ -250,6 +250,27 @@
   }
   .btn-ghost:hover { color: var(--teal); border-color: var(--teal); }
 
+  .btn-skip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 14px 18px;
+    background: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 12px;
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.15s, border-color 0.2s, color 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+  .btn-skip:hover { border-color: rgba(38,140,166,0.5); color: var(--teal-mid); transform: translateY(-1px); background: rgba(22,27,36,0.35); }
+  .btn-skip:active { transform: scale(0.99); }
+
   .gate-privacy {
     font-size: 11px;
     color: rgba(139,156,176,0.6);
@@ -654,7 +675,7 @@
 
     <div class="gate-actions">
       <a href="https://www.perfecttenantinnovation.com/#landlord-waitlist" class="btn-waitlist">Join the landlord waitlist to unlock →</a>
-      <a href="https://www.perfecttenantinnovation.com/" class="btn-ghost">Back to home</a>
+      <a href="https://www.perfecttenantinnovation.com/#landlord-waitlist" class="btn-skip">Skip to waitlist →</a>
     </div>
 
     <p class="gate-privacy">Already joined? Open this page in the same browser you used to submit the waitlist, or complete the waitlist again — it only takes a minute.</p>
