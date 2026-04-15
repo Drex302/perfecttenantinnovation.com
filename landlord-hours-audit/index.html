@@ -913,7 +913,7 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (!gaCalculatorEventFired && typeof gtag === 'function') {
       gaCalculatorEventFired = true;
-      gtag('event', 'calculator_unlocked', { page_location: '/landlord-hours-audit/' });
+      gtag('event', 'calculator_unlocked', { event_category: 'engagement', event_label: 'landlord_hours_audit', page_location: '/landlord-hours-audit/' });
     }
   }
 
