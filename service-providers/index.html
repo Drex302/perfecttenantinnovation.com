@@ -8,6 +8,8 @@
   <link rel="canonical" href="https://www.perfecttenantinnovation.com/service-providers/">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8EF20FCMTK"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8EF20FCMTK');</script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">emailjs.init("LiDS_LTjo__EBd-i5");</script>
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.perfecttenantinnovation.com/service-providers/">
   <meta property="og:title" content="Service Providers — Perfect Tenant Innovation">
@@ -179,6 +181,17 @@
         if (typeof gtag !== 'undefined') {
           gtag('event', 'waitlist_sp_sub', { event_category: 'conversion', event_label: 'service_provider_waitlist' });
         }
+        // Send confirmation email via EmailJS
+        emailjs.send('service_8fnn74u', 'template_foal6er', {
+          to_email: email,
+          to_name: firstName + ' ' + lastName,
+          first_name: firstName,
+          email_subject: "Verified jobs are coming to you.",
+          email_headline: "Verified jobs are coming to you.",
+          email_body: "Hi " + firstName + ", you're in the Perfect Tenant Innovation verified service provider network. No cold calls. No chasing. The work finds you.\n\n1️⃣ Tenant submits a maintenance request\n2️⃣ AI dispatches the job to verified providers in your area\n3️⃣ You accept, complete, invoice through the platform\n4️⃣ Stripe pays you automatically"
+        }).catch(function(emailErr) {
+          console.warn('Email send failed (non-critical):', emailErr);
+        });
         document.getElementById('spWaitlistForm').style.display = 'none';
         document.getElementById('spSuccess').style.display = 'block';
       }).catch(function (err) {

@@ -8,6 +8,8 @@
   <link rel="canonical" href="https://www.perfecttenantinnovation.com/swarm-boss/">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8EF20FCMTK"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8EF20FCMTK');</script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">emailjs.init("LiDS_LTjo__EBd-i5");</script>
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.perfecttenantinnovation.com/swarm-boss/">
   <meta property="og:title" content="Swarm Boss — Perfect Tenant Innovation">
@@ -188,6 +190,17 @@
         if (typeof gtag !== 'undefined') {
           gtag('event', 'waitlist_swarm_sub', { event_category: 'conversion', event_label: 'swarm_boss_waitlist' });
         }
+        // Send confirmation email via EmailJS
+        emailjs.send('service_8fnn74u', 'template_foal6er', {
+          to_email: email,
+          to_name: firstName + ' ' + lastName,
+          first_name: firstName,
+          email_subject: "You just found a channel your competitors don't know exists.",
+          email_headline: "You just found a channel your competitors don't know exists.",
+          email_body: "Hi " + firstName + ", your Swarm Boss application has been received. You only pay when AI confirms the work is done.\n\n1️⃣ Set a budget and define your task\n2️⃣ Verified tenants complete the task and submit proof\n3️⃣ AI verifies every submission automatically\n4️⃣ Stripe pays tenants — you only pay for verified completions"
+        }).catch(function(emailErr) {
+          console.warn('Email send failed (non-critical):', emailErr);
+        });
         document.getElementById('swarmWaitlistForm').style.display = 'none';
         document.getElementById('swarmSuccess').style.display = 'block';
       }).catch(function (err) {

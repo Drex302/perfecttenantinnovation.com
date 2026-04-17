@@ -8,6 +8,8 @@
   <link rel="canonical" href="https://www.perfecttenantinnovation.com/tenants/">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8EF20FCMTK"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8EF20FCMTK');</script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">emailjs.init("LiDS_LTjo__EBd-i5");</script>
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.perfecttenantinnovation.com/tenants/">
   <meta property="og:title" content="For Tenants — Perfect Tenant Innovation">
@@ -185,6 +187,17 @@
         if (typeof gtag !== 'undefined') {
           gtag('event', 'waitlist_tenant_sub', { event_category: 'conversion', event_label: 'tenant_waitlist' });
         }
+        // Send confirmation email via EmailJS
+        emailjs.send('service_8fnn74u', 'template_foal6er', {
+          to_email: email,
+          to_name: firstName + ' ' + lastName,
+          first_name: firstName,
+          email_subject: "You're in. Here's what's coming.",
+          email_headline: "You're in.",
+          email_body: "Hi " + firstName + ", you're on the Perfect Tenant Innovation tenant waitlist. The check you worked for is about to work back.\n\n💰 PTI Points for every on-time rent payment\n📈 Credit building from your rent history\n🛍️ Shopping Universe — spend your points in-app\n⭐ Stay Grade — your portable rental reputation\n📚 Financial literacy curriculum built into the app"
+        }).catch(function(emailErr) {
+          console.warn('Email send failed (non-critical):', emailErr);
+        });
         document.getElementById('tenantWaitlistForm').style.display = 'none';
         document.getElementById('tenantSuccess').style.display = 'block';
       }).catch(function (err) {

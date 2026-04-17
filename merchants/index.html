@@ -8,6 +8,8 @@
   <link rel="canonical" href="https://www.perfecttenantinnovation.com/merchants/">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8EF20FCMTK"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8EF20FCMTK');</script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">emailjs.init("LiDS_LTjo__EBd-i5");</script>
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.perfecttenantinnovation.com/merchants/">
   <meta property="og:title" content="Merchants — PTI Shopping Universe">
@@ -195,6 +197,17 @@
         if (typeof gtag !== 'undefined') {
           gtag('event', 'waitlist_merchant_sub', { event_category: 'conversion', event_label: 'merchant_waitlist' });
         }
+        // Send confirmation email via EmailJS
+        emailjs.send('service_8fnn74u', 'template_foal6er', {
+          to_email: email,
+          to_name: firstName + ' ' + lastName,
+          first_name: firstName,
+          email_subject: "You're early. Here's what that means.",
+          email_headline: "You're early. Here's what that means.",
+          email_body: "Hi " + firstName + ", your merchant application for PTI Shopping Universe has been received. The shelf space is empty right now. That's the point.\n\n✅ Verified buyers with demonstrated payment history\n💰 PTI Points as purchase fuel — demand you didn't create\n🛒 Shopify integration — your store connects directly\n⭐ Priority placement in curated categories\n⚡ Swarm Boss cross-promotion campaigns"
+        }).catch(function(emailErr) {
+          console.warn('Email send failed (non-critical):', emailErr);
+        });
         document.getElementById('merchantWaitlistForm').style.display = 'none';
         document.getElementById('merchantSuccess').style.display = 'block';
       }).catch(function (err) {
