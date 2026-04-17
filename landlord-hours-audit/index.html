@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8EF20FCMTK"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8EF20FCMTK');</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">emailjs.init("LiDS_LTjo__EBd-i5");</script>
 <title>Landlord Hours Audit — Perfect Tenant Innovation</title>
 <meta name="description" content="See how many hours and dollars your portfolio costs you each year — and how much automation can return. Unlocks after joining the landlord waitlist.">
 <link rel="canonical" href="https://www.perfecttenantinnovation.com/landlord-hours-audit/">
@@ -270,6 +272,86 @@
   }
   .btn-skip:hover { border-color: rgba(38,140,166,0.5); color: var(--teal-mid); transform: translateY(-1px); background: rgba(22,27,36,0.35); }
   .btn-skip:active { transform: scale(0.99); }
+
+  /* Inline gate form */
+  .gate-form {
+    width: 100%;
+    max-width: 480px;
+    margin: 28px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .gate-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .gate-input {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(38,140,166,0.3);
+    border-radius: 8px;
+    padding: 13px 16px;
+    font-size: 0.9rem;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .gate-input::placeholder { color: var(--gray); }
+  .gate-input:focus { border-color: var(--teal); }
+  .gate-select {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(38,140,166,0.3);
+    border-radius: 8px;
+    padding: 13px 16px;
+    font-size: 0.9rem;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    transition: border-color 0.2s;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+  }
+  .gate-select option { background: var(--dark2); color: var(--white); }
+  .gate-select:focus { border-color: var(--teal); }
+  .btn-gate-submit {
+    width: 100%;
+    background: linear-gradient(135deg, #268CA6 0%, #C9A84C 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 15px 24px;
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.15s;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-gate-submit:hover { opacity: 0.92; transform: translateY(-1px); }
+  .btn-gate-submit:active { transform: scale(0.99); }
+  .btn-gate-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .gate-form-disclaimer {
+    font-size: 0.75rem;
+    color: var(--gray);
+    text-align: center;
+    line-height: 1.5;
+    margin-top: 4px;
+  }
+  .gate-form-error {
+    font-size: 0.82rem;
+    color: #F87171;
+    text-align: center;
+    display: none;
+    margin-top: 4px;
+  }
+  @media (max-width: 480px) {
+    .gate-form-row { grid-template-columns: 1fr; }
+  }
 
   .gate-privacy {
     font-size: 11px;
@@ -639,7 +721,7 @@
     <a href="https://www.perfecttenantinnovation.com/#landlord-waitlist" class="nav-cta">Landlord waitlist <span>→</span></a>
   </nav>
 
-  <!-- Locked: join waitlist on main site first (same origin sets sessionStorage) -->
+  <!-- Gate: inline waitlist unlocks calculator on this page -->
   <section id="gate">
     <div class="gate-badge">Free tool — Landlord Hours Audit</div>
 
@@ -652,10 +734,6 @@
     <p class="gate-sub">
       Interactive breakdown by task — maintenance, rent, leasing, inspections, and more.
       Adjust sliders to match your portfolio and your hourly rate.
-    </p>
-
-    <p class="gate-note">
-      This tool unlocks automatically after you join the <strong>free landlord waitlist</strong> on our main site (same browser). No second email form.
     </p>
 
     <div class="preview-stats">
@@ -673,12 +751,26 @@
       </div>
     </div>
 
-    <div class="gate-actions">
-      <a href="https://www.perfecttenantinnovation.com/#landlord-waitlist" class="btn-waitlist">Join the landlord waitlist to unlock →</a>
-      <a href="https://www.perfecttenantinnovation.com/#landlord-waitlist" class="btn-skip">Skip to waitlist →</a>
-    </div>
-
-    <p class="gate-privacy">Already joined? Open this page in the same browser you used to submit the waitlist, or complete the waitlist again — it only takes a minute.</p>
+    <form class="gate-form" id="gateForm" onsubmit="submitGateForm(event)">
+      <div class="gate-form-row">
+        <input type="text" id="gate-fname" class="gate-input" placeholder="First Name" required autocomplete="given-name" />
+        <input type="text" id="gate-lname" class="gate-input" placeholder="Last Name" required autocomplete="family-name" />
+      </div>
+      <input type="email" id="gate-email" class="gate-input" placeholder="Email Address" required autocomplete="email" />
+      <select id="gate-units" class="gate-select" required>
+        <option value="">Number of units</option>
+        <option value="1-5 units">1–5 units</option>
+        <option value="6-20 units">6–20 units</option>
+        <option value="21-50 units">21–50 units</option>
+        <option value="51-100 units">51–100 units</option>
+        <option value="100+ units">100+ units</option>
+      </select>
+      <button type="submit" class="btn-gate-submit" id="gateSubmitBtn">
+        Unlock My Free Audit →
+      </button>
+      <p class="gate-form-disclaimer">🔒 Free · No credit card · Founding pricing locks in on signup</p>
+      <p class="gate-form-error" id="gateFormError">Something went wrong. Please try again.</p>
+    </form>
   </section>
 
   <section id="calculator">
@@ -965,6 +1057,77 @@
       gtag('event', 'calculator_unlocked', { event_category: 'engagement', event_label: 'landlord_hours_audit', page_location: '/landlord-hours-audit/' });
     }
   }
+
+  function submitGateForm(e) {
+    e.preventDefault();
+
+    var f = document.getElementById('gate-fname').value.trim();
+    var l = document.getElementById('gate-lname').value.trim();
+    var email = document.getElementById('gate-email').value.trim();
+    var units = document.getElementById('gate-units').value;
+
+    if (!f || !l || !email || !units) return;
+
+    var btn = document.getElementById('gateSubmitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Unlocking...';
+
+    var errorEl = document.getElementById('gateFormError');
+    errorEl.style.display = 'none';
+
+    var bucketMap = {
+      '1-5 units': '1-5',
+      '6-20 units': '6-20',
+      '21-50 units': '21-50',
+      '51-100 units': '51-100',
+      '100+ units': '100+'
+    };
+    var bucket = bucketMap[units] || '';
+
+    var firestorePromise = db ? db.collection('waitlist_submissions').add({
+      source: 'audit_gate_form',
+      role: 'landlord',
+      firstName: f,
+      lastName: l,
+      email: email,
+      units: units,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    }) : Promise.resolve();
+
+    firestorePromise.then(function() {
+
+      try { sessionStorage.setItem('pti_calc_unlock', '1'); } catch(e) {}
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'waitlist_landlord_sub', {
+          event_category: 'conversion',
+          event_label: 'audit_gate_inline'
+        });
+      }
+
+      emailjs.send('service_8fnn74u', 'template_0d7m7le', {
+        to_email: email,
+        to_name: f + ' ' + l,
+        first_name: f
+      }).catch(function(err) {
+        console.warn('Email send failed (non-critical):', err);
+      });
+
+      if (bucket && BUCKET_TO_UNITS.hasOwnProperty(bucket)) {
+        var el = document.getElementById('s-units');
+        if (el) el.value = String(BUCKET_TO_UNITS[bucket]);
+      }
+
+      showCalculator();
+
+    }).catch(function(err) {
+      console.error('Gate form submission failed:', err);
+      btn.disabled = false;
+      btn.textContent = 'Unlock My Free Audit →';
+      errorEl.style.display = 'block';
+    });
+  }
+  window.submitGateForm = submitGateForm;
 
   if (isUnlocked()) {
     showCalculator();
