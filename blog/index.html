@@ -18,6 +18,54 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8EF20FCMTK');</script>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/main.css">
+  <style>
+    .blog-post-list { display: flex; flex-direction: column; gap: 28px; margin-top: 28px; max-width: 820px; }
+    .blog-post-item {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(38,140,166,.12);
+      border-radius: 14px;
+      padding: 24px 22px;
+    }
+    .blog-post-cat {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .blog-post-title {
+      font-family: var(--font-d);
+      font-size: 1.25rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin: 0 0 8px;
+    }
+    .blog-post-title a { color: var(--white); text-decoration: none; }
+    .blog-post-title a:hover { color: var(--teal-light); }
+    .blog-post-date {
+      display: block;
+      font-size: .82rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .blog-post-desc {
+      font-size: .95rem;
+      color: var(--ghost);
+      font-weight: 300;
+      line-height: 1.7;
+      margin: 0 0 14px;
+    }
+    .blog-post-read {
+      font-family: var(--font-d);
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--teal-light);
+      text-decoration: none;
+    }
+    .blog-post-read:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
   <nav id="nav">
@@ -41,25 +89,38 @@
         <p class="section-body">High-intent, practical content for landlords, tenants, and ecosystem partners. Each post has its own URL under <strong>/blog/</strong> for indexing.</p>
       </section>
 
-      <section class="blog-grid" aria-label="Blog posts">
-        <a class="post-card" href="/blog/how-much-do-property-managers-charge/">
-          <div class="post-eyebrow">Featured</div>
-          <div class="post-title">How Much Do Property Managers Charge?</div>
-          <div class="post-excerpt">A pricing breakdown (percent, flat fee, leasing, renewals, maintenance markups) plus a quick way to estimate your real annual cost.</div>
-          <div class="post-meta">Published · Updated April 2026</div>
-        </a>
-        <a class="post-card" href="/blog/section-8-landlord-guide/">
-          <div class="post-eyebrow">Section 8</div>
-          <div class="post-title">Section 8 Landlord Guide 2026: How to Accept HCV Tenants Without the Headache</div>
-          <div class="post-excerpt">How HCV works, what HQS inspections actually require, how landlords get paid, and why voucher tenants stay longer.</div>
-          <div class="post-meta">Published · Updated April 2026</div>
-        </a>
-        <a class="post-card" href="/blog/manage-rental-property-out-of-state/">
-          <div class="post-eyebrow">Remote</div>
-          <div class="post-title">How to Manage Rental Property Out of State: The Remote Landlord Playbook 2026</div>
-          <div class="post-excerpt">Systems, inspection solutions, legal requirements, and the visibility problem most remote landlords never solve.</div>
-          <div class="post-meta">Published · Updated April 2026</div>
-        </a>
+      <section class="blog-post-list" aria-label="Blog posts">
+        <article class="blog-post-item">
+          <span class="blog-post-cat">Tenant retention</span>
+          <h2 class="blog-post-title"><a href="/blog/why-good-tenants-leave/">Why Good Tenants Leave: Tenant Retention for Landlords in 2026</a></h2>
+          <time class="blog-post-date" datetime="2026-04-20">April 20, 2026</time>
+          <p class="blog-post-desc">Why renters exit on time, what drives turnover, and landlord systems—maintenance, communication, renewals—that protect renewals.</p>
+          <a class="blog-post-read" href="/blog/why-good-tenants-leave/">Read article →</a>
+        </article>
+
+        <article class="blog-post-item">
+          <span class="blog-post-cat">Remote</span>
+          <h2 class="blog-post-title"><a href="/blog/manage-rental-property-out-of-state/">How to Manage Rental Property Out of State: The Remote Landlord Playbook 2026</a></h2>
+          <time class="blog-post-date" datetime="2026-04-18">April 18, 2026</time>
+          <p class="blog-post-desc">Systems, inspection solutions, legal requirements, and the visibility problem most remote landlords never solve.</p>
+          <a class="blog-post-read" href="/blog/manage-rental-property-out-of-state/">Read article →</a>
+        </article>
+
+        <article class="blog-post-item">
+          <span class="blog-post-cat">Section 8</span>
+          <h2 class="blog-post-title"><a href="/blog/section-8-landlord-guide/">Section 8 Landlord Guide 2026: How to Accept HCV Tenants Without the Headache</a></h2>
+          <time class="blog-post-date" datetime="2026-04-15">April 15, 2026</time>
+          <p class="blog-post-desc">How HCV works, what HQS inspections require, how landlords get paid, and why voucher tenants often stay longer.</p>
+          <a class="blog-post-read" href="/blog/section-8-landlord-guide/">Read article →</a>
+        </article>
+
+        <article class="blog-post-item">
+          <span class="blog-post-cat">Featured</span>
+          <h2 class="blog-post-title"><a href="/blog/how-much-do-property-managers-charge/">How Much Do Property Managers Charge? The Real Cost Landlords Never See</a></h2>
+          <time class="blog-post-date" datetime="2026-04-10">April 10, 2026</time>
+          <p class="blog-post-desc">Monthly fees, hidden charges, and what small portfolios actually pay compared to the headline percentage.</p>
+          <a class="blog-post-read" href="/blog/how-much-do-property-managers-charge/">Read article →</a>
+        </article>
       </section>
     </div>
   </main>
