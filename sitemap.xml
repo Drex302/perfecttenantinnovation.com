@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://perfecttenantinnovation.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Blog index -->
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Blog posts -->
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/appfolio-vs-perfect-tenant-innovation/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/avail-vs-perfect-tenant-innovation/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/buildium-vs-perfect-tenant-innovation/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/first-rental-property-checklist/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/how-much-do-property-managers-charge/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/how-to-manage-rental-property-full-time-job/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/how-to-write-lease-agreement/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/landlord-guide-atlanta-georgia/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/landlord-guide-detroit-michigan/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/landlord-guide-jacksonville-florida/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/landlord-insurance-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/manage-rental-property-out-of-state/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/property-management-indianapolis-indiana/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/property-management-inherited-rental-property/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/property-management-software-birmingham-alabama/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/property-management-software-charlotte-nc/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/property-management-software-section-8-landlords/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/rent-manager-vs-perfect-tenant-innovation/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/rental-property-cash-flow/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/rental-property-investing-memphis-tennessee/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/section-8-landlord-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/section-8-landlord-guide-cleveland-ohio/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/section-8-landlord-guide-houston-texas/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/section-8-landlord-guide-memphis-tennessee/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/security-deposit-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/single-family-vs-multifamily-rental/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/tenant-credit-building-rent/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/turbotenant-vs-perfect-tenant-innovation/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/why-good-tenants-leave/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfecttenantinnovation.com/blog/yardi-vs-perfect-tenant-innovation/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
