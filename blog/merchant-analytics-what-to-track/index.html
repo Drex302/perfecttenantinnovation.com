@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8EF20FCMTK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8EF20FCMTK');
+  </script>
+
+  <title>Merchant Analytics: What to Track and Why (2026) | Perfect Tenant Innovation</title>
+  <meta name="description" content="The metrics that actually matter for independent marketplace sellers — conversion rate, repeat purchase rate, average order value, and the analytics decisions that drive revenue without overwhelming you with data.">
+  <link rel="canonical" href="https://www.perfecttenantinnovation.com/blog/merchant-analytics-what-to-track/">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.perfecttenantinnovation.com/blog/merchant-analytics-what-to-track/">
+  <meta property="og:title" content="Merchant Analytics: What to Track and Why (2026)">
+  <meta property="og:description" content="The metrics that matter for independent sellers — conversion rate, repeat purchase rate, AOV, and the analytics decisions that grow your marketplace revenue.">
+  <meta property="og:site_name" content="Perfect Tenant Innovation">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Merchant Analytics: What to Track and Why (2026)",
+    "description": "The metrics that actually matter for independent marketplace sellers and how to use them to grow revenue without data overwhelm.",
+    "author": { "@type": "Person", "name": "Drexton Andrews" },
+    "publisher": { "@type": "Organization", "name": "Perfect Tenant Innovation", "url": "https://www.perfecttenantinnovation.com" },
+    "datePublished": "2026-04-26",
+    "dateModified": "2026-04-26",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.perfecttenantinnovation.com/blog/merchant-analytics-what-to-track/" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What metrics should marketplace sellers track?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Focus on six decision-driving metrics monthly: net revenue after fees, conversion rate (orders divided by listing views), average order value, repeat purchase rate, review rate and average rating, and profit margin per product. Most other metrics are vanity or derivable from these." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a good conversion rate for marketplace listings?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Above roughly 3% is strong. Between about 1.5% and 3% is average with room to improve. Below about 1.5% usually signals a listing issue — often hero photo, price alignment, or opening description lines." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I increase average order value for my marketplace listings?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Common levers include bundles, gift sets, premium variants, and free-shipping thresholds set above your current average order value. Change one lever at a time and measure impact." }
+      },
+      {
+        "@type": "Question",
+        "name": "How often should I review my analytics?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Monthly for the core six metrics is enough for most small catalogs; more frequent updates often add noise. New listings can be checked after enough views (for example near 100) to spot conversion issues early." }
+      }
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <style>
+    body{background-color:#0D1117!important}
+    .blog-hero{background:var(--dark2,#161B24);padding:80px 24px 60px;text-align:center;position:relative;overflow:hidden}
+    .blog-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 30%,rgba(201,168,76,.12) 0%,transparent 58%);pointer-events:none}
+    .blog-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 75%,rgba(38,140,166,.12) 0%,transparent 55%);pointer-events:none}
+    .blog-hero .post-category{display:inline-block;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.25);color:#E6D08E;font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:22px;position:relative;z-index:1}
+    .blog-hero h1{font-family:'Syne',sans-serif;font-size:clamp(1.85rem,4.5vw,3rem);font-weight:800;color:#fff;max-width:980px;margin:0 auto 16px;line-height:1.15;position:relative;z-index:1}
+    .blog-hero .hero-sub{color:#8B9CB0;max-width:920px;margin:0 auto 16px;font-family:'DM Sans',sans-serif;font-size:1.02rem;line-height:1.6;position:relative;z-index:1}
+    .blog-hero .post-meta{color:#8B9CB0;font-size:.9rem;position:relative;z-index:1}
+
+    .stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:26px auto 0;max-width:920px;position:relative;z-index:1}
+    .stat-card{border-radius:14px;padding:16px;text-align:center;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)}
+    .stat-num{font-family:'Syne',sans-serif;font-size:1.22rem;font-weight:900;color:#C9A84C;margin:0 0 6px}
+    .stat-lab{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#8B9CB0;line-height:1.35;margin:0}
+
+    .pill-row{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:18px auto 0;max-width:980px;position:relative;z-index:1}
+    .pill{background:rgba(38,140,166,.14);border:1px solid rgba(38,140,166,.28);color:#9FE1CB;font-family:'DM Sans',sans-serif;font-size:.9rem;padding:6px 14px;border-radius:999px}
+    a.pill{color:#9FE1CB;text-decoration:none}
+    a.pill:hover{background:rgba(38,140,166,.22)}
+    .pill-gold{background:rgba(201,168,76,.12);border-color:rgba(201,168,76,.28);color:#E6D08E}
+
+    .blog-content{max-width:900px;margin:0 auto;padding:60px 24px 80px;background-color:#0D1117;color:#E8EDF2;font-family:'DM Sans',sans-serif;font-size:1.05rem;line-height:1.8}
+    .blog-content h2{font-family:'Syne',sans-serif;font-size:1.7rem;font-weight:700;color:#fff;margin:56px 0 18px;line-height:1.25}
+    .blog-content h3{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;margin:34px 0 14px}
+    .blog-content h4{font-family:'Syne',sans-serif;font-size:1.02rem;font-weight:700;color:#fff;margin:22px 0 10px}
+    .blog-content p{margin:0 0 22px}
+    .blog-content ul,.blog-content ol{margin:0 0 24px 24px}
+    .blog-content li{margin-bottom:10px}
+    .blog-content strong{color:#fff;font-weight:600}
+    .blog-content a{color:#268CA6;text-decoration:underline;text-underline-offset:3px}
+
+    .callout{background:rgba(38,140,166,.08);border-left:4px solid #268CA6;border-radius:0 8px 8px 0;padding:22px 26px;margin:28px 0}
+    .callout p{margin:0;color:#D8E4EE}
+    .callout strong{display:block;margin-bottom:10px;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:#9FE1CB}
+    .callout-gold{background:rgba(201,168,76,.08);border-left-color:#C9A84C}
+    .callout-gold strong{color:#E6D08E}
+    .callout-green{background:rgba(45,158,107,.08);border-left-color:#2D9E6B}
+    .callout-green strong{color:#7FE0B7}
+    .callout-amber{background:rgba(245,158,11,.10);border-left-color:#F59E0B}
+    .callout-amber strong{color:#FCD34D}
+    .callout-purple{background:rgba(124,58,237,.10);border-left-color:#7C3AED}
+    .callout-purple strong{color:#C4B5FD}
+
+    .metric-stack{display:flex;flex-direction:column;gap:18px;margin:28px 0}
+    .mcard{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden}
+    .mcard-head{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.08);flex-wrap:wrap}
+    .mcard-ico{font-size:1.35rem;line-height:1}
+    .mcard-title{font-family:'Syne',sans-serif;font-size:1.02rem;font-weight:800;color:#fff;margin:0;flex:1;min-width:140px}
+    .mc-tag{margin-left:auto;font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;padding:4px 10px;border-radius:999px}
+    .tag-primary{background:rgba(45,158,107,.14);border:1px solid rgba(45,158,107,.28);color:#7FE0B7}
+    .tag-secondary{background:rgba(38,140,166,.14);border:1px solid rgba(38,140,166,.28);color:#9FE1CB}
+    .tag-skip{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.22);color:#FCA5A5}
+    .mcard-body{padding:18px 20px 20px}
+    .mc-formula{font-family:'DM Sans',monospace;font-size:.82rem;color:#9FE1CB;font-weight:700;margin:0 0 12px;padding:10px 14px;background:rgba(38,140,166,.10);border:1px solid rgba(38,140,166,.22);border-radius:10px;display:inline-block;max-width:100%}
+    .mc-desc{font-size:.96rem;color:#D8E4EE;line-height:1.65;margin:0 0 14px}
+    .mc-benchmarks{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+    .mc-bench{font-size:.75rem;padding:4px 10px;border-radius:999px;font-weight:700}
+    .bench-good{background:rgba(45,158,107,.14);color:#7FE0B7;border:1px solid rgba(45,158,107,.25)}
+    .bench-ok{background:rgba(245,158,11,.12);color:#FCD34D;border:1px solid rgba(245,158,11,.22)}
+    .bench-bad{background:rgba(239,68,68,.12);color:#FCA5A5;border:1px solid rgba(239,68,68,.22)}
+    .mc-action{font-size:.88rem;color:#8B9CB0;border-top:1px solid rgba(255,255,255,.08);padding-top:12px;margin:0;line-height:1.55}
+
+    .dashboard{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.10);border-radius:16px;padding:24px;margin:28px 0}
+    .dash-title{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:900;color:#fff;margin:0 0 6px}
+    .dash-sub{font-size:.88rem;color:#8B9CB0;margin:0 0 18px;line-height:1.55}
+    .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media(max-width:760px){.dash-grid{grid-template-columns:1fr}}
+    .dash-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px 14px}
+    .dash-label{font-size:.68rem;color:#8B9CB0;text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin:0 0 6px}
+    .dash-field{font-size:.95rem;color:#fff;font-weight:700;margin:0}
+    .dash-note{font-size:.8rem;color:#6B7C8F;margin:6px 0 0;line-height:1.4}
+
+    .diagnosis-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0}
+    @media(max-width:760px){.diagnosis-grid{grid-template-columns:1fr}}
+    .diag-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px}
+    .diag-symptom{font-size:.88rem;font-weight:800;color:#FCA5A5;margin:0 0 8px;font-family:'Syne',sans-serif}
+    .diag-cause{font-size:.86rem;color:#8B9CB0;margin:0 0 8px;line-height:1.5}
+    .diag-fix{font-size:.86rem;color:#9FE1CB;font-weight:700;margin:0;line-height:1.5}
+
+    .seasonal-scroll{overflow-x:auto;margin:20px 0;-webkit-overflow-scrolling:touch}
+    .seasonal-table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:520px}
+    .seasonal-table th{background:#268CA6;color:#fff;padding:11px 14px;text-align:left;font-family:'Syne',sans-serif;font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+    .seasonal-table td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.08);vertical-align:top;line-height:1.45;color:#D8E4EE}
+    .seasonal-table tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+
+    .pti-merchant{background:rgba(201,168,76,.08);border:2px solid rgba(201,168,76,.35);border-radius:16px;padding:32px;margin:40px 0;text-align:center}
+    .pti-merchant h3{color:#E6D08E;font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:900;margin:0 0 12px}
+    .pti-merchant p{color:#8B9CB0;font-size:.98rem;max-width:520px;margin:0 auto 20px;line-height:1.6}
+    .pti-btn{display:inline-block;background:#C9A84C;color:#14141A;padding:14px 28px;border-radius:12px;font-family:'Syne',sans-serif;font-size:1rem;font-weight:900;text-decoration:none}
+    .pti-btn:hover{opacity:.92}
+
+    .cta{background:rgba(38,140,166,.10);border:1px solid rgba(38,140,166,.22);border-radius:18px;padding:26px;margin:40px 0;text-align:center}
+    .cta h3{margin:0 0 8px;color:#fff;font-family:'Syne',sans-serif;font-weight:900}
+    .cta p{margin:0;color:#8B9CB0;max-width:560px;margin-left:auto;margin-right:auto}
+    .cta .btn{display:inline-block;margin-top:14px;background:#268CA6;color:#fff;text-decoration:none;font-family:'Syne',sans-serif;font-weight:900;padding:14px 24px;border-radius:12px}
+    .cta .btn:hover{opacity:.92}
+
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:20px 0 0}
+    .related-card{display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px}
+    .related-card:hover{border-color:rgba(38,140,166,.35)}
+    .related-tag{margin:0 0 8px;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1.3px;color:#9FE1CB}
+    .related-title{margin:0;color:#fff;font-family:'Syne',sans-serif;font-weight:900;line-height:1.25}
+  </style>
+</head>
+<body>
+  <nav id="mainNav" class="nav">
+    <a href="/" class="nav-logo">Perfect<span>Tenant</span></a>
+    <ul class="nav-links">
+      <li><a href="/#platform">Landlords</a></li>
+      <li><a href="/tenants/">For Tenants</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/join/">Join ecosystem</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/landlord-hours-audit/" class="nav-cta">Free Audit</a></li>
+      <li><a href="/join/" class="nav-cta" style="background:rgba(232,52,26,.12);border:1px solid rgba(232,52,26,.28);color:#FCA5A5;">Swarm Boss</a></li>
+    </ul>
+  </nav>
+
+  <header class="blog-hero">
+    <div class="post-category">Merchant growth guide · 2026</div>
+    <h1>Merchant Analytics: What to Track and Why</h1>
+    <p class="hero-sub">Most independent sellers look at the wrong numbers — or drown in the right ones. Here are six metrics that actually determine whether your marketplace business grows, and how to use each one to make decisions rather than just feel informed.</p>
+    <p class="post-meta">By Drexton Andrews &nbsp;·&nbsp; Updated April 2026 &nbsp;·&nbsp; 10 min read</p>
+
+    <div class="stat-row" aria-label="Quick takeaways">
+      <div class="stat-card"><p class="stat-num">6</p><p class="stat-lab">Core metrics that drive decisions</p></div>
+      <div class="stat-card"><p class="stat-num">20 min</p><p class="stat-lab">Monthly analytics window for small catalogs</p></div>
+      <div class="stat-card"><p class="stat-num">Net revenue</p><p class="stat-lab">Validates every other number you track</p></div>
+    </div>
+
+    <div class="pill-row" aria-label="Jump links">
+      <a class="pill" href="#core">Six metrics</a>
+      <a class="pill" href="#routine">Monthly routine</a>
+      <a class="pill" href="#diagnose">Diagnose revenue</a>
+      <a class="pill pill-gold" href="#seasonal">Seasonality</a>
+      <a class="pill" href="#pti">PTI Shopping</a>
+      <a class="pill" href="#vanity">Skip vanity</a>
+    </div>
+  </header>
+
+  <article class="blog-content">
+    <p>Data is only useful when it tells you what to do differently. Most sellers have access to more data than they’ll ever use — impression counts, click-through rates, search ranking positions, abandoned cart rates, session durations, bounce rates. Most of it is either vanity (makes you feel informed without changing behavior) or noise (real signal buried in too much data to act on).</p>
+    <p>This guide strips away the noise. For an independent seller on PTI Shopping Universe, Etsy, or a local marketplace, six metrics tell you almost everything you need to know to grow your business. Track them monthly. Act on them when they deviate from target. Ignore everything else until you’ve mastered these six.</p>
+
+    <div class="callout callout-gold">
+      <p><strong>What this guide covers</strong> The six metrics that matter and the formulas to calculate each. What good and rough benchmarks can look like. What each metric tells you to do differently. The monthly 20-minute analytics routine. How to diagnose revenue problems by working through the metrics in order. Seasonal patterns that make numbers misleading if you don’t adjust. And what to watch in the PTI Shopping Universe specifically.</p>
+    </div>
+
+    <h2 id="core">The six metrics that actually matter</h2>
+
+    <div class="metric-stack">
+      <div class="mcard">
+        <div class="mcard-head">
+          <span class="mcard-ico" aria-hidden="true">💰</span>
+          <h3 class="mcard-title">Metric 1: Net revenue (after all fees)</h3>
+          <span class="mc-tag tag-primary">Primary</span>
+        </div>
+        <div class="mcard-body">
+          <p class="mc-formula">Net revenue = Gross sales − Platform fees − Processing fees − Refunds</p>
+          <p class="mc-desc">This is the only number that validates everything else. Gross sales is what buyers paid. Net revenue is what you actually received. Platform fees (for example marketplace commissions), payment processing, and refunds all reduce gross to net. Many sellers optimize for gross sales while net revenue is shrinking because fees increased. Track net, not gross.</p>
+          <div class="mc-benchmarks">
+            <span class="mc-bench bench-good">Growing MoM on 3-mo avg</span>
+            <span class="mc-bench bench-ok">Flat — stable</span>
+            <span class="mc-bench bench-bad">Declining — investigate</span>
+          </div>
+          <p class="mc-action">→ If net revenue is declining but gross is flat or growing: your fees changed, or returns increased. Dig into the fee structure before anything else.</p>
+        </div>
+      </div>
+
+      <div class="mcard">
+        <div class="mcard-head">
+          <span class="mcard-ico" aria-hidden="true">🛒</span>
+          <h3 class="mcard-title">Metric 2: Conversion rate</h3>
+          <span class="mc-tag tag-primary">Primary</span>
+        </div>
+        <div class="mcard-body">
+          <p class="mc-formula">Conversion rate = (Orders ÷ Listing views) × 100</p>
+          <p class="mc-desc">Your conversion rate tells you whether people who find your listing decide to buy it. A high conversion rate on a low-view listing means your listing is excellent but underexposed. A low conversion rate on a high-view listing means your listing is attracting the wrong buyers or failing to close them. These are completely different problems requiring completely different solutions.</p>
+          <div class="mc-benchmarks">
+            <span class="mc-bench bench-good">Above ~3% — strong</span>
+            <span class="mc-bench bench-ok">~1.5–3% — improve</span>
+            <span class="mc-bench bench-bad">Below ~1.5% — listing work</span>
+          </div>
+          <p class="mc-action">→ Low conversion? Work through the listing: first photo (hero image is the most important), price relative to perceived value, description opening (first ~150 characters on mobile), and social proof (reviews). Fix in that order.</p>
+        </div>
+      </div>
+
+      <div class="mcard">
+        <div class="mcard-head">
+          <span class="mcard-ico" aria-hidden="true">📦</span>
+          <h3 class="mcard-title">Metric 3: Average order value (AOV)</h3>
+          <span class="mc-tag tag-primary">Primary</span>
+        </div>
+        <div class="mcard-body">
+          <p class="mc-formula">AOV = Total net revenue ÷ Number of orders</p>
+          <p class="mc-desc">Average order value tells you how much each customer spends per transaction. Increasing AOV is one of the highest-leverage levers in a marketplace business because you’re increasing revenue from customers you’ve already acquired — no additional acquisition cost. Every $5 increase in AOV on 50 monthly orders is $250 in additional monthly revenue from existing traffic.</p>
+          <div class="mc-benchmarks">
+            <span class="mc-bench bench-good">Increasing — bundles / premium working</span>
+            <span class="mc-bench bench-ok">Flat — OK if volume grows</span>
+            <span class="mc-bench bench-bad">Declining — lower-priced mix</span>
+          </div>
+          <p class="mc-action">→ To increase AOV: add a bundle option (3 for $X), create a gift set at a higher price point, add a premium version of your best-seller, or offer free shipping above a minimum order value that’s above your current average.</p>
+        </div>
+      </div>
+
+      <div class="mcard">
+        <div class="mcard-head">
+          <span class="mcard-ico" aria-hidden="true">🔄</span>
+          <h3 class="mcard-title">Metric 4: Repeat purchase rate</h3>
+          <span class="mc-tag tag-primary">Primary</span>
+        </div>
+        <div class="mcard-body">
+          <p class="mc-formula">Repeat rate = (Customers with 2+ orders ÷ Total customers) × 100</p>
+          <p class="mc-desc">Repeat purchase rate is the most important long-term health indicator for a marketplace business. It tells you whether buyers who try your product come back for more — which is the foundation of a sustainable business rather than a constant acquisition treadmill. Products with natural repeat potential (candles, food products, personal care) should have higher repeat rates than one-time purchases (art prints, custom items).</p>
+          <div class="mc-benchmarks">
+            <span class="mc-bench bench-good">Above ~25% consumables — strong</span>
+            <span class="mc-bench bench-ok">~15–25% — improve post-purchase</span>
+            <span class="mc-bench bench-bad">Below ~10% — experience / product fit</span>
+          </div>
+          <p class="mc-action">→ Low repeat rate for a consumable often means the product didn’t match the listing promise, post-purchase felt underwhelming, or you’re not following up after first purchase. A simple “how was it?” message a couple weeks after delivery can lift second orders.</p>
+        </div>
+      </div>
+
+      <div class="mcard">
+        <div class="mcard-head">
+          <span class="mcard-ico" aria-hidden="true">⭐</span>
+          <h3 class="mcard-title">Metric 5: Review rate and average rating</h3>
+          <span class="mc-tag tag-secondary">Secondary</span>
+        </div>
+        <div class="mcard-body">
+          <p class="mc-formula">Review rate = (Reviews received ÷ Orders placed) × 100</p>
+          <p class="mc-desc">Most buyers don’t leave reviews without being asked. Your review rate — what percentage of buyers leave a review — tells you both how satisfied your buyers are and how effectively you’re asking. Average rating tells you how satisfied they are when they do review. Both matter, because a 5.0 average from three reviews is worth less than a 4.7 average from 40 reviews in terms of social proof impact on future buyers.</p>
+          <div class="mc-benchmarks">
+            <span class="mc-bench bench-good">Review rate above ~15%</span>
+            <span class="mc-bench bench-ok">~5–15% — tighten asks</span>
+            <span class="mc-bench bench-bad">Below ~5% — ask / satisfaction</span>
+          </div>
+          <p class="mc-action">→ Ask for reviews within 5–7 days of confirmed delivery, in a personal message that references the specific product they ordered. Specific beats generic.</p>
+        </div>
+      </div>
+
+      <div class="mcard">
+        <div class="mcard-head">
+          <span class="mcard-ico" aria-hidden="true">📊</span>
+          <h3 class="mcard-title">Metric 6: Profit margin per product</h3>
+          <span class="mc-tag tag-secondary">Secondary</span>
+        </div>
+        <div class="mcard-body">
+          <p class="mc-formula">Margin = (Net revenue − Direct costs) ÷ Net revenue × 100</p>
+          <p class="mc-desc">Tracking margin per product — not just revenue — tells you which of your products are actually profitable and which are generating sales while contributing minimally to your income. It’s common to have a best-selling product with thin margin and a lower-volume product with strong margin. Understanding this distribution tells you which products to prioritize, discontinue, or reprice.</p>
+          <div class="mc-benchmarks">
+            <span class="mc-bench bench-good">Above ~35% — healthy handmade/craft</span>
+            <span class="mc-bench bench-ok">~20–35% — OK if volume carries</span>
+            <span class="mc-bench bench-bad">Below ~20% — reprice or cut</span>
+          </div>
+          <p class="mc-action">→ Run this calculation quarterly on every product. Costs change — materials, packaging, postage. See our <a href="/blog/how-to-price-products-local-marketplace/">pricing guide for local marketplaces</a> for the full cost stack.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="routine">The monthly analytics routine: 20 minutes, not hours</h2>
+    <p>You don’t need a complex data system to track six metrics monthly. You need a consistent habit. Here’s the monthly routine that takes about 20 minutes and gives you what you need to decide:</p>
+
+    <div class="dashboard">
+      <p class="dash-title">Monthly merchant dashboard — fill this in, then decide</p>
+      <p class="dash-sub">Update once per month on the same day (the 1st is easiest). Compare to last month and a 3-month average. Act on anything that’s more than about 15% off where you want it.</p>
+      <div class="dash-grid">
+        <div class="dash-item">
+          <p class="dash-label">Net revenue this month</p>
+          <p class="dash-field">$_____</p>
+          <p class="dash-note">vs. last month: _____ · 3-mo avg: $_____</p>
+        </div>
+        <div class="dash-item">
+          <p class="dash-label">Conversion rate</p>
+          <p class="dash-field">_____%</p>
+          <p class="dash-note">Orders ÷ Views × 100 · Target often &gt;3%</p>
+        </div>
+        <div class="dash-item">
+          <p class="dash-label">Average order value</p>
+          <p class="dash-field">$_____</p>
+          <p class="dash-note">Net revenue ÷ # orders · Trend ↑ ↓ →</p>
+        </div>
+        <div class="dash-item">
+          <p class="dash-label">Repeat purchase rate</p>
+          <p class="dash-field">_____%</p>
+          <p class="dash-note">Returning customers ÷ Total customers × 100</p>
+        </div>
+        <div class="dash-item">
+          <p class="dash-label">New reviews received</p>
+          <p class="dash-field">_____ (avg: _____★)</p>
+          <p class="dash-note">Total rating: _____ from _____ reviews</p>
+        </div>
+        <div class="dash-item">
+          <p class="dash-label">Best-performing product</p>
+          <p class="dash-field">_____</p>
+          <p class="dash-note">Revenue: $_____ · Margin: _____% · Why: _____</p>
+        </div>
+        <div class="dash-item">
+          <p class="dash-label">Worst-performing product</p>
+          <p class="dash-field">_____</p>
+          <p class="dash-note">Revenue: $_____ · Margin: _____% · Action: _____</p>
+        </div>
+        <div class="dash-item">
+          <p class="dash-label">One thing I’m changing next month</p>
+          <p class="dash-field">_____</p>
+          <p class="dash-note">One specific change — not five at once</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-green">
+      <p><strong>The “one thing” rule</strong> The most common analytics mistake isn’t tracking the wrong numbers — it’s tracking the right numbers and changing five things simultaneously so you can’t tell which one worked. Every month, pick one thing to change based on your data. After ~30 days, you know whether it worked. Then change the next thing.</p>
+    </div>
+
+    <h2 id="diagnose">Diagnosing revenue problems by metric</h2>
+    <p>When revenue is lower than you want, the metrics tell you where to look. Work through them in this order:</p>
+
+    <div class="diagnosis-grid">
+      <div class="diag-card">
+        <p class="diag-symptom">Revenue is down but views are up</p>
+        <p class="diag-cause">Traffic but not conversion. Photo, price, or description problem.</p>
+        <p class="diag-fix">→ Rework the hero image first. Then check price vs. perceived value.</p>
+      </div>
+      <div class="diag-card">
+        <p class="diag-symptom">Revenue is down and views are down</p>
+        <p class="diag-cause">Discovery / ranking issue.</p>
+        <p class="diag-fix">→ Refresh titles and tags with buyer-language keywords. New photos signal freshness.</p>
+      </div>
+      <div class="diag-card">
+        <p class="diag-symptom">Revenue is flat despite good views and conversion</p>
+        <p class="diag-cause">AOV or repeat rate problem. Buyers buy once, not deeply.</p>
+        <p class="diag-fix">→ Bundles, follow-up for second order.</p>
+      </div>
+      <div class="diag-card">
+        <p class="diag-symptom">Revenue is volatile month to month</p>
+        <p class="diag-cause">Seasonal demand or inconsistent marketing.</p>
+        <p class="diag-fix">→ Review seasonal patterns below. Build a simple promo calendar.</p>
+      </div>
+      <div class="diag-card">
+        <p class="diag-symptom">Reviews declining or stopping</p>
+        <p class="diag-cause">You stopped asking — most buyers need a prompt.</p>
+        <p class="diag-fix">→ Post-delivery request 5–7 days out, product-specific.</p>
+      </div>
+      <div class="diag-card">
+        <p class="diag-symptom">Revenue grows but bank account doesn’t</p>
+        <p class="diag-cause">Margin erosion — costs up, prices stale.</p>
+        <p class="diag-fix">→ Margin math on your top products; reprice where needed.</p>
+      </div>
+    </div>
+
+    <h2 id="seasonal">Seasonal patterns that make metrics misleading</h2>
+    <p>Most marketplace categories have predictable seasonal patterns that affect every metric. Knowing your category’s seasonality prevents panic in expected slow periods or misattributing busy-season wins to listing changes.</p>
+
+    <div class="seasonal-scroll">
+      <table class="seasonal-table">
+        <thead><tr><th>Category</th><th>Peak months</th><th>Slow months</th><th>What to do during slow months</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Candles / home fragrance</strong></td><td>Oct–Dec (holiday), Sep (fall)</td><td>May–Jul</td><td>Launch new summer scents. Promote gifting. Build inventory for peak.</td></tr>
+          <tr><td><strong>Personal care / bath</strong></td><td>Nov–Dec, Feb</td><td>Mar–Apr</td><td>Seasonal SKUs. Use slow months for listing and photo refreshes.</td></tr>
+          <tr><td><strong>Food products</strong></td><td>Nov–Dec, May–Jun, holidays</td><td>Jan post-holiday</td><td>New flavors. Wholesale or local during slow season.</td></tr>
+          <tr><td><strong>Apparel / fashion</strong></td><td>Sep–Oct, Mar–Apr</td><td>Jul–Aug, Jan</td><td>Seasonal collections 4–6 weeks pre-peak. Gift guides in October.</td></tr>
+          <tr><td><strong>Home décor</strong></td><td>Sep–Oct, Nov–Dec</td><td>Feb–Mar</td><td>Spring refresh launches in February for early intent.</td></tr>
+          <tr><td><strong>Art prints</strong></td><td>Nov–Dec, holidays</td><td>Feb–Mar, Aug</td><td>Local / city-specific prints. Plan inventory year-round.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-amber">
+      <p><strong>Compare to the same period last year, not only last month</strong> A seasonal business comparing December to November can look like a “crash” even when you’re healthy. Year-over-year (same calendar month) often answers whether you’re actually growing.</p>
+    </div>
+
+    <h2 id="pti">PTI Shopping Universe: what to track specifically</h2>
+    <p>The PTI Shopping Universe has a buyer profile that differs from generic marketplace traffic — a few metrics deserve extra attention:</p>
+    <ul>
+      <li><strong>Points-to-purchase conversion:</strong> What percentage of buyers using PTI Points complete the purchase vs. browse-only? Low conversion can mean curiosity without conviction — tighten photos and description for a redemption mindset.</li>
+      <li><strong>Local buyer concentration:</strong> If you’re a merchant in a PTI market, track what share of buyers are local. Strong local share usually means your story is landing and word-of-mouth can compound.</li>
+      <li><strong>Review mentions of local identity:</strong> When buyers mention your city, local ingredients, or “Made in [city]” in reviews, that’s qualitative proof your positioning works. Track those themes.</li>
+    </ul>
+
+    <h2 id="vanity">What not to track — vanity metrics that waste your time</h2>
+    <p>Tracking the wrong numbers is as costly as not tracking anything, because it feels productive without changing outcomes. Metrics sellers often over-weight:</p>
+    <ul>
+      <li><strong>Social follower count:</strong> Followers don’t pay rent. Prefer revenue tied to posts or campaigns you can attribute.</li>
+      <li><strong>Listing impressions:</strong> Without conversion, impressions are unspent attention. Track conversion rate.</li>
+      <li><strong>Gross revenue without fees:</strong> Your bank account reflects net. Track net.</li>
+      <li><strong>Raw page views:</strong> Views are an input to conversion — track the ratio, not vanity totals.</li>
+    </ul>
+
+    <div class="callout callout-purple">
+      <p><strong>One question per month</strong> After you fill the dashboard: “If I could change only one thing this month based on these numbers, what would it be?” That answer is your next action — not five parallel experiments.</p>
+    </div>
+
+    <div class="pti-merchant">
+      <h3>Better analytics. Better decisions. Better results in the PTI Shopping Universe.</h3>
+      <p>Apply to list in the PTI Shopping Universe and get your products in front of reward-motivated buyers — with the metrics above telling you whether it’s working.</p>
+      <a class="pti-btn" href="/merchants/">Apply as a PTI merchant</a>
+    </div>
+
+    <h2>Frequently asked questions</h2>
+    <h3>What metrics should marketplace sellers track?</h3>
+    <p>The six that actually drive decisions: net revenue (after fees — not gross), conversion rate (orders ÷ views), average order value, repeat purchase rate, review rate and rating, and profit margin per product. Track these monthly in a simple dashboard. Everything else is either derivable from these six or vanity data that consumes attention without changing outcomes.</p>
+    <h3>What is a good conversion rate for marketplace listings?</h3>
+    <p>Above ~3% is strong. Between ~1.5% and ~3% is average with room to improve. Below ~1.5% usually indicates a listing problem — almost always the hero photo, price alignment, or the opening lines of the description. The fix order matters: photo first, price second, description third.</p>
+    <h3>How do I increase average order value for my marketplace listings?</h3>
+    <p>Four tactics work consistently: bundle pricing, gift sets, free shipping above a threshold set above your current AOV, and a premium variant of your best-seller. Implement one at a time and measure before stacking.</p>
+    <h3>How often should I review my analytics?</h3>
+    <p>Monthly for the six core metrics. For a 1–10 product business, more frequent reviews often add noise because small-sample month-to-month swings mislead. Exception: a new listing — after enough views (for example near 100), check conversion before you accumulate traffic on a broken listing.</p>
+
+    <div class="cta">
+      <h3>Six metrics. Twenty minutes a month. A business that actually grows.</h3>
+      <p>Apply to the PTI Shopping Universe and put your products in front of a reward-motivated buyer base while tracking numbers that matter.</p>
+      <a class="btn" href="/merchants/">Apply as a PTI merchant</a>
+    </div>
+
+    <h2>Related merchant guides</h2>
+    <div class="related-grid">
+      <a href="/blog/how-to-price-products-local-marketplace/" class="related-card"><p class="related-tag">Pricing</p><p class="related-title">How to price products for a local marketplace</p></a>
+      <a href="/blog/product-listing-tips-convert/" class="related-card"><p class="related-tag">Listing tips</p><p class="related-title">Product listing tips that actually convert</p></a>
+      <a href="/blog/writing-product-descriptions-that-sell/" class="related-card"><p class="related-tag">Writing</p><p class="related-title">Writing product descriptions that sell: complete guide</p></a>
+      <a href="/blog/pti-shopping-universe-merchant-guide/" class="related-card"><p class="related-tag">PTI platform</p><p class="related-title">PTI Shopping Universe: merchant onboarding guide</p></a>
+    </div>
+
+    <div style="margin-top:56px;padding-top:32px;border-top:1px solid rgba(255,255,255,.08);display:flex;gap:20px;align-items:flex-start;">
+      <div style="width:56px;height:56px;border-radius:50%;background:rgba(201,168,76,.14);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:#E6D08E;flex-shrink:0;">DA</div>
+      <div>
+        <p style="margin:0 0 6px;font-size:.9rem;font-weight:700;color:#fff;">Drexton Andrews</p>
+        <p style="margin:0 0 10px;font-size:.8rem;color:#268CA6;">Founder, Perfect Tenant Innovation</p>
+        <p style="margin:0;font-size:.88rem;color:#8B9CB0;line-height:1.6;"><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/merchants/">Merchants</a> · <a href="/join/">Join</a></p>
+      </div>
+    </div>
+  </article>
+
+  <footer style="background:transparent;border-top:1px solid rgba(255,255,255,.08);margin-top:0;padding:30px 24px 56px;text-align:center;color:#8B9CB0;font-family:'DM Sans',sans-serif;">
+    <div style="max-width:900px;margin:0 auto;">
+      <p style="margin:0 0 10px;color:#C9A84C;font-family:'Syne',sans-serif;font-weight:900;">Perfect Tenant Innovation</p>
+      <p style="margin:0 0 14px;">Helping PTI merchants track less, decide more, and grow consistently.</p>
+      <p style="margin:0;font-size:.9rem;">
+        <a href="/" style="color:#268CA6;">Home</a> &nbsp;·&nbsp;
+        <a href="/blog/" style="color:#268CA6;">Blog</a> &nbsp;·&nbsp;
+        <a href="/merchants/" style="color:#268CA6;">Merchants</a> &nbsp;·&nbsp;
+        <a href="/join/" style="color:#268CA6;">Join</a> &nbsp;·&nbsp;
+        <a href="/landlord-hours-audit/" style="color:#268CA6;">Free Audit</a>
+      </p>
+      <p style="margin:16px 0 0;font-size:.8rem;">© 2026 Perfect Tenant Innovation, LLC. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var n = document.getElementById('mainNav');
+      if (!n) return;
+      window.addEventListener('scroll', function(){
+        if (window.scrollY > 50) { n.classList.add('scrolled'); }
+        else { n.classList.remove('scrolled'); }
+      });
+    })();
+  </script>
+</body>
+</html>
