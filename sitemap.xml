@@ -3,195 +3,586 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://perfecttenantinnovation.com/</loc>
+    <loc>https://www.perfecttenantinnovation.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
+  <!-- Main pages -->
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/tenants/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/merchants/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/service-providers/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/swarm-boss/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/join/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/landlord-hours-audit/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Blog index -->
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Blog posts -->
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/appfolio-vs-perfect-tenant-innovation/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/airbnb-landlord-guide-2026/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/avail-vs-perfect-tenant-innovation/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/appfolio-vs-perfect-tenant-innovation/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/buildium-vs-perfect-tenant-innovation/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/avail-vs-perfect-tenant-innovation/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/first-rental-property-checklist/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/brand-activation-birmingham-al/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/how-much-do-property-managers-charge/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/brand-ambassador-program-guide/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/how-to-manage-rental-property-full-time-job/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/brrrr-strategy-complete-investing-guide/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/how-to-write-lease-agreement/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/build-credit-as-renter/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/landlord-guide-atlanta-georgia/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/buildium-vs-perfect-tenant-innovation/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/landlord-guide-detroit-michigan/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/contractor-licensing-guide-by-state/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/landlord-guide-jacksonville-florida/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/duplex-investing-guide/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/landlord-insurance-guide/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/electrician-leads-memphis-tn/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/manage-rental-property-out-of-state/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/electrician-marketing-guide/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/property-management-indianapolis-indiana/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/first-apartment-checklist-renters/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/property-management-inherited-rental-property/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/first-rental-property-checklist/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/property-management-software-birmingham-alabama/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/getting-5-star-reviews-contractor/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/property-management-software-charlotte-nc/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/grassroots-brand-activation-guide/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/property-management-software-section-8-landlords/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/how-much-do-property-managers-charge/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/rent-manager-vs-perfect-tenant-innovation/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/how-to-evict-tenant-state-guide/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/rental-property-cash-flow/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/how-to-manage-rental-property-full-time-job/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/rental-property-investing-memphis-tennessee/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/how-to-price-products-local-marketplace/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/section-8-landlord-guide/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/how-to-raise-rent-without-losing-tenants/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/section-8-landlord-guide-cleveland-ohio/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/how-to-screen-tenants-guide/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/section-8-landlord-guide-houston-texas/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/how-to-start-selling-online-merchant-guide/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/section-8-landlord-guide-memphis-tennessee/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/how-to-use-section-8-voucher-tenant-guide/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/security-deposit-guide/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/how-to-write-lease-agreement/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/single-family-vs-multifamily-rental/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/hvac-business-growth-guide/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/tenant-credit-building-rent/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/hvac-leads-detroit-mi/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/turbotenant-vs-perfect-tenant-innovation/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/landlord-guide-atlanta-georgia/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/why-good-tenants-leave/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/landlord-guide-detroit-michigan/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://perfecttenantinnovation.com/blog/yardi-vs-perfect-tenant-innovation/</loc>
+    <loc>https://www.perfecttenantinnovation.com/blog/landlord-guide-houston-texas/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/landlord-guide-jacksonville-florida/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/landlord-guide-memphis-tennessee/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/landlord-insurance-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/landlord-insurance-what-you-need/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/landlord-tax-deductions-2026/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/local-commerce-hyperlocal-selling-wins/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/manage-rental-property-out-of-state/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/merchant-analytics-what-to-track/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/micro-influencer-outreach-step-by-step/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/multifamily-rental-investing-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/passive-income-rental-property-truth/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/plumber-leads-birmingham-al/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/plumber-leads-jacksonville-fl/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/product-listing-tips-convert/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/product-photography-tips-marketplace-sellers/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/property-management-indianapolis-indiana/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/property-management-inherited-rental-property/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/property-management-software-birmingham-alabama/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/property-management-software-charlotte-nc/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/property-management-software-section-8-landlords/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/pti-guide-atlanta-georgia/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/pti-guide-birmingham-alabama/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/pti-guide-cleveland-ohio/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/pti-guide-detroit-michigan/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/pti-guide-memphis-tennessee/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/pti-points-how-to-earn-redeem/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/pti-shopping-universe-merchant-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/referral-campaign-ideas-that-actually-work/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/rent-manager-vs-perfect-tenant-innovation/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/rental-property-cash-flow/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/rental-property-cash-flow-calculator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/rental-property-investing-memphis-tennessee/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/renting-with-bad-credit/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/roofer-lead-generation-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/roofer-leads-houston-tx/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/seasonal-selling-tips-marketplace-merchants/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/section-8-landlord-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/section-8-landlord-guide-atlanta-georgia/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/section-8-landlord-guide-cleveland-ohio/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/section-8-landlord-guide-houston-texas/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/section-8-landlord-guide-memphis-tennessee/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/security-deposit-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/sell-artisan-food-online-merchant-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/selling-handmade-goods-online-merchant-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/service-provider-profile-tips-pti/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/shipping-tips-small-marketplace-sellers/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/short-term-rental-laws-city-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/single-family-vs-multifamily-rental/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/swarm-boss-vs-influencer-marketing/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/tenant-credit-building-rent/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/tenant-rewards-programs-do-they-work/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/tenant-rights-guide-alabama/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/tenant-rights-guide-georgia/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/true-cost-vacant-rental-unit/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/turbotenant-vs-perfect-tenant-innovation/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/why-good-tenants-leave/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/word-of-mouth-marketing-complete-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/writing-product-descriptions-that-sell/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/yardi-vs-perfect-tenant-innovation/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

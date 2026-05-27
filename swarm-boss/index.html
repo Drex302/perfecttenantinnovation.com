@@ -150,6 +150,7 @@
   </footer>
 
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
   <script>
     firebase.initializeApp({
@@ -158,8 +159,12 @@
       projectId: "perfect-tenant-app-bfaf7",
       storageBucket: "perfect-tenant-app-bfaf7.firebasestorage.app",
       messagingSenderId: "637835334506",
-      appId: "1:637835334506:ios:c46d9e852c1eb8a8c1cb13"
+      appId: "1:637835334506:web:676b3a1802f32229c1cb13"
     });
+    firebase.appCheck().activate(
+      new firebase.appCheck.ReCaptchaEnterpriseProvider('6LfMfv4sAAAAAI1lKWCQFfxYjdoCQIhOmGQFCLnF'),
+      true
+    );
     var db = firebase.firestore();
 
     document.getElementById('swarmWaitlistForm').addEventListener('submit', function(e) {
