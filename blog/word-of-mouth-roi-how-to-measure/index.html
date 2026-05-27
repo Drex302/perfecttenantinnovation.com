@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8EF20FCMTK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8EF20FCMTK');
+  </script>
+
+  <title>Word of Mouth ROI: How to Measure It (2026) | Perfect Tenant Innovation</title>
+  <meta name="description" content="Measure word-of-mouth marketing without fooling yourself: why last-click undercounts peer influence, metrics that matter, survey and incrementality approaches, a simple WOM value model, and how Swarm Boss can add structure in PTI markets.">
+  <link rel="canonical" href="https://www.perfecttenantinnovation.com/blog/word-of-mouth-roi-how-to-measure/">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.perfecttenantinnovation.com/blog/word-of-mouth-roi-how-to-measure/">
+  <meta property="og:title" content="Word of Mouth ROI: How to Measure It (2026)">
+  <meta property="og:description" content="Attribution limits, practical WOM metrics, a calculator-style value model, community campaign measurement, and Swarm Boss as structured local activation — informational only.">
+  <meta property="og:site_name" content="Perfect Tenant Innovation">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Word of Mouth ROI: How to Measure It (2026)",
+    "description": "How to reason about word-of-mouth ROI using surveys, cohort LTV, incrementality, and community measurement — without treating last-click dashboards as ground truth.",
+    "author": { "@type": "Person", "name": "Drexton Andrews" },
+    "publisher": { "@type": "Organization", "name": "Perfect Tenant Innovation", "url": "https://www.perfecttenantinnovation.com" },
+    "datePublished": "2026-05-27",
+    "dateModified": "2026-05-27",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.perfecttenantinnovation.com/blog/word-of-mouth-roi-how-to-measure/" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you measure word-of-mouth marketing effectiveness?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Combine at least three lenses: (1) post-purchase self-report (“how did you first hear about us?”) to capture offline peer influence; (2) cohort LTV and retention by acquisition source so referred or recommendation-tagged customers are not blended into paid; (3) incrementality design where feasible—geo or time-based comparisons, holdouts, or clean pre/post baselines—because no digital model fully sees conversations that never touch a click path." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a good WOM conversion rate?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Word-of-mouth is often an intent channel that feeds other surfaces, so a single “WOM conversion rate” can mislead. More useful: the share of buyers who cite friend, family, or neighbor recommendation on surveys; referral participation among existing customers; and whether branded search, direct traffic, and assisted conversions in a market move together after community work. Benchmarks vary by category—set targets from your own baseline, not blog tables." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is word-of-mouth hard to measure?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Typical reasons: conversations often leave no UTM or session trail; lag between recommendation and purchase breaks short attribution windows; and last-click or platform-native models assign credit to the final paid or organic click even when a peer planted the idea. Surveys, source-tagged CRM fields, and deliberate geo or campaign windows usually improve the picture more than stacking more ad pixels." }
+      }
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <style>
+    body{background-color:#0D1117!important}
+    .blog-hero{background:var(--dark2,#161B24);padding:80px 24px 60px;text-align:center;position:relative;overflow:hidden}
+    .blog-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 35%,rgba(201,168,76,.12) 0%,transparent 55%);pointer-events:none}
+    .blog-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 85%,rgba(232,52,26,.08) 0%,transparent 50%);pointer-events:none}
+    .blog-hero .post-category{display:inline-block;background:rgba(232,52,26,.12);border:1px solid rgba(232,52,26,.28);color:#FCA5A5;font-size:.72rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:22px;position:relative;z-index:1}
+    .blog-hero h1{font-family:'Syne',sans-serif;font-size:clamp(1.75rem,4.2vw,2.85rem);font-weight:800;color:#fff;max-width:920px;margin:0 auto 16px;line-height:1.12;position:relative;z-index:1}
+    .blog-hero .hero-sub{color:#8B9CB0;max-width:720px;margin:0 auto 16px;font-family:'DM Sans',sans-serif;font-size:1.02rem;line-height:1.6;position:relative;z-index:1}
+    .blog-hero .post-meta{color:#8B9CB0;font-size:.9rem;position:relative;z-index:1}
+    .blog-hero .stat-note{font-size:.78rem;color:#6B7C8F;margin-top:14px;max-width:680px;margin-left:auto;margin-right:auto;position:relative;z-index:1;line-height:1.45}
+
+    .stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:26px auto 0;max-width:920px;position:relative;z-index:1}
+    .stat-card{border-radius:14px;padding:16px;text-align:center;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)}
+    .stat-num{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:900;color:#C9A84C;margin:0 0 6px;line-height:1.15}
+    .stat-lab{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.85px;color:#8B9CB0;line-height:1.35;margin:0}
+
+    .pill-row{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:18px auto 0;max-width:980px;position:relative;z-index:1}
+    .pill{background:rgba(38,140,166,.14);border:1px solid rgba(38,140,166,.28);color:#9FE1CB;font-family:'DM Sans',sans-serif;font-size:.88rem;padding:6px 14px;border-radius:999px}
+    a.pill{color:#9FE1CB;text-decoration:none}
+    a.pill:hover{background:rgba(38,140,166,.22)}
+
+    .blog-content{max-width:900px;margin:0 auto;padding:60px 24px 80px;background-color:#0D1117;color:#E8EDF2;font-family:'DM Sans',sans-serif;font-size:1.05rem;line-height:1.8}
+    .blog-content h2{font-family:'Syne',sans-serif;font-size:1.65rem;font-weight:800;color:#fff;margin:52px 0 18px;line-height:1.2}
+    .blog-content h3{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:800;color:#fff;margin:32px 0 14px}
+    .blog-content h4{font-family:'Syne',sans-serif;font-size:1.02rem;font-weight:800;color:#fff;margin:22px 0 10px}
+    .blog-content p{margin:0 0 22px}
+    .blog-content ul,.blog-content ol{margin:0 0 24px 24px}
+    .blog-content li{margin-bottom:10px}
+    .blog-content strong{color:#fff;font-weight:600}
+    .blog-content a{color:#268CA6;text-decoration:underline;text-underline-offset:3px}
+
+    .callout{background:rgba(38,140,166,.08);border-left:4px solid #268CA6;border-radius:0 8px 8px 0;padding:22px 26px;margin:28px 0}
+    .callout p{margin:0;color:#D8E4EE}
+    .callout strong{display:block;margin-bottom:10px;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:#9FE1CB}
+    .callout-gold{background:rgba(201,168,76,.08);border-left-color:#C9A84C}
+    .callout-gold strong{color:#E6D08E}
+    .callout-amber{background:rgba(245,158,11,.10);border-left-color:#F59E0B}
+    .callout-amber strong{color:#FCD34D}
+    .callout-green{background:rgba(45,158,107,.08);border-left-color:#2D9E6B}
+    .callout-green strong{color:#7FE0B7}
+    .callout-swarm{background:rgba(232,52,26,.10);border-left-color:#E8341A}
+    .callout-swarm strong{color:#FCA5A5}
+
+    .metric-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:26px 0}
+    .metric-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px}
+    .metric-tier{font-size:.65rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+    .metric-name{font-family:'Syne',sans-serif;font-size:.92rem;font-weight:800;color:#fff;margin:0 0 6px;line-height:1.25}
+    .metric-formula{font-size:.78rem;color:#9FE1CB;font-weight:700;margin:0 0 6px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+    .metric-why{font-size:.86rem;color:#8B9CB0;margin:0;line-height:1.55}
+
+    .calc-box{background:rgba(255,255,255,.04);border:2px solid rgba(38,140,166,.35);border-radius:16px;padding:26px;margin:32px 0}
+    .calc-title{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:900;color:#fff;margin:0 0 6px}
+    .calc-sub{font-size:.86rem;color:#8B9CB0;margin:0 0 18px;line-height:1.5}
+    .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+    @media(max-width:560px){.field-grid{grid-template-columns:1fr}}
+    .field label{display:block;font-size:.78rem;color:#8B9CB0;margin-bottom:5px}
+    .field-row{display:flex;align-items:center;background:#0a0e14;border:1px solid rgba(255,255,255,.1);border-radius:8px;overflow:hidden}
+    .field-prefix{padding:0 10px;font-size:.88rem;color:#8B9CB0;background:rgba(255,255,255,.06);align-self:stretch;display:flex;align-items:center;white-space:nowrap;flex-shrink:0}
+    .field-row input{flex:1;border:none;background:transparent;padding:10px 12px;font-size:.95rem;font-family:inherit;color:#E8EDF2;outline:none;min-width:0}
+    .calc-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1)}
+    .cr{border-radius:10px;padding:12px;text-align:center}
+    .cr-label{font-size:.62rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+    .cr-val{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:900}
+    .r-teal{background:rgba(38,140,166,.12)}.r-teal .cr-label{color:#9FE1CB}.r-teal .cr-val{color:#5EEAD4}
+    .r-gold{background:rgba(201,168,76,.10)}.r-gold .cr-label{color:#E6D08E}.r-gold .cr-val{color:#FDE68A}
+    .r-green{background:rgba(45,158,107,.12)}.r-green .cr-label{color:#7FE0B7}.r-green .cr-val{color:#6EE7B7}
+    .r-purple{background:rgba(124,58,237,.12)}.r-purple .cr-label{color:#C4B5FD}.r-purple .cr-val{color:#DDD6FE}
+
+    .tbl-scroll{overflow-x:auto;margin:22px 0;-webkit-overflow-scrolling:touch}
+    .data-table{width:100%;border-collapse:collapse;font-size:.86rem;min-width:560px}
+    .data-table th{background:rgba(255,255,255,.08);color:#fff;padding:11px 14px;text-align:left;font-family:'Syne',sans-serif;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+    .data-table td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.08);vertical-align:top;line-height:1.45;color:#D8E4EE}
+    .data-table tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+    .data-table tr.attr-best td{background:rgba(45,158,107,.08)}
+    .tag-ok{font-size:.68rem;font-weight:800;color:#6EE7B7}
+    .tag-warn{font-size:.68rem;font-weight:800;color:#FCA5A5}
+
+    .track-stack{display:flex;flex-direction:column;gap:14px;margin:28px 0}
+    .track-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px}
+    .track-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px}
+    .track-name{font-family:'Syne',sans-serif;font-size:.98rem;font-weight:800;color:#fff}
+    .track-phase{font-size:.62rem;font-weight:900;padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.05em}
+    .phase-before{background:rgba(37,99,235,.18);color:#93C5FD}
+    .phase-during{background:rgba(245,158,11,.15);color:#FCD34D}
+    .phase-after{background:rgba(45,158,107,.18);color:#7FE0B7}
+    .track-desc{font-size:.95rem;color:#D8E4EE;line-height:1.65;margin:0 0 8px}
+    .track-how{font-size:.86rem;color:#9FE1CB;font-weight:700;margin:0;line-height:1.5}
+
+    .swarm-cta{background:rgba(232,52,26,.08);border:2px solid rgba(232,52,26,.45);border-radius:16px;padding:32px;margin:36px 0;text-align:center}
+    .swarm-cta h3{color:#FCA5A5;font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:900;margin:0 0 12px;line-height:1.25}
+    .swarm-cta p{color:#8B9CB0;font-size:.95rem;max-width:540px;margin:0 auto 20px;line-height:1.6}
+    .swarm-btn{display:inline-block;background:#E8341A;color:#fff;padding:14px 32px;border-radius:12px;font-family:'Syne',sans-serif;font-size:1rem;font-weight:900;text-decoration:none}
+    .swarm-btn:hover{opacity:.92}
+
+    .cta{background:rgba(38,140,166,.10);border:1px solid rgba(38,140,166,.22);border-radius:18px;padding:26px;margin:40px 0;text-align:center}
+    .cta h3{margin:0 0 8px;color:#fff;font-family:'Syne',sans-serif;font-weight:900}
+    .cta p{margin:0;color:#8B9CB0;max-width:560px;margin-left:auto;margin-right:auto}
+    .cta .btn{display:inline-block;margin-top:14px;background:#268CA6;color:#fff;text-decoration:none;font-family:'Syne',sans-serif;font-weight:900;padding:14px 24px;border-radius:12px}
+    .cta .btn:hover{opacity:.92}
+
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:20px 0 0}
+    .related-card{display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px}
+    .related-card:hover{border-color:rgba(38,140,166,.35)}
+    .related-tag{margin:0 0 8px;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1.2px;color:#9FE1CB}
+    .related-title{margin:0;color:#fff;font-family:'Syne',sans-serif;font-weight:900;line-height:1.25;font-size:.95rem}
+  </style>
+</head>
+<body>
+  <nav class="nav" id="mainNav">
+    <div class="nav-container">
+      <a href="/" class="nav-logo"><img src="/applogo.png" alt="Perfect Tenant Innovation" style="height:36px;width:auto;"></a>
+      <div class="nav-links"><a href="/landlord-hours-audit/" class="nav-cta-btn">Free Audit</a></div>
+    </div>
+  </nav>
+
+  <header class="blog-hero">
+    <div class="post-category">Brand marketing · Measurement · 2026</div>
+    <h1>Word of Mouth ROI: How to Measure It</h1>
+    <p class="hero-sub">Peer recommendation often produces durable customers and efficient acquisition — but standard dashboards are built for paid clicks, so word-of-mouth is easy to undercount and hard to defend in budget meetings. Here is a practical measurement stack: what to track, what to ignore, and how to model value without pretending last-click is truth.</p>
+    <p class="post-meta">By <strong style="color:#fff;">Drexton Andrews</strong>, Founder of PTI &nbsp;·&nbsp; ~12 min read &nbsp;·&nbsp; Updated May 2026</p>
+
+    <div class="stat-row" aria-label="Directional WOM context">
+      <div class="stat-card"><p class="stat-num">Often 2–5×</p><p class="stat-lab">Reported LTV lift for referred vs. some paid cohorts (category-dependent)</p></div>
+      <div class="stat-card"><p class="stat-num">Invisible path</p><p class="stat-lab">Lunch-and-text recommendations rarely leave a UTM trail</p></div>
+      <div class="stat-card"><p class="stat-num">Survey gap</p><p class="stat-lab">Self-reported “friend told me” often exceeds last-click WOM credit</p></div>
+    </div>
+    <p class="stat-note">Industry studies disagree on how much credit leaks from WOM into paid and organic last-touch. Use the ideas below to build <em>your</em> evidence — not a single universal percentage.</p>
+
+    <div class="pill-row" aria-label="Jump links">
+      <a class="pill" href="#why-fails">Why last-click fails</a>
+      <a class="pill" href="#metrics">Metrics</a>
+      <a class="pill" href="#calculator">Value model</a>
+      <a class="pill" href="#attribution">Attribution</a>
+      <a class="pill" href="#campaign">Community tracking</a>
+      <a class="pill" href="#swarm">Swarm Boss</a>
+      <a class="pill" href="#faq">FAQ</a>
+    </div>
+  </header>
+
+  <article class="blog-content">
+    <p>The measurement problem with word-of-mouth is usually not “unknowable.” It is <strong>mismatched tools</strong>: last-click, short attribution windows, and platform reports reward whatever touch happened last — often a branded search or retargeting ad — even when a neighbor or coworker created intent days earlier.</p>
+    <p>That mismatch quietly shifts budgets: paid looks stronger because it captures conversions WOM started, while community and advocacy work looks fuzzy. This guide aligns measurement to how people actually decide — and ties it to <a href="/blog/word-of-mouth-marketing-complete-guide/">word-of-mouth strategy</a> and <a href="/blog/referral-campaign-ideas-that-actually-work/">referral mechanics</a> without turning anecdotes into false precision. <strong>Informational only — not financial or legal advice.</strong></p>
+
+    <div class="callout callout-gold">
+      <p><strong>What this guide covers</strong> Why last-click undercounts peer influence. A metric map (primary vs. supporting). A simple interactive model to stress-test WOM value vs. spend (illustrative, not GAAP). Attribution approaches that behave better for community programs. A before / during / after tracking checklist. How Swarm Boss can add geographic and time-window structure where PTI runs community programs.</p>
+    </div>
+
+    <h2 id="why-fails">Why standard attribution fails word-of-mouth</h2>
+    <p>Last-click assigns 100% of credit to the final touch before conversion. That is defensible for some short-cycle paid flows; it is structurally weak for WOM because:</p>
+    <ul>
+      <li><strong>Time lag:</strong> Recommendations settle on a human timeline. Search or retargeting may be the last mile, not the origin.</li>
+      <li><strong>No digital trail:</strong> Many conversations never produce a tagged link, session, or click path.</li>
+      <li><strong>Halo into paid:</strong> Strong WOM can lift branded search and conversion rates on paid surfaces — which can look like “paid got better” unless you segment markets and sources.</li>
+    </ul>
+
+    <div class="callout callout-amber">
+      <p><strong>Undercounting has a budget cost — model it honestly</strong> Some published analyses suggest a <em>material</em> share of conversions credited to paid touchpoints were influenced earlier by peer conversation, but estimates swing widely by category and methodology. Rather than quoting a universal “37%,” run a simple reconciliation: compare last-click WOM credit to survey-based discovery for the same quarter. The gap is your internal evidence for whether dashboards are mis-telling the story — then decide what incremental tests you can afford.</p>
+    </div>
+
+    <h2 id="metrics">The metrics that actually capture WOM performance</h2>
+    <p>Pick a small primary set you can defend in a finance conversation, then add supporting signals so marketing does not overfit one number.</p>
+
+    <div class="metric-grid">
+      <div class="metric-card">
+        <div class="metric-tier" style="color:#9FE1CB">Primary</div>
+        <p class="metric-name">Referred / recommendation LTV vs. other sources</p>
+        <p class="metric-formula">LTV(WOM-tagged) ÷ LTV(other)</p>
+        <p class="metric-why">If acquisition source is messy in your CRM, fix tagging before debating ROI. Many brands see referred cohorts outperform — but prove it for <em>your</em> margin structure.</p>
+      </div>
+      <div class="metric-card">
+        <div class="metric-tier" style="color:#9FE1CB">Primary</div>
+        <p class="metric-name">Net Promoter Score (NPS) — trend, not vanity</p>
+        <p class="metric-formula">% promoters − % detractors</p>
+        <p class="metric-why">NPS is an imperfect but cheap leading indicator. Segment by source: WOM-heavy cohorts often score higher — useful for prioritizing advocacy programs.</p>
+      </div>
+      <div class="metric-card">
+        <div class="metric-tier" style="color:#9FE1CB">Primary</div>
+        <p class="metric-name">Referral participation rate</p>
+        <p class="metric-formula">Customers who referred ÷ active customers</p>
+        <p class="metric-why">Measures whether you are converting satisfaction into behavior. Public “top brand” percentages vary; baseline yourself, then improve ask placement and incentives.</p>
+      </div>
+      <div class="metric-card">
+        <div class="metric-tier" style="color:#C9A84C">Secondary</div>
+        <p class="metric-name">Branded search volume</p>
+        <p class="metric-formula">Search Console: brand queries</p>
+        <p class="metric-why">Directional signal that people are seeking you by name — often correlated with buzz, not proof of WOM alone.</p>
+      </div>
+      <div class="metric-card">
+        <div class="metric-tier" style="color:#C9A84C">Secondary</div>
+        <p class="metric-name">Direct + organic trend</p>
+        <p class="metric-formula">Sessions where last source is direct/organic</p>
+        <p class="metric-why">Rising direct alongside stable paid can indicate memory and recommendation effects — still confounded by offline media.</p>
+      </div>
+      <div class="metric-card">
+        <div class="metric-tier" style="color:#C9A84C">Secondary</div>
+        <p class="metric-name">Unprompted mentions</p>
+        <p class="metric-formula">Volume + sentiment over time</p>
+        <p class="metric-why">Social listening or alerts can catch organic chatter — noisy for small brands, more useful at city or campaign scale.</p>
+      </div>
+      <div class="metric-card">
+        <div class="metric-tier" style="color:#8B9CB0">Supporting</div>
+        <p class="metric-name">“How did you hear about us?”</p>
+        <p class="metric-formula">% friend / family / neighbor</p>
+        <p class="metric-why">Cheap, high-signal for WOM. Align answer options with how your customers actually talk — not only ad platform labels.</p>
+      </div>
+      <div class="metric-card">
+        <div class="metric-tier" style="color:#8B9CB0">Supporting</div>
+        <p class="metric-name">Cohort retention by source</p>
+        <p class="metric-formula">12-mo retention: WOM vs. paid</p>
+        <p class="metric-why">Retention backs the LTV story with cash timing — helpful when finance distrusts “LTV” spreadsheets.</p>
+      </div>
+    </div>
+
+    <h2 id="calculator">Illustrative WOM value model (not a financial statement)</h2>
+    <p>The calculator below is a <strong>thought experiment</strong>: it combines your assumed WOM share, LTV, a WOM LTV multiplier, and spend to produce channel-level ROI and CAC-style ratios. It does not replace accounting, incrementality tests, or clean CRM source hygiene.</p>
+
+    <div class="calc-box">
+      <p class="calc-title">Word-of-mouth value model</p>
+      <p class="calc-sub">Adjust inputs to stress-test scenarios — for example, if survey data suggests a higher WOM share than your attribution tool shows.</p>
+      <div class="field-grid">
+        <div class="field"><label for="total-customers">Monthly new customers (total)</label><div class="field-row"><span class="field-prefix">#</span><input type="number" id="total-customers" value="200" min="0" step="1" inputmode="numeric"></div></div>
+        <div class="field"><label for="wom-pct">Estimated WOM / referral share</label><div class="field-row"><span class="field-prefix">%</span><input type="number" id="wom-pct" value="30" min="0" max="100" step="1" inputmode="numeric"></div></div>
+        <div class="field"><label for="ltv">Average customer LTV ($)</label><div class="field-row"><span class="field-prefix">$</span><input type="number" id="ltv" value="180" min="0" step="1" inputmode="decimal"></div></div>
+        <div class="field"><label for="ltv-mult">WOM LTV multiplier</label><div class="field-row"><span class="field-prefix">×</span><input type="number" id="ltv-mult" value="2.5" min="0.1" step="0.1" inputmode="decimal"></div></div>
+        <div class="field"><label for="paid-spend">Monthly paid acquisition spend ($)</label><div class="field-row"><span class="field-prefix">$</span><input type="number" id="paid-spend" value="8000" min="0" step="100" inputmode="numeric"></div></div>
+        <div class="field"><label for="wom-spend">Monthly WOM / community spend ($)</label><div class="field-row"><span class="field-prefix">$</span><input type="number" id="wom-spend" value="1500" min="0" step="50" inputmode="numeric"></div></div>
+      </div>
+      <div id="wom-results" class="calc-results" aria-live="polite"></div>
+    </div>
+
+    <h2 id="attribution">Attribution frameworks that behave better for community marketing</h2>
+    <p>No model perfectly credits offline conversation. The goal is to reduce systematic bias — especially last-click bias — and to pair models with at least one human-reported signal.</p>
+
+    <div class="tbl-scroll">
+      <table class="data-table">
+        <thead><tr><th>Model</th><th>How it works</th><th>WOM treatment</th><th>Best for</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Last-click</strong></td>
+            <td>100% credit to the final touchpoint.</td>
+            <td><span class="tag-warn">Poor for WOM</span> — offline influence rarely wins the last click.</td>
+            <td>Short paid funnels only.</td>
+          </tr>
+          <tr class="attr-best">
+            <td><strong>Survey-based</strong></td>
+            <td>Self-reported first discovery at purchase or onboarding.</td>
+            <td><span class="tag-ok">Strong for WOM</span> — captures what pixels miss.</td>
+            <td>Almost every brand; keep options mutually exclusive.</td>
+          </tr>
+          <tr class="attr-best">
+            <td><strong>Incrementality / holdouts</strong></td>
+            <td>Compare exposed vs. control markets or time windows.</td>
+            <td><span class="tag-ok">Strong when clean</span> — closest to causal language if design is disciplined.</td>
+            <td>Geo campaigns, mailers, community activations with scale.</td>
+          </tr>
+          <tr>
+            <td><strong>Data-driven / algorithmic</strong></td>
+            <td>ML credit across touchpoints in digital paths.</td>
+            <td><span class="tag-ok">Better than last-click</span> for digital journeys — still blind to untracked conversation.</td>
+            <td>Enough path volume to stabilize the model.</td>
+          </tr>
+          <tr>
+            <td><strong>Time-decay</strong></td>
+            <td>More credit to touches near conversion.</td>
+            <td><span class="tag-warn">Risky for WOM</span> — penalizes early peer influence.</td>
+            <td>Not a default if WOM matters.</td>
+          </tr>
+          <tr>
+            <td><strong>Linear (digital only)</strong></td>
+            <td>Equal split across captured touches.</td>
+            <td><span class="tag-ok">Moderate</span> — still misses offline WOM entirely.</td>
+            <td>When multi-touch data exists but human survey is absent.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-green">
+      <p><strong>The highest-ROI measurement upgrade for most teams</strong> Add one well-designed question at conversion: “How did you <em>first</em> hear about us?” Include friend, family, neighbor, coworker, and local community options that match your go-to-market. Keep it short, avoid leading wording, and reconcile quarterly against channel dashboards — that reconciliation is often more valuable than a new BI chart.</p>
+    </div>
+
+    <h2 id="campaign">What to track before, during, and after a community campaign</h2>
+
+    <div class="track-stack">
+      <div class="track-card">
+        <div class="track-header">
+          <span class="track-name">Baseline (2–4 weeks before)</span>
+          <span class="track-phase phase-before">Pre</span>
+        </div>
+        <p class="track-desc">Without baselines, you cannot separate seasonality, product launches, or pricing changes from community work.</p>
+        <p class="track-how">New customers in target geography, branded search in that geo, direct traffic share, existing referral rate, and any promo baseline.</p>
+      </div>
+      <div class="track-card">
+        <div class="track-header">
+          <span class="track-name">Activation execution (during)</span>
+          <span class="track-phase phase-during">During</span>
+        </div>
+        <p class="track-desc">Measure whether the <em>mechanism</em> fired: participation, content use, partner fulfillment — not only end sales in the same week.</p>
+        <p class="track-how">Reach proxies, share/advocacy actions, geo-tagged web uplift, redemption of campaign codes or landing pages.</p>
+      </div>
+      <div class="track-card">
+        <div class="track-header">
+          <span class="track-name">Outcomes (4–12 weeks after)</span>
+          <span class="track-phase phase-after">Post</span>
+        </div>
+        <p class="track-desc">WOM conversions often arrive late relative to the activation window — extend measurement or you will undercredit the work.</p>
+        <p class="track-how">Lift vs. baseline in geo; LTV of customers acquired in the window; survey discovery mix; referral rate among new buyers.</p>
+      </div>
+      <div class="track-card">
+        <div class="track-header">
+          <span class="track-name">Brand health (3–12 months)</span>
+          <span class="track-phase phase-after">Long arc</span>
+        </div>
+        <p class="track-desc">Community presence compounds: search, repeat purchase, and partner pull often improve on a quarterly cadence.</p>
+        <p class="track-how">Activated vs. control markets where ethical; mention volume and sentiment; blended CAC trend with finance-grade definitions.</p>
+      </div>
+    </div>
+
+    <h2 id="swarm">Measurement discipline and Swarm Boss</h2>
+    <p>Organic WOM is hard to instrument because conversations are private. Structured local programs can still borrow incrementality logic: define <strong>where</strong> and <strong>when</strong> activation runs, hold a comparison market or window where ethical, and use offer surfaces (codes, RSVP pages, retail handoffs) so delayed conversions have somewhere honest to land.</p>
+    <p><a href="/blog/what-is-swarm-boss-brand-marketing/">Swarm Boss</a> is PTI’s community-led brand layer in markets where the network is live — not a replacement for product quality or customer support. Availability, pricing, and measurement features change; confirm current capabilities on <a href="/join/">Join</a> rather than assuming a specific dashboard.</p>
+
+    <div class="callout callout-swarm">
+      <p><strong>Why structure helps attribution</strong> When campaigns have defined geography, time boxes, and redemption surfaces, finance can reason about lift without pretending every recommendation was logged. Pair that structure with surveys so “neighbor told me” does not disappear into a generic paid search row.</p>
+    </div>
+
+    <div class="swarm-cta">
+      <h3>Make community spend legible — without faking precision.</h3>
+      <p>If you are scaling in PTI metros, Swarm Boss is one way to align neighbor-level trust with campaign windows and redemption paths. It complements clean CRM source data and honest incrementality design.</p>
+      <a class="swarm-btn" href="/join/">Learn about Swarm Boss access</a>
+    </div>
+
+    <h2 id="faq">Frequently asked questions</h2>
+    <h3>How do you measure word-of-mouth marketing effectiveness?</h3>
+    <p>Combine at least three lenses: (1) post-purchase self-report (“how did you first hear about us?”) to capture offline peer influence; (2) cohort LTV and retention by acquisition source so referred or recommendation-tagged customers are not blended into paid; (3) incrementality design where feasible—geo or time-based comparisons, holdouts, or clean pre/post baselines—because no digital model fully sees conversations that never touch a click path.</p>
+
+    <h3>What is a good WOM conversion rate?</h3>
+    <p>Word-of-mouth is often an intent channel that feeds other surfaces, so a single “WOM conversion rate” can mislead. More useful: the share of buyers who cite friend, family, or neighbor recommendation on surveys; referral participation among existing customers; and whether branded search, direct traffic, and assisted conversions in a market move together after community work. Benchmarks vary by category—set targets from your own baseline, not blog tables.</p>
+
+    <h3>Why is word-of-mouth hard to measure?</h3>
+    <p>Typical reasons: conversations often leave no UTM or session trail; lag between recommendation and purchase breaks short attribution windows; and last-click or platform-native models assign credit to the final paid or organic click even when a peer planted the idea. Surveys, source-tagged CRM fields, and deliberate geo or campaign windows usually improve the picture more than stacking more ad pixels.</p>
+
+    <div class="cta">
+      <h3>Undercounted WOM usually means underfunded advocacy.</h3>
+      <p>Fix the evidence layer first — surveys, source hygiene, and a few honest incrementality tests — then decide how much community and referral infrastructure to scale.</p>
+      <a class="btn" href="/join/">Join / apply via PTI</a>
+    </div>
+
+    <h2>Related brand marketing guides</h2>
+    <div class="related-grid">
+      <a href="/blog/word-of-mouth-marketing-complete-guide/" class="related-card"><p class="related-tag">Brand marketing</p><p class="related-title">Word-of-mouth marketing: the complete guide for brands</p></a>
+      <a href="/blog/swarm-boss-vs-influencer-marketing/" class="related-card"><p class="related-tag">Swarm Boss</p><p class="related-title">Swarm Boss vs. influencer marketing: ROI comparison</p></a>
+      <a href="/blog/referral-campaign-ideas-that-actually-work/" class="related-card"><p class="related-tag">Brand marketing</p><p class="related-title">Referral campaign ideas that actually work</p></a>
+      <a href="/blog/brand-ambassador-program-guide/" class="related-card"><p class="related-tag">Brand marketing</p><p class="related-title">How to build a brand ambassador program</p></a>
+    </div>
+
+    <p style="font-size:.88rem;color:#8B9CB0;margin-top:32px;">© 2026 Perfect Tenant Innovation, LLC. This article is informational, not legal or financial advice.</p>
+
+    <div style="margin-top:32px;padding-top:32px;border-top:1px solid rgba(255,255,255,.08);display:flex;gap:20px;align-items:flex-start;">
+      <div style="width:56px;height:56px;border-radius:50%;background:rgba(38,140,166,.14);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:#9FE1CB;flex-shrink:0;">DA</div>
+      <div>
+        <p style="margin:0 0 6px;font-size:.9rem;font-weight:700;color:#fff;">Drexton Andrews</p>
+        <p style="margin:0 0 10px;font-size:.8rem;color:#268CA6;">Founder, Perfect Tenant Innovation</p>
+        <p style="margin:0;font-size:.88rem;color:#8B9CB0;line-height:1.6;"><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/join/">Join</a> · <a href="/merchants/">Merchants</a></p>
+      </div>
+    </div>
+  </article>
+
+  <footer style="background:transparent;border-top:1px solid rgba(255,255,255,.08);margin-top:0;padding:30px 24px 56px;text-align:center;color:#8B9CB0;font-family:'DM Sans',sans-serif;">
+    <div style="max-width:900px;margin:0 auto;">
+      <p style="margin:0 0 10px;color:#C9A84C;font-family:'Syne',sans-serif;font-weight:900;">Perfect Tenant Innovation</p>
+      <p style="margin:0 0 14px;">Measurement patterns for word-of-mouth, referrals, and community-led growth in PTI markets.</p>
+      <p style="margin:0;font-size:.9rem;">
+        <a href="/" style="color:#268CA6;">Home</a> &nbsp;·&nbsp;
+        <a href="/blog/" style="color:#268CA6;">Blog</a> &nbsp;·&nbsp;
+        <a href="/join/" style="color:#268CA6;">Join</a> &nbsp;·&nbsp;
+        <a href="/merchants/" style="color:#268CA6;">Merchants</a>
+      </p>
+      <p style="margin:16px 0 0;font-size:.8rem;">© 2026 Perfect Tenant Innovation, LLC. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var nav = document.getElementById('mainNav');
+      if (nav) {
+        window.addEventListener('scroll', function(){
+          if (window.scrollY > 50) nav.classList.add('scrolled');
+          else nav.classList.remove('scrolled');
+        });
+      }
+
+      function fmtMoney(n) {
+        var neg = n < 0;
+        return (neg ? '–' : '') + '$' + Math.round(Math.abs(n)).toLocaleString();
+      }
+      function fmtX(n) {
+        if (!isFinite(n) || n < 0) return '—';
+        return n.toFixed(1) + '×';
+      }
+
+      function calcWOM() {
+        var totalC = parseFloat(document.getElementById('total-customers').value);
+        var womPct = parseFloat(document.getElementById('wom-pct').value);
+        var ltv = parseFloat(document.getElementById('ltv').value);
+        var ltvMult = parseFloat(document.getElementById('ltv-mult').value);
+        var paidSpend = parseFloat(document.getElementById('paid-spend').value);
+        var womSpend = parseFloat(document.getElementById('wom-spend').value);
+
+        if (!isFinite(totalC) || totalC < 0) totalC = 0;
+        if (!isFinite(womPct) || womPct < 0) womPct = 0;
+        if (womPct > 100) womPct = 100;
+        if (!isFinite(ltv) || ltv < 0) ltv = 0;
+        if (!isFinite(ltvMult) || ltvMult < 0.1) ltvMult = 1;
+        if (!isFinite(paidSpend) || paidSpend < 0) paidSpend = 0;
+        if (!isFinite(womSpend) || womSpend < 0) womSpend = 0;
+
+        var womCustomers = totalC * (womPct / 100);
+        var paidCustomers = Math.max(0, totalC - womCustomers);
+        var womLTV = ltv * ltvMult;
+
+        var paidCAC = paidCustomers > 0 ? paidSpend / paidCustomers : 0;
+        var womCAC = womCustomers > 0 ? womSpend / womCustomers : 0;
+
+        var paidValue = paidCustomers * ltv;
+        var womValue = womCustomers * womLTV;
+        var womROI = womSpend > 0 ? (womValue / womSpend) : NaN;
+
+        var r = document.getElementById('wom-results');
+        r.innerHTML =
+          '<div class="cr r-teal"><div class="cr-label">WOM customers / mo</div><div class="cr-val">' + Math.round(womCustomers) + '</div></div>' +
+          '<div class="cr r-gold"><div class="cr-label">WOM LTV / customer</div><div class="cr-val">' + fmtMoney(womLTV) + '</div></div>' +
+          '<div class="cr r-green"><div class="cr-label">WOM value / mo</div><div class="cr-val">' + fmtMoney(womValue) + '</div></div>' +
+          '<div class="cr r-purple"><div class="cr-label">WOM ROI (model)</div><div class="cr-val">' + (womSpend > 0 ? fmtX(womROI) : '—') + '</div></div>' +
+          '<div class="cr r-teal"><div class="cr-label">WOM CAC (model)</div><div class="cr-val">' + (womCustomers > 0 ? fmtMoney(womCAC) : '—') + '</div></div>' +
+          '<div class="cr r-gold"><div class="cr-label">Paid CAC (model)</div><div class="cr-val">' + (paidCustomers > 0 ? fmtMoney(paidCAC) : '—') + '</div></div>';
+      }
+
+      ['total-customers','wom-pct','ltv','ltv-mult','paid-spend','wom-spend'].forEach(function(id){
+        var el = document.getElementById(id);
+        if (el) el.addEventListener('input', calcWOM);
+      });
+      calcWOM();
+    })();
+  </script>
+</body>
+</html>
