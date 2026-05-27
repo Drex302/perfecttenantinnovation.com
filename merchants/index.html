@@ -21,6 +21,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/main.css">
   <style>
+    .skip-link{position:absolute;top:-48px;left:0;background:#268CA6;color:#FFFFFF;padding:10px 20px;border-radius:0 0 8px 0;font-weight:700;text-decoration:none;z-index:9999;transition:top .2s;font-size:.9rem}
+    .skip-link:focus{top:0;outline:3px solid #F29940;outline-offset:2px}
+    .waitlist-form label{display:block;font-size:.72rem;font-weight:600;color:#8AA5B5;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px}
+    .waitlist-form .form-field{margin-bottom:12px}
     .stat-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:12px;margin-top:22px}
     .stat-card{grid-column:span 4;background:rgba(255,255,255,.03);border:1px solid rgba(38,140,166,.12);border-radius:14px;padding:18px 16px}
     .stat-val{font-family:var(--font-d);font-weight:800;font-size:1.25rem;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -39,7 +43,8 @@
   </style>
 </head>
 <body>
-  <nav id="nav">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+  <nav id="nav" aria-label="Main navigation">
     <a href="/" class="nav-logo">Perfect<span>Tenant</span></a>
     <ul class="nav-links">
       <li><a href="/#platform">Landlords</a></li>
@@ -52,7 +57,7 @@
     </ul>
   </nav>
 
-  <main class="page">
+  <main class="page" id="main-content">
     <div class="container">
       <section class="role-hero role-hero--merchant">
         <p class="section-label">For Merchants & Brands</p>
@@ -108,31 +113,33 @@
         <h2 class="section-title" style="font-size:clamp(1.4rem,3vw,2rem);margin-bottom:6px">Apply for Early Merchant Access</h2>
         <p class="section-body" style="margin:0;max-width:900px">Founding merchant partners get priority placement. The shelf is empty now. It won't be for long.</p>
 
-        <form class="waitlist-form" id="merchantWaitlistForm">
+        <form class="waitlist-form" id="merchantWaitlistForm" novalidate>
           <div class="form-row">
-            <input type="text" name="firstName" placeholder="First Name" required>
-            <input type="text" name="lastName" placeholder="Last Name" required>
+            <div class="form-field"><label for="m-fname">First Name</label><input type="text" id="m-fname" name="firstName" autocomplete="given-name" placeholder="First Name" required></div>
+            <div class="form-field"><label for="m-lname">Last Name</label><input type="text" id="m-lname" name="lastName" autocomplete="family-name" placeholder="Last Name" required></div>
           </div>
-          <input type="email" name="email" placeholder="Business Email" required>
-          <input type="tel" name="phone" placeholder="Phone Number">
-          <input type="text" name="company" placeholder="Business / Brand Name" required>
-          <input type="url" name="shopify" placeholder="Shopify Store URL (if applicable)">
-          <select name="category">
+          <div class="form-field"><label for="m-email">Business Email</label><input type="email" id="m-email" name="email" autocomplete="email" placeholder="Business Email" required></div>
+          <div class="form-field"><label for="m-phone">Phone Number <span style="font-weight:400;text-transform:none">(optional)</span></label><input type="tel" id="m-phone" name="phone" autocomplete="tel" placeholder="Phone Number"></div>
+          <div class="form-field"><label for="m-company">Business / Brand Name</label><input type="text" id="m-company" name="company" autocomplete="organization" placeholder="Business / Brand Name" required></div>
+          <div class="form-field"><label for="m-shopify">Shopify Store URL <span style="font-weight:400;text-transform:none">(if applicable)</span></label><input type="url" id="m-shopify" name="shopify" autocomplete="url" placeholder="Shopify Store URL"></div>
+          <div class="form-field"><label for="m-category">Product Category</label>
+          <select id="m-category" name="category">
             <option value="">Product Category</option>
-            <option value="home-garden">Home & Garden</option>
-            <option value="beauty">Beauty & Personal Care</option>
-            <option value="food">Food & Groceries</option>
+            <option value="home-garden">Home &amp; Garden</option>
+            <option value="beauty">Beauty &amp; Personal Care</option>
+            <option value="food">Food &amp; Groceries</option>
             <option value="fashion">Fashion</option>
             <option value="services">Services</option>
             <option value="other">Other</option>
-          </select>
-          <input type="text" name="location" placeholder="City / State">
+          </select></div>
+          <div class="form-field"><label for="m-location">City / State <span style="font-weight:400;text-transform:none">(optional)</span></label><input type="text" id="m-location" name="location" autocomplete="address-level2" placeholder="City / State"></div>
           <input type="hidden" name="role" value="merchant">
+          <div id="m-error-msg" role="alert" aria-live="assertive" style="display:none;color:#F87171;font-size:.82rem;margin-bottom:12px;padding:10px 14px;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:8px;"></div>
           <button type="submit" class="btn-primary btn-full">Apply for Early Merchant Access →</button>
           <p class="form-disclaimer">🔒 No spam. Merchant-specific onboarding sent within 48 hours.</p>
         </form>
 
-        <div class="form-success" id="merchantSuccess" style="display:none;">
+        <div class="form-success" id="merchantSuccess" role="alert" aria-live="assertive" style="display:none;">
           <h3>✓ Application received!</h3>
           <p>We'll send merchant onboarding details within 48 hours. The audience is already here. The shelf space is yours if you move first.</p>
         </div>
@@ -157,6 +164,7 @@
   </footer>
 
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
   <script>
     firebase.initializeApp({
@@ -165,8 +173,12 @@
       projectId: "perfect-tenant-app-bfaf7",
       storageBucket: "perfect-tenant-app-bfaf7.firebasestorage.app",
       messagingSenderId: "637835334506",
-      appId: "1:637835334506:ios:c46d9e852c1eb8a8c1cb13"
+      appId: "1:637835334506:web:676b3a1802f32229c1cb13"
     });
+    firebase.appCheck().activate(
+      new firebase.appCheck.ReCaptchaEnterpriseProvider('6LfMfv4sAAAAAI1lKWCQFfxYjdoCQIhOmGQFCLnF'),
+      true
+    );
     var db = firebase.firestore();
 
     document.getElementById('merchantWaitlistForm').addEventListener('submit', function(e) {
@@ -176,7 +188,11 @@
       var lastName = String(fd.get('lastName') || '').trim();
       var email = String(fd.get('email') || '').trim();
       var company = String(fd.get('company') || '').trim();
-      if (!firstName || !lastName || !email || !company) return;
+      var errEl = document.getElementById('m-error-msg');
+      if (errEl) { errEl.style.display = 'none'; errEl.textContent = ''; }
+      if (!firstName || !lastName) { if(errEl){errEl.textContent='Please enter your first and last name.';errEl.style.display='block';} return; }
+      if (!email) { if(errEl){errEl.textContent='Please enter your business email address.';errEl.style.display='block';} return; }
+      if (!company) { if(errEl){errEl.textContent='Please enter your business or brand name.';errEl.style.display='block';} return; }
 
       var btn = e.target.querySelector('button[type=\"submit\"]');
       if (btn) { btn.disabled = true; btn.textContent = 'Submitting...'; }

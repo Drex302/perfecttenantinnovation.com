@@ -26,6 +26,10 @@
     nav a, nav a:visited{color:#FFFFFF}
     .nav-logo{font-family:'Syne',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-weight:800;letter-spacing:-.02em;text-decoration:none}
     .section-title{font-family:'Syne',system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+    .skip-link{position:absolute;top:-48px;left:0;background:#268CA6;color:#FFFFFF;padding:10px 20px;border-radius:0 0 8px 0;font-weight:700;text-decoration:none;z-index:9999;transition:top .2s;font-size:.9rem}
+    .skip-link:focus{top:0;outline:3px solid #F29940;outline-offset:2px}
+    .waitlist-form label{display:block;font-size:.72rem;font-weight:600;color:#8AA5B5;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px}
+    .waitlist-form .form-field{margin-bottom:12px}
   </style>
   <style>
     .role-hero{padding:18px 0 0}
@@ -51,7 +55,8 @@
   </style>
 </head>
 <body>
-  <nav id="nav">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+  <nav id="nav" aria-label="Main navigation">
     <a href="/" class="nav-logo">Perfect<span>Tenant</span></a>
     <ul class="nav-links">
       <li><a href="/#platform">Landlords</a></li>
@@ -64,7 +69,7 @@
     </ul>
   </nav>
 
-  <main class="page">
+  <main class="page" id="main-content">
     <div class="container">
       <section class="role-hero role-hero--tenant">
         <div class="role-hero-shell">
@@ -101,11 +106,11 @@
       <section class="earnings-section" style="margin-top:56px">
         <h2 class="section-title" style="font-size:clamp(1.5rem,3.2vw,2.2rem)">What your first month on PTI could look like</h2>
         <div class="earnings-table" role="table" aria-label="Earnings breakdown">
-          <div class="earnings-row"><span class="earn-action">✅ Complete a quiz question</span><span class="earn-points">+10 pts</span></div>
-          <div class="earnings-row"><span class="earn-action">🎬 Watch a video lesson (90%+)</span><span class="earn-points">+25 pts</span></div>
-          <div class="earnings-row"><span class="earn-action">📸 Submit your Q Report</span><span class="earn-points">+50 pts</span></div>
-          <div class="earnings-row"><span class="earn-action">✅ Complete a Mission</span><span class="earn-points">+Variable</span></div>
-          <div class="earnings-row earnings-row--total"><span class="earn-action">💳 1,000 pts =</span><span class="earn-points">$1.00 cash value</span></div>
+          <div class="earnings-row" role="row"><span class="earn-action" role="cell">Complete a quiz question</span><span class="earn-points" role="cell">+10 pts</span></div>
+          <div class="earnings-row" role="row"><span class="earn-action" role="cell">Watch a video lesson (90%+)</span><span class="earn-points" role="cell">+25 pts</span></div>
+          <div class="earnings-row" role="row"><span class="earn-action" role="cell">Submit your Q Report</span><span class="earn-points" role="cell">+50 pts</span></div>
+          <div class="earnings-row" role="row"><span class="earn-action" role="cell">Complete a Mission</span><span class="earn-points" role="cell">+Variable</span></div>
+          <div class="earnings-row earnings-row--total" role="row"><span class="earn-action" role="cell">1,000 pts =</span><span class="earn-points" role="cell">$1.00 cash value</span></div>
         </div>
       </section>
 
@@ -113,20 +118,21 @@
         <h2 class="section-title" style="font-size:clamp(1.4rem,3vw,2rem);margin-bottom:6px">Join the Tenant Waitlist</h2>
         <p class="section-body" style="margin:0;max-width:760px">Early access. First to earn. Free forever.</p>
 
-        <form class="waitlist-form" id="tenantWaitlistForm">
+        <form class="waitlist-form" id="tenantWaitlistForm" novalidate>
           <div class="form-row">
-            <input type="text" name="firstName" placeholder="First Name" required>
-            <input type="text" name="lastName" placeholder="Last Name" required>
+            <div class="form-field"><label for="t-fname">First Name</label><input type="text" id="t-fname" name="firstName" autocomplete="given-name" placeholder="First Name" required></div>
+            <div class="form-field"><label for="t-lname">Last Name</label><input type="text" id="t-lname" name="lastName" autocomplete="family-name" placeholder="Last Name" required></div>
           </div>
-          <input type="email" name="email" placeholder="Email Address" required>
-          <input type="tel" name="phone" placeholder="Phone Number">
-          <input type="text" name="location" placeholder="City / State">
+          <div class="form-field"><label for="t-email">Email Address</label><input type="email" id="t-email" name="email" autocomplete="email" placeholder="Email Address" required></div>
+          <div class="form-field"><label for="t-phone">Phone Number <span style="font-weight:400;text-transform:none">(optional)</span></label><input type="tel" id="t-phone" name="phone" autocomplete="tel" placeholder="Phone Number"></div>
+          <div class="form-field"><label for="t-location">City / State <span style="font-weight:400;text-transform:none">(optional)</span></label><input type="text" id="t-location" name="location" autocomplete="address-level2" placeholder="City / State"></div>
           <input type="hidden" name="role" value="tenant">
+          <div id="t-error-msg" role="alert" aria-live="assertive" style="display:none;color:#F87171;font-size:.82rem;margin-bottom:12px;padding:10px 14px;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:8px;"></div>
           <button type="submit" class="btn-primary btn-full">Join the Waitlist as Tenant →</button>
           <p class="form-disclaimer">🔒 No spam. No credit card. We'll send onboarding details within 48 hours.</p>
         </form>
 
-        <div class="form-success" id="tenantSuccess" style="display:none;">
+        <div class="form-success" id="tenantSuccess" role="alert" aria-live="assertive" style="display:none;">
           <h3>✓ You're on the list!</h3>
           <p>We'll be in touch within 48 hours with your early access details. The check you worked for is about to work back.</p>
         </div>
@@ -151,6 +157,7 @@
   </footer>
 
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
   <script>
     firebase.initializeApp({
@@ -159,8 +166,12 @@
       projectId: "perfect-tenant-app-bfaf7",
       storageBucket: "perfect-tenant-app-bfaf7.firebasestorage.app",
       messagingSenderId: "637835334506",
-      appId: "1:637835334506:ios:c46d9e852c1eb8a8c1cb13"
+      appId: "1:637835334506:web:676b3a1802f32229c1cb13"
     });
+    firebase.appCheck().activate(
+      new firebase.appCheck.ReCaptchaEnterpriseProvider('6LfMfv4sAAAAAI1lKWCQFfxYjdoCQIhOmGQFCLnF'),
+      true
+    );
     var db = firebase.firestore();
 
     document.getElementById('tenantWaitlistForm').addEventListener('submit', function(e) {
@@ -169,7 +180,10 @@
       var firstName = String(fd.get('firstName') || '').trim();
       var lastName = String(fd.get('lastName') || '').trim();
       var email = String(fd.get('email') || '').trim();
-      if (!firstName || !lastName || !email) return;
+      var errEl = document.getElementById('t-error-msg');
+      if (errEl) { errEl.style.display = 'none'; errEl.textContent = ''; }
+      if (!firstName || !lastName) { if(errEl){errEl.textContent='Please enter your first and last name.';errEl.style.display='block';} return; }
+      if (!email) { if(errEl){errEl.textContent='Please enter your email address.';errEl.style.display='block';} return; }
 
       var btn = e.target.querySelector('button[type=\"submit\"]');
       if (btn) { btn.disabled = true; btn.textContent = 'Submitting...'; }

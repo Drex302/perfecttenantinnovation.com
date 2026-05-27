@@ -21,6 +21,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/main.css">
   <style>
+    .skip-link{position:absolute;top:-48px;left:0;background:#268CA6;color:#FFFFFF;padding:10px 20px;border-radius:0 0 8px 0;font-weight:700;text-decoration:none;z-index:9999;transition:top .2s;font-size:.9rem}
+    .skip-link:focus{top:0;outline:3px solid #F29940;outline-offset:2px}
+    .waitlist-form label{display:block;font-size:.72rem;font-weight:600;color:#8AA5B5;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px}
+    .waitlist-form .form-field{margin-bottom:12px}
     .steps-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:12px;margin-top:22px}
     .step-card{grid-column:span 3;background:rgba(255,255,255,.03);border:1px solid rgba(38,140,166,.12);border-radius:14px;padding:18px 16px}
     .step-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:10px;background:rgba(38,140,166,.14);border:1px solid rgba(38,140,166,.2);font-family:var(--font-d);font-weight:800;color:var(--teal-light);margin-bottom:10px}
@@ -38,7 +42,8 @@
   </style>
 </head>
 <body>
-  <nav id="nav">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+  <nav id="nav" aria-label="Main navigation">
     <a href="/" class="nav-logo">Perfect<span>Tenant</span></a>
     <ul class="nav-links">
       <li><a href="/#platform">Landlords</a></li>
@@ -51,7 +56,7 @@
     </ul>
   </nav>
 
-  <main class="page">
+  <main class="page" id="main-content">
     <div class="container">
       <section class="role-hero role-hero--sp">
         <p class="section-label">For Service Providers</p>
@@ -89,15 +94,16 @@
         <h2 class="section-title" style="font-size:clamp(1.4rem,3vw,2rem);margin-bottom:6px">Join as a Verified Service Provider</h2>
         <p class="section-body" style="margin:0;max-width:900px">We're building our verified provider network now. Get verified early and be first in queue when jobs start flowing in your area.</p>
 
-        <form class="waitlist-form" id="spWaitlistForm">
+        <form class="waitlist-form" id="spWaitlistForm" novalidate>
           <div class="form-row">
-            <input type="text" name="firstName" placeholder="First Name" required>
-            <input type="text" name="lastName" placeholder="Last Name" required>
+            <div class="form-field"><label for="sp-fname">First Name</label><input type="text" id="sp-fname" name="firstName" autocomplete="given-name" placeholder="First Name" required></div>
+            <div class="form-field"><label for="sp-lname">Last Name</label><input type="text" id="sp-lname" name="lastName" autocomplete="family-name" placeholder="Last Name" required></div>
           </div>
-          <input type="email" name="email" placeholder="Email Address" required>
-          <input type="tel" name="phone" placeholder="Phone Number" required>
-          <input type="text" name="company" placeholder="Business Name (if applicable)">
-          <select name="trade" required>
+          <div class="form-field"><label for="sp-email">Email Address</label><input type="email" id="sp-email" name="email" autocomplete="email" placeholder="Email Address" required></div>
+          <div class="form-field"><label for="sp-phone">Phone Number</label><input type="tel" id="sp-phone" name="phone" autocomplete="tel" placeholder="Phone Number" required></div>
+          <div class="form-field"><label for="sp-company">Business Name <span style="font-weight:400;text-transform:none">(if applicable)</span></label><input type="text" id="sp-company" name="company" autocomplete="organization" placeholder="Business Name"></div>
+          <div class="form-field"><label for="sp-trade">Your Trade / Specialty</label>
+          <select id="sp-trade" name="trade" required>
             <option value="">Your Trade / Specialty</option>
             <option value="plumbing">Plumbing</option>
             <option value="electrical">Electrical</option>
@@ -108,14 +114,15 @@
             <option value="painting">Painting</option>
             <option value="flooring">Flooring</option>
             <option value="other">Other</option>
-          </select>
-          <input type="text" name="location" placeholder="City / State (service area)" required>
+          </select></div>
+          <div class="form-field"><label for="sp-location">City / State (service area)</label><input type="text" id="sp-location" name="location" autocomplete="address-level2" placeholder="City / State (service area)" required></div>
           <input type="hidden" name="role" value="service_provider">
+          <div id="sp-error-msg" role="alert" aria-live="assertive" style="display:none;color:#F87171;font-size:.82rem;margin-bottom:12px;padding:10px 14px;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:8px;"></div>
           <button type="submit" class="btn-primary btn-full">Join as Verified Service Provider →</button>
           <p class="form-disclaimer">🔒 No spam. Provider-specific onboarding within 48 hours.</p>
         </form>
 
-        <div class="form-success" id="spSuccess" style="display:none;">
+        <div class="form-success" id="spSuccess" role="alert" aria-live="assertive" style="display:none;">
           <h3>✓ You're in the provider network!</h3>
           <p>We'll send verification and onboarding details within 48 hours. No cold calls. The work is coming to you.</p>
         </div>
@@ -140,6 +147,7 @@
   </footer>
 
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
   <script>
     firebase.initializeApp({
@@ -148,8 +156,12 @@
       projectId: "perfect-tenant-app-bfaf7",
       storageBucket: "perfect-tenant-app-bfaf7.firebasestorage.app",
       messagingSenderId: "637835334506",
-      appId: "1:637835334506:ios:c46d9e852c1eb8a8c1cb13"
+      appId: "1:637835334506:web:676b3a1802f32229c1cb13"
     });
+    firebase.appCheck().activate(
+      new firebase.appCheck.ReCaptchaEnterpriseProvider('6LfMfv4sAAAAAI1lKWCQFfxYjdoCQIhOmGQFCLnF'),
+      true
+    );
     var db = firebase.firestore();
 
     document.getElementById('spWaitlistForm').addEventListener('submit', function(e) {
@@ -161,7 +173,13 @@
       var phone = String(fd.get('phone') || '').trim();
       var trade = String(fd.get('trade') || '').trim();
       var location = String(fd.get('location') || '').trim();
-      if (!firstName || !lastName || !email || !phone || !trade || !location) return;
+      var errEl = document.getElementById('sp-error-msg');
+      if (errEl) { errEl.style.display = 'none'; errEl.textContent = ''; }
+      if (!firstName || !lastName) { if(errEl){errEl.textContent='Please enter your first and last name.';errEl.style.display='block';} return; }
+      if (!email) { if(errEl){errEl.textContent='Please enter your email address.';errEl.style.display='block';} return; }
+      if (!phone) { if(errEl){errEl.textContent='Please enter your phone number.';errEl.style.display='block';} return; }
+      if (!trade) { if(errEl){errEl.textContent='Please select your trade or specialty.';errEl.style.display='block';} return; }
+      if (!location) { if(errEl){errEl.textContent='Please enter your service area (city/state).';errEl.style.display='block';} return; }
 
       var btn = e.target.querySelector('button[type=\"submit\"]');
       if (btn) { btn.disabled = true; btn.textContent = 'Submitting...'; }
