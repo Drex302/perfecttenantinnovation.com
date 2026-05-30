@@ -4,17 +4,456 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy — Perfect Tenant Innovation</title>
+  <meta name="description" content="Privacy Policy for Perfect Tenant Innovation — how we collect, use, and protect your information.">
   <link rel="canonical" href="https://www.perfecttenantinnovation.com/legal/privacy-policy">
   <meta name="robots" content="noindex">
-  <meta http-equiv="refresh" content="0; url=https://sites.google.com/view/perfecttenantinnovation/privacy-policy">
   <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <style>
-    body { font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 48px; background: #14141A; color: #fff; }
-    a { color: #2FA8C4; }
+    :root {
+      --teal:#268CA6;--teal-light:#2FA8C4;--teal-dim:#1D7089;
+      --teal-glow:rgba(38,140,166,0.18);
+      --orange:#F29940;--amber:#E6B34D;--green-mid:#599980;
+      --ink:#14141A;--ink-2:#1F1F24;--slate:#1A2535;
+      --muted:#7A8E9C;--ghost:#8AA5B5;--white:#FFFFFF;
+      --border:rgba(38,140,166,0.15);
+      --grad-text:linear-gradient(135deg,#2FA8C4,#66AD90,#E6B34D,#F29940);
+      --font-d:'Syne',sans-serif;--font-b:'DM Sans',sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-b);background:var(--ink);color:var(--white);line-height:1.7}
+    nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:16px 48px;
+        display:flex;align-items:center;justify-content:space-between;
+        background:rgba(20,20,26,.85);backdrop-filter:blur(20px);
+        border-bottom:1px solid var(--border)}
+    .nav-logo{font-family:var(--font-d);font-weight:800;font-size:1.05rem;
+              letter-spacing:-.02em;color:var(--white);text-decoration:none}
+    .nav-logo span{background:var(--grad-text);-webkit-background-clip:text;
+                   -webkit-text-fill-color:transparent;background-clip:text}
+    .nav-back{font-size:.8rem;color:var(--ghost);text-decoration:none;
+              letter-spacing:.04em;text-transform:uppercase;transition:color .2s}
+    .nav-back:hover{color:var(--teal-light)}
+    .page-wrap{max-width:800px;margin:0 auto;padding:120px 32px 80px}
+    .legal-header{border-bottom:1px solid var(--border);padding-bottom:32px;margin-bottom:48px}
+    .legal-badge{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.08em;
+                 text-transform:uppercase;color:var(--teal-light);background:var(--teal-glow);
+                 border:1px solid rgba(38,140,166,.3);border-radius:4px;padding:4px 10px;margin-bottom:16px}
+    .legal-title{font-family:var(--font-d);font-size:clamp(1.8rem,4vw,2.4rem);
+                 font-weight:800;line-height:1.1;margin-bottom:16px}
+    .legal-meta{font-size:.85rem;color:var(--muted);line-height:1.8}
+    .legal-meta strong{color:var(--ghost)}
+    .toc{background:var(--ink-2);border:1px solid var(--border);border-radius:10px;
+         padding:24px 28px;margin-bottom:48px}
+    .toc-title{font-family:var(--font-d);font-size:.8rem;font-weight:700;letter-spacing:.08em;
+               text-transform:uppercase;color:var(--ghost);margin-bottom:14px}
+    .toc ol{padding-left:20px}
+    .toc li{margin-bottom:6px}
+    .toc a{color:var(--teal-light);text-decoration:none;font-size:.88rem;transition:color .2s}
+    .toc a:hover{color:var(--amber)}
+    .legal-section{margin-bottom:52px;scroll-margin-top:90px}
+    .section-number{font-size:.72rem;font-weight:700;letter-spacing:.1em;
+                    text-transform:uppercase;color:var(--teal-light);margin-bottom:8px}
+    h2{font-family:var(--font-d);font-size:1.25rem;font-weight:700;color:var(--white);
+       margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    h3{font-size:1rem;font-weight:600;color:var(--ghost);margin:24px 0 10px}
+    p{color:rgba(255,255,255,.8);margin-bottom:14px;font-size:.93rem}
+    ul,ol{padding-left:20px;margin-bottom:14px}
+    li{color:rgba(255,255,255,.8);margin-bottom:6px;font-size:.93rem}
+    a{color:var(--teal-light);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .callout{border-radius:8px;padding:18px 22px;margin:20px 0;font-size:.88rem}
+    .callout-teal{background:rgba(38,140,166,.08);border-left:3px solid var(--teal)}
+    .callout-amber{background:rgba(230,179,77,.07);border-left:3px solid var(--amber)}
+    .callout-orange{background:rgba(242,153,64,.07);border-left:3px solid var(--orange)}
+    .callout p{margin-bottom:0}
+    .callout strong{color:var(--white)}
+    .data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.85rem}
+    .data-table th{text-align:left;padding:10px 14px;background:var(--ink-2);color:var(--ghost);
+                   font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;
+                   border-bottom:1px solid var(--border)}
+    .data-table td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.05);
+                   color:rgba(255,255,255,.75);vertical-align:top}
+    .rights-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+    .rights-card{background:var(--ink-2);border:1px solid var(--border);border-radius:8px;padding:16px 18px}
+    .rights-card h4{font-family:var(--font-d);font-size:.85rem;font-weight:700;
+                    color:var(--teal-light);margin-bottom:8px}
+    .rights-card p{font-size:.82rem;margin-bottom:0;color:var(--muted)}
+    .legal-footer{margin-top:64px;padding-top:32px;border-top:1px solid var(--border);text-align:center}
+    .legal-footer p{font-size:.82rem;color:var(--muted)}
+    @media(max-width:640px){
+      nav{padding:14px 20px}
+      .page-wrap{padding:100px 20px 60px}
+      .rights-grid{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
-  <p>Redirecting to <a href="https://sites.google.com/view/perfecttenantinnovation/privacy-policy">Privacy Policy</a>&hellip;</p>
-  <script>window.location.replace('https://sites.google.com/view/perfecttenantinnovation/privacy-policy');</script>
+
+<nav>
+  <a href="https://www.perfecttenantinnovation.com" class="nav-logo">Perfect <span>Tenant</span></a>
+  <a href="https://www.perfecttenantinnovation.com" class="nav-back">← Back to site</a>
+</nav>
+
+<main class="page-wrap">
+
+  <header class="legal-header">
+    <div class="legal-badge">Legal</div>
+    <h1 class="legal-title">Privacy Policy</h1>
+    <div class="legal-meta">
+      <strong>Effective Date:</strong> December 15, 2025 &nbsp;|&nbsp;
+      <strong>Last Updated:</strong> June 1, 2026 &nbsp;|&nbsp;
+      <strong>Version:</strong> 2.0
+    </div>
+    <div class="legal-meta" style="margin-top:8px">
+      <strong>Company:</strong> Perfect Tenant Innovation, LLC &nbsp;|&nbsp;
+      <strong>Address:</strong> 2087 Harmon St, Montgomery, AL 36107 &nbsp;|&nbsp;
+      <strong>Contact:</strong> <a href="mailto:perfecttenantinnovation@gmail.com">perfecttenantinnovation@gmail.com</a>
+    </div>
+    <div class="legal-meta" style="margin-top:12px">
+      This policy applies to the Perfect Tenant mobile app, Admin Portal, Service Provider Network,
+      PTI Marketplace, Swarm Boss Program, and optional PTI Vitals features. By using our services
+      you agree to the collection and use of information described here.
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Table of contents">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li><a href="#information-we-collect">Information We Collect</a></li>
+      <li><a href="#how-we-use">How We Use Your Information</a></li>
+      <li><a href="#sharing">Information Sharing</a></li>
+      <li><a href="#ai">AI &amp; Automated Processing</a></li>
+      <li><a href="#security">Data Security</a></li>
+      <li><a href="#retention">Data Retention</a></li>
+      <li><a href="#your-rights">Your Rights &amp; Choices</a></li>
+      <li><a href="#do-not-sell">Do Not Sell or Share My Personal Information</a></li>
+      <li><a href="#sensitive-pi">Sensitive Personal Information</a></li>
+      <li><a href="#state-rights">State-Specific Privacy Rights</a></li>
+      <li><a href="#children">Children's Privacy</a></li>
+      <li><a href="#international">International Data Transfers</a></li>
+      <li><a href="#cookies">Cookies &amp; Tracking</a></li>
+      <li><a href="#voluntary">Voluntary Features</a></li>
+      <li><a href="#social">Social Features</a></li>
+      <li><a href="#no-retaliation">No Retaliation</a></li>
+      <li><a href="#changes">Changes to This Policy</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ol>
+  </nav>
+
+  <!-- Section 1 -->
+  <section class="legal-section" id="information-we-collect">
+    <div class="section-number">Section 1</div>
+    <h2>Information We Collect</h2>
+
+    <h3>1.1 Account Information</h3>
+    <p>Email address, encrypted password, first and last name, phone number, user role, account creation date, and last login information.</p>
+
+    <h3>1.2 Contact &amp; Profile Information</h3>
+    <p>Mailing address, property address, emergency contact information, and optional profile photos.</p>
+
+    <h3>1.3 Sensitive Personal Information</h3>
+    <p><strong>Social Security Number (SSN)</strong></p>
+    <p>We collect SSN for tenant background verification purposes only. SSN data is:</p>
+    <ul>
+      <li>Encrypted immediately upon submission using AES-256-GCM encryption</li>
+      <li>Never stored on your device</li>
+      <li>Used only for background checks through verified third-party providers</li>
+      <li>Accessible only by authorized personnel</li>
+      <li>Deleted within 90 days after application decision</li>
+      <li>Never shared with landlords in raw form</li>
+      <li>Stored separately from all other user data</li>
+    </ul>
+    <p><strong>Background Check Information</strong></p>
+    <p>Criminal history, eviction history, employment verification, and identity verification results when applicable.</p>
+
+    <h3>1.4 Financial Information</h3>
+    <p><strong>Credit Information:</strong> Credit scores and reports obtained through third-party agencies (TransUnion, Checkr, RentPrep). Used only for tenant eligibility assessment, shared with landlords only as summary screening results, retained per applicable credit reporting laws, and subject to FCRA requirements.</p>
+    <p><strong>Payment Information:</strong> Payment methods are processed through Stripe, Inc. We do not store full payment card numbers. We retain payment metadata including transaction IDs, amounts, dates, and billing address.</p>
+
+    <h3>1.5 Location Information</h3>
+    <p>Location data may be collected when you enable location services, use location-based features, or verify property proximity. Used to match users with local services, verify proximity, and support safety features. Location services can be disabled at any time in your device settings.</p>
+
+    <h3>1.6 Property &amp; Housing Information</h3>
+    <p>Property details, lease information, maintenance request history, and inspection data where applicable.</p>
+
+    <h3>1.7 Voluntary Home Wellness Submissions</h3>
+    <p>Tenants may voluntarily submit photos for optional Home Wellness Check features. These submissions are not inspections, do not affect rent, lease renewal, eligibility, or maintenance priority, require explicit opt-in consent, and are not shared with landlords unless the tenant initiates a maintenance request or provides explicit consent.</p>
+
+    <h3>1.8 Communications</h3>
+    <p>Messages sent through the app, support correspondence, feedback, reviews, and participation in social audio rooms.</p>
+
+    <h3>1.9 Usage &amp; Analytics Data</h3>
+    <p>App usage patterns, session duration, feature usage, device information, IP address, and user agent information collected through Firebase Analytics.</p>
+
+    <h3>1.10 Crash &amp; Performance Reports</h3>
+    <p>Crash reports, error logs, and performance metrics collected through Firebase Crashlytics and Firebase Performance Monitoring. This includes device model, OS version, app version, and diagnostic context (memory usage, battery state, disk space at time of error). Used solely for debugging and improving app stability — never used in housing or eligibility decisions.</p>
+  </section>
+
+  <!-- Section 2 -->
+  <section class="legal-section" id="how-we-use">
+    <div class="section-number">Section 2</div>
+    <h2>How We Use Your Information</h2>
+    <p>We use collected information to:</p>
+    <ul>
+      <li>Provide and operate core platform services</li>
+      <li>Manage user accounts and authentication</li>
+      <li>Facilitate connections between tenants and landlords</li>
+      <li>Process rental applications and background checks</li>
+      <li>Coordinate maintenance and property inspections</li>
+      <li>Process payments and manage wallet balances</li>
+      <li>Provide customer support</li>
+      <li>Send transactional and service notifications</li>
+      <li>Improve platform features and user experience</li>
+      <li>Comply with legal obligations and enforce our terms</li>
+      <li>Detect and prevent fraud, abuse, and security threats</li>
+      <li>Maintain audit logs for compliance purposes</li>
+      <li>Administer rewards and incentive programs</li>
+    </ul>
+    <p>Rewards data is kept separate from housing eligibility data and is not used in tenant screening or landlord matching decisions.</p>
+  </section>
+
+  <!-- Section 3 -->
+  <section class="legal-section" id="sharing">
+    <div class="section-number">Section 3</div>
+    <h2>Information Sharing</h2>
+    <div class="callout callout-teal">
+      <p><strong>PTI does not sell personal data.</strong></p>
+    </div>
+
+    <h3>3.1 With Landlords</h3>
+    <p>Landlords receive screening summaries, application status updates, maintenance information, and property-related data. Landlords do <strong>not</strong> receive raw SSN data, raw credit reports, health data, or voluntary wellness images without explicit tenant consent.</p>
+
+    <h3>3.2 With Service Providers</h3>
+    <table class="data-table">
+      <thead><tr><th>Provider</th><th>Purpose</th><th>Data Shared</th></tr></thead>
+      <tbody>
+        <tr><td>Stripe, Inc.</td><td>Payment processing</td><td>Payment metadata, billing address</td></tr>
+        <tr><td>Google Firebase</td><td>Infrastructure, analytics, crash reporting</td><td>Usage data, device info, crash context</td></tr>
+        <tr><td>Checkr / TransUnion SmartMove / RentPrep</td><td>Background &amp; credit screening</td><td>Name, SSN (encrypted), date of birth</td></tr>
+        <tr><td>LiveKit</td><td>Social audio rooms</td><td>Audio stream (not recorded by default)</td></tr>
+        <tr><td>OpenAI</td><td>AI-powered platform features</td><td>De-identified query content</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3.3 Legal Requirements &amp; Business Transfers</h3>
+    <p>We may disclose information to comply with applicable law, court order, or government request. In the event of a merger, acquisition, or sale of assets, users will be notified of ownership changes and their data will remain subject to this policy or a materially equivalent successor policy.</p>
+  </section>
+
+  <!-- Section 4 -->
+  <section class="legal-section" id="ai">
+    <div class="section-number">Section 4</div>
+    <h2>AI &amp; Automated Processing</h2>
+    <p>PTI uses automated tools and AI (Agent Zero) to support tenant-landlord matching, maintenance routing, security monitoring, analytics, content moderation, and informational summaries.</p>
+    <div class="callout callout-amber">
+      <p><strong>AI outputs are informational only.</strong> They are non-binding, subject to human review on request, and not used as the sole basis for housing, credit, or legal decisions. PTI complies with HUD's May 2024 guidance on AI use in tenant screening and the Fair Housing Act.</p>
+    </div>
+    <p>Before automated decision-making technology influences a consequential housing decision affecting your account, you will receive an in-app notice describing its use and the principal factors involved.</p>
+    <p>You may request human review of any AI-influenced decision by contacting <a href="mailto:perfecttenantinnovation@gmail.com">perfecttenantinnovation@gmail.com</a>. We will respond within 5 business days.</p>
+  </section>
+
+  <!-- Section 5 -->
+  <section class="legal-section" id="security">
+    <div class="section-number">Section 5</div>
+    <h2>Data Security</h2>
+    <p>We protect your information using:</p>
+    <ul>
+      <li>AES-256-GCM encryption for sensitive data at rest</li>
+      <li>TLS encryption for all data in transit</li>
+      <li>Tokenization for payment data (Stripe)</li>
+      <li>Role-based access controls limiting data access to authorized personnel</li>
+      <li>Firebase security rules enforced server-side</li>
+      <li>Regular security audits and incident response procedures</li>
+    </ul>
+    <p>In the event of a data breach affecting your personal information, we will notify affected users as required by applicable law. No security system is impenetrable; we cannot guarantee absolute security, but we are committed to maintaining reasonable, industry-standard safeguards.</p>
+  </section>
+
+  <!-- Section 6 -->
+  <section class="legal-section" id="retention">
+    <div class="section-number">Section 6</div>
+    <h2>Data Retention</h2>
+    <p>We retain personal information only as long as necessary for the purposes described here, or as required by law.</p>
+    <table class="data-table">
+      <thead><tr><th>Data Category</th><th>Retention Period</th><th>Basis</th></tr></thead>
+      <tbody>
+        <tr><td>Active account data</td><td>Duration of account + 2 years</td><td>Operational / legal</td></tr>
+        <tr><td>Payment &amp; transaction records</td><td>7 years from transaction date</td><td>Tax / legal compliance</td></tr>
+        <tr><td>SSN (post-decision)</td><td>Deleted within 90 days of application decision</td><td>Data minimization / FCRA</td></tr>
+        <tr><td>Background check results</td><td>Per applicable law (max 7 years for most records)</td><td>FCRA § 1681c</td></tr>
+        <tr><td>Crash &amp; error logs</td><td>90 days</td><td>Debugging / operational</td></tr>
+        <tr><td>Deleted account data</td><td>30 days then purged, except where legally required</td><td>Legal hold / audit</td></tr>
+        <tr><td>Audit logs (security events)</td><td>2 years</td><td>Compliance</td></tr>
+        <tr><td>In-app messages</td><td>2 years from last activity</td><td>Dispute resolution</td></tr>
+      </tbody>
+    </table>
+    <p>After retention periods expire, data is securely deleted or irreversibly anonymized.</p>
+  </section>
+
+  <!-- Section 7 -->
+  <section class="legal-section" id="your-rights">
+    <div class="section-number">Section 7</div>
+    <h2>Your Rights &amp; Choices</h2>
+    <p>To exercise any right below, contact <a href="mailto:perfecttenantinnovation@gmail.com">perfecttenantinnovation@gmail.com</a>. We respond within 30 days. Some requests require identity verification.</p>
+    <div class="rights-grid">
+      <div class="rights-card">
+        <h4>Right to Know</h4>
+        <p>Request the categories and specific pieces of personal information we hold about you.</p>
+      </div>
+      <div class="rights-card">
+        <h4>Right to Delete</h4>
+        <p>Request deletion of your personal information, subject to legal retention requirements.</p>
+      </div>
+      <div class="rights-card">
+        <h4>Right to Correct</h4>
+        <p>Request correction of inaccurate personal information we hold about you.</p>
+      </div>
+      <div class="rights-card">
+        <h4>Right to Portability</h4>
+        <p>Request a copy of your data in a portable, machine-readable format.</p>
+      </div>
+      <div class="rights-card">
+        <h4>Opt-Out of Marketing</h4>
+        <p>Unsubscribe from marketing communications at any time. Transactional messages may still be sent.</p>
+      </div>
+      <div class="rights-card">
+        <h4>Location Controls</h4>
+        <p>Disable location services at any time in device Settings → Privacy → Location Services.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8 -->
+  <section class="legal-section" id="do-not-sell">
+    <div class="section-number">Section 8</div>
+    <h2>Do Not Sell or Share My Personal Information</h2>
+    <div class="callout callout-teal">
+      <p><strong>PTI does not sell or share your personal information with third parties for cross-context behavioral advertising.</strong></p>
+    </div>
+    <p>We do not sell personal information as defined by the California Consumer Privacy Act (CCPA/CPRA) or any applicable state privacy law. We do not share personal information with third parties for targeted advertising purposes unrelated to operating this platform.</p>
+    <p>To confirm your opt-out status or submit a formal Do Not Sell or Share request, email <a href="mailto:perfecttenantinnovation@gmail.com">perfecttenantinnovation@gmail.com</a> with the subject line <strong>"Do Not Sell – Privacy Request."</strong> We will confirm within 15 business days. There is no fee and we will not discriminate against you for exercising this right.</p>
+  </section>
+
+  <!-- Section 9 -->
+  <section class="legal-section" id="sensitive-pi">
+    <div class="section-number">Section 9</div>
+    <h2>Sensitive Personal Information</h2>
+    <p>Under the California Privacy Rights Act (CPRA), certain categories are classified as "sensitive personal information." PTI collects the following sensitive PI categories:</p>
+    <table class="data-table">
+      <thead><tr><th>Category</th><th>Why Collected</th><th>How to Limit Use</th></tr></thead>
+      <tbody>
+        <tr><td>Social Security Number</td><td>Tenant background verification only</td><td>Decline background check features; contact us to request deletion</td></tr>
+        <tr><td>Precise geolocation</td><td>Service provider job proximity; property verification</td><td>Disable in device Settings → Privacy → Location Services</td></tr>
+        <tr><td>Financial account information</td><td>Payment processing via Stripe</td><td>Remove payment methods in account settings</td></tr>
+        <tr><td>Criminal history / background data</td><td>Tenant screening (FCRA-governed)</td><td>Decline background check — note this may limit platform access</td></tr>
+      </tbody>
+    </table>
+    <p>You have the right to request that PTI limit the use of your sensitive personal information to purposes strictly necessary to provide the services you requested. To exercise this right, email <a href="mailto:perfecttenantinnovation@gmail.com">perfecttenantinnovation@gmail.com</a> with the subject line <strong>"Limit Sensitive PI – Privacy Request."</strong></p>
+  </section>
+
+  <!-- Section 10 -->
+  <section class="legal-section" id="state-rights">
+    <div class="section-number">Section 10</div>
+    <h2>State-Specific Privacy Rights</h2>
+
+    <h3>California (CCPA / CPRA)</h3>
+    <p>California residents have the right to know, delete, correct, opt out of sale/sharing, and limit use of sensitive PI. PTI does not discriminate against California residents who exercise these rights. You may authorize an agent to submit requests on your behalf. Submit CCPA requests to <a href="mailto:perfecttenantinnovation@gmail.com">perfecttenantinnovation@gmail.com</a> with "CCPA Request" in the subject line. We respond within 45 days (extendable by 45 days with notice).</p>
+
+    <h3>Virginia (CDPA)</h3>
+    <p>Virginia residents have the right to access, delete, correct, and obtain a copy of personal data; to opt out of processing for targeted advertising and profiling in decisions with significant effects (including housing decisions); and to appeal our response to a privacy request. Submit requests with "Virginia Privacy Request" in the subject line.</p>
+
+    <h3>Colorado (CPA)</h3>
+    <p>Colorado residents have rights similar to Virginia residents. PTI honors the Global Privacy Control (GPC) signal as a valid opt-out of processing for targeted advertising. Submit requests with "Colorado Privacy Request" in the subject line.</p>
+
+    <h3>Texas (TDPSA)</h3>
+    <p>Texas residents have the right to access, correct, delete, and obtain a copy of personal data; to opt out of targeted advertising, sale, and profiling in significant decisions. Before processing sensitive personal data of Texas residents (precise geolocation, background data, financial data), PTI obtains affirmative opt-in consent. Submit requests with "Texas Privacy Request" in the subject line.</p>
+
+    <h3>All Other States</h3>
+    <p>Regardless of where you live, you may contact us at any time to access, correct, or delete your personal information. We will respond within 30 days.</p>
+  </section>
+
+  <!-- Section 11 -->
+  <section class="legal-section" id="children">
+    <div class="section-number">Section 11</div>
+    <h2>Children's Privacy</h2>
+    <p>Our services are not intended for users under 18 years of age. We do not knowingly collect personal information from children under 18. If we discover that we have inadvertently collected such data, we will delete it promptly. If you believe we have collected information from a minor, contact us immediately at <a href="mailto:perfecttenantinnovation@gmail.com">perfecttenantinnovation@gmail.com</a>.</p>
+  </section>
+
+  <!-- Section 12 -->
+  <section class="legal-section" id="international">
+    <div class="section-number">Section 12</div>
+    <h2>International Data Transfers</h2>
+    <p>PTI is based in the United States. If you access our services from outside the United States, your information will be transferred to and processed in the United States or other countries where our service providers operate. We use appropriate safeguards — including standard contractual clauses where required — to protect internationally transferred data in accordance with applicable law.</p>
+  </section>
+
+  <!-- Section 13 -->
+  <section class="legal-section" id="cookies">
+    <div class="section-number">Section 13</div>
+    <h2>Cookies &amp; Tracking</h2>
+    <p>Our website and app use cookies and similar technologies to maintain sessions, analyze usage, improve services, and personalize experiences. We use Firebase Analytics (first-party, same-app only) for in-app analytics. We do not use third-party advertising networks or cross-app tracking technologies.</p>
+    <p>You can control cookie behavior through your device and browser settings. The app honors Global Privacy Control (GPC) signals as a valid opt-out for applicable state law purposes. Disabling certain tracking may limit platform functionality.</p>
+  </section>
+
+  <!-- Section 14 -->
+  <section class="legal-section" id="voluntary">
+    <div class="section-number">Section 14</div>
+    <h2>Voluntary Features</h2>
+    <p><strong>Home Wellness Checks:</strong> Voluntary, opt-in only. Not inspections. Do not affect housing eligibility. Photos not shared with landlords without tenant-initiated action or explicit consent.</p>
+    <p><strong>PTI Vitals:</strong> Optional wellness features require separate opt-in consent. Health-related data is never shared with landlords or used in housing decisions. PTI is not a medical provider and does not provide medical advice.</p>
+  </section>
+
+  <!-- Section 15 -->
+  <section class="legal-section" id="social">
+    <div class="section-number">Section 15</div>
+    <h2>Social Features</h2>
+    <p>Social audio rooms transmit live audio to all participants. Audio is not recorded by default but may be logged for moderation purposes where required by law or platform safety policies. Users may leave a room at any time. Hosts may moderate rooms and remove participants. Participation is voluntary.</p>
+  </section>
+
+  <!-- Section 16 -->
+  <section class="legal-section" id="no-retaliation">
+    <div class="section-number">Section 16</div>
+    <h2>No Retaliation</h2>
+    <p>PTI prohibits use of platform data or administrative actions to retaliate against any user for opting in or out of optional features, exercising any privacy right described in this policy, requesting data deletion or correction, or filing a complaint with PTI or any regulatory body. Violations by landlords or other users may result in account suspension or termination.</p>
+  </section>
+
+  <!-- Section 17 -->
+  <section class="legal-section" id="changes">
+    <div class="section-number">Section 17</div>
+    <h2>Changes to This Policy</h2>
+    <p>We may update this policy periodically. For material changes, we will update the "Last Updated" date, increment the version number, and notify you via in-app notification and/or email before changes take effect. Continued use of PTI services after the effective date constitutes acceptance.</p>
+    <table class="data-table">
+      <thead><tr><th>Version</th><th>Date</th><th>Summary</th></tr></thead>
+      <tbody>
+        <tr><td>1.0</td><td>Dec 15, 2025</td><td>Initial policy — core data practices, FCRA, CCPA</td></tr>
+        <tr><td>1.1</td><td>Jan 2026</td><td>Expanded third-party disclosures, AI section added</td></tr>
+        <tr><td>2.0</td><td>Jun 1, 2026</td><td>Migrated to own domain; added CPRA Do Not Sell mechanism (Sec 8), Sensitive PI limitation right (Sec 9), state addendum for VA/CO/TX (Sec 10), data retention schedule (Sec 6), crash/performance data disclosure (Sec 1.10), GPC signal support, Landlord Agreement separated to its own page</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Section 18 -->
+  <section class="legal-section" id="contact">
+    <div class="section-number">Section 18</div>
+    <h2>Contact Us</h2>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:perfecttenantinnovation@gmail.com">perfecttenantinnovation@gmail.com</a></li>
+      <li><strong>Mail:</strong> Perfect Tenant Innovation, LLC — 2087 Harmon St, Montgomery, AL 36107</li>
+      <li><strong>Support:</strong> <a href="https://sites.google.com/view/perfecttenantinnovation/support">perfecttenantinnovation.com/support</a></li>
+    </ul>
+    <p style="margin-top:16px">For formal legal notices, email with subject line <strong>"Legal Notice — Privacy."</strong> We will acknowledge within 2 business days.</p>
+    <p style="margin-top:12px"><strong>Governing Law:</strong> This Privacy Policy is governed by the laws of the United States and the State of Alabama.</p>
+  </section>
+
+  <footer class="legal-footer">
+    <p>
+      &copy; 2026 Perfect Tenant Innovation, LLC. All rights reserved. &nbsp;|&nbsp;
+      <a href="/legal/privacy-policy">Privacy Policy</a> &nbsp;|&nbsp;
+      <a href="https://sites.google.com/view/perfecttenantinnovation/terms-of-service">Terms of Service</a> &nbsp;|&nbsp;
+      <a href="/legal/landlord-agreement">Landlord Agreement</a>
+    </p>
+    <p style="margin-top:8px">Last reviewed June 1, 2026. This document does not constitute legal advice.</p>
+  </footer>
+
+</main>
 </body>
 </html>
