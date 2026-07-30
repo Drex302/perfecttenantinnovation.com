@@ -87,14 +87,24 @@
       .page-wrap{padding:100px 20px 60px}
       .rights-grid{grid-template-columns:1fr}
     }
-  </style>
+  
+    .toc-toggle{display:flex;align-items:center;justify-content:space-between;
+                cursor:pointer;list-style:none;user-select:none;padding:0;
+                font-family:var(--font-d);font-size:.8rem;font-weight:700;
+                letter-spacing:.08em;text-transform:uppercase;color:var(--ghost)}
+    .toc-toggle::-webkit-details-marker{display:none}
+    .toc-toggle::after{content:'▸';font-size:.9rem;color:var(--teal-light);
+                       transition:transform .25s;display:inline-block}
+    details.toc[open] .toc-toggle::after{transform:rotate(90deg)}
+    .toc ol{padding-left:20px;margin-top:14px}
+    </style>
 </head>
 <body>
 
 <nav>
   <a href="https://www.perfecttenantinnovation.com" class="nav-logo">Perfect <span>Tenant</span></a>
   <a href="https://www.perfecttenantinnovation.com" class="nav-back">← Back to site</a>
-</nav>
+</details>
 
 <main class="page-wrap">
 
@@ -118,8 +128,8 @@
     </div>
   </header>
 
-  <nav class="toc" aria-label="Table of contents">
-    <div class="toc-title">Contents</div>
+  <details class="toc" aria-label="Table of contents">
+    <summary class="toc-toggle">Contents</summary>
     <ol>
       <li><a href="#information-we-collect">Information We Collect</a></li>
       <li><a href="#how-we-use">How We Use Your Information</a></li>

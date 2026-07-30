@@ -194,7 +194,17 @@
       nav { padding: 14px 20px; }
       .page-wrap { padding: 100px 20px 60px; }
     }
-  </style>
+  
+    .toc-toggle{display:flex;align-items:center;justify-content:space-between;
+                cursor:pointer;list-style:none;user-select:none;padding:0;
+                font-family:var(--font-d);font-size:.8rem;font-weight:700;
+                letter-spacing:.08em;text-transform:uppercase;color:var(--ghost)}
+    .toc-toggle::-webkit-details-marker{display:none}
+    .toc-toggle::after{content:'▸';font-size:.9rem;color:var(--teal-light);
+                       transition:transform .25s;display:inline-block}
+    details.toc[open] .toc-toggle::after{transform:rotate(90deg)}
+    .toc ol{padding-left:20px;margin-top:14px}
+    </style>
 </head>
 <body>
 
@@ -203,7 +213,7 @@
       Perfect <span>Tenant</span>
     </a>
     <a href="https://www.perfecttenantinnovation.com" class="nav-back">← Back to site</a>
-  </nav>
+  </details>
 
   <main class="page-wrap">
 
@@ -225,8 +235,8 @@
     </header>
 
     <!-- TOC -->
-    <nav class="toc" aria-label="Table of contents">
-      <div class="toc-title">Contents</div>
+    <details class="toc" aria-label="Table of contents">
+      <summary class="toc-toggle">Contents</summary>
       <ol>
         <li><a href="#platform-role">Platform Role &amp; Payment Agency</a></li>
         <li><a href="#fair-housing">Fair Housing Compliance</a></li>

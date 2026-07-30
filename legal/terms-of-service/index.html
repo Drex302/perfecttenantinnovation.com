@@ -11,7 +11,17 @@
   <style>
     body { font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 48px; background: #14141A; color: #fff; }
     a { color: #2FA8C4; }
-  </style>
+  
+    .toc-toggle{display:flex;align-items:center;justify-content:space-between;
+                cursor:pointer;list-style:none;user-select:none;padding:0;
+                font-family:var(--font-d);font-size:.8rem;font-weight:700;
+                letter-spacing:.08em;text-transform:uppercase;color:var(--ghost)}
+    .toc-toggle::-webkit-details-marker{display:none}
+    .toc-toggle::after{content:'▸';font-size:.9rem;color:var(--teal-light);
+                       transition:transform .25s;display:inline-block}
+    details.toc[open] .toc-toggle::after{transform:rotate(90deg)}
+    .toc ol{padding-left:20px;margin-top:14px}
+    </style>
 </head>
 <body>
   <p>Redirecting to <a href="https://sites.google.com/view/perfecttenantinnovation/terms-of-service">Terms of Service</a>&hellip;</p>
