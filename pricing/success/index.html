@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment received — Perfect Tenant Innovation</title>
+<meta name="robots" content="noindex,follow">
+<meta name="description" content="Your Perfect Tenant subscription payment was received and your access is being activated.">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles/main.css">
+<style>
+  .result{max-width:640px;margin:0 auto;text-align:center}
+  .result-icon{width:66px;height:66px;border-radius:50%;background:rgba(38,140,166,.14);border:1px solid rgba(38,140,166,.4);display:flex;align-items:center;justify-content:center;font-size:1.9rem;margin:0 auto 22px}
+  .result h1{font-family:var(--font-d);font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;line-height:1.12}
+  .result p{color:var(--ghost);font-weight:300;line-height:1.8;margin-top:14px}
+  .result .ref{margin-top:16px;font-size:.8rem;color:var(--muted);word-break:break-all}
+  .result-ctas{margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+</style>
+</head>
+<body>
+  <nav id="nav">
+    <a href="/" class="nav-logo">Perfect<span>Tenant</span></a>
+    <ul class="nav-links">
+      <li><a href="/#platform">Landlords</a></li>
+      <li><a href="/tenants/">For Tenants</a></li>
+      <li><a href="/pricing/">Pricing</a></li>
+      <li><a href="/join/">Join ecosystem</a></li>
+      <li><a href="/#ecosystem">Ecosystem</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/landlord-hours-audit/" class="nav-cta">Free Audit</a></li>
+    </ul>
+  </nav>
+
+  <main class="page">
+    <div class="container">
+      <section class="result">
+        <div class="result-icon" aria-hidden="true">✓</div>
+        <h1>Payment received — activating your access</h1>
+        <p>Thank you for subscribing to Perfect Tenant. Your payment was submitted successfully and we're now <strong>confirming it with our secure billing system</strong>. Your plan unlocks in the Perfect Tenant app once that confirmation completes — this usually takes only a moment.</p>
+        <p>Open the Perfect Tenant app and sign in with the same account to see your plan. If your access hasn't appeared after a few minutes, please contact us and we'll sort it out right away.</p>
+        <p class="ref" id="ref" hidden></p>
+        <div class="result-ctas">
+          <a href="/pricing/" class="btn-secondary">Back to plans</a>
+          <a href="mailto:hello@perfecttenantinnovation.com?subject=Subscription%20activation%20help" class="btn-primary">Contact support</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-logo">Perfect<span>Tenant</span> Innovation</div>
+    <ul class="footer-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/pricing/">Pricing</a></li>
+      <li><a href="/legal/terms-of-service/">Terms</a></li>
+      <li><a href="/legal/privacy-policy/">Privacy</a></li>
+      <li><a href="mailto:hello@perfecttenantinnovation.com">Contact</a></li>
+    </ul>
+    <div class="footer-copy">© 2026 Perfect Tenant Innovation. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // Show the Stripe Checkout Session id purely as a support reference.
+    // This does NOT confirm entitlement — activation is authoritative on the
+    // backend (Stripe webhook), never inferred from this query parameter.
+    (function () {
+      try {
+        var sid = new URLSearchParams(window.location.search).get('session_id');
+        if (sid && /^cs_[A-Za-z0-9_]+$/.test(sid)) {
+          var el = document.getElementById('ref');
+          el.textContent = 'Reference: ' + sid;
+          el.hidden = false;
+        }
+      } catch (e) { /* no-op */ }
+    })();
+  </script>
+</body>
+</html>

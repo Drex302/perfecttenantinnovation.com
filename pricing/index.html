@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landlord Plans & Pricing — Perfect Tenant Innovation</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8EF20FCMTK"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8EF20FCMTK');</script>
+<meta name="description" content="Perfect Tenant Innovation landlord plans: Ascent, Summit, and Pinnacle. Compare features, see monthly pricing, and subscribe securely. Enterprise portfolios use Contact Sales.">
+<link rel="canonical" href="https://www.perfecttenantinnovation.com/pricing/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.perfecttenantinnovation.com/pricing/">
+<meta property="og:title" content="Landlord Plans & Pricing — Perfect Tenant Innovation">
+<meta property="og:description" content="Compare Ascent, Summit, and Pinnacle. Transparent monthly pricing, secure Stripe checkout, cancel anytime.">
+<meta property="og:site_name" content="Perfect Tenant Innovation">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Landlord Plans & Pricing — Perfect Tenant Innovation">
+<meta name="twitter:description" content="Compare Ascent, Summit, and Pinnacle landlord plans. Secure checkout, cancel anytime.">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles/main.css">
+<style>
+  .pricing-hero{padding:6px 0 8px}
+  .pricing-sub{margin-top:12px}
+
+  /* Plan cards */
+  .plan-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:34px;align-items:stretch}
+  .plan-card{display:flex;flex-direction:column;background:rgba(255,255,255,.03);border:1px solid rgba(38,140,166,.14);border-radius:16px;padding:26px 22px;position:relative;transition:border-color .25s,transform .25s}
+  .plan-card:hover{border-color:rgba(38,140,166,.32);transform:translateY(-3px)}
+  .plan-card--featured{border-color:rgba(242,153,64,.4);background:rgba(242,153,64,.05)}
+  .plan-badge{position:absolute;top:-11px;left:22px;background:var(--grad);color:var(--white);font-family:var(--font-d);font-weight:700;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+  .plan-name{font-family:var(--font-d);font-size:1.35rem;font-weight:800}
+  .plan-range{font-size:.82rem;color:var(--teal-light);font-weight:500;margin-top:2px}
+  .plan-price{margin-top:16px;font-family:var(--font-d);font-weight:800;font-size:2.1rem;line-height:1;letter-spacing:-.02em}
+  .plan-price span{font-family:var(--font-b);font-size:.9rem;font-weight:400;color:var(--ghost);letter-spacing:0}
+  .plan-desc{color:var(--ghost);font-weight:300;font-size:.92rem;line-height:1.6;margin-top:12px;min-height:44px}
+  .plan-feats{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;flex:1}
+  .plan-feats li{position:relative;padding-left:26px;font-size:.92rem;color:rgba(255,255,255,.86);line-height:1.5}
+  .plan-feats li::before{content:'✓';position:absolute;left:0;top:0;color:var(--teal-light);font-weight:700}
+  .plan-cta-wrap{margin-top:22px}
+  .plan-cta{width:100%;justify-content:center}
+  .plan-cta[disabled]{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none;filter:grayscale(.2)}
+  .plan-note{font-size:.76rem;color:var(--muted);text-align:center;margin-top:10px;line-height:1.5}
+
+  /* Comparison table */
+  .compare-wrap{margin-top:52px;overflow-x:auto}
+  table.compare{width:100%;border-collapse:collapse;min-width:640px;font-size:.92rem}
+  table.compare caption{text-align:left;font-family:var(--font-d);font-weight:800;font-size:1.2rem;margin-bottom:14px}
+  table.compare th,table.compare td{text-align:left;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.08);vertical-align:top}
+  table.compare thead th{font-family:var(--font-d);font-weight:800;color:var(--white);font-size:1rem;border-bottom:1px solid rgba(38,140,166,.3)}
+  table.compare tbody th{font-weight:500;color:var(--ghost)}
+  table.compare td{color:rgba(255,255,255,.9)}
+  table.compare .no{color:var(--muted)}
+  table.compare .yes{color:var(--teal-light);font-weight:600}
+
+  /* Billing / terms strip */
+  .terms-strip{margin-top:40px;background:rgba(255,255,255,.03);border:1px solid rgba(38,140,166,.15);border-radius:16px;padding:22px 24px}
+  .terms-strip h3{font-family:var(--font-d);font-size:1.05rem;font-weight:800;margin-bottom:8px}
+  .terms-strip p{color:var(--ghost);font-weight:300;line-height:1.7;font-size:.92rem}
+  .terms-links{margin-top:12px;display:flex;gap:18px;flex-wrap:wrap}
+  .terms-links a{color:var(--teal-light);text-decoration:none;font-size:.86rem;border-bottom:1px solid rgba(47,168,196,.35)}
+  .terms-links a:hover{border-color:rgba(47,168,196,.75)}
+
+  /* FAQ (native details) */
+  .faq{margin-top:52px;max-width:820px}
+  .faq details{border:1px solid rgba(38,140,166,.14);border-radius:12px;margin-top:12px;background:rgba(255,255,255,.02);overflow:hidden}
+  .faq summary{cursor:pointer;list-style:none;padding:16px 18px;font-family:var(--font-d);font-weight:700;font-size:1rem;display:flex;justify-content:space-between;align-items:center;gap:14px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:'+';color:var(--teal-light);font-size:1.3rem;line-height:1;transition:transform .2s}
+  .faq details[open] summary::after{content:'–'}
+  .faq summary:focus-visible{outline:2px solid var(--teal-light);outline-offset:2px}
+  .faq .faq-body{padding:0 18px 16px;color:var(--ghost);font-weight:300;line-height:1.75;font-size:.94rem}
+
+  /* Auth modal */
+  .modal-overlay{position:fixed;inset:0;background:rgba(10,10,14,.72);backdrop-filter:blur(4px);z-index:1200;display:flex;align-items:center;justify-content:center;padding:20px}
+  .modal-overlay[hidden]{display:none}
+  .modal{width:100%;max-width:420px;background:var(--ink-2);border:1px solid rgba(38,140,166,.25);border-radius:16px;padding:26px 24px;position:relative}
+  .modal h2{font-family:var(--font-d);font-size:1.3rem;font-weight:800}
+  .modal p.modal-sub{color:var(--ghost);font-weight:300;font-size:.9rem;margin-top:6px;line-height:1.55}
+  .modal label{display:block;font-size:.8rem;color:var(--ghost);margin:16px 0 6px}
+  .modal input{width:100%;padding:12px 14px;border-radius:10px;background:rgba(20,20,26,.7);border:1px solid rgba(255,255,255,.12);color:var(--white);font-size:.95rem;font-family:inherit}
+  .modal input:focus{outline:none;border-color:var(--teal-light)}
+  .modal .btn-primary{width:100%;justify-content:center;margin-top:20px}
+  .modal-toggle{margin-top:14px;font-size:.86rem;color:var(--ghost);text-align:center}
+  .modal-toggle button{background:none;border:none;color:var(--teal-light);cursor:pointer;font:inherit;text-decoration:underline;padding:0}
+  .modal-close{position:absolute;top:12px;right:14px;background:none;border:none;color:var(--ghost);font-size:1.5rem;line-height:1;cursor:pointer}
+  .modal-close:hover{color:var(--white)}
+  .form-error{margin-top:14px;color:#FCA5A5;font-size:.86rem;line-height:1.5;min-height:1.1em}
+  .modal-legal{margin-top:16px;font-size:.74rem;color:var(--muted);line-height:1.5}
+  .modal-legal a{color:var(--teal-light);text-decoration:none}
+
+  /* Loading overlay + toast */
+  .loading-overlay{position:fixed;inset:0;background:rgba(10,10,14,.66);backdrop-filter:blur(3px);z-index:1300;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+  .loading-overlay[hidden]{display:none}
+  .spinner{width:42px;height:42px;border:3px solid rgba(47,168,196,.25);border-top-color:var(--teal-light);border-radius:50%;animation:spin .8s linear infinite}
+  .loading-overlay p{color:var(--ghost);font-size:.92rem}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:var(--ink-2);border:1px solid rgba(239,68,68,.5);color:#FCA5A5;padding:14px 20px;border-radius:12px;z-index:1400;max-width:min(560px,92vw);font-size:.9rem;line-height:1.5;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+  .toast[hidden]{display:none}
+
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+  @media(max-width:900px){
+    .plan-grid{grid-template-columns:1fr}
+    .plan-desc{min-height:0}
+  }
+</style>
+</head>
+<body>
+  <nav id="nav">
+    <a href="/" class="nav-logo">Perfect<span>Tenant</span></a>
+    <ul class="nav-links">
+      <li><a href="/#platform">Landlords</a></li>
+      <li><a href="/tenants/">For Tenants</a></li>
+      <li><a href="/pricing/">Pricing</a></li>
+      <li><a href="/join/">Join ecosystem</a></li>
+      <li><a href="/#ecosystem">Ecosystem</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/landlord-hours-audit/" class="nav-cta">Free Audit</a></li>
+    </ul>
+  </nav>
+
+  <main class="page">
+    <div class="container">
+      <section class="pricing-hero">
+        <p class="section-label">Landlord Plans</p>
+        <h1 class="section-title">Replace your property manager — for a flat monthly price.</h1>
+        <p class="section-body pricing-sub">Choose the plan that fits your portfolio. Every plan includes the Perfect Tenant platform — automated rent collection, AI-assisted operations, and tenant accountability tools. Billed monthly. Cancel anytime.</p>
+      </section>
+
+      <!-- Plan cards -->
+      <section aria-label="Plan options">
+        <div class="plan-grid">
+
+          <!-- Ascent -->
+          <div class="plan-card">
+            <div class="plan-name">Ascent</div>
+            <div class="plan-range">1–5 properties</div>
+            <div class="plan-price">$56.89<span> / month</span></div>
+            <p class="plan-desc">Perfect for new landlords starting their portfolio.</p>
+            <ul class="plan-feats">
+              <li>Basic property management</li>
+              <li>5 document uploads / month</li>
+              <li>Email support (8am–5pm)</li>
+            </ul>
+            <div class="plan-cta-wrap">
+              <button type="button" class="btn-primary plan-cta" data-plan="ascent">Subscribe</button>
+              <p class="plan-note" data-note-for="ascent"></p>
+            </div>
+          </div>
+
+          <!-- Summit -->
+          <div class="plan-card plan-card--featured">
+            <div class="plan-badge">Most popular</div>
+            <div class="plan-name">Summit</div>
+            <div class="plan-range">6–50 properties</div>
+            <div class="plan-price">$123.48<span> / month</span></div>
+            <p class="plan-desc">Ideal for growing property management businesses.</p>
+            <ul class="plan-feats">
+              <li>Advanced property management</li>
+              <li>Unlimited document uploads</li>
+              <li>Priority support</li>
+            </ul>
+            <div class="plan-cta-wrap">
+              <button type="button" class="btn-primary plan-cta" data-plan="summit">Subscribe</button>
+              <p class="plan-note" data-note-for="summit"></p>
+            </div>
+          </div>
+
+          <!-- Pinnacle -->
+          <div class="plan-card">
+            <div class="plan-name">Pinnacle</div>
+            <div class="plan-range">51+ properties</div>
+            <div class="plan-price">$2,999.99<span> / month</span></div>
+            <p class="plan-desc">Enterprise solution for large property portfolios.</p>
+            <ul class="plan-feats">
+              <li>Enterprise features</li>
+              <li>Dedicated account manager</li>
+              <li>API access</li>
+            </ul>
+            <div class="plan-cta-wrap">
+              <a class="btn-secondary plan-cta" href="mailto:hello@perfecttenantinnovation.com?subject=Pinnacle%20Plan%20—%20Contact%20Sales&body=I%27d%20like%20to%20talk%20about%20the%20Pinnacle%20plan%20for%20my%20portfolio%20(51%2B%20properties).">Contact Sales</a>
+              <p class="plan-note">Enterprise onboarding — no instant checkout.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Feature comparison -->
+      <section class="compare-wrap" aria-label="Plan comparison">
+        <table class="compare">
+          <caption>Compare plans</caption>
+          <thead>
+            <tr>
+              <th scope="col">Feature</th>
+              <th scope="col">Ascent</th>
+              <th scope="col">Summit</th>
+              <th scope="col">Pinnacle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Monthly price</th><td>$56.89</td><td>$123.48</td><td>$2,999.99</td></tr>
+            <tr><th scope="row">Properties</th><td>1–5</td><td>6–50</td><td>51+</td></tr>
+            <tr><th scope="row">Property management</th><td>Basic</td><td>Advanced</td><td>Enterprise</td></tr>
+            <tr><th scope="row">Document uploads</th><td>5 / month</td><td class="yes">Unlimited</td><td class="yes">Unlimited</td></tr>
+            <tr><th scope="row">Support</th><td>Email (8am–5pm)</td><td>Priority</td><td>Dedicated account manager</td></tr>
+            <tr><th scope="row">Dedicated account manager</th><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+            <tr><th scope="row">API access</th><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+            <tr><th scope="row">How to start</th><td>Subscribe online</td><td>Subscribe online</td><td>Contact Sales</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Billing terms -->
+      <section class="terms-strip" aria-label="Billing terms">
+        <h3>Billing &amp; cancellation</h3>
+        <p>All paid plans are billed <strong>monthly in USD and renew automatically</strong> until you cancel. You can <strong>cancel anytime</strong> from the Perfect Tenant app — your plan stays active through the end of the current billing period, and you won't be billed again. Payments are processed securely by Stripe; we never see or store your card number. Prices shown are the web self-service prices and may differ from in-app (App Store) pricing.</p>
+        <div class="terms-links">
+          <a href="/legal/terms-of-service/">Terms of Service</a>
+          <a href="/legal/privacy-policy/">Privacy Policy</a>
+          <a href="mailto:hello@perfecttenantinnovation.com">Billing questions</a>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="faq" aria-label="Subscription FAQ">
+        <p class="section-label">FAQ</p>
+        <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2.1rem)">Subscription questions</h2>
+
+        <details>
+          <summary>How does billing work?</summary>
+          <div class="faq-body">Ascent and Summit are billed monthly in USD through Stripe and renew automatically each month until you cancel. Your first charge happens when you complete checkout.</div>
+        </details>
+        <details>
+          <summary>Can I cancel anytime?</summary>
+          <div class="faq-body">Yes. You can cancel from the Perfect Tenant app at any time. Your plan remains active until the end of the current billing period, after which it won't renew. We don't charge cancellation fees.</div>
+        </details>
+        <details>
+          <summary>Which plan is right for me?</summary>
+          <div class="faq-body">Choose by portfolio size: <strong>Ascent</strong> for 1–5 properties, <strong>Summit</strong> for 6–50 properties, and <strong>Pinnacle</strong> for 51+ properties. You can move between plans as your portfolio grows.</div>
+        </details>
+        <details>
+          <summary>Why does Pinnacle use "Contact Sales" instead of instant checkout?</summary>
+          <div class="faq-body">Pinnacle is our enterprise tier — it includes a dedicated account manager and API access, and we tailor onboarding to large portfolios. Rather than an instant self-service charge, we set it up with you directly.</div>
+        </details>
+        <details>
+          <summary>Is my payment secure?</summary>
+          <div class="faq-body">Yes. Checkout is hosted by Stripe on their secure, PCI-compliant pages. Your card details are entered on Stripe, not on this site — we never handle or store them.</div>
+        </details>
+        <details>
+          <summary>Do I need an account to subscribe?</summary>
+          <div class="faq-body">Yes. When you click Subscribe you'll sign in to your Perfect Tenant account (or create one) so your subscription is linked to your app access. You can browse this page without signing in.</div>
+        </details>
+        <details>
+          <summary>When does my access activate?</summary>
+          <div class="faq-body">Access activates once your payment is confirmed by our secure backend — not simply because you reached the confirmation page. This usually happens within moments of a successful payment.</div>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-logo">Perfect<span>Tenant</span> Innovation</div>
+    <ul class="footer-links">
+      <li><a href="/#platform">Landlords</a></li>
+      <li><a href="/join/">Join ecosystem</a></li>
+      <li><a href="/tenants/">For Tenants</a></li>
+      <li><a href="/pricing/">Pricing</a></li>
+      <li><a href="/#ecosystem">Ecosystem</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/legal/terms-of-service/">Terms</a></li>
+      <li><a href="/legal/privacy-policy/">Privacy</a></li>
+      <li><a href="mailto:hello@perfecttenantinnovation.com">Contact</a></li>
+    </ul>
+    <div class="footer-copy">© 2026 Perfect Tenant Innovation. All rights reserved.</div>
+  </footer>
+
+  <!-- Auth modal -->
+  <div class="modal-overlay" id="authModal" hidden role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <div class="modal">
+      <button type="button" class="modal-close" id="authClose" aria-label="Close">&times;</button>
+      <h2 id="authTitle">Sign in to subscribe</h2>
+      <p class="modal-sub" id="authSubtitle">Sign in to your Perfect Tenant account to continue to secure checkout.</p>
+      <form id="authForm" novalidate>
+        <label for="authEmail">Email</label>
+        <input type="email" id="authEmail" autocomplete="email" required>
+        <label for="authPassword">Password</label>
+        <input type="password" id="authPassword" autocomplete="current-password" required>
+        <button type="submit" class="btn-primary" id="authSubmit">Continue</button>
+      </form>
+      <div class="form-error" id="authError" role="alert" aria-live="assertive"></div>
+      <p class="modal-toggle" id="authToggleWrap">
+        <span id="authTogglePrompt">New to Perfect Tenant?</span>
+        <button type="button" id="authToggle">Create an account</button>
+      </p>
+      <p class="modal-legal">By continuing you agree to our
+        <a href="/legal/terms-of-service/">Terms</a> and
+        <a href="/legal/privacy-policy/">Privacy Policy</a>.</p>
+    </div>
+  </div>
+
+  <!-- Loading overlay -->
+  <div class="loading-overlay" id="loadingOverlay" hidden aria-live="polite">
+    <div class="spinner" role="status" aria-label="Loading"></div>
+    <p>Taking you to secure checkout…</p>
+  </div>
+
+  <!-- Error toast -->
+  <div class="toast" id="toast" hidden role="alert" aria-live="assertive"></div>
+
+  <!-- Firebase SDKs (compat) — same version/config as the rest of the site -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-functions-compat.js"></script>
+  <script>
+  /* ============================================================================
+     CONFIGURATION
+     ----------------------------------------------------------------------------
+     CHECKOUT_ENABLED gates the self-service Subscribe flow. Leave it FALSE until:
+       1. The `createLandlordCheckoutSession` Cloud Function is DEPLOYED & callable.
+       2. reCAPTCHA Enterprise App Check for this web app is confirmed in Firebase.
+     While FALSE, Ascent/Summit render as "Coming soon" (no dead checkout) and no
+     Firebase Auth/App Check/Functions code runs — Pinnacle "Contact Sales" always
+     works. Flip to TRUE and redeploy to activate checkout.
+
+     The firebaseConfig and reCAPTCHA site key below are PUBLIC client identifiers
+     (not secrets) — the same values already used elsewhere on this site. Never put
+     a Stripe secret key here.
+     ========================================================================== */
+  const CONFIG = {
+    CHECKOUT_ENABLED: false,
+    functionsRegion: 'us-central1',
+    recaptchaSiteKey: '6LfMfv4sAAAAAI1lKWCQFfxYjdoCQIhOmGQFCLnF',
+    firebase: {
+      apiKey: 'AIzaSyBaOnRBpdRvU-6qvZJHiqfwTnWnxVt8nh8',
+      authDomain: 'perfect-tenant-app-bfaf7.firebaseapp.com',
+      projectId: 'perfect-tenant-app-bfaf7',
+      storageBucket: 'perfect-tenant-app-bfaf7.firebasestorage.app',
+      messagingSenderId: '637835334506',
+      appId: '1:637835334506:web:676b3a1802f32229c1cb13',
+      measurementId: 'G-W4B1HLHQEX'
+    }
+  };
+
+  // Plans eligible for self-service web checkout (Pinnacle excluded — Contact Sales).
+  const WEB_PLANS = ['ascent', 'summit'];
+  const PLAN_STORAGE_KEY = 'pti_selected_plan';
+
+  (function () {
+    const subscribeButtons = Array.from(document.querySelectorAll('.plan-cta[data-plan]'));
+
+    // ---- Disabled state: no checkout backend yet -> "Coming soon", clean console ----
+    if (!CONFIG.CHECKOUT_ENABLED) {
+      subscribeButtons.forEach(function (btn) {
+        btn.textContent = 'Coming soon';
+        btn.setAttribute('disabled', '');
+        btn.setAttribute('aria-disabled', 'true');
+        const note = document.querySelector('[data-note-for="' + btn.dataset.plan + '"]');
+        if (note) note.textContent = 'Online checkout is launching soon.';
+      });
+      return; // Do not initialize Firebase Auth/App Check/Functions while disabled.
+    }
+
+    // ---- Enabled state: wire the authenticated checkout flow ----
+    firebase.initializeApp(CONFIG.firebase);
+    firebase.appCheck().activate(
+      new firebase.appCheck.ReCaptchaEnterpriseProvider(CONFIG.recaptchaSiteKey),
+      true
+    );
+
+    const authModal = document.getElementById('authModal');
+    const authForm = document.getElementById('authForm');
+    const authEmail = document.getElementById('authEmail');
+    const authPassword = document.getElementById('authPassword');
+    const authError = document.getElementById('authError');
+    const authTitle = document.getElementById('authTitle');
+    const authSubtitle = document.getElementById('authSubtitle');
+    const authSubmit = document.getElementById('authSubmit');
+    const authToggle = document.getElementById('authToggle');
+    const authTogglePrompt = document.getElementById('authTogglePrompt');
+    const authClose = document.getElementById('authClose');
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    const toast = document.getElementById('toast');
+
+    let authMode = 'signin'; // 'signin' | 'create'
+    let toastTimer = null;
+    let lastFocused = null;
+
+    function showLoading(on) { loadingOverlay.hidden = !on; }
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.hidden = false;
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () { toast.hidden = true; }, 7000);
+    }
+
+    function openAuthModal() {
+      authError.textContent = '';
+      authModal.hidden = false;
+      lastFocused = document.activeElement;
+      setTimeout(function () { authEmail.focus(); }, 30);
+      document.addEventListener('keydown', escToClose);
+    }
+    function closeAuthModal() {
+      authModal.hidden = true;
+      document.removeEventListener('keydown', escToClose);
+      if (lastFocused && lastFocused.focus) lastFocused.focus();
+    }
+    function escToClose(e) { if (e.key === 'Escape') closeAuthModal(); }
+
+    function setAuthMode(mode) {
+      authMode = mode;
+      if (mode === 'create') {
+        authTitle.textContent = 'Create your account';
+        authSubtitle.textContent = 'Create a Perfect Tenant account to continue to secure checkout.';
+        authSubmit.textContent = 'Create account & continue';
+        authTogglePrompt.textContent = 'Already have an account?';
+        authToggle.textContent = 'Sign in';
+        authPassword.setAttribute('autocomplete', 'new-password');
+      } else {
+        authTitle.textContent = 'Sign in to subscribe';
+        authSubtitle.textContent = 'Sign in to your Perfect Tenant account to continue to secure checkout.';
+        authSubmit.textContent = 'Continue';
+        authTogglePrompt.textContent = 'New to Perfect Tenant?';
+        authToggle.textContent = 'Create an account';
+        authPassword.setAttribute('autocomplete', 'current-password');
+      }
+      authError.textContent = '';
+    }
+
+    function friendlyAuthError(err) {
+      const code = (err && err.code) || '';
+      switch (code) {
+        case 'auth/invalid-email': return 'That email address looks invalid.';
+        case 'auth/user-not-found': return 'No account found with that email. Try creating one instead.';
+        case 'auth/wrong-password':
+        case 'auth/invalid-credential': return 'Incorrect email or password.';
+        case 'auth/email-already-in-use': return 'An account already exists for that email. Try signing in instead.';
+        case 'auth/weak-password': return 'Please choose a password of at least 6 characters.';
+        case 'auth/too-many-requests': return 'Too many attempts. Please wait a moment and try again.';
+        case 'auth/network-request-failed': return 'Network error. Check your connection and try again.';
+        default: return 'Sorry, we could not sign you in. Please try again.';
+      }
+    }
+
+    function friendlyCheckoutError(err) {
+      const code = (err && err.code) || '';
+      const msg = (err && err.message) || '';
+      if (code === 'functions/failed-precondition') return msg || 'This plan is not available for self-service checkout.';
+      if (code === 'functions/unauthenticated' || code === 'functions/permission-denied') return 'Your session expired. Please sign in again.';
+      if (code === 'functions/unavailable') return 'Checkout is temporarily unavailable. Please try again shortly.';
+      if (code === 'functions/invalid-argument') return 'Something was off with that request. Please try again.';
+      return 'We could not start checkout. Please try again, or contact support.';
+    }
+
+    async function createSessionAndRedirect(planId) {
+      if (WEB_PLANS.indexOf(planId) === -1) { showToast('That plan is not available for online checkout.'); return; }
+      showLoading(true);
+      try {
+        const functions = firebase.app().functions(CONFIG.functionsRegion);
+        const createCheckout = functions.httpsCallable('createLandlordCheckoutSession');
+        const origin = window.location.origin; // allowlisted server-side (www / apex / localhost)
+        const res = await createCheckout({
+          planId: planId,
+          successUrl: origin + '/pricing/success/?session_id={CHECKOUT_SESSION_ID}',
+          cancelUrl: origin + '/pricing/cancel/'
+        });
+        const url = res && res.data && res.data.url;
+        if (!url) throw new Error('No checkout URL returned');
+        window.location.assign(url); // hand off to Stripe-hosted Checkout
+      } catch (err) {
+        showLoading(false);
+        showToast(friendlyCheckoutError(err));
+      }
+    }
+
+    async function startCheckout(planId) {
+      try { sessionStorage.setItem(PLAN_STORAGE_KEY, planId); } catch (e) {}
+      const user = firebase.auth().currentUser;
+      if (!user) { setAuthMode('signin'); openAuthModal(); return; }
+      await createSessionAndRedirect(planId);
+    }
+
+    // Subscribe button clicks
+    subscribeButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () { startCheckout(btn.dataset.plan); });
+    });
+
+    // Auth modal wiring
+    authClose.addEventListener('click', closeAuthModal);
+    authModal.addEventListener('click', function (e) { if (e.target === authModal) closeAuthModal(); });
+    authToggle.addEventListener('click', function () { setAuthMode(authMode === 'signin' ? 'create' : 'signin'); });
+
+    authForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      authError.textContent = '';
+      const email = authEmail.value.trim();
+      const pw = authPassword.value;
+      if (!email || !pw) { authError.textContent = 'Please enter your email and password.'; return; }
+      authSubmit.setAttribute('disabled', '');
+      try {
+        if (authMode === 'create') {
+          await firebase.auth().createUserWithEmailAndPassword(email, pw);
+        } else {
+          await firebase.auth().signInWithEmailAndPassword(email, pw);
+        }
+        closeAuthModal();
+        let plan = null;
+        try { plan = sessionStorage.getItem(PLAN_STORAGE_KEY); } catch (e2) {}
+        if (plan) await createSessionAndRedirect(plan);
+      } catch (err) {
+        authError.textContent = friendlyAuthError(err);
+      } finally {
+        authSubmit.removeAttribute('disabled');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
