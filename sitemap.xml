@@ -790,4 +790,34 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/atlanta-eviction-crisis-black-renters/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/richmond-virginia-eviction-crisis/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/charleston-south-carolina-eviction-crisis/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/indianapolis-indiana-eviction-crisis/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/austin-texas-eviction-crisis/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
