@@ -898,4 +898,10 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/nspire-pti-property-health-compliance/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
