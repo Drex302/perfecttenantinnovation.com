@@ -36,6 +36,15 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:var(--font-serif);color:var(--ink);background:var(--paper);line-height:1.7;font-size:18px;}
+.site-nav{background:#10161C;border-bottom:1px solid rgba(255,255,255,0.12);padding:0 24px;}
+.site-nav-inner{max-width:1100px;min-height:60px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.site-nav-logo,.site-nav-links a{font-family:var(--font-sans);color:#F4F1E8;text-decoration:none;}
+.site-nav-logo{font-weight:700;}
+.site-nav-links{display:flex;align-items:center;gap:18px;}
+.site-nav-links a{font-size:14px;}
+.site-nav-links a:hover{color:var(--gold);}
+.site-nav-cta{border:1px solid var(--gold);border-radius:6px;padding:7px 12px;}
+@media(max-width:620px){.site-nav{padding:0 16px;}.site-nav-inner{min-height:56px;}.site-nav-links{gap:12px;}.site-nav-links a{font-size:13px;}.site-nav-links a:nth-child(2){display:none;}.site-nav-cta{padding:6px 9px;}}
 .hero{background:linear-gradient(160deg,#10161C 0%,#1A2530 55%,#16303A 100%);color:#F4F1E8;padding:76px 24px 56px;text-align:center;}
 .hero-eyebrow{font-family:var(--font-sans);letter-spacing:3px;text-transform:uppercase;font-size:12px;color:var(--gold);font-weight:600;margin-bottom:18px;}
 .hero h1{font-size:2.35rem;max-width:900px;margin:0 auto 20px;font-weight:700;line-height:1.25;}
@@ -79,6 +88,17 @@ blockquote{border-left:3px solid var(--gold);padding:8px 22px;margin:26px 0;font
 </style>
 </head>
 <body>
+
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="site-nav-inner">
+    <a class="site-nav-logo" href="/">Perfect Tenant Innovation</a>
+    <div class="site-nav-links">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+      <a class="site-nav-cta" href="/tenants/#tenant-waitlist">Tenant Waitlist</a>
+    </div>
+  </div>
+</nav>
 
 <div class="hero">
   <div class="hero-eyebrow">Eviction Crisis Wave &middot; Post 14 of 20</div>
