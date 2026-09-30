@@ -5,3 +5,14 @@
 /* Let flex/grid content shrink around tables and calculators on small screens. */
 .step-content,.field,.field-wrap{min-width:0}
 @media(max-width:600px){.field input,.field select{min-width:0;max-width:100%}.step-content{overflow-wrap:anywhere}}
+
+/* Keep the blog discoverable alongside the primary action on small screens. */
+@media(max-width:1100px){
+  #nav{flex-wrap:wrap;gap:8px;padding:12px 20px}
+  #nav .nav-logo{flex-basis:100%}
+  #nav .nav-links{display:flex;width:100%;gap:12px;justify-content:space-between;margin:0;padding:0}
+  #nav .nav-links li{display:none}
+  #nav .nav-links li.nav-blog,#nav .nav-links li:has(.nav-cta){display:block}
+  #nav .nav-links a{display:inline-flex;align-items:center;min-height:44px;white-space:nowrap}
+  #nav .nav-links .nav-blog a{font-size:14px;text-transform:none;letter-spacing:0}
+}
