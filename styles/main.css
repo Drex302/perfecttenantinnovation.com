@@ -143,3 +143,14 @@ footer nav{position:static;display:block;padding:0;background:none;border:0;back
 /* Dark labels maintain contrast across the teal-to-orange action gradient. */
 .btn-primary{color:#101820}
 #nav .nav-cta{color:#101820!important}
+
+/* Keep the blog discoverable alongside the primary action on small screens. */
+@media(max-width:1100px){
+  #nav{flex-wrap:wrap;gap:8px;padding:12px 20px}
+  #nav .nav-logo{flex-basis:100%}
+  #nav .nav-links{display:flex;width:100%;gap:12px;justify-content:space-between;margin:0;padding:0}
+  #nav .nav-links li{display:none}
+  #nav .nav-links li.nav-blog,#nav .nav-links li:has(.nav-cta){display:block}
+  #nav .nav-links a{display:inline-flex;align-items:center;min-height:44px;white-space:nowrap}
+  #nav .nav-links .nav-blog a{font-size:14px;text-transform:none;letter-spacing:0}
+}
