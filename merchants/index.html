@@ -9,7 +9,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8EF20FCMTK"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8EF20FCMTK');</script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script type="text/javascript">emailjs.init("LiDS_LTjo__EBd-i5");</script>
+  <script type="text/javascript">if (window.emailjs) emailjs.init("LiDS_LTjo__EBd-i5");</script>
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.perfecttenantinnovation.com/merchants/">
   <meta property="og:title" content="Merchants — PTI Shopping Universe">
@@ -41,6 +41,9 @@
       .comparison-col{grid-column:span 12}
     }
   </style>
+<script defer src="/scripts/funnel.js"></script>
+<meta property="og:image" content="https://www.perfecttenantinnovation.com/assets/social/default.png">
+<meta name="twitter:image" content="https://www.perfecttenantinnovation.com/assets/social/default.png">
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -51,7 +54,7 @@
       <li><a href="/tenants/">For Tenants</a></li>
       <li><a href="/#pricing">Pricing</a></li>
       <li><a href="/join/">Join ecosystem</a></li>
-      <li><a href="/#ecosystem">Ecosystem</a></li>
+      <li><a href="/join/">Ecosystem</a></li>
       <li><a href="/#faq">FAQ</a></li>
       <li><a href="/landlord-hours-audit/" class="nav-cta">Free Audit</a></li>
     </ul>
@@ -113,7 +116,7 @@
         <h2 class="section-title" style="font-size:clamp(1.4rem,3vw,2rem);margin-bottom:6px">Apply for Early Merchant Access</h2>
         <p class="section-body" style="margin:0;max-width:900px">Founding merchant partners get priority placement. The shelf is empty now. It won't be for long.</p>
 
-        <form class="waitlist-form" id="merchantWaitlistForm" novalidate>
+        <form class="waitlist-form" id="merchantWaitlistForm">
           <div class="form-row">
             <div class="form-field"><label for="m-fname">First Name</label><input type="text" id="m-fname" name="firstName" autocomplete="given-name" placeholder="First Name" required></div>
             <div class="form-field"><label for="m-lname">Last Name</label><input type="text" id="m-lname" name="lastName" autocomplete="family-name" placeholder="Last Name" required></div>
@@ -155,7 +158,7 @@
       <li><a href="/tenants/">For Tenants</a></li>
       <li><a href="/#pricing">Pricing</a></li>
       <li><a href="/join/">Join ecosystem</a></li>
-      <li><a href="/#ecosystem">Ecosystem</a></li>
+      <li><a href="/join/">Ecosystem</a></li>
       <li><a href="/#faq">FAQ</a></li>
       <li><a href="/landlord-hours-audit/">Landlord Hours Audit</a></li>
       <li><a href="mailto:hello@perfecttenantinnovation.com">Contact</a></li>
@@ -167,7 +170,8 @@
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
   <script>
-    firebase.initializeApp({
+    var db = null;
+    try { firebase.initializeApp({
       apiKey: "AIzaSyBaOnRBpdRvU-6qvZJHiqfwTnWnxVt8nh8",
       authDomain: "perfect-tenant-app-bfaf7.firebaseapp.com",
       projectId: "perfect-tenant-app-bfaf7",
@@ -179,10 +183,13 @@
       new firebase.appCheck.ReCaptchaEnterpriseProvider('6LfMfv4sAAAAAI1lKWCQFfxYjdoCQIhOmGQFCLnF'),
       true
     );
-    var db = firebase.firestore();
+    db = firebase.firestore(); } catch (error) {}
 
     document.getElementById('merchantWaitlistForm').addEventListener('submit', function(e) {
       e.preventDefault();
+      if (!e.target.reportValidity()) return;
+      if (!db) { alert('Signup is temporarily unavailable. Please try again or email hello@perfecttenantinnovation.com.'); return; }
+      if (e.target.querySelector('button[type=submit]').disabled) return;
       var fd = new FormData(e.target);
       var firstName = String(fd.get('firstName') || '').trim();
       var lastName = String(fd.get('lastName') || '').trim();
@@ -210,22 +217,24 @@
         location: String(fd.get('location') || '').trim(),
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       }).then(function () {
+        document.getElementById('merchantWaitlistForm').style.display = 'none';
+        document.getElementById('merchantSuccess').style.display = 'block';
+        window.ptiTrack && window.ptiTrack('signed_up', {form_id:'merchantWaitlistForm'});
         if (typeof gtag !== 'undefined') {
-          gtag('event', 'waitlist_merchant_sub', { event_category: 'conversion', event_label: 'merchant_waitlist' });
+          window.ptiTrack && window.ptiTrack('waitlist_merchant_sub', { event_category: 'conversion', event_label: 'merchant_waitlist' });
         }
         // Send confirmation email via EmailJS
-        emailjs.send('service_8fnn74u', 'template_foal6er', {
+        Promise.resolve().then(function () { if (!window.emailjs) return; return window.emailjs.send('service_8fnn74u', 'template_foal6er', {
           to_email: email,
           to_name: firstName + ' ' + lastName,
           first_name: firstName,
           email_subject: "You're early. Here's what that means.",
           email_headline: "You're early. Here's what that means.",
           email_body: "Hi " + firstName + ", your merchant application for PTI Shopping Universe has been received. The shelf space is empty right now. That's the point.\n\n✅ Verified buyers with demonstrated payment history\n💰 PTI Points as purchase fuel — demand you didn't create\n🛒 Shopify integration — your store connects directly\n⭐ Priority placement in curated categories\n⚡ Swarm Boss cross-promotion campaigns"
-        }).catch(function(emailErr) {
+        }); }).catch(function(emailErr) {
           console.warn('Email send failed (non-critical):', emailErr);
         });
-        document.getElementById('merchantWaitlistForm').style.display = 'none';
-        document.getElementById('merchantSuccess').style.display = 'block';
+
       }).catch(function (err) {
         console.error('Merchant waitlist submission failed:', err);
         alert('Something went wrong. Please try again in a moment.');
