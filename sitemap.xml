@@ -979,4 +979,9 @@
 <url><loc>https://www.perfecttenantinnovation.com/resources/service-provider-guides/</loc></url>
 <url><loc>https://www.perfecttenantinnovation.com/resources/brand-campaigns/</loc></url>
 <url><loc>https://www.perfecttenantinnovation.com/resources/landlord-operations/</loc></url>
+  <url>
+    <loc>https://www.perfecttenantinnovation.com/blog/oklahoma-city-eviction-crisis/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
