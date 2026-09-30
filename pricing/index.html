@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.perfecttenantinnovation.com/pricing/">
 <meta property="og:title" content="Landlord Plans & Pricing — Perfect Tenant Innovation">
-<meta property="og:description" content="Compare Ascent, Summit, and Pinnacle. Transparent monthly pricing, secure Stripe checkout, cancel anytime.">
+<meta property="og:description" content="Compare planned Ascent, Summit, and Pinnacle tiers and join the landlord launch list. No payment or account required.">
 <meta property="og:site_name" content="Perfect Tenant Innovation">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Landlord Plans & Pricing — Perfect Tenant Innovation">
@@ -106,6 +106,9 @@
     .plan-desc{min-height:0}
   }
 </style>
+<script defer src="/scripts/funnel.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script><script>if(window.emailjs) emailjs.init("LiDS_LTjo__EBd-i5");</script><meta property="og:image" content="https://www.perfecttenantinnovation.com/assets/social/default.png">
+<meta name="twitter:image" content="https://www.perfecttenantinnovation.com/assets/social/default.png">
 </head>
 <body>
   <nav id="nav">
@@ -115,7 +118,7 @@
       <li><a href="/tenants/">For Tenants</a></li>
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/join/">Join ecosystem</a></li>
-      <li><a href="/#ecosystem">Ecosystem</a></li>
+      <li><a href="/join/">Ecosystem</a></li>
       <li><a href="/#faq">FAQ</a></li>
       <li><a href="/landlord-hours-audit/" class="nav-cta">Free Audit</a></li>
     </ul>
@@ -125,8 +128,8 @@
     <div class="container">
       <section class="pricing-hero">
         <p class="section-label">Landlord Plans</p>
-        <h1 class="section-title">Replace your property manager — for a flat monthly price.</h1>
-        <p class="section-body pricing-sub">Choose the plan that fits your portfolio. Every plan includes the Perfect Tenant platform — automated rent collection, AI-assisted operations, and tenant accountability tools. Billed monthly. Cancel anytime.</p>
+        <h1 class="section-title">Find the right starting point for your portfolio.</h1>
+        <p class="section-body pricing-sub">Explore the planned landlord tiers, then join the launch list with your plan selected. Prices below are reference web prices; web checkout is unavailable. Final in-app pricing and included features will be confirmed before purchase.</p>
       </section>
 
       <!-- Plan cards -->
@@ -145,14 +148,14 @@
               <li>Email support (8am–5pm)</li>
             </ul>
             <div class="plan-cta-wrap">
-              <button type="button" class="btn-primary plan-cta" data-plan="ascent">Subscribe</button>
+              <a class="btn-primary plan-cta" data-interest-plan="ascent" href="?plan=ascent#pricing-waitlist">Join Ascent launch list →</a>
               <p class="plan-note" data-note-for="ascent"></p>
             </div>
           </div>
 
           <!-- Summit -->
           <div class="plan-card plan-card--featured">
-            <div class="plan-badge">Most popular</div>
+            <div class="plan-badge">For growing portfolios</div>
             <div class="plan-name">Summit</div>
             <div class="plan-range">6–50 properties</div>
             <div class="plan-price">$123.48<span> / month</span></div>
@@ -163,7 +166,7 @@
               <li>Priority support</li>
             </ul>
             <div class="plan-cta-wrap">
-              <button type="button" class="btn-primary plan-cta" data-plan="summit">Subscribe</button>
+              <a class="btn-primary plan-cta" data-interest-plan="summit" href="?plan=summit#pricing-waitlist">Join Summit launch list →</a>
               <p class="plan-note" data-note-for="summit"></p>
             </div>
           </div>
@@ -180,18 +183,19 @@
               <li>API access</li>
             </ul>
             <div class="plan-cta-wrap">
-              <a class="btn-secondary plan-cta" href="mailto:hello@perfecttenantinnovation.com?subject=Pinnacle%20Plan%20—%20Contact%20Sales&body=I%27d%20like%20to%20talk%20about%20the%20Pinnacle%20plan%20for%20my%20portfolio%20(51%2B%20properties).">Contact Sales</a>
-              <p class="plan-note">Enterprise onboarding — no instant checkout.</p>
+              <a class="btn-secondary plan-cta" data-interest-plan="pinnacle" href="?plan=pinnacle#pricing-waitlist">Discuss Pinnacle access →</a>
+              <p class="plan-note">For enterprise questions, <a href="mailto:hello@perfecttenantinnovation.com">contact our team</a>.</p>
             </div>
           </div>
 
         </div>
       </section>
 
+<section id="pricing-waitlist" class="waitlist-section"><h2>Hear when your plan is available.</h2><p>No account to create. No payment to make.</p><form id="pricingWaitlist" class="waitlist-form" data-waitlist data-source="landlord_form"><label for="pricingWaitlist-email">Email address</label><input id="pricingWaitlist-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"><label for="pricingWaitlist-units">Rental units you manage</label><select id="pricingWaitlist-units" name="units" required><option value="">Select your portfolio size</option><option>1–5 units</option><option>6–20 units</option><option>21–50 units</option><option>51–100 units</option><option>100+ units</option></select><label for="selected-plan">Plan of interest</label><select id="selected-plan" name="plan"><option value="ascent">Ascent · 1–5 properties</option><option value="summit">Summit · 6–50 properties</option><option value="pinnacle">Pinnacle · 51+ properties</option></select><button class="btn-primary" type="submit" disabled>Join the landlord launch list →</button><p class="form-disclaimer">Free to join. No payment or account required. We’ll email you about launch and onboarding. Joining does not reserve a price or activate a subscription. <a href="/legal/privacy-policy/">Privacy policy</a></p><noscript><p>Enable JavaScript to join, or email <a href="mailto:hello@perfecttenantinnovation.com">hello@perfecttenantinnovation.com</a>.</p></noscript><p data-form-status role="status" aria-live="polite" tabindex="-1"></p></form></section>
       <!-- Feature comparison -->
       <section class="compare-wrap" aria-label="Plan comparison">
-        <table class="compare">
-          <caption>Compare plans</caption>
+        <p class="form-disclaimer">On small screens, scroll the table sideways to compare all plans.</p><table class="compare">
+          <caption>Compare reference plans</caption>
           <thead>
             <tr>
               <th scope="col">Feature</th>
@@ -208,7 +212,7 @@
             <tr><th scope="row">Support</th><td>Email (8am–5pm)</td><td>Priority</td><td>Dedicated account manager</td></tr>
             <tr><th scope="row">Dedicated account manager</th><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
             <tr><th scope="row">API access</th><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
-            <tr><th scope="row">How to start</th><td>Subscribe online</td><td>Subscribe online</td><td>Contact Sales</td></tr>
+            <tr><th scope="row">How to start</th><td>Join launch list</td><td>Join launch list</td><td>Discuss launch access</td></tr>
           </tbody>
         </table>
       </section>
@@ -216,7 +220,7 @@
       <!-- Billing terms -->
       <section class="terms-strip" aria-label="Billing terms">
         <h3>Billing &amp; cancellation</h3>
-        <p>All paid plans are billed <strong>monthly in USD and renew automatically</strong> until you cancel. You can <strong>cancel anytime</strong> from the Perfect Tenant app — your plan stays active through the end of the current billing period, and you won't be billed again. Payments are processed securely by Stripe; we never see or store your card number. Prices shown are the web self-service prices and may differ from in-app (App Store) pricing.</p>
+        <p>Joining this list is free and does not create a subscription, reserve a price, or charge your card. Web checkout is disabled. Review the final price, renewal terms, and cancellation options in the app before purchasing.</p>
         <div class="terms-links">
           <a href="/legal/terms-of-service/">Terms of Service</a>
           <a href="/legal/privacy-policy/">Privacy Policy</a>
@@ -227,37 +231,7 @@
       <!-- FAQ -->
       <section class="faq" aria-label="Subscription FAQ">
         <p class="section-label">FAQ</p>
-        <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2.1rem)">Subscription questions</h2>
-
-        <details>
-          <summary>How does billing work?</summary>
-          <div class="faq-body">Ascent and Summit are billed monthly in USD through Stripe and renew automatically each month until you cancel. Your first charge happens when you complete checkout.</div>
-        </details>
-        <details>
-          <summary>Can I cancel anytime?</summary>
-          <div class="faq-body">Yes. You can cancel from the Perfect Tenant app at any time. Your plan remains active until the end of the current billing period, after which it won't renew. We don't charge cancellation fees.</div>
-        </details>
-        <details>
-          <summary>Which plan is right for me?</summary>
-          <div class="faq-body">Choose by portfolio size: <strong>Ascent</strong> for 1–5 properties, <strong>Summit</strong> for 6–50 properties, and <strong>Pinnacle</strong> for 51+ properties. You can move between plans as your portfolio grows.</div>
-        </details>
-        <details>
-          <summary>Why does Pinnacle use "Contact Sales" instead of instant checkout?</summary>
-          <div class="faq-body">Pinnacle is our enterprise tier — it includes a dedicated account manager and API access, and we tailor onboarding to large portfolios. Rather than an instant self-service charge, we set it up with you directly.</div>
-        </details>
-        <details>
-          <summary>Is my payment secure?</summary>
-          <div class="faq-body">Yes. Checkout is hosted by Stripe on their secure, PCI-compliant pages. Your card details are entered on Stripe, not on this site — we never handle or store them.</div>
-        </details>
-        <details>
-          <summary>Do I need an account to subscribe?</summary>
-          <div class="faq-body">Yes. When you click Subscribe you'll sign in to your Perfect Tenant account (or create one) so your subscription is linked to your app access. You can browse this page without signing in.</div>
-        </details>
-        <details>
-          <summary>When does my access activate?</summary>
-          <div class="faq-body">Access activates once your payment is confirmed by our secure backend — not simply because you reached the confirmation page. This usually happens within moments of a successful payment.</div>
-        </details>
-      </section>
+        <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2.1rem)">Subscription questions</h2><details><summary>Can I subscribe here?</summary><div class="faq-body">No. This page collects launch interest. You will receive availability and onboarding updates before choosing whether to purchase in the app.</div></details><details><summary>Which plan should I choose?</summary><div class="faq-body">The reference tiers are Ascent for 1–5 properties, Summit for 6–50, and Pinnacle for 51+. Properties and rental units are different: tell us your unit count so we can help confirm fit.</div></details><details><summary>Am I committing to a plan?</summary><div class="faq-body">No. Your selection helps us understand your needs. You can review the final offer before making a purchase.</div></details></section>
     </div>
   </main>
 
@@ -268,7 +242,7 @@
       <li><a href="/join/">Join ecosystem</a></li>
       <li><a href="/tenants/">For Tenants</a></li>
       <li><a href="/pricing/">Pricing</a></li>
-      <li><a href="/#ecosystem">Ecosystem</a></li>
+      <li><a href="/join/">Ecosystem</a></li>
       <li><a href="/#faq">FAQ</a></li>
       <li><a href="/legal/terms-of-service/">Terms</a></li>
       <li><a href="/legal/privacy-policy/">Privacy</a></li>
@@ -277,248 +251,10 @@
     <div class="footer-copy">© 2026 Perfect Tenant Innovation. All rights reserved.</div>
   </footer>
 
-  <!-- Auth modal -->
-  <div class="modal-overlay" id="authModal" hidden role="dialog" aria-modal="true" aria-labelledby="authTitle">
-    <div class="modal">
-      <button type="button" class="modal-close" id="authClose" aria-label="Close">&times;</button>
-      <h2 id="authTitle">Sign in to subscribe</h2>
-      <p class="modal-sub" id="authSubtitle">Sign in to your Perfect Tenant account to continue to secure checkout.</p>
-      <form id="authForm" novalidate>
-        <label for="authEmail">Email</label>
-        <input type="email" id="authEmail" autocomplete="email" required>
-        <label for="authPassword">Password</label>
-        <input type="password" id="authPassword" autocomplete="current-password" required>
-        <button type="submit" class="btn-primary" id="authSubmit">Continue</button>
-      </form>
-      <div class="form-error" id="authError" role="alert" aria-live="assertive"></div>
-      <p class="modal-toggle" id="authToggleWrap">
-        <span id="authTogglePrompt">New to Perfect Tenant?</span>
-        <button type="button" id="authToggle">Create an account</button>
-      </p>
-      <p class="modal-legal">By continuing you agree to our
-        <a href="/legal/terms-of-service/">Terms</a> and
-        <a href="/legal/privacy-policy/">Privacy Policy</a>.</p>
-    </div>
-  </div>
-
-  <!-- Loading overlay -->
-  <div class="loading-overlay" id="loadingOverlay" hidden aria-live="polite">
-    <div class="spinner" role="status" aria-label="Loading"></div>
-    <p>Taking you to secure checkout…</p>
-  </div>
-
-  <!-- Error toast -->
-  <div class="toast" id="toast" hidden role="alert" aria-live="assertive"></div>
-
-  <!-- Firebase SDKs (compat) — same version/config as the rest of the site -->
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-functions-compat.js"></script>
-  <script>
-  /* ============================================================================
-     CONFIGURATION
-     ----------------------------------------------------------------------------
-     CHECKOUT_ENABLED gates the self-service Subscribe flow. Leave it FALSE until:
-       1. The `createLandlordCheckoutSession` Cloud Function is DEPLOYED & callable.
-       2. reCAPTCHA Enterprise App Check for this web app is confirmed in Firebase.
-     While FALSE, Ascent/Summit render as "Coming soon" (no dead checkout) and no
-     Firebase Auth/App Check/Functions code runs — Pinnacle "Contact Sales" always
-     works. Flip to TRUE and redeploy to activate checkout.
-
-     The firebaseConfig and reCAPTCHA site key below are PUBLIC client identifiers
-     (not secrets) — the same values already used elsewhere on this site. Never put
-     a Stripe secret key here.
-     ========================================================================== */
-  const CONFIG = {
-    CHECKOUT_ENABLED: false,
-    functionsRegion: 'us-central1',
-    recaptchaSiteKey: '6LfMfv4sAAAAAI1lKWCQFfxYjdoCQIhOmGQFCLnF',
-    firebase: {
-      apiKey: 'AIzaSyBaOnRBpdRvU-6qvZJHiqfwTnWnxVt8nh8',
-      authDomain: 'perfect-tenant-app-bfaf7.firebaseapp.com',
-      projectId: 'perfect-tenant-app-bfaf7',
-      storageBucket: 'perfect-tenant-app-bfaf7.firebasestorage.app',
-      messagingSenderId: '637835334506',
-      appId: '1:637835334506:web:676b3a1802f32229c1cb13',
-      measurementId: 'G-W4B1HLHQEX'
-    }
-  };
-
-  // Plans eligible for self-service web checkout (Pinnacle excluded — Contact Sales).
-  const WEB_PLANS = ['ascent', 'summit'];
-  const PLAN_STORAGE_KEY = 'pti_selected_plan';
-
-  (function () {
-    const subscribeButtons = Array.from(document.querySelectorAll('.plan-cta[data-plan]'));
-
-    // ---- Disabled state: no checkout backend yet -> "Coming soon", clean console ----
-    if (!CONFIG.CHECKOUT_ENABLED) {
-      subscribeButtons.forEach(function (btn) {
-        btn.textContent = 'Coming soon';
-        btn.setAttribute('disabled', '');
-        btn.setAttribute('aria-disabled', 'true');
-        const note = document.querySelector('[data-note-for="' + btn.dataset.plan + '"]');
-        if (note) note.textContent = 'Online checkout is launching soon.';
-      });
-      return; // Do not initialize Firebase Auth/App Check/Functions while disabled.
-    }
-
-    // ---- Enabled state: wire the authenticated checkout flow ----
-    firebase.initializeApp(CONFIG.firebase);
-    firebase.appCheck().activate(
-      new firebase.appCheck.ReCaptchaEnterpriseProvider(CONFIG.recaptchaSiteKey),
-      true
-    );
-
-    const authModal = document.getElementById('authModal');
-    const authForm = document.getElementById('authForm');
-    const authEmail = document.getElementById('authEmail');
-    const authPassword = document.getElementById('authPassword');
-    const authError = document.getElementById('authError');
-    const authTitle = document.getElementById('authTitle');
-    const authSubtitle = document.getElementById('authSubtitle');
-    const authSubmit = document.getElementById('authSubmit');
-    const authToggle = document.getElementById('authToggle');
-    const authTogglePrompt = document.getElementById('authTogglePrompt');
-    const authClose = document.getElementById('authClose');
-    const loadingOverlay = document.getElementById('loadingOverlay');
-    const toast = document.getElementById('toast');
-
-    let authMode = 'signin'; // 'signin' | 'create'
-    let toastTimer = null;
-    let lastFocused = null;
-
-    function showLoading(on) { loadingOverlay.hidden = !on; }
-
-    function showToast(msg) {
-      toast.textContent = msg;
-      toast.hidden = false;
-      if (toastTimer) clearTimeout(toastTimer);
-      toastTimer = setTimeout(function () { toast.hidden = true; }, 7000);
-    }
-
-    function openAuthModal() {
-      authError.textContent = '';
-      authModal.hidden = false;
-      lastFocused = document.activeElement;
-      setTimeout(function () { authEmail.focus(); }, 30);
-      document.addEventListener('keydown', escToClose);
-    }
-    function closeAuthModal() {
-      authModal.hidden = true;
-      document.removeEventListener('keydown', escToClose);
-      if (lastFocused && lastFocused.focus) lastFocused.focus();
-    }
-    function escToClose(e) { if (e.key === 'Escape') closeAuthModal(); }
-
-    function setAuthMode(mode) {
-      authMode = mode;
-      if (mode === 'create') {
-        authTitle.textContent = 'Create your account';
-        authSubtitle.textContent = 'Create a Perfect Tenant account to continue to secure checkout.';
-        authSubmit.textContent = 'Create account & continue';
-        authTogglePrompt.textContent = 'Already have an account?';
-        authToggle.textContent = 'Sign in';
-        authPassword.setAttribute('autocomplete', 'new-password');
-      } else {
-        authTitle.textContent = 'Sign in to subscribe';
-        authSubtitle.textContent = 'Sign in to your Perfect Tenant account to continue to secure checkout.';
-        authSubmit.textContent = 'Continue';
-        authTogglePrompt.textContent = 'New to Perfect Tenant?';
-        authToggle.textContent = 'Create an account';
-        authPassword.setAttribute('autocomplete', 'current-password');
-      }
-      authError.textContent = '';
-    }
-
-    function friendlyAuthError(err) {
-      const code = (err && err.code) || '';
-      switch (code) {
-        case 'auth/invalid-email': return 'That email address looks invalid.';
-        case 'auth/user-not-found': return 'No account found with that email. Try creating one instead.';
-        case 'auth/wrong-password':
-        case 'auth/invalid-credential': return 'Incorrect email or password.';
-        case 'auth/email-already-in-use': return 'An account already exists for that email. Try signing in instead.';
-        case 'auth/weak-password': return 'Please choose a password of at least 6 characters.';
-        case 'auth/too-many-requests': return 'Too many attempts. Please wait a moment and try again.';
-        case 'auth/network-request-failed': return 'Network error. Check your connection and try again.';
-        default: return 'Sorry, we could not sign you in. Please try again.';
-      }
-    }
-
-    function friendlyCheckoutError(err) {
-      const code = (err && err.code) || '';
-      const msg = (err && err.message) || '';
-      if (code === 'functions/failed-precondition') return msg || 'This plan is not available for self-service checkout.';
-      if (code === 'functions/unauthenticated' || code === 'functions/permission-denied') return 'Your session expired. Please sign in again.';
-      if (code === 'functions/unavailable') return 'Checkout is temporarily unavailable. Please try again shortly.';
-      if (code === 'functions/invalid-argument') return 'Something was off with that request. Please try again.';
-      return 'We could not start checkout. Please try again, or contact support.';
-    }
-
-    async function createSessionAndRedirect(planId) {
-      if (WEB_PLANS.indexOf(planId) === -1) { showToast('That plan is not available for online checkout.'); return; }
-      showLoading(true);
-      try {
-        const functions = firebase.app().functions(CONFIG.functionsRegion);
-        const createCheckout = functions.httpsCallable('createLandlordCheckoutSession');
-        const origin = window.location.origin; // allowlisted server-side (www / apex / localhost)
-        const res = await createCheckout({
-          planId: planId,
-          successUrl: origin + '/pricing/success/?session_id={CHECKOUT_SESSION_ID}',
-          cancelUrl: origin + '/pricing/cancel/'
-        });
-        const url = res && res.data && res.data.url;
-        if (!url) throw new Error('No checkout URL returned');
-        window.location.assign(url); // hand off to Stripe-hosted Checkout
-      } catch (err) {
-        showLoading(false);
-        showToast(friendlyCheckoutError(err));
-      }
-    }
-
-    async function startCheckout(planId) {
-      try { sessionStorage.setItem(PLAN_STORAGE_KEY, planId); } catch (e) {}
-      const user = firebase.auth().currentUser;
-      if (!user) { setAuthMode('signin'); openAuthModal(); return; }
-      await createSessionAndRedirect(planId);
-    }
-
-    // Subscribe button clicks
-    subscribeButtons.forEach(function (btn) {
-      btn.addEventListener('click', function () { startCheckout(btn.dataset.plan); });
-    });
-
-    // Auth modal wiring
-    authClose.addEventListener('click', closeAuthModal);
-    authModal.addEventListener('click', function (e) { if (e.target === authModal) closeAuthModal(); });
-    authToggle.addEventListener('click', function () { setAuthMode(authMode === 'signin' ? 'create' : 'signin'); });
-
-    authForm.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      authError.textContent = '';
-      const email = authEmail.value.trim();
-      const pw = authPassword.value;
-      if (!email || !pw) { authError.textContent = 'Please enter your email and password.'; return; }
-      authSubmit.setAttribute('disabled', '');
-      try {
-        if (authMode === 'create') {
-          await firebase.auth().createUserWithEmailAndPassword(email, pw);
-        } else {
-          await firebase.auth().signInWithEmailAndPassword(email, pw);
-        }
-        closeAuthModal();
-        let plan = null;
-        try { plan = sessionStorage.getItem(PLAN_STORAGE_KEY); } catch (e2) {}
-        if (plan) await createSessionAndRedirect(plan);
-      } catch (err) {
-        authError.textContent = friendlyAuthError(err);
-      } finally {
-        authSubmit.removeAttribute('disabled');
-      }
-    });
-  })();
-  </script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script src="/scripts/waitlist.js"></script>
+<script>const plan = new URLSearchParams(location.search).get("plan"); if (["ascent","summit","pinnacle"].includes(plan)) document.getElementById("selected-plan").value = plan;</script>
 </body>
 </html>

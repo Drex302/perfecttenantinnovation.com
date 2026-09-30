@@ -6,7 +6,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8EF20FCMTK"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8EF20FCMTK');</script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script type="text/javascript">emailjs.init("LiDS_LTjo__EBd-i5");</script>
+<script type="text/javascript">if(window.emailjs) emailjs.init("LiDS_LTjo__EBd-i5");</script>
 <title>Landlord Hours Audit — Perfect Tenant Innovation</title>
 <meta name="description" content="See how many hours and dollars your portfolio costs you each year — and how much automation can return. Unlocks after joining the landlord waitlist.">
 <link rel="canonical" href="https://www.perfecttenantinnovation.com/landlord-hours-audit/">
@@ -710,84 +710,31 @@
     .breakdown-wrap { overflow-x: auto; }
   }
 </style>
+<link rel="stylesheet" href="/styles/main.css"><style>#calculator.unlocked{display:block}.calc-header h2{font-size:2rem}.waitlist-section{margin:36px 0}#gate{min-height:0;padding:120px 24px 30px}#calculator{padding-top:24px}</style><script defer src="/scripts/funnel.js"></script>
+<meta property="og:image" content="https://www.perfecttenantinnovation.com/assets/social/default.png">
+<meta name="twitter:image" content="https://www.perfecttenantinnovation.com/assets/social/default.png">
 </head>
 <body>
-<div class="page">
-  <nav>
-    <div class="nav-left">
-      <a class="back-home" href="https://www.perfecttenantinnovation.com/">← Back to home</a>
-      <a href="https://www.perfecttenantinnovation.com/" class="logo">PERFECT TENANT INNOVATION</a>
-    </div>
-    <a href="https://www.perfecttenantinnovation.com/#landlord-waitlist" class="nav-cta">Landlord waitlist <span>→</span></a>
-  </nav>
+<div class="audit-page">
+  <nav id="nav" aria-label="Main navigation"><a class="nav-logo" href="/">Perfect<span>Tenant</span></a><ul class="nav-links"><li><a href="/#platform">Landlords</a></li><li><a href="/pricing/">Plans</a></li><li><a href="/blog/">Resources</a></li><li><a href="/join/">Other roles</a></li><li><a class="nav-cta" href="/landlord-hours-audit/">Free Audit</a></li></ul></nav>
 
-  <!-- Gate: inline waitlist unlocks calculator on this page -->
-  <section id="gate">
-    <div class="gate-badge">Free tool — Landlord Hours Audit</div>
-
-    <h1 class="gate-headline">
-      Find out how many hours<br>
-      you're losing — and what it's<br>
-      <em>actually costing you.</em>
-    </h1>
-
-    <p class="gate-sub">
-      Interactive breakdown by task — maintenance, rent, leasing, inspections, and more.
-      Adjust sliders to match your portfolio and your hourly rate.
-    </p>
-
-    <div class="preview-stats">
-      <div class="ps-item">
-        <span class="ps-num">960</span>
-        <span class="ps-label">hrs/yr at<br>10 units</span>
-      </div>
-      <div class="ps-item">
-        <span class="ps-num">38%</span>
-        <span class="ps-label">of time is<br>automatable</span>
-      </div>
-      <div class="ps-item">
-        <span class="ps-num">$48K</span>
-        <span class="ps-label">annual time<br>cost at $50/hr</span>
-      </div>
-    </div>
-
-    <form class="gate-form" id="gateForm" onsubmit="submitGateForm(event)">
-      <div class="gate-form-row">
-        <input type="text" id="gate-fname" class="gate-input" placeholder="First Name" required autocomplete="given-name" />
-        <input type="text" id="gate-lname" class="gate-input" placeholder="Last Name" required autocomplete="family-name" />
-      </div>
-      <input type="email" id="gate-email" class="gate-input" placeholder="Email Address" required autocomplete="email" />
-      <select id="gate-units" class="gate-select" required>
-        <option value="">Number of units</option>
-        <option value="1-5 units">1–5 units</option>
-        <option value="6-20 units">6–20 units</option>
-        <option value="21-50 units">21–50 units</option>
-        <option value="51-100 units">51–100 units</option>
-        <option value="100+ units">100+ units</option>
-      </select>
-      <button type="submit" class="btn-gate-submit" id="gateSubmitBtn">
-        Unlock My Free Audit →
-      </button>
-      <p class="gate-form-disclaimer">🔒 Free · No credit card · Founding pricing locks in on signup</p>
-      <p class="gate-form-error" id="gateFormError">Something went wrong. Please try again.</p>
-    </form>
-  </section>
-
+  <!-- The complete estimate is available before signup. -->
+<section id="gate"><div class="gate-badge">Free landlord workload estimate</div><h1 class="gate-headline">See where your rental<br>management time goes.</h1><p class="gate-sub">Adjust your portfolio below. Results are available without signing up.</p></section>
   <section id="calculator">
     <div class="calc-header">
-      <h1>Your <span>Hours Audit</span> results</h1>
+      <h2>Your <span>Hours Audit</span> results</h2>
       <p>Every number below updates from your portfolio — drag the sliders to refine.</p>
     </div>
 
     <div class="inputs-panel">
-      <h3>Your portfolio</h3>
+      <h3>Your portfolio</h3><p class="form-disclaimer">The model covers up to 50 units. For a larger portfolio, explore a representative group.</p>
 
       <div class="slider-group">
         <div class="slider-top">
           <span class="slabel">Number of rental units</span>
           <span class="sval" id="disp-units">5 <span>units</span></span>
         </div>
-        <input type="range" id="s-units" min="1" max="50" value="5" step="1">
+        <input type="range" id="s-units" aria-label="Number of rental units" min="1" max="50" value="5" step="1">
       </div>
 
       <div class="slider-group">
@@ -795,7 +742,7 @@
           <span class="slabel">Average rent per unit / month</span>
           <span class="sval" id="disp-rent">$1,500 <span>/mo</span></span>
         </div>
-        <input type="range" id="s-rent" min="500" max="5000" value="1500" step="50">
+        <input type="range" id="s-rent" aria-label="Average rent per unit per month" min="500" max="5000" value="1500" step="50">
       </div>
 
       <div class="slider-group">
@@ -803,13 +750,13 @@
           <span class="slabel">What is your time worth?</span>
           <span class="sval" id="disp-rate">$50 <span>/hr</span></span>
         </div>
-        <input type="range" id="s-rate" min="15" max="200" value="50" step="5">
+        <input type="range" id="s-rate" aria-label="Hourly value of your time" min="15" max="200" value="50" step="5">
       </div>
     </div>
 
     <div class="results-grid">
       <div class="res-card hero">
-        <div class="rc-label">Hours lost per year</div>
+        <div class="rc-label">Estimated hours per year</div>
         <div class="rc-val" id="r-hrs">—</div>
         <div class="rc-sub" id="r-wks">— full work weeks</div>
       </div>
@@ -833,7 +780,7 @@
     <div class="breakdown-wrap">
       <div class="breakdown-title">
         <h3>Full breakdown by task</h3>
-        <p>Illustrative model based on common property-management time studies (AppFolio, NAA, Hemlane, and industry benchmarks).</p>
+        <p>Illustrative assumptions, not measured customer outcomes. Monthly hours per unit: management 4, maintenance 1.2, rent 0.6, communication 0.8, reporting 0.4. Annual hours per unit: leasing 8, inspections 4. Estimated automation shares range from 40% to 90%; actual results vary.</p>
       </div>
       <div class="bd-header">
         <span>Task</span>
@@ -851,8 +798,8 @@
           <div class="big-save" id="r-save-cost">—</div>
           <div class="save-sub" id="r-save-sub">saved per year · — hours returned</div>
         </div>
-        <a href="https://www.perfecttenantinnovation.com/#landlord-waitlist" class="waitlist-btn">
-          Reserve founder pricing
+        <a href="#audit-followup" class="waitlist-btn">
+          Join the launch list
           <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -861,11 +808,11 @@
       <div class="savings-bottom">
         <div class="sb-item">
           <div class="sb-num" id="r-sb-hrs">—</div>
-          <div class="sb-label">Hours returned to you annually</div>
+          <div class="sb-label">Modeled hours freed annually</div>
         </div>
         <div class="sb-item">
           <div class="sb-num" id="r-sb-wks">—</div>
-          <div class="sb-label">Full work weeks reclaimed every year</div>
+          <div class="sb-label">Modeled work weeks freed</div>
         </div>
         <div class="sb-item">
           <div class="sb-num" id="r-sb-cost">—</div>
@@ -874,16 +821,14 @@
       </div>
     </div>
 
-    <div class="sources">
-      <strong>Sources:</strong> AppFolio Property Management Benchmark Report · National Apartment Association ·
-      Hemlane · industry time-use estimates for DIY / small-portfolio landlords. Model is illustrative, not tax or legal advice.
-    </div>
+    <div class="sources">Dollar values represent the modeled value of time, not cash savings. This model excludes software fees and does not account for differences in property condition or service needs.</div>
+<div class="waitlist-section" id="audit-followup"><h2>Want to explore a simpler workflow?</h2><p>Your full results are already available. Join the landlord launch list for next steps.</p><form id="auditWaitlist" class="waitlist-form" data-waitlist data-source="audit_gate_form"><label for="auditWaitlist-email">Email address</label><input id="auditWaitlist-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"><label for="auditWaitlist-units">Rental units you manage</label><select id="auditWaitlist-units" name="units" required><option value="">Select your portfolio size</option><option>1–5 units</option><option>6–20 units</option><option>21–50 units</option><option>51–100 units</option><option>100+ units</option></select><button class="btn-primary" type="submit" disabled>Join the landlord launch list →</button><p class="form-disclaimer">Free to join. No payment or account required. We’ll email you about launch and onboarding. Joining does not reserve a price or activate a subscription. <a href="/legal/privacy-policy/">Privacy policy</a></p><noscript><p>Enable JavaScript to join, or email <a href="mailto:hello@perfecttenantinnovation.com">hello@perfecttenantinnovation.com</a>.</p></noscript><p data-form-status role="status" aria-live="polite" tabindex="-1"></p></form></div>
   </section>
 
   <footer class="waitlist-footer" id="footer-cta" style="display:none;">
     <h3>Ready to buy your <span>time back?</span></h3>
-    <p>Founder pricing is still available — locked in for life for landlords who join before launch.</p>
-    <a href="https://www.perfecttenantinnovation.com/#landlord-waitlist" class="waitlist-btn" style="display:inline-flex;">
+    <p>Explore the plans or leave your email for launch and onboarding updates.</p>
+    <a href="#audit-followup" class="waitlist-btn" style="display:inline-flex;">
       Landlord waitlist →
     </a>
   </footer>
@@ -959,6 +904,8 @@
 
   function recalc() {
     var units = +document.getElementById('s-units').value;
+    var followupUnits = document.getElementById('auditWaitlist-units');
+    if (followupUnits && !followupUnits.disabled) followupUnits.value = units <= 5 ? '1–5 units' : units <= 20 ? '6–20 units' : '21–50 units';
     var rent = +document.getElementById('s-rent').value;
     var rate = +document.getElementById('s-rate').value;
 
@@ -1050,98 +997,25 @@
 
   var gaCalculatorEventFired = false;
   function showCalculator() {
-    document.getElementById('gate').classList.add('hidden');
+
     var calc = document.getElementById('calculator');
     calc.classList.add('unlocked');
     document.getElementById('footer-cta').style.display = 'block';
     applyBucketFromUrl();
     recalc();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     if (!gaCalculatorEventFired && typeof gtag === 'function') {
       gaCalculatorEventFired = true;
       gtag('event', 'calculator_unlocked', { event_category: 'engagement', event_label: 'landlord_hours_audit', page_location: '/landlord-hours-audit/' });
     }
   }
 
-  function submitGateForm(e) {
-    e.preventDefault();
-
-    var f = document.getElementById('gate-fname').value.trim();
-    var l = document.getElementById('gate-lname').value.trim();
-    var email = document.getElementById('gate-email').value.trim();
-    var units = document.getElementById('gate-units').value;
-
-    if (!f || !l || !email || !units) return;
-
-    var btn = document.getElementById('gateSubmitBtn');
-    btn.disabled = true;
-    btn.textContent = 'Unlocking...';
-
-    var errorEl = document.getElementById('gateFormError');
-    errorEl.style.display = 'none';
-
-    var bucketMap = {
-      '1-5 units': '1-5',
-      '6-20 units': '6-20',
-      '21-50 units': '21-50',
-      '51-100 units': '51-100',
-      '100+ units': '100+'
-    };
-    var bucket = bucketMap[units] || '';
-
-    var firestorePromise = db ? db.collection('waitlist_submissions').add({
-      source: 'audit_gate_form',
-      role: 'landlord',
-      firstName: f,
-      lastName: l,
-      email: email,
-      units: units,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp()
-    }) : Promise.resolve();
-
-    firestorePromise.then(function() {
-
-      try { sessionStorage.setItem('pti_calc_unlock', '1'); } catch(e) {}
-
-      if (typeof gtag === 'function') {
-        gtag('event', 'waitlist_landlord_sub', {
-          event_category: 'conversion',
-          event_label: 'audit_gate_inline'
-        });
-      }
-
-      emailjs.send('service_8fnn74u', 'template_0d7m7le', {
-        to_email: email,
-        to_name: f + ' ' + l,
-        first_name: f
-      }).catch(function(err) {
-        console.warn('Email send failed (non-critical):', err);
-      });
-
-      if (bucket && BUCKET_TO_UNITS.hasOwnProperty(bucket)) {
-        var el = document.getElementById('s-units');
-        if (el) el.value = String(BUCKET_TO_UNITS[bucket]);
-      }
-
-      showCalculator();
-
-    }).catch(function(err) {
-      console.error('Gate form submission failed:', err);
-      btn.disabled = false;
-      btn.textContent = 'Unlock My Free Audit →';
-      errorEl.style.display = 'block';
-    });
-  }
-  window.submitGateForm = submitGateForm;
-
-  if (isUnlocked()) {
-    showCalculator();
-  }
+  showCalculator();
 
   ['s-units', 's-rent', 's-rate'].forEach(function (id) {
     document.getElementById(id).addEventListener('input', recalc);
   });
 })();
 </script>
-</body>
+<script src="/scripts/waitlist.js"></script></body>
 </html>

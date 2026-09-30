@@ -9,7 +9,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8EF20FCMTK"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8EF20FCMTK');</script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script type="text/javascript">emailjs.init("LiDS_LTjo__EBd-i5");</script>
+  <script type="text/javascript">if (window.emailjs) emailjs.init("LiDS_LTjo__EBd-i5");</script>
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.perfecttenantinnovation.com/swarm-boss/">
   <meta property="og:title" content="Swarm Boss — Perfect Tenant Innovation">
@@ -40,6 +40,9 @@
       .comparison-col{grid-column:span 12}
     }
   </style>
+<script defer src="/scripts/funnel.js"></script>
+<meta property="og:image" content="https://www.perfecttenantinnovation.com/assets/social/default.png">
+<meta name="twitter:image" content="https://www.perfecttenantinnovation.com/assets/social/default.png">
 </head>
 <body>
   <nav id="nav">
@@ -49,7 +52,7 @@
       <li><a href="/tenants/">For Tenants</a></li>
       <li><a href="/#pricing">Pricing</a></li>
       <li><a href="/join/">Join ecosystem</a></li>
-      <li><a href="/#ecosystem">Ecosystem</a></li>
+      <li><a href="/join/">Ecosystem</a></li>
       <li><a href="/#faq">FAQ</a></li>
       <li><a href="/landlord-hours-audit/" class="nav-cta">Free Audit</a></li>
     </ul>
@@ -111,15 +114,15 @@
 
         <form class="waitlist-form" id="swarmWaitlistForm">
           <div class="form-row">
-            <input type="text" name="firstName" placeholder="First Name" required>
-            <input type="text" name="lastName" placeholder="Last Name" required>
+            <label for="swarm-firstName">First Name</label><input id="swarm-firstName" type="text" name="firstName" placeholder="First Name" required>
+            <label for="swarm-lastName">Last Name</label><input id="swarm-lastName" type="text" name="lastName" placeholder="Last Name" required>
           </div>
-          <input type="email" name="email" placeholder="Business Email" required>
-          <input type="tel" name="phone" placeholder="Phone Number">
-          <input type="text" name="company" placeholder="Company / Brand Name" required>
-          <input type="text" name="campaignGoal" placeholder="What's your campaign goal? (e.g. local awareness, app downloads, reviews)">
-          <input type="text" name="budget" placeholder="Estimated monthly campaign budget">
-          <input type="text" name="location" placeholder="Target City / Region">
+          <label for="swarm-email">Business Email</label><input id="swarm-email" type="email" name="email" placeholder="Business Email" required>
+          <label for="swarm-phone">Phone Number</label><input id="swarm-phone" type="tel" name="phone" placeholder="Phone Number">
+          <label for="swarm-company">Company / Brand Name</label><input id="swarm-company" type="text" name="company" placeholder="Company / Brand Name" required>
+          <label for="swarm-campaignGoal">What's your campaign goal? (e.g. local awareness, app downloads, reviews)</label><input id="swarm-campaignGoal" type="text" name="campaignGoal" placeholder="What's your campaign goal? (e.g. local awareness, app downloads, reviews)">
+          <label for="swarm-budget">Estimated monthly campaign budget</label><input id="swarm-budget" type="text" name="budget" placeholder="Estimated monthly campaign budget">
+          <label for="swarm-location">Target City / Region</label><input id="swarm-location" type="text" name="location" placeholder="Target City / Region">
           <input type="hidden" name="role" value="swarm_boss">
           <button type="submit" class="btn-primary btn-full">Apply to Become a Swarm Boss →</button>
           <p class="form-disclaimer">🔒 No spam. We'll reach out within 48 hours to build your first campaign brief.</p>
@@ -141,7 +144,7 @@
       <li><a href="/tenants/">For Tenants</a></li>
       <li><a href="/#pricing">Pricing</a></li>
       <li><a href="/join/">Join ecosystem</a></li>
-      <li><a href="/#ecosystem">Ecosystem</a></li>
+      <li><a href="/join/">Ecosystem</a></li>
       <li><a href="/#faq">FAQ</a></li>
       <li><a href="/landlord-hours-audit/">Landlord Hours Audit</a></li>
       <li><a href="mailto:hello@perfecttenantinnovation.com">Contact</a></li>
@@ -153,7 +156,8 @@
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
   <script>
-    firebase.initializeApp({
+    var db = null;
+    try { firebase.initializeApp({
       apiKey: "AIzaSyBaOnRBpdRvU-6qvZJHiqfwTnWnxVt8nh8",
       authDomain: "perfect-tenant-app-bfaf7.firebaseapp.com",
       projectId: "perfect-tenant-app-bfaf7",
@@ -165,10 +169,13 @@
       new firebase.appCheck.ReCaptchaEnterpriseProvider('6LfMfv4sAAAAAI1lKWCQFfxYjdoCQIhOmGQFCLnF'),
       true
     );
-    var db = firebase.firestore();
+    db = firebase.firestore(); } catch (error) {}
 
     document.getElementById('swarmWaitlistForm').addEventListener('submit', function(e) {
       e.preventDefault();
+      if (!e.target.reportValidity()) return;
+      if (!db) { alert('Signup is temporarily unavailable. Please try again or email hello@perfecttenantinnovation.com.'); return; }
+      if (e.target.querySelector('button[type=submit]').disabled) return;
       var fd = new FormData(e.target);
       var firstName = String(fd.get('firstName') || '').trim();
       var lastName = String(fd.get('lastName') || '').trim();
@@ -192,22 +199,24 @@
         location: String(fd.get('location') || '').trim(),
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       }).then(function () {
+        document.getElementById('swarmWaitlistForm').style.display = 'none';
+        document.getElementById('swarmSuccess').style.display = 'block';
+        window.ptiTrack && window.ptiTrack('signed_up', {form_id:'swarmWaitlistForm'});
         if (typeof gtag !== 'undefined') {
-          gtag('event', 'waitlist_swarm_sub', { event_category: 'conversion', event_label: 'swarm_boss_waitlist' });
+          window.ptiTrack && window.ptiTrack('waitlist_swarm_sub', { event_category: 'conversion', event_label: 'swarm_boss_waitlist' });
         }
         // Send confirmation email via EmailJS
-        emailjs.send('service_8fnn74u', 'template_foal6er', {
+        Promise.resolve().then(function () { if (!window.emailjs) return; return window.emailjs.send('service_8fnn74u', 'template_foal6er', {
           to_email: email,
           to_name: firstName + ' ' + lastName,
           first_name: firstName,
           email_subject: "You just found a channel your competitors don't know exists.",
           email_headline: "You just found a channel your competitors don't know exists.",
           email_body: "Hi " + firstName + ", your Swarm Boss application has been received. You only pay when AI confirms the work is done.\n\n1️⃣ Set a budget and define your task\n2️⃣ Verified tenants complete the task and submit proof\n3️⃣ AI verifies every submission automatically\n4️⃣ Stripe pays tenants — you only pay for verified completions"
-        }).catch(function(emailErr) {
+        }); }).catch(function(emailErr) {
           console.warn('Email send failed (non-critical):', emailErr);
         });
-        document.getElementById('swarmWaitlistForm').style.display = 'none';
-        document.getElementById('swarmSuccess').style.display = 'block';
+
       }).catch(function (err) {
         console.error('Swarm Boss waitlist submission failed:', err);
         alert('Something went wrong. Please try again in a moment.');

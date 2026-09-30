@@ -9,7 +9,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8EF20FCMTK"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8EF20FCMTK');</script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script type="text/javascript">emailjs.init("LiDS_LTjo__EBd-i5");</script>
+  <script type="text/javascript">if (window.emailjs) emailjs.init("LiDS_LTjo__EBd-i5");</script>
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.perfecttenantinnovation.com/service-providers/">
   <meta property="og:title" content="Service Providers — Perfect Tenant Innovation">
@@ -40,6 +40,9 @@
       .feature-card{grid-column:span 12}
     }
   </style>
+<script defer src="/scripts/funnel.js"></script>
+<meta property="og:image" content="https://www.perfecttenantinnovation.com/assets/social/default.png">
+<meta name="twitter:image" content="https://www.perfecttenantinnovation.com/assets/social/default.png">
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -50,7 +53,7 @@
       <li><a href="/tenants/">For Tenants</a></li>
       <li><a href="/#pricing">Pricing</a></li>
       <li><a href="/join/">Join ecosystem</a></li>
-      <li><a href="/#ecosystem">Ecosystem</a></li>
+      <li><a href="/join/">Ecosystem</a></li>
       <li><a href="/#faq">FAQ</a></li>
       <li><a href="/landlord-hours-audit/" class="nav-cta">Free Audit</a></li>
     </ul>
@@ -94,7 +97,7 @@
         <h2 class="section-title" style="font-size:clamp(1.4rem,3vw,2rem);margin-bottom:6px">Join as a Verified Service Provider</h2>
         <p class="section-body" style="margin:0;max-width:900px">We're building our verified provider network now. Get verified early and be first in queue when jobs start flowing in your area.</p>
 
-        <form class="waitlist-form" id="spWaitlistForm" novalidate>
+        <form class="waitlist-form" id="spWaitlistForm">
           <div class="form-row">
             <div class="form-field"><label for="sp-fname">First Name</label><input type="text" id="sp-fname" name="firstName" autocomplete="given-name" placeholder="First Name" required></div>
             <div class="form-field"><label for="sp-lname">Last Name</label><input type="text" id="sp-lname" name="lastName" autocomplete="family-name" placeholder="Last Name" required></div>
@@ -138,7 +141,7 @@
       <li><a href="/tenants/">For Tenants</a></li>
       <li><a href="/#pricing">Pricing</a></li>
       <li><a href="/join/">Join ecosystem</a></li>
-      <li><a href="/#ecosystem">Ecosystem</a></li>
+      <li><a href="/join/">Ecosystem</a></li>
       <li><a href="/#faq">FAQ</a></li>
       <li><a href="/landlord-hours-audit/">Landlord Hours Audit</a></li>
       <li><a href="mailto:hello@perfecttenantinnovation.com">Contact</a></li>
@@ -150,7 +153,8 @@
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
   <script>
-    firebase.initializeApp({
+    var db = null;
+    try { firebase.initializeApp({
       apiKey: "AIzaSyBaOnRBpdRvU-6qvZJHiqfwTnWnxVt8nh8",
       authDomain: "perfect-tenant-app-bfaf7.firebaseapp.com",
       projectId: "perfect-tenant-app-bfaf7",
@@ -162,10 +166,13 @@
       new firebase.appCheck.ReCaptchaEnterpriseProvider('6LfMfv4sAAAAAI1lKWCQFfxYjdoCQIhOmGQFCLnF'),
       true
     );
-    var db = firebase.firestore();
+    db = firebase.firestore(); } catch (error) {}
 
     document.getElementById('spWaitlistForm').addEventListener('submit', function(e) {
       e.preventDefault();
+      if (!e.target.reportValidity()) return;
+      if (!db) { alert('Signup is temporarily unavailable. Please try again or email hello@perfecttenantinnovation.com.'); return; }
+      if (e.target.querySelector('button[type=submit]').disabled) return;
       var fd = new FormData(e.target);
       var firstName = String(fd.get('firstName') || '').trim();
       var lastName = String(fd.get('lastName') || '').trim();
@@ -196,22 +203,24 @@
         location: location,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       }).then(function () {
+        document.getElementById('spWaitlistForm').style.display = 'none';
+        document.getElementById('spSuccess').style.display = 'block';
+        window.ptiTrack && window.ptiTrack('signed_up', {form_id:'spWaitlistForm'});
         if (typeof gtag !== 'undefined') {
-          gtag('event', 'waitlist_sp_sub', { event_category: 'conversion', event_label: 'service_provider_waitlist' });
+          window.ptiTrack && window.ptiTrack('waitlist_sp_sub', { event_category: 'conversion', event_label: 'service_provider_waitlist' });
         }
         // Send confirmation email via EmailJS
-        emailjs.send('service_8fnn74u', 'template_foal6er', {
+        Promise.resolve().then(function () { if (!window.emailjs) return; return window.emailjs.send('service_8fnn74u', 'template_foal6er', {
           to_email: email,
           to_name: firstName + ' ' + lastName,
           first_name: firstName,
           email_subject: "Verified jobs are coming to you.",
           email_headline: "Verified jobs are coming to you.",
           email_body: "Hi " + firstName + ", you're in the Perfect Tenant Innovation verified service provider network. No cold calls. No chasing. The work finds you.\n\n1️⃣ Tenant submits a maintenance request\n2️⃣ AI dispatches the job to verified providers in your area\n3️⃣ You accept, complete, invoice through the platform\n4️⃣ Stripe pays you automatically"
-        }).catch(function(emailErr) {
+        }); }).catch(function(emailErr) {
           console.warn('Email send failed (non-critical):', emailErr);
         });
-        document.getElementById('spWaitlistForm').style.display = 'none';
-        document.getElementById('spSuccess').style.display = 'block';
+
       }).catch(function (err) {
         console.error('Service provider waitlist submission failed:', err);
         alert('Something went wrong. Please try again in a moment.');
