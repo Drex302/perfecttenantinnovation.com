@@ -3,16 +3,18 @@
  *
  * Gated: does nothing unless window.PTI_WEB_CHECKOUT_ENABLED === true. While the
  * flag is off, the page keeps showing the launch waitlist and NO subscribe UI is
- * revealed — this mirrors the backend's off-by-default WEB_LANDLORD_CHECKOUT_ENABLED
- * flag, so the web and server sides are flipped on together after Stripe test-mode
- * verification.
+ * revealed — mirrors the backend WEB_LANDLORD_CHECKOUT_ENABLED flag so both sides
+ * flip on together after Stripe test-mode verification.
  *
- * Auth must match the iOS app so a web purchase attaches to the same Firebase UID:
- * email/password, Google, and (once the web Services ID is configured) Apple.
+ * Flow: Subscribe → (create account / sign in, matching the iOS app so the Firebase
+ * UID links) → choose how to start:
+ *   • Reserve for free — no card; records a plan_reservations doc. Pay at launch.
+ *   • Lock in now — Stripe Checkout with a server-set $0 trial until launch.
+ * The customer is never charged before app access begins (launch date).
  *
- * The callable createLandlordCheckoutSession lives in us-central1 and requires a
- * signed-in user + App Check. It returns { url } — a Stripe Checkout URL we redirect
- * the browser to. Success/cancel return to /pricing/success/ and /pricing/cancel/.
+ * Auth matches the app: email/password, Google, and (once the web Services ID is
+ * configured, PTI_APPLE_WEB_SIGNIN) Apple. The callable createLandlordCheckoutSession
+ * lives in us-central1 and needs a signed-in user + App Check; it returns { url }.
  */
 (function () {
   'use strict';
@@ -32,11 +34,17 @@
   var ORIGIN = 'https://www.perfecttenantinnovation.com';
   var SUCCESS_URL = ORIGIN + '/pricing/success/?session_id={CHECKOUT_SESSION_ID}';
   var CANCEL_URL = ORIGIN + '/pricing/cancel/';
-  // Apple sign-in on the web needs a Services ID + domain config in Apple/Firebase.
-  // Leave false until that is set up, or the Apple button will error.
   var APPLE_WEB_ENABLED = window.PTI_APPLE_WEB_SIGNIN === true;
+  var LAUNCH_DATE = (window.PTI_LAUNCH_DATE || '').trim();
+  var LAUNCH_SUFFIX = LAUNCH_DATE ? ' on ' + LAUNCH_DATE : '';
 
-  var auth, functions;
+  // Display-only labels/prices (source of truth for amounts is the backend).
+  var PLANS = {
+    ascent: { name: 'Ascent', monthly: '$56.89', annual: '$682.68' },
+    summit: { name: 'Summit', monthly: '$123.48', annual: '$1,481.76' },
+  };
+
+  var auth, functions, db;
   try {
     if (!firebase.apps.length) firebase.initializeApp(FIREBASE_CONFIG);
     try {
@@ -47,24 +55,30 @@
     } catch (e) { /* already activated by waitlist.js — fine */ }
     auth = firebase.auth();
     functions = firebase.app().functions(FUNCTIONS_REGION);
+    db = firebase.firestore();
   } catch (e) {
     console.error('[checkout] Firebase init failed', e);
     return;
   }
 
-  var state = { interval: 'month', pendingPlan: null };
+  var state = { interval: 'month', plan: null };
 
   function $(sel, root) { return (root || document).querySelector(sel); }
+  function all(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
   function show(el) { if (el) el.hidden = false; }
   function hide(el) { if (el) el.hidden = true; }
+  function priceStr(plan) {
+    var p = PLANS[plan]; if (!p) return '';
+    return state.interval === 'year' ? p.annual + ' / year' : p.monthly + ' / month';
+  }
 
   // ---- Billing interval toggle + price display ------------------------------
   function applyInterval(interval) {
     state.interval = interval === 'year' ? 'year' : 'month';
-    document.querySelectorAll('[data-interval-btn]').forEach(function (btn) {
+    all('[data-interval-btn]').forEach(function (btn) {
       btn.setAttribute('aria-pressed', String(btn.dataset.intervalBtn === state.interval));
     });
-    document.querySelectorAll('[data-price]').forEach(function (el) {
+    all('[data-price]').forEach(function (el) {
       var monthly = el.getAttribute('data-price-monthly');
       var annual = el.getAttribute('data-price-annual');
       var suffix = el.querySelector('span');
@@ -78,128 +92,152 @@
     });
   }
 
-  // ---- Auth modal -----------------------------------------------------------
-  function openModal(planId) {
-    state.pendingPlan = planId;
-    show($('#checkout-modal'));
-    var status = $('#checkout-modal [data-auth-status]');
-    if (status) status.textContent = '';
-    var emailInput = $('#checkout-email');
-    if (emailInput) emailInput.focus();
+  // ---- Modal view switching -------------------------------------------------
+  var MODAL = null;
+  function setView(name) {
+    all('[data-view]', MODAL).forEach(function (v) { v.hidden = v.getAttribute('data-view') !== name; });
+    var title = $('#checkout-modal-title');
+    if (title) {
+      if (name === 'auth') title.textContent = ($('#checkout-auth-form').getAttribute('data-mode') === 'signup')
+        ? 'Create your Perfect Tenant account' : 'Sign in to your account';
+      else if (name === 'choice') title.textContent = 'Start your ' + (PLANS[state.plan] ? PLANS[state.plan].name : '') + ' plan';
+      else if (name === 'done') title.textContent = "You're all set";
+    }
   }
-  function closeModal() { hide($('#checkout-modal')); state.pendingPlan = null; }
+  function statusMsg(text) { var s = $('[data-auth-status]', MODAL); if (s) s.textContent = text || ''; }
 
-  function authError(err) {
-    var status = $('#checkout-modal [data-auth-status]');
-    if (status) status.textContent = (err && err.message) ? err.message : 'Sign-in failed. Please try again.';
+  function openModal(plan, view) {
+    state.plan = plan;
+    show(MODAL);
+    statusMsg('');
+    setView(view);
+    if (view === 'auth') { var e = $('#checkout-email'); if (e) e.focus(); }
+  }
+  function closeModal() { hide(MODAL); }
+
+  function openForPlan(plan) {
+    // Already signed in → skip straight to the reserve/lock-in choice.
+    if (auth.currentUser) openModal(plan, 'choice');
+    else openModal(plan, 'auth');
   }
 
-  // ---- Checkout -------------------------------------------------------------
+  // ---- Reserve (no card) ----------------------------------------------------
+  async function reservePlan(plan) {
+    var user = auth.currentUser;
+    if (!user) { openModal(plan, 'auth'); return; }
+    statusMsg('');
+    try {
+      await db.collection('plan_reservations').doc(user.uid).set({
+        planId: plan,
+        interval: state.interval,
+        email: user.email || '',
+        source: 'web_pricing',
+        status: 'reserved',
+        reservedAt: firebase.firestore.FieldValue.serverTimestamp(),
+      }, { merge: true });
+      window.ptiTrack && window.ptiTrack('plan_reserved', { plan: plan, interval: state.interval });
+      var msg = $('[data-done-msg]', MODAL);
+      if (msg) msg.textContent = 'Your ' + (PLANS[plan] ? PLANS[plan].name : '') + ' plan is reserved — no charge today. '
+        + "We'll email you to complete payment when app access begins" + LAUNCH_SUFFIX + '. '
+        + 'Download the app and sign in with the same account to pick up right where you left off.';
+      setView('done');
+    } catch (err) {
+      console.error('[checkout] reservation failed', err);
+      statusMsg((err && err.message) || 'Could not save your reservation. Please try again or email hello@perfecttenantinnovation.com.');
+    }
+  }
+
+  // ---- Lock in (Stripe checkout with server-set trial) ----------------------
   var starting = false;
-  async function startCheckout(planId) {
+  async function startCheckout(plan) {
     if (starting) return;
-    if (!auth.currentUser) { openModal(planId); return; }
+    if (!auth.currentUser) { openModal(plan, 'auth'); return; }
     starting = true;
-    var btn = document.querySelector('[data-subscribe="' + planId + '"]');
-    var original = btn ? btn.textContent : '';
-    if (btn) { btn.disabled = true; btn.textContent = 'Redirecting…'; }
+    statusMsg('Redirecting to secure checkout…');
     try {
       var callable = functions.httpsCallable('createLandlordCheckoutSession');
-      var res = await callable({
-        planId: planId,
-        interval: state.interval,
-        successUrl: SUCCESS_URL,
-        cancelUrl: CANCEL_URL,
-      });
+      var res = await callable({ planId: plan, interval: state.interval, successUrl: SUCCESS_URL, cancelUrl: CANCEL_URL });
       var url = res && res.data && res.data.url;
       if (!url) throw new Error('No checkout URL returned.');
-      window.ptiTrack && window.ptiTrack('begin_checkout', { plan: planId, interval: state.interval });
+      window.ptiTrack && window.ptiTrack('begin_checkout', { plan: plan, interval: state.interval });
       window.location.assign(url);
     } catch (err) {
       console.error('[checkout] createLandlordCheckoutSession failed', err);
-      if (btn) { btn.disabled = false; btn.textContent = original; }
       starting = false;
-      alert((err && err.message) ? err.message : 'Could not start checkout. Please try again or email hello@perfecttenantinnovation.com.');
+      statusMsg((err && err.message) || 'Could not start checkout. Please try again or email hello@perfecttenantinnovation.com.');
     }
   }
 
-  async function afterSignIn() {
-    var plan = state.pendingPlan;
-    closeModal();
-    if (plan) startCheckout(plan);
+  function toChoice() {
+    var el;
+    el = $('[data-choice-plan]', MODAL); if (el) el.textContent = PLANS[state.plan] ? PLANS[state.plan].name : '';
+    el = $('[data-choice-price]', MODAL); if (el) el.textContent = priceStr(state.plan);
+    setView('choice');
   }
 
-  // ---- Wire up once DOM is ready --------------------------------------------
+  async function afterSignIn() { toChoice(); }
+
+  // ---- Wire up --------------------------------------------------------------
   function init() {
+    MODAL = $('#checkout-modal');
     document.body.classList.add('checkout-enabled');
     applyInterval('month');
+    all('[data-launch-suffix]').forEach(function (el) { el.textContent = LAUNCH_SUFFIX; });
 
-    document.querySelectorAll('[data-interval-btn]').forEach(function (btn) {
+    all('[data-interval-btn]').forEach(function (btn) {
       btn.addEventListener('click', function () { applyInterval(btn.dataset.intervalBtn); });
     });
-
-    document.querySelectorAll('[data-subscribe]').forEach(function (btn) {
-      btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        startCheckout(btn.getAttribute('data-subscribe'));
-      });
+    all('[data-subscribe]').forEach(function (btn) {
+      btn.addEventListener('click', function (e) { e.preventDefault(); openForPlan(btn.getAttribute('data-subscribe')); });
     });
-
-    var modalClose = $('#checkout-modal [data-modal-close]');
-    if (modalClose) modalClose.addEventListener('click', closeModal);
+    all('[data-modal-close]', MODAL).forEach(function (btn) { btn.addEventListener('click', closeModal); });
 
     var emailForm = $('#checkout-auth-form');
-    if (emailForm) {
-      emailForm.addEventListener('submit', async function (e) {
-        e.preventDefault();
-        var email = $('#checkout-email').value.trim();
-        var pass = $('#checkout-password').value;
-        var mode = emailForm.getAttribute('data-mode') || 'signin';
-        try {
-          if (mode === 'signup') await auth.createUserWithEmailAndPassword(email, pass);
-          else await auth.signInWithEmailAndPassword(email, pass);
-          await afterSignIn();
-        } catch (err) { authError(err); }
-      });
-    }
+    if (emailForm) emailForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var email = $('#checkout-email').value.trim();
+      var pass = $('#checkout-password').value;
+      var mode = emailForm.getAttribute('data-mode') || 'signup';
+      try {
+        if (mode === 'signup') await auth.createUserWithEmailAndPassword(email, pass);
+        else await auth.signInWithEmailAndPassword(email, pass);
+        await afterSignIn();
+      } catch (err) { statusMsg((err && err.message) || 'Sign-in failed. Please try again.'); }
+    });
 
     var toggleMode = $('#checkout-toggle-mode');
-    if (toggleMode) {
-      toggleMode.addEventListener('click', function () {
-        var form = $('#checkout-auth-form');
-        var wasSignup = form.getAttribute('data-mode') === 'signup';
-        form.setAttribute('data-mode', wasSignup ? 'signin' : 'signup');
-        $('#checkout-auth-submit').textContent = wasSignup ? 'Sign in' : 'Create account';
-        toggleMode.textContent = wasSignup ? 'New here? Create an account' : 'Already have an account? Sign in';
-        var title = $('#checkout-modal-title');
-        if (title) title.textContent = wasSignup ? 'Sign in to your account' : 'Create your Perfect Tenant account';
-        var pw = $('#checkout-password');
-        if (pw) pw.setAttribute('autocomplete', wasSignup ? 'current-password' : 'new-password');
-      });
-    }
+    if (toggleMode) toggleMode.addEventListener('click', function () {
+      var form = $('#checkout-auth-form');
+      var wasSignup = form.getAttribute('data-mode') === 'signup';
+      form.setAttribute('data-mode', wasSignup ? 'signin' : 'signup');
+      $('#checkout-auth-submit').textContent = wasSignup ? 'Sign in' : 'Create account';
+      toggleMode.textContent = wasSignup ? 'New here? Create an account' : 'Already have an account? Sign in';
+      $('#checkout-modal-title').textContent = wasSignup ? 'Sign in to your account' : 'Create your Perfect Tenant account';
+      var pw = $('#checkout-password');
+      if (pw) pw.setAttribute('autocomplete', wasSignup ? 'current-password' : 'new-password');
+    });
 
     var googleBtn = $('#checkout-google');
-    if (googleBtn) {
-      googleBtn.addEventListener('click', async function () {
-        try {
-          await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-          await afterSignIn();
-        } catch (err) { authError(err); }
-      });
-    }
+    if (googleBtn) googleBtn.addEventListener('click', async function () {
+      try { await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()); await afterSignIn(); }
+      catch (err) { statusMsg((err && err.message) || 'Google sign-in failed.'); }
+    });
 
     var appleBtn = $('#checkout-apple');
     if (appleBtn) {
-      if (!APPLE_WEB_ENABLED) { hide(appleBtn); }
-      else {
-        appleBtn.addEventListener('click', async function () {
-          try {
-            await auth.signInWithPopup(new firebase.auth.OAuthProvider('apple.com'));
-            await afterSignIn();
-          } catch (err) { authError(err); }
-        });
-      }
+      if (!APPLE_WEB_ENABLED) hide(appleBtn);
+      else appleBtn.addEventListener('click', async function () {
+        try { await auth.signInWithPopup(new firebase.auth.OAuthProvider('apple.com')); await afterSignIn(); }
+        catch (err) { statusMsg((err && err.message) || 'Apple sign-in failed.'); }
+      });
     }
+
+    all('[data-choice]', MODAL).forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (btn.getAttribute('data-choice') === 'reserve') reservePlan(state.plan);
+        else startCheckout(state.plan);
+      });
+    });
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

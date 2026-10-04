@@ -135,6 +135,16 @@
   .checkout-modal .cm-foot{display:flex;justify-content:space-between;align-items:center;margin-top:18px;font-size:.82rem}
   .checkout-modal .cm-foot button{border:0;background:0;color:var(--teal,#268CA6);cursor:pointer;font:inherit;text-decoration:underline}
   .checkout-modal [data-auth-status]{color:#991B1B;font-size:.82rem;margin-top:12px;min-height:1em}
+  .cm-link{border:0;background:0;color:var(--teal,#268CA6);cursor:pointer;font:inherit;text-decoration:underline}
+  .cm-togglewrap{text-align:center;margin:14px 0 0}
+  .cm-choice{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+  .cm-opt{text-align:left;border:1px solid #E5E7EB;border-radius:10px;background:#fff;padding:14px 16px;cursor:pointer;font:inherit;display:flex;flex-direction:column;gap:3px}
+  .cm-opt:hover{border-color:var(--teal,#268CA6)}
+  .cm-opt--primary{border-color:var(--teal,#268CA6);background:#F2FBFB}
+  .cm-opt-title{font-weight:700;color:#14141A}
+  .cm-opt-desc{font-size:.82rem;color:#6B7280;line-height:1.45}
+  /* Page-level billing/access notice — visible only when checkout is enabled */
+  .access-notice{max-width:680px;margin:0 auto 24px;padding:14px 18px;border:1px solid #BFDBFE;background:#EFF6FF;border-radius:10px;font-family:'Helvetica Neue',sans-serif;font-size:.9rem;color:#1E3A8A;text-align:center;line-height:1.55}
 </style>
 </head>
 <body>
@@ -156,11 +166,15 @@
       <section class="pricing-hero">
         <p class="section-label">Landlord Plans</p>
         <h1 class="section-title">Find the right starting point for your portfolio.</h1>
-        <p class="section-body pricing-sub">Explore the planned landlord tiers, then join the launch list with your plan selected. Prices below are reference web prices; web checkout is unavailable. Final in-app pricing and included features will be confirmed before purchase.</p>
+        <p class="section-body pricing-sub" data-waitlist-ui>Explore the planned landlord tiers, then join the launch list with your plan selected. Prices below are reference web prices; web checkout is unavailable. Final in-app pricing and included features will be confirmed before purchase.</p>
+        <p class="section-body pricing-sub" data-checkout-ui>Choose your plan and create your Perfect Tenant profile. Reserve for free with no card, or lock in your price with $0 due today — you won't be charged until app access begins. Web prices are lower than in-app (Apple) pricing.</p>
       </section>
 
       <!-- Plan cards -->
       <section aria-label="Plan options">
+        <p class="access-notice" data-checkout-ui>
+          <strong>Reserve now, pay at launch.</strong> Create your Perfect Tenant profile and lock in your plan today — you won't be charged until app access begins<span data-launch-suffix></span>. Reserve for free (no card), or save your card to lock in your price with $0 due today.
+        </p>
         <div class="billing-toggle" data-checkout-ui role="group" aria-label="Billing period">
           <button type="button" data-interval-btn="month" aria-pressed="true">Monthly</button>
           <button type="button" data-interval-btn="year" aria-pressed="false">Annual<span class="save-pill">web only</span></button>
@@ -253,7 +267,8 @@
       <!-- Billing terms -->
       <section class="terms-strip" aria-label="Billing terms">
         <h3>Billing &amp; cancellation</h3>
-        <p>Joining this list is free and does not create a subscription, reserve a price, or charge your card. Web checkout is disabled. Review the final price, renewal terms, and cancellation options in the app before purchasing.</p>
+        <p data-waitlist-ui>Joining this list is free and does not create a subscription, reserve a price, or charge your card. Web checkout is disabled. Review the final price, renewal terms, and cancellation options in the app before purchasing.</p>
+        <p data-checkout-ui>Reserving is free and takes no card. If you choose to lock in your price, your card is saved but <strong>$0 is charged today</strong> — your first payment is on the launch date, and you can cancel anytime before then. Web prices are lower than in-app (Apple) pricing. Subscriptions renew automatically; manage or cancel anytime in the app or by contacting us.</p>
         <div class="terms-links">
           <a href="/legal/terms-of-service/">Terms of Service</a>
           <a href="/legal/privacy-policy/">Privacy Policy</a>
@@ -264,7 +279,7 @@
       <!-- FAQ -->
       <section class="faq" aria-label="Subscription FAQ">
         <p class="section-label">FAQ</p>
-        <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2.1rem)">Subscription questions</h2><details><summary>Can I subscribe here?</summary><div class="faq-body">No. This page collects launch interest. You will receive availability and onboarding updates before choosing whether to purchase in the app.</div></details><details><summary>Which plan should I choose?</summary><div class="faq-body">The reference tiers are Ascent for 1–5 properties, Summit for 6–50, and Pinnacle for 51+. Properties and rental units are different: tell us your unit count so we can help confirm fit.</div></details><details><summary>Am I committing to a plan?</summary><div class="faq-body">No. Your selection helps us understand your needs. You can review the final offer before making a purchase.</div></details></section>
+        <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2.1rem)">Subscription questions</h2><details data-waitlist-ui><summary>Can I subscribe here?</summary><div class="faq-body">No. This page collects launch interest. You will receive availability and onboarding updates before choosing whether to purchase in the app.</div></details><details data-checkout-ui><summary>Can I reserve or subscribe here?</summary><div class="faq-body">Yes. Create your Perfect Tenant profile and reserve your plan for free (no card), or lock in your price with $0 due today. Either way you're not charged until app access begins at launch — and web prices are lower than in-app (Apple) pricing.</div></details><details><summary>Which plan should I choose?</summary><div class="faq-body">The reference tiers are Ascent for 1–5 properties, Summit for 6–50, and Pinnacle for 51+. Properties and rental units are different: tell us your unit count so we can help confirm fit.</div></details><details><summary>Am I committing to a plan?</summary><div class="faq-body">No. Your selection helps us understand your needs. You can review the final offer before making a purchase.</div></details></section>
     </div>
   </main>
 
@@ -272,21 +287,48 @@
   <div class="checkout-modal" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title" hidden>
     <div class="cm-card">
       <h3 id="checkout-modal-title">Create your Perfect Tenant account</h3>
-      <p class="cm-sub">This sets up your Perfect Tenant profile now. When you download the app, sign in with the same details — your plan and profile are already waiting, so onboarding is a step shorter. Already have an account? Sign in and your subscription links to it.</p>
-      <form id="checkout-auth-form" data-mode="signup">
-        <label for="checkout-email">Email</label>
-        <input id="checkout-email" type="email" autocomplete="email" required placeholder="you@example.com">
-        <label for="checkout-password">Password</label>
-        <input id="checkout-password" type="password" autocomplete="new-password" required minlength="6" placeholder="Choose a password (6+ characters)">
-        <button class="btn-primary cm-submit" id="checkout-auth-submit" type="submit">Create account</button>
-      </form>
-      <p class="cm-or">or</p>
-      <div class="cm-oauth">
-        <button type="button" id="checkout-google">Continue with Google</button>
-        <button type="button" id="checkout-apple">Continue with Apple</button>
+
+      <!-- Step 1: account (pre-profile) -->
+      <div data-view="auth">
+        <p class="cm-sub">This sets up your Perfect Tenant profile now. When you download the app, sign in with the same details — your plan and profile are already waiting, so onboarding is a step shorter. Already have an account? Sign in and your subscription links to it.</p>
+        <form id="checkout-auth-form" data-mode="signup">
+          <label for="checkout-email">Email</label>
+          <input id="checkout-email" type="email" autocomplete="email" required placeholder="you@example.com">
+          <label for="checkout-password">Password</label>
+          <input id="checkout-password" type="password" autocomplete="new-password" required minlength="6" placeholder="Choose a password (6+ characters)">
+          <button class="btn-primary cm-submit" id="checkout-auth-submit" type="submit">Create account</button>
+        </form>
+        <p class="cm-or">or</p>
+        <div class="cm-oauth">
+          <button type="button" id="checkout-google">Continue with Google</button>
+          <button type="button" id="checkout-apple">Continue with Apple</button>
+        </div>
+        <p class="cm-togglewrap"><button type="button" id="checkout-toggle-mode" class="cm-link">Already have an account? Sign in</button></p>
       </div>
+
+      <!-- Step 2: choose how to start (reserve free vs lock in) -->
+      <div data-view="choice" hidden>
+        <p class="cm-sub">You're reserving the <strong data-choice-plan></strong> plan (<span data-choice-price></span>). You won't be charged until access begins<span data-launch-suffix></span>. Choose how to start:</p>
+        <div class="cm-choice">
+          <button type="button" class="cm-opt" data-choice="reserve">
+            <span class="cm-opt-title">Reserve for free</span>
+            <span class="cm-opt-desc">No card now. We'll email you to complete payment when the app launches<span data-launch-suffix></span>.</span>
+          </button>
+          <button type="button" class="cm-opt cm-opt--primary" data-choice="lockin">
+            <span class="cm-opt-title">Lock in now — $0 today</span>
+            <span class="cm-opt-desc">Save your card and lock your price. First charge at launch<span data-launch-suffix></span>; cancel anytime before then.</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3: confirmation -->
+      <div data-view="done" hidden>
+        <p class="cm-sub" data-done-msg></p>
+        <button class="btn-primary cm-submit" type="button" data-modal-close>Done</button>
+      </div>
+
       <div class="cm-foot">
-        <button type="button" id="checkout-toggle-mode">Already have an account? Sign in</button>
+        <span></span>
         <button type="button" data-modal-close>Cancel</button>
       </div>
       <p data-auth-status role="status" aria-live="polite"></p>
@@ -319,7 +361,11 @@
      flag is on and the flow is verified in Stripe test mode. Flip PTI_WEB_CHECKOUT_ENABLED
      to true to reveal Subscribe UI; set PTI_APPLE_WEB_SIGNIN=true only once the Apple
      web Services ID is configured in Apple + Firebase. -->
-<script>window.PTI_WEB_CHECKOUT_ENABLED=false;window.PTI_APPLE_WEB_SIGNIN=false;</script>
+<script>
+  window.PTI_WEB_CHECKOUT_ENABLED=false;   // flip to true (with backend flag) to go live
+  window.PTI_APPLE_WEB_SIGNIN=false;        // true once the Apple web Services ID is configured
+  window.PTI_LAUNCH_DATE='';                // e.g. 'December 1, 2026' — shown in billing/access copy; empty renders as "at launch"
+</script>
 <script src="/scripts/checkout.js"></script>
 <script>const plan = new URLSearchParams(location.search).get("plan"); if (["ascent","summit","pinnacle"].includes(plan)) document.getElementById("selected-plan").value = plan;</script>
 </body>
