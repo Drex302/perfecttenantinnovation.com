@@ -167,10 +167,14 @@
     if (toggleMode) {
       toggleMode.addEventListener('click', function () {
         var form = $('#checkout-auth-form');
-        var signup = form.getAttribute('data-mode') === 'signup';
-        form.setAttribute('data-mode', signup ? 'signin' : 'signup');
-        $('#checkout-auth-submit').textContent = signup ? 'Sign in' : 'Create account';
-        toggleMode.textContent = signup ? 'New here? Create an account' : 'Already have an account? Sign in';
+        var wasSignup = form.getAttribute('data-mode') === 'signup';
+        form.setAttribute('data-mode', wasSignup ? 'signin' : 'signup');
+        $('#checkout-auth-submit').textContent = wasSignup ? 'Sign in' : 'Create account';
+        toggleMode.textContent = wasSignup ? 'New here? Create an account' : 'Already have an account? Sign in';
+        var title = $('#checkout-modal-title');
+        if (title) title.textContent = wasSignup ? 'Sign in to your account' : 'Create your Perfect Tenant account';
+        var pw = $('#checkout-password');
+        if (pw) pw.setAttribute('autocomplete', wasSignup ? 'current-password' : 'new-password');
       });
     }
 
