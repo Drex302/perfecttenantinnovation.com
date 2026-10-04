@@ -366,6 +366,7 @@
   window.PTI_APPLE_WEB_SIGNIN=false;        // true once the Apple web Services ID is configured
   window.PTI_LAUNCH_DATE='January 1, 2027'; // shown in billing/access copy; must match WEB_CHECKOUT_LAUNCH_EPOCH (1798779600 = Jan 1 2027 00:00 ET)
   window.PTI_RESERVE_EMAIL_TEMPLATE='';     // EmailJS template id for the reservation confirmation email; empty = don't send
+  window.PTI_USE_EMULATOR=false;            // Phase 4 dry-run only: true points auth/functions/firestore at the local Firebase emulator
 </script>
 <script src="/scripts/checkout.js"></script>
 <script>const plan = new URLSearchParams(location.search).get("plan"); if (["ascent","summit","pinnacle"].includes(plan)) document.getElementById("selected-plan").value = plan;</script>

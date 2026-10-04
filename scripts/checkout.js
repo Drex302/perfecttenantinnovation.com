@@ -50,18 +50,30 @@
     summit: { name: 'Summit', monthly: '$123.48', annual: '$1,481.76' },
   };
 
+  // Local dry-run against the Firebase emulator (Phase 4). Off in production.
+  var USE_EMULATOR = window.PTI_USE_EMULATOR === true;
+
   var auth, functions, db;
   try {
     if (!firebase.apps.length) firebase.initializeApp(FIREBASE_CONFIG);
-    try {
-      firebase.appCheck().activate(
-        new firebase.appCheck.ReCaptchaEnterpriseProvider(RECAPTCHA_ENTERPRISE_KEY),
-        true
-      );
-    } catch (e) { /* already activated by waitlist.js — fine */ }
+    if (!USE_EMULATOR) {
+      try {
+        firebase.appCheck().activate(
+          new firebase.appCheck.ReCaptchaEnterpriseProvider(RECAPTCHA_ENTERPRISE_KEY),
+          true
+        );
+      } catch (e) { /* already activated by waitlist.js — fine */ }
+    }
     auth = firebase.auth();
     functions = firebase.app().functions(FUNCTIONS_REGION);
     db = firebase.firestore();
+    if (USE_EMULATOR) {
+      // Point every SDK at the local emulator (ports from firebase.json).
+      auth.useEmulator('http://localhost:9099', { disableWarnings: true });
+      functions.useEmulator('localhost', 5001);
+      db.useEmulator('localhost', 8080);
+      console.info('[checkout] using Firebase emulator (dry-run mode)');
+    }
   } catch (e) {
     console.error('[checkout] Firebase init failed', e);
     return;
