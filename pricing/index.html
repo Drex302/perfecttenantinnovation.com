@@ -365,6 +365,7 @@
   window.PTI_WEB_CHECKOUT_ENABLED=false;   // flip to true (with backend flag) to go live
   window.PTI_APPLE_WEB_SIGNIN=false;        // true once the Apple web Services ID is configured
   window.PTI_LAUNCH_DATE='';                // e.g. 'December 1, 2026' — shown in billing/access copy; empty renders as "at launch"
+  window.PTI_RESERVE_EMAIL_TEMPLATE='';     // EmailJS template id for the reservation confirmation email; empty = don't send
 </script>
 <script src="/scripts/checkout.js"></script>
 <script>const plan = new URLSearchParams(location.search).get("plan"); if (["ascent","summit","pinnacle"].includes(plan)) document.getElementById("selected-plan").value = plan;</script>

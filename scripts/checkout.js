@@ -37,6 +37,12 @@
   var APPLE_WEB_ENABLED = window.PTI_APPLE_WEB_SIGNIN === true;
   var LAUNCH_DATE = (window.PTI_LAUNCH_DATE || '').trim();
   var LAUNCH_SUFFIX = LAUNCH_DATE ? ' on ' + LAUNCH_DATE : '';
+  // Reservation confirmation email (EmailJS, same account as the waitlist). Only
+  // sent when a dedicated template is configured — otherwise we skip it rather
+  // than send waitlist-worded copy. Create the template in EmailJS and set
+  // window.PTI_RESERVE_EMAIL_TEMPLATE to turn it on.
+  var EMAILJS_SERVICE = window.PTI_EMAILJS_SERVICE || 'service_8fnn74u';
+  var RESERVE_EMAIL_TEMPLATE = (window.PTI_RESERVE_EMAIL_TEMPLATE || '').trim();
 
   // Display-only labels/prices (source of truth for amounts is the backend).
   var PLANS = {
@@ -141,6 +147,18 @@
         + "We'll email you to complete payment when app access begins" + LAUNCH_SUFFIX + '. '
         + 'Download the app and sign in with the same account to pick up right where you left off.';
       setView('done');
+      // Best-effort confirmation email — never blocks or fails the reservation.
+      if (RESERVE_EMAIL_TEMPLATE && window.emailjs) {
+        try {
+          window.emailjs.send(EMAILJS_SERVICE, RESERVE_EMAIL_TEMPLATE, {
+            to_email: user.email || '',
+            plan: PLANS[plan] ? PLANS[plan].name : plan,
+            interval: state.interval === 'year' ? 'annual' : 'monthly',
+            price: priceStr(plan),
+            launch_date: LAUNCH_DATE || 'launch',
+          });
+        } catch (e) { /* on-screen confirmation already shown */ }
+      }
     } catch (err) {
       console.error('[checkout] reservation failed', err);
       statusMsg((err && err.message) || 'Could not save your reservation. Please try again or email hello@perfecttenantinnovation.com.');
