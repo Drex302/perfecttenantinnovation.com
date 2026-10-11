@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Payment received — Perfect Tenant Innovation</title>
+<title>You're subscribed — Perfect Tenant Innovation</title>
 <meta name="robots" content="noindex,follow">
 <meta name="description" content="Your Perfect Tenant subscription payment was received and your access is being activated.">
 <link rel="icon" href="/favicon.png" type="image/png">
@@ -41,9 +41,17 @@
     <div class="container">
       <section class="result">
         <div class="result-icon" aria-hidden="true">✓</div>
-        <h1>Payment received — activating your access</h1>
-        <p>Thank you for subscribing to Perfect Tenant. Your payment was submitted successfully and we're now <strong>confirming it with our secure billing system</strong>. Your plan unlocks in the Perfect Tenant app once that confirmation completes — this usually takes only a moment.</p>
-        <p>Open the Perfect Tenant app and sign in with the same account to see your plan. If your access hasn't appeared after a few minutes, please contact us and we'll sort it out right away.</p>
+        <!-- Before launch every web checkout is a $0 lock-in (Stripe trial until launch); after launch it's a real payment. -->
+        <div id="lockin-copy" hidden>
+          <h1>You're locked in — $0 today</h1>
+          <p>Thank you for choosing Perfect Tenant. Your card is saved and your price is locked. <strong>Nothing was charged today.</strong> Your first charge happens when your plan starts on <strong data-launch-date>launch day</strong>.</p>
+          <p>When the app launches, sign in with the same account and your plan will be waiting. You can cancel anytime before then and you won't be charged.</p>
+        </div>
+        <div id="paid-copy">
+          <h1>Payment received — activating your access</h1>
+          <p>Thank you for subscribing to Perfect Tenant. Your payment was submitted successfully and we're now <strong>confirming it with our secure billing system</strong>. Your plan unlocks in the Perfect Tenant app once that confirmation completes — this usually takes only a moment.</p>
+          <p>Open the Perfect Tenant app and sign in with the same account to see your plan. If your access hasn't appeared after a few minutes, please contact us and we'll sort it out right away.</p>
+        </div>
         <p class="ref" id="ref" hidden></p>
         <div class="result-ctas">
           <a href="/pricing/" class="btn-secondary">Back to plans</a>
@@ -69,6 +77,16 @@
     // Show the Stripe Checkout Session id purely as a support reference.
     // This does NOT confirm entitlement — activation is authoritative on the
     // backend (Stripe webhook), never inferred from this query parameter.
+    // Launch moment must match the backend's WEB_CHECKOUT_LAUNCH_EPOCH (checkout grants a $0 trial until then).
+    var PTI_LAUNCH_EPOCH = 1798779600, PTI_LAUNCH_DATE = 'January 1, 2027';
+    (function () {
+      if (Date.now() < PTI_LAUNCH_EPOCH * 1000) {
+        document.getElementById('lockin-copy').hidden = false;
+        document.getElementById('paid-copy').hidden = true;
+        document.querySelectorAll('[data-launch-date]').forEach(function (el) { el.textContent = PTI_LAUNCH_DATE; });
+        document.title = "You're locked in — Perfect Tenant Innovation";
+      }
+    })();
     (function () {
       try {
         var sid = new URLSearchParams(window.location.search).get('session_id');

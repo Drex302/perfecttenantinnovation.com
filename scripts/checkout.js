@@ -204,6 +204,7 @@
     el = $('[data-choice-price]', MODAL); if (el) el.textContent = priceStr(state.plan);
     el = $('[data-referral-code]', MODAL);
     if (el && !el.value && window.PTI_REFERRAL) el.value = window.PTI_REFERRAL.get() || '';
+    statusMsg(''); // clear any earlier sign-in error once signed in
     setView('choice');
   }
 
