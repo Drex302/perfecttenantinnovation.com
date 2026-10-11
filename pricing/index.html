@@ -109,6 +109,45 @@
 <script defer src="/scripts/funnel.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script><script>if(window.emailjs) emailjs.init("LiDS_LTjo__EBd-i5");</script><meta property="og:image" content="https://www.perfecttenantinnovation.com/assets/social/default.png">
 <meta name="twitter:image" content="https://www.perfecttenantinnovation.com/assets/social/default.png">
+<style>
+  /* Web checkout UI — hidden until body.checkout-enabled (set by checkout.js when
+     window.PTI_WEB_CHECKOUT_ENABLED === true). Waitlist shows by default. */
+  body:not(.checkout-enabled) [data-checkout-ui]{display:none!important}
+  body.checkout-enabled [data-waitlist-ui]{display:none!important}
+  .billing-toggle{display:inline-flex;gap:4px;margin:0 auto 28px;padding:4px;border:1px solid var(--border,#E5E7EB);border-radius:999px;background:#F8F9FA}
+  .billing-toggle button{border:0;background:transparent;padding:8px 20px;border-radius:999px;font:inherit;font-size:.9rem;font-weight:600;cursor:pointer;color:#6B7280}
+  .billing-toggle button[aria-pressed="true"]{background:#14141A;color:#fff}
+  .billing-toggle .save-pill{font-size:.72rem;font-weight:700;color:#065F46;background:#ECFDF5;border-radius:999px;padding:2px 8px;margin-left:6px}
+  .checkout-modal{position:fixed;inset:0;z-index:1000;display:flex;align-items:safe center;justify-content:center;background:rgba(0,0,0,.55);padding:24px;overflow-y:auto}
+  .checkout-modal .cm-card{margin:auto}
+  .checkout-modal[hidden]{display:none}
+  .checkout-modal .cm-card{background:#fff;color:#14141A;border-radius:16px;max-width:400px;width:100%;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .checkout-modal h3{color:#14141A}
+  .checkout-modal label{color:#14141A}
+  .checkout-modal h3{margin:0 0 4px;font-size:1.3rem}
+  .checkout-modal .cm-sub{margin:0 0 20px;font-size:.9rem;color:#6B7280}
+  .checkout-modal .cm-ref{display:grid;gap:6px;margin:0 0 16px;font-size:.8rem;font-weight:600;color:#374151}
+  .checkout-modal .cm-ref input{font:inherit;font-size:.95rem;font-weight:500;letter-spacing:.04em;padding:10px 12px;border:1px solid #D1D5DB;border-radius:8px;width:100%;box-sizing:border-box}
+  .checkout-modal label{display:block;font-size:.8rem;font-weight:600;margin:12px 0 4px}
+  .checkout-modal input{width:100%;padding:11px 13px;border:1px solid #E5E7EB;border-radius:8px;font:inherit}
+  .checkout-modal .cm-submit{width:100%;margin-top:18px}
+  .checkout-modal .cm-or{text-align:center;color:#9CA3AF;font-size:.78rem;margin:16px 0}
+  .checkout-modal .cm-oauth{display:flex;flex-direction:column;gap:8px}
+  .checkout-modal .cm-oauth button{width:100%;padding:11px;border:1px solid #E5E7EB;border-radius:8px;background:#fff;font:inherit;font-weight:600;cursor:pointer}
+  .checkout-modal .cm-foot{display:flex;justify-content:space-between;align-items:center;margin-top:18px;font-size:.82rem}
+  .checkout-modal .cm-foot button{border:0;background:0;color:var(--teal,#268CA6);cursor:pointer;font:inherit;text-decoration:underline}
+  .checkout-modal [data-auth-status]{color:#991B1B;font-size:.82rem;margin-top:12px;min-height:1em}
+  .cm-link{border:0;background:0;color:var(--teal,#268CA6);cursor:pointer;font:inherit;text-decoration:underline}
+  .cm-togglewrap{text-align:center;margin:14px 0 0}
+  .cm-choice{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+  .cm-opt{text-align:left;border:1px solid #E5E7EB;border-radius:10px;background:#fff;padding:14px 16px;cursor:pointer;font:inherit;display:flex;flex-direction:column;gap:3px}
+  .cm-opt:hover{border-color:var(--teal,#268CA6)}
+  .cm-opt--primary{border-color:var(--teal,#268CA6);background:#F2FBFB}
+  .cm-opt-title{font-weight:700;color:#14141A}
+  .cm-opt-desc{font-size:.82rem;color:#6B7280;line-height:1.45}
+  /* Page-level billing/access notice — visible only when checkout is enabled */
+  .access-notice{max-width:680px;margin:0 auto 24px;padding:14px 18px;border:1px solid #BFDBFE;background:#EFF6FF;border-radius:10px;font-family:'Helvetica Neue',sans-serif;font-size:.9rem;color:#1E3A8A;text-align:center;line-height:1.55}
+</style>
 </head>
 <body>
   <nav id="nav">
@@ -129,18 +168,26 @@
       <section class="pricing-hero">
         <p class="section-label">Landlord Plans</p>
         <h1 class="section-title">Find the right starting point for your portfolio.</h1>
-        <p class="section-body pricing-sub">Explore the planned landlord tiers, then join the launch list with your plan selected. Prices below are reference web prices; web checkout is unavailable. Final in-app pricing and included features will be confirmed before purchase.</p>
+        <p class="section-body pricing-sub" data-waitlist-ui>Explore the planned landlord tiers, then join the launch list with your plan selected. Prices below are reference web prices; web checkout is unavailable. Final in-app pricing and included features will be confirmed before purchase.</p>
+        <p class="section-body pricing-sub" data-checkout-ui>Choose your plan and create your Perfect Tenant profile. Reserve for free with no card, or lock in your price with $0 due today — you won't be charged until app access begins. Web prices are lower than in-app (Apple) pricing.</p>
       </section>
 
       <!-- Plan cards -->
       <section aria-label="Plan options">
+        <p class="access-notice" data-checkout-ui>
+          <strong>Reserve now, pay at launch.</strong> Create your Perfect Tenant profile and lock in your plan today — you won't be charged until app access begins<span data-launch-suffix></span>. Reserve for free (no card), or save your card to lock in your price with $0 due today.
+        </p>
+        <div class="billing-toggle" data-checkout-ui role="group" aria-label="Billing period">
+          <button type="button" data-interval-btn="month" aria-pressed="true">Monthly</button>
+          <button type="button" data-interval-btn="year" aria-pressed="false">Annual<span class="save-pill">web only</span></button>
+        </div>
         <div class="plan-grid">
 
           <!-- Ascent -->
           <div class="plan-card">
             <div class="plan-name">Ascent</div>
             <div class="plan-range">1–5 properties</div>
-            <div class="plan-price">$56.89<span> / month</span></div>
+            <div class="plan-price" data-price data-price-monthly="$56.89" data-price-annual="$682.68">$56.89<span> / month</span></div>
             <p class="plan-desc">Perfect for new landlords starting their portfolio.</p>
             <ul class="plan-feats">
               <li>Basic property management</li>
@@ -148,7 +195,8 @@
               <li>Email support (8am–5pm)</li>
             </ul>
             <div class="plan-cta-wrap">
-              <a class="btn-primary plan-cta" data-interest-plan="ascent" href="?plan=ascent#pricing-waitlist">Join Ascent launch list →</a>
+              <a class="btn-primary plan-cta" data-waitlist-ui data-interest-plan="ascent" href="?plan=ascent#pricing-waitlist">Join Ascent launch list →</a>
+              <button class="btn-primary plan-cta" data-checkout-ui data-subscribe="ascent" type="button">Subscribe to Ascent →</button>
               <p class="plan-note" data-note-for="ascent"></p>
             </div>
           </div>
@@ -158,7 +206,7 @@
             <div class="plan-badge">For growing portfolios</div>
             <div class="plan-name">Summit</div>
             <div class="plan-range">6–50 properties</div>
-            <div class="plan-price">$123.48<span> / month</span></div>
+            <div class="plan-price" data-price data-price-monthly="$123.48" data-price-annual="$1,481.76">$123.48<span> / month</span></div>
             <p class="plan-desc">Ideal for growing property management businesses.</p>
             <ul class="plan-feats">
               <li>Advanced property management</li>
@@ -166,7 +214,8 @@
               <li>Priority support</li>
             </ul>
             <div class="plan-cta-wrap">
-              <a class="btn-primary plan-cta" data-interest-plan="summit" href="?plan=summit#pricing-waitlist">Join Summit launch list →</a>
+              <a class="btn-primary plan-cta" data-waitlist-ui data-interest-plan="summit" href="?plan=summit#pricing-waitlist">Join Summit launch list →</a>
+              <button class="btn-primary plan-cta" data-checkout-ui data-subscribe="summit" type="button">Subscribe to Summit →</button>
               <p class="plan-note" data-note-for="summit"></p>
             </div>
           </div>
@@ -191,7 +240,7 @@
         </div>
       </section>
 
-<section id="pricing-waitlist" class="waitlist-section"><h2>Hear when your plan is available.</h2><p>No account to create. No payment to make.</p><form id="pricingWaitlist" class="waitlist-form" data-waitlist data-source="landlord_form"><label for="pricingWaitlist-email">Email address</label><input id="pricingWaitlist-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"><label for="pricingWaitlist-units">Rental units you manage</label><select id="pricingWaitlist-units" name="units" required><option value="">Select your portfolio size</option><option>1–5 units</option><option>6–20 units</option><option>21–50 units</option><option>51–100 units</option><option>100+ units</option></select><label for="selected-plan">Plan of interest</label><select id="selected-plan" name="plan"><option value="ascent">Ascent · 1–5 properties</option><option value="summit">Summit · 6–50 properties</option><option value="pinnacle">Pinnacle · 51+ properties</option></select><button class="btn-primary" type="submit" disabled>Join the landlord launch list →</button><p class="form-disclaimer">Free to join. No payment or account required. We’ll email you about launch and onboarding. Joining does not reserve a price or activate a subscription. <a href="/legal/privacy-policy/">Privacy policy</a></p><noscript><p>Enable JavaScript to join, or email <a href="mailto:hello@perfecttenantinnovation.com">hello@perfecttenantinnovation.com</a>.</p></noscript><p data-form-status role="status" aria-live="polite" tabindex="-1"></p></form></section>
+<section id="pricing-waitlist" class="waitlist-section" data-waitlist-ui><h2>Hear when your plan is available.</h2><p>No account to create. No payment to make.</p><form id="pricingWaitlist" class="waitlist-form" data-waitlist data-source="landlord_form"><label for="pricingWaitlist-email">Email address</label><input id="pricingWaitlist-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"><label for="pricingWaitlist-units">Rental units you manage</label><select id="pricingWaitlist-units" name="units" required><option value="">Select your portfolio size</option><option>1–5 units</option><option>6–20 units</option><option>21–50 units</option><option>51–100 units</option><option>100+ units</option></select><label for="selected-plan">Plan of interest</label><select id="selected-plan" name="plan"><option value="ascent">Ascent · 1–5 properties</option><option value="summit">Summit · 6–50 properties</option><option value="pinnacle">Pinnacle · 51+ properties</option></select><button class="btn-primary" type="submit" disabled>Join the landlord launch list →</button><p class="form-disclaimer">Free to join. No payment or account required. We’ll email you about launch and onboarding. Joining does not reserve a price or activate a subscription. <a href="/legal/privacy-policy/">Privacy policy</a></p><noscript><p>Enable JavaScript to join, or email <a href="mailto:hello@perfecttenantinnovation.com">hello@perfecttenantinnovation.com</a>.</p></noscript><p data-form-status role="status" aria-live="polite" tabindex="-1"></p></form></section>
       <!-- Feature comparison -->
       <section class="compare-wrap" aria-label="Plan comparison">
         <p class="form-disclaimer">On small screens, scroll the table sideways to compare all plans.</p><table class="compare">
@@ -220,7 +269,8 @@
       <!-- Billing terms -->
       <section class="terms-strip" aria-label="Billing terms">
         <h3>Billing &amp; cancellation</h3>
-        <p>Joining this list is free and does not create a subscription, reserve a price, or charge your card. Web checkout is disabled. Review the final price, renewal terms, and cancellation options in the app before purchasing.</p>
+        <p data-waitlist-ui>Joining this list is free and does not create a subscription, reserve a price, or charge your card. Web checkout is disabled. Review the final price, renewal terms, and cancellation options in the app before purchasing.</p>
+        <p data-checkout-ui>Reserving is free and takes no card. If you choose to lock in your price, your card is saved but <strong>$0 is charged today</strong> — your first payment is on the launch date, and you can cancel anytime before then. Web prices are lower than in-app (Apple) pricing. Subscriptions renew automatically; manage or cancel anytime in the app or by contacting us.</p>
         <div class="terms-links">
           <a href="/legal/terms-of-service/">Terms of Service</a>
           <a href="/legal/privacy-policy/">Privacy Policy</a>
@@ -231,9 +281,64 @@
       <!-- FAQ -->
       <section class="faq" aria-label="Subscription FAQ">
         <p class="section-label">FAQ</p>
-        <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2.1rem)">Subscription questions</h2><details><summary>Can I subscribe here?</summary><div class="faq-body">No. This page collects launch interest. You will receive availability and onboarding updates before choosing whether to purchase in the app.</div></details><details><summary>Which plan should I choose?</summary><div class="faq-body">The reference tiers are Ascent for 1–5 properties, Summit for 6–50, and Pinnacle for 51+. Properties and rental units are different: tell us your unit count so we can help confirm fit.</div></details><details><summary>Am I committing to a plan?</summary><div class="faq-body">No. Your selection helps us understand your needs. You can review the final offer before making a purchase.</div></details></section>
+        <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2.1rem)">Subscription questions</h2><details data-waitlist-ui><summary>Can I subscribe here?</summary><div class="faq-body">No. This page collects launch interest. You will receive availability and onboarding updates before choosing whether to purchase in the app.</div></details><details data-checkout-ui><summary>Can I reserve or subscribe here?</summary><div class="faq-body">Yes. Create your Perfect Tenant profile and reserve your plan for free (no card), or lock in your price with $0 due today. Either way you're not charged until app access begins at launch — and web prices are lower than in-app (Apple) pricing.</div></details><details><summary>Which plan should I choose?</summary><div class="faq-body">The reference tiers are Ascent for 1–5 properties, Summit for 6–50, and Pinnacle for 51+. Properties and rental units are different: tell us your unit count so we can help confirm fit.</div></details><details><summary>Am I committing to a plan?</summary><div class="faq-body">No. Your selection helps us understand your needs. You can review the final offer before making a purchase.</div></details></section>
     </div>
   </main>
+
+  <!-- Sign-in / sign-up modal for web checkout (shown on Subscribe when signed out) -->
+  <div class="checkout-modal" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title" hidden>
+    <div class="cm-card">
+      <h3 id="checkout-modal-title">Create your Perfect Tenant account</h3>
+
+      <!-- Step 1: account (pre-profile) -->
+      <div data-view="auth">
+        <p class="cm-sub">This sets up your Perfect Tenant profile now. When you download the app, sign in with the same details — your plan and profile are already waiting, so onboarding is a step shorter. Already have an account? Sign in and your subscription links to it.</p>
+        <form id="checkout-auth-form" data-mode="signup">
+          <label for="checkout-email">Email</label>
+          <input id="checkout-email" type="email" autocomplete="email" required placeholder="you@example.com">
+          <label for="checkout-password">Password</label>
+          <input id="checkout-password" type="password" autocomplete="new-password" required minlength="6" placeholder="Choose a password (6+ characters)">
+          <button class="btn-primary cm-submit" id="checkout-auth-submit" type="submit">Create account</button>
+        </form>
+        <p class="cm-or">or</p>
+        <div class="cm-oauth">
+          <button type="button" id="checkout-google">Continue with Google</button>
+          <button type="button" id="checkout-apple">Continue with Apple</button>
+        </div>
+        <p class="cm-togglewrap"><button type="button" id="checkout-toggle-mode" class="cm-link">Already have an account? Sign in</button></p>
+      </div>
+
+      <!-- Step 2: choose how to start (reserve free vs lock in) -->
+      <div data-view="choice" hidden>
+        <p class="cm-sub">You're reserving the <strong data-choice-plan></strong> plan (<span data-choice-price></span>). You won't be charged until access begins<span data-launch-suffix></span>. Choose how to start:</p>
+        <label class="cm-ref">Referral code (optional)
+          <input type="text" data-referral-code autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="32" placeholder="PTI-XXXXXXXX">
+        </label>
+        <div class="cm-choice">
+          <button type="button" class="cm-opt" data-choice="reserve">
+            <span class="cm-opt-title">Reserve for free</span>
+            <span class="cm-opt-desc">No card now. We'll email you to complete payment when the app launches<span data-launch-suffix></span>.</span>
+          </button>
+          <button type="button" class="cm-opt cm-opt--primary" data-choice="lockin">
+            <span class="cm-opt-title">Lock in now — $0 today</span>
+            <span class="cm-opt-desc">Save your card and lock your price. First charge at launch<span data-launch-suffix></span>; cancel anytime before then.</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3: confirmation -->
+      <div data-view="done" hidden>
+        <p class="cm-sub" data-done-msg></p>
+        <button class="btn-primary cm-submit" type="button" data-modal-close>Done</button>
+      </div>
+
+      <div class="cm-foot">
+        <span></span>
+        <button type="button" data-modal-close>Cancel</button>
+      </div>
+      <p data-auth-status role="status" aria-live="polite"></p>
+    </div>
+  </div>
 
   <footer>
     <div class="footer-logo">Perfect<span>Tenant</span> Innovation</div>
@@ -254,7 +359,22 @@
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-functions-compat.js"></script>
 <script src="/scripts/waitlist.js"></script>
+<!-- Web checkout gate. Keep BOTH false until the backend WEB_LANDLORD_CHECKOUT_ENABLED
+     flag is on and the flow is verified in Stripe test mode. Flip PTI_WEB_CHECKOUT_ENABLED
+     to true to reveal Subscribe UI; set PTI_APPLE_WEB_SIGNIN=true only once the Apple
+     web Services ID is configured in Apple + Firebase. -->
+<script>
+  window.PTI_WEB_CHECKOUT_ENABLED=true;    // web checkout on; payment mode follows the backend's Stripe key (test until go-live)
+  window.PTI_APPLE_WEB_SIGNIN=false;        // true once the Apple web Services ID is configured
+  window.PTI_LAUNCH_DATE='January 1, 2027'; // shown in billing/access copy; must match WEB_CHECKOUT_LAUNCH_EPOCH (1798779600 = Jan 1 2027 00:00 ET)
+  window.PTI_RESERVE_EMAIL_TEMPLATE='';     // EmailJS template id for the reservation confirmation email; empty = don't send
+  window.PTI_USE_EMULATOR=false;            // Phase 4 dry-run only: true points auth/functions/firestore at the local Firebase emulator
+</script>
+<script src="/scripts/referral-capture.js"></script>
+<script src="/scripts/checkout.js"></script>
 <script>const plan = new URLSearchParams(location.search).get("plan"); if (["ascent","summit","pinnacle"].includes(plan)) document.getElementById("selected-plan").value = plan;</script>
 </body>
 </html>
