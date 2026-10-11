@@ -126,6 +126,8 @@
   .checkout-modal label{color:#14141A}
   .checkout-modal h3{margin:0 0 4px;font-size:1.3rem}
   .checkout-modal .cm-sub{margin:0 0 20px;font-size:.9rem;color:#6B7280}
+  .checkout-modal .cm-ref{display:grid;gap:6px;margin:0 0 16px;font-size:.8rem;font-weight:600;color:#374151}
+  .checkout-modal .cm-ref input{font:inherit;font-size:.95rem;font-weight:500;letter-spacing:.04em;padding:10px 12px;border:1px solid #D1D5DB;border-radius:8px;width:100%;box-sizing:border-box}
   .checkout-modal label{display:block;font-size:.8rem;font-weight:600;margin:12px 0 4px}
   .checkout-modal input{width:100%;padding:11px 13px;border:1px solid #E5E7EB;border-radius:8px;font:inherit}
   .checkout-modal .cm-submit{width:100%;margin-top:18px}
@@ -309,6 +311,9 @@
       <!-- Step 2: choose how to start (reserve free vs lock in) -->
       <div data-view="choice" hidden>
         <p class="cm-sub">You're reserving the <strong data-choice-plan></strong> plan (<span data-choice-price></span>). You won't be charged until access begins<span data-launch-suffix></span>. Choose how to start:</p>
+        <label class="cm-ref">Referral code (optional)
+          <input type="text" data-referral-code autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="32" placeholder="PTI-XXXXXXXX">
+        </label>
         <div class="cm-choice">
           <button type="button" class="cm-opt" data-choice="reserve">
             <span class="cm-opt-title">Reserve for free</span>
@@ -362,12 +367,13 @@
      to true to reveal Subscribe UI; set PTI_APPLE_WEB_SIGNIN=true only once the Apple
      web Services ID is configured in Apple + Firebase. -->
 <script>
-  window.PTI_WEB_CHECKOUT_ENABLED=false;   // flip to true (with backend flag) to go live
+  window.PTI_WEB_CHECKOUT_ENABLED=true;    // web checkout on; payment mode follows the backend's Stripe key (test until go-live)
   window.PTI_APPLE_WEB_SIGNIN=false;        // true once the Apple web Services ID is configured
   window.PTI_LAUNCH_DATE='January 1, 2027'; // shown in billing/access copy; must match WEB_CHECKOUT_LAUNCH_EPOCH (1798779600 = Jan 1 2027 00:00 ET)
   window.PTI_RESERVE_EMAIL_TEMPLATE='';     // EmailJS template id for the reservation confirmation email; empty = don't send
   window.PTI_USE_EMULATOR=false;            // Phase 4 dry-run only: true points auth/functions/firestore at the local Firebase emulator
 </script>
+<script src="/scripts/referral-capture.js"></script>
 <script src="/scripts/checkout.js"></script>
 <script>const plan = new URLSearchParams(location.search).get("plan"); if (["ascent","summit","pinnacle"].includes(plan)) document.getElementById("selected-plan").value = plan;</script>
 </body>

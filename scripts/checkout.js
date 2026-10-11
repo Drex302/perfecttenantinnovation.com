@@ -202,10 +202,29 @@
     var el;
     el = $('[data-choice-plan]', MODAL); if (el) el.textContent = PLANS[state.plan] ? PLANS[state.plan].name : '';
     el = $('[data-choice-price]', MODAL); if (el) el.textContent = priceStr(state.plan);
+    el = $('[data-referral-code]', MODAL);
+    if (el && !el.value && window.PTI_REFERRAL) el.value = window.PTI_REFERRAL.get() || '';
     setView('choice');
   }
 
   async function afterSignIn() { toChoice(); }
+
+  // Same backend call as the app's signup "Referral Code" field, with the same rules (accepted only before the
+  // customer's first paid subscription; the Sales Hub verifies the student). Never blocks checkout.
+  async function sendReferralCode() {
+    var el = $('[data-referral-code]', MODAL), user = auth.currentUser;
+    var code = el ? el.value.trim().toUpperCase() : '';
+    if (!code || !user) return;
+    var sentKey = 'pti_ref_sent:' + user.uid;
+    try { if (localStorage.getItem(sentKey) === code) return; } catch (e) { /* ignore */ }
+    try {
+      await functions.httpsCallable('attributeReferralSignup')({ promoCode: code });
+      try { localStorage.setItem(sentKey, code); } catch (e) { /* ignore */ }
+      if (window.PTI_REFERRAL) window.PTI_REFERRAL.clear();
+    } catch (err) {
+      console.warn('[checkout] referral code not applied', err && err.code);
+    }
+  }
 
   // ---- Wire up --------------------------------------------------------------
   function init() {
@@ -263,7 +282,8 @@
     }
 
     all('[data-choice]', MODAL).forEach(function (btn) {
-      btn.addEventListener('click', function () {
+      btn.addEventListener('click', async function () {
+        await sendReferralCode();
         if (btn.getAttribute('data-choice') === 'reserve') reservePlan(state.plan);
         else startCheckout(state.plan);
       });
