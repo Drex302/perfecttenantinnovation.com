@@ -12,6 +12,10 @@ firestore.FieldValue={serverTimestamp:()=>123};
 const check = function(){return {activate(){}}};check.ReCaptchaEnterpriseProvider=function(){};
 window.firebase={apps:[],initializeApp(){this.apps.push({});},appCheck:check,firestore};
 `;
+// Website forms post to the submitWebForm endpoint (scripts/web-form.js); the route below stands in for it.
+const endpointWrites=[];
+let endpointFails=false;
+const cors={'Access-Control-Allow-Origin':'*','Access-Control-Allow-Methods':'POST, OPTIONS','Access-Control-Allow-Headers':'Content-Type, X-Firebase-AppCheck'};
 (async()=>{
  const browser = await chromium.launch();
  const errors=[];
@@ -19,6 +23,12 @@ window.firebase={apps:[],initializeApp(){this.apps.push({});},appCheck:check,fir
  await ctx.route('**/*',route=>{
    const url=route.request().url();
    if(url.startsWith(base)) return route.continue();
+   if(url.includes('/submitWebForm')){
+     if(route.request().method()==='OPTIONS') return route.fulfill({status:204,headers:cors,body:''});
+     if(endpointFails) return route.fulfill({status:503,headers:{...cors,'Content-Type':'application/json'},body:JSON.stringify({error:'Your signup was not saved. Please try again.'})});
+     endpointWrites.push(JSON.parse(route.request().postData()||'{}'));
+     return route.fulfill({status:200,headers:{...cors,'Content-Type':'application/json'},body:'{"ok":true}'});
+   }
    if(url.includes('firebase-app-compat.js')) return route.fulfill({contentType:'text/javascript',body:firebaseMock});
    return route.abort();
  });
@@ -43,19 +53,20 @@ window.firebase={apps:[],initializeApp(){this.apps.push({});},appCheck:check,fir
    await page.goto(base+path);
    await page.locator('form[data-waitlist] [name=email]').fill('test@example.com');
    await page.locator('form[data-waitlist] [name=units]').selectOption({label:'6–20 units'});
-   await page.evaluate(()=>window.__saveFails=true);
+   endpointFails=true;
    await page.locator('form[data-waitlist] button').click();
    await page.waitForFunction(()=>document.querySelector('[data-form-status]').textContent.includes('not saved'));
    assert.equal(await page.evaluate(()=>dataLayer.filter(x=>x[0]==='event'&&x[1]==='signed_up').length),0);
    assert(await page.locator('form[data-waitlist] button').isEnabled());
-   await page.evaluate(()=>window.__saveFails=false);
+   endpointFails=false;
    await page.locator('form[data-waitlist] button').click();
    await page.waitForFunction(()=>document.querySelector('[data-form-status]').textContent.includes('signup is saved'));
    assert.equal(await page.evaluate(()=>dataLayer.filter(x=>x[0]==='event'&&x[1]==='signed_up').length),1);
    assert(await page.locator('form[data-waitlist] button').isDisabled());
-   const payload=await page.evaluate(()=>__writes.filter(x=>x.name==='waitlist_submissions').at(-1).payload);
-   assert.equal(payload.email,'test@example.com');
-   if(path.includes('pricing'))assert.equal(payload.selectedPlan,'summit');
+   const sent=endpointWrites.filter(x=>x.form==='landlord_form'||x.form==='audit_gate_form').at(-1);
+   assert.equal(sent.fields.email,'test@example.com');
+   assert.equal(sent.fields.role,undefined,'landlord forms never send a role');
+   if(path.includes('pricing'))assert.equal(sent.fields.selectedPlan,'summit');
  }
  await page.goto(base+'/landlord-hours-audit/');
  assert(await page.locator('#calculator').isVisible());
@@ -78,9 +89,12 @@ window.firebase={apps:[],initializeApp(){this.apps.push({});},appCheck:check,fir
   await form.locator('button[type=submit]').click();
   await page.waitForFunction(id=>document.getElementById(id).style.display==='block',success);
   assert.equal(await page.evaluate(()=>dataLayer.filter(x=>x[0]==='event'&&x[1]==='signed_up').length),1);
+  assert.equal(endpointWrites.at(-1).form,'ecosystem_form');
  }
- // Total SDK failure must leave the audit functional and signup unsuccessful.
+ assert(endpointWrites.some(x=>x.form==='landlord_hours_audit'),'calculator run sent to the endpoint');
+ // Firebase SDK blocked AND endpoint unreachable: the audit still works and signup reports failure.
  await ctx.route('**/*firebase-app-compat.js',route=>route.abort());
+ endpointFails=true;
  await page.goto(base+'/landlord-hours-audit/');
  assert(await page.locator('#calculator').isVisible());
  await page.locator('[name=email]').fill('test@example.com');await page.locator('[name=units]').selectOption({label:'1–5 units'});
@@ -101,6 +115,6 @@ window.firebase={apps:[],initializeApp(){this.apps.push({});},appCheck:check,fir
  if(overflows.length) console.log(JSON.stringify(overflows,null,2));
  assert.deepEqual(overflows,[]);
  assert.deepEqual(errors,[]);
- console.log('PASS: mobile/desktop, headers, audit, plan handoff, saved/failed signups, unavailable Firebase and blocked EmailJS.');
+ console.log('PASS: mobile/desktop, headers, audit, plan handoff, saved/failed signups via the form endpoint, unreachable endpoint and blocked EmailJS.');
  await browser.close();
 })().catch(error=>{console.error(error);process.exit(1);});

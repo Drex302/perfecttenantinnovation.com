@@ -834,6 +834,7 @@
   <p><a href="/blog/">Blog &amp; Guides</a></p></footer>
 </div>
 
+<script src="/scripts/web-form.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
@@ -989,7 +990,7 @@
       payload.unitsBucket = b;
     }
 
-    db.collection('calculator_runs').add(payload).catch(function (err) {
+    window.ptiSubmitWebForm(payload).catch(function (err) {
       console.warn('calculator_runs log skipped:', err);
       analyticsWriteStarted = false;
     });
