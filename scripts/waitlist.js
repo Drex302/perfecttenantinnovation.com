@@ -21,9 +21,9 @@
       if (!['', 'ascent', 'summit', 'pinnacle'].includes(plan)) plan = '';
       var payload = {source:form.dataset.source || 'landlord_form',role:'landlord',firstName:'',lastName:'',email:String(values.get('email')).trim(),units:values.get('units'),pagePath:location.pathname,selectedPlan:plan};
       try {
-        if (!db) throw new Error('Signup service unavailable');
+        if (!window.ptiSubmitWebForm) throw new Error('Signup service unavailable');
         payload.createdAt = firebase.firestore.FieldValue.serverTimestamp();
-        await db.collection('waitlist_submissions').add(payload);
+        await window.ptiSubmitWebForm(payload);
       } catch (error) {
         status.textContent = 'Your signup was not saved. Please try again, or email hello@perfecttenantinnovation.com.';
         button.disabled = false; button.textContent = original; busy = false; status.focus(); return;
