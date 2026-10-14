@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support — Perfect Tenant Innovation</title>
+  <meta name="description" content="Get help with the Perfect Tenant Innovation app: contact us, manage your account, subscriptions, data, and privacy requests.">
+  <link rel="canonical" href="https://www.perfecttenantinnovation.com/support/">
+    <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal:#268CA6;--teal-light:#2FA8C4;--teal-dim:#1D7089;
+      --teal-glow:rgba(38,140,166,0.18);
+      --orange:#F29940;--amber:#E6B34D;--green-mid:#599980;
+      --ink:#14141A;--ink-2:#1F1F24;--slate:#1A2535;
+      --muted:#7A8E9C;--ghost:#8AA5B5;--white:#FFFFFF;
+      --border:rgba(38,140,166,0.15);
+      --grad-text:linear-gradient(135deg,#2FA8C4,#66AD90,#E6B34D,#F29940);
+      --font-d:'Syne',sans-serif;--font-b:'DM Sans',sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-b);background:var(--ink);color:var(--white);line-height:1.7}
+    nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:16px 48px;
+        display:flex;align-items:center;justify-content:space-between;
+        background:rgba(20,20,26,.85);backdrop-filter:blur(20px);
+        border-bottom:1px solid var(--border)}
+    .nav-logo{font-family:var(--font-d);font-weight:800;font-size:1.05rem;
+              letter-spacing:-.02em;color:var(--white);text-decoration:none}
+    .nav-logo span{background:var(--grad-text);-webkit-background-clip:text;
+                   -webkit-text-fill-color:transparent;background-clip:text}
+    .nav-back{font-size:.8rem;color:var(--ghost);text-decoration:none;
+              letter-spacing:.04em;text-transform:uppercase;transition:color .2s}
+    .nav-back:hover{color:var(--teal-light)}
+    .page-wrap{max-width:800px;margin:0 auto;padding:120px 32px 80px}
+    .legal-header{border-bottom:1px solid var(--border);padding-bottom:32px;margin-bottom:48px}
+    .legal-badge{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.08em;
+                 text-transform:uppercase;color:var(--teal-light);background:var(--teal-glow);
+                 border:1px solid rgba(38,140,166,.3);border-radius:4px;padding:4px 10px;margin-bottom:16px}
+    .legal-title{font-family:var(--font-d);font-size:clamp(1.8rem,4vw,2.4rem);
+                 font-weight:800;line-height:1.1;margin-bottom:16px}
+    .legal-meta{font-size:.85rem;color:var(--muted);line-height:1.8}
+    .legal-meta strong{color:var(--ghost)}
+    .toc{background:var(--ink-2);border:1px solid var(--border);border-radius:10px;
+         padding:24px 28px;margin-bottom:48px}
+    .toc-title{font-family:var(--font-d);font-size:.8rem;font-weight:700;letter-spacing:.08em;
+               text-transform:uppercase;color:var(--ghost);margin-bottom:14px}
+    .toc ol{padding-left:20px}
+    .toc li{margin-bottom:6px}
+    .toc a{color:var(--teal-light);text-decoration:none;font-size:.88rem;transition:color .2s}
+    .toc a:hover{color:var(--amber)}
+    .legal-section{margin-bottom:52px;scroll-margin-top:90px}
+    .section-number{font-size:.72rem;font-weight:700;letter-spacing:.1em;
+                    text-transform:uppercase;color:var(--teal-light);margin-bottom:8px}
+    h2{font-family:var(--font-d);font-size:1.25rem;font-weight:700;color:var(--white);
+       margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    h3{font-size:1rem;font-weight:600;color:var(--ghost);margin:24px 0 10px}
+    p{color:rgba(255,255,255,.8);margin-bottom:14px;font-size:.93rem}
+    ul,ol{padding-left:20px;margin-bottom:14px}
+    li{color:rgba(255,255,255,.8);margin-bottom:6px;font-size:.93rem}
+    a{color:var(--teal-light);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .callout{border-radius:8px;padding:18px 22px;margin:20px 0;font-size:.88rem}
+    .callout-teal{background:rgba(38,140,166,.08);border-left:3px solid var(--teal)}
+    .callout-amber{background:rgba(230,179,77,.07);border-left:3px solid var(--amber)}
+    .callout-orange{background:rgba(242,153,64,.07);border-left:3px solid var(--orange)}
+    .callout p{margin-bottom:0}
+    .callout strong{color:var(--white)}
+    .data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.85rem}
+    .data-table th{text-align:left;padding:10px 14px;background:var(--ink-2);color:var(--ghost);
+                   font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;
+                   border-bottom:1px solid var(--border)}
+    .data-table td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.05);
+                   color:rgba(255,255,255,.75);vertical-align:top}
+    .rights-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+    .rights-card{background:var(--ink-2);border:1px solid var(--border);border-radius:8px;padding:16px 18px}
+    .rights-card h4{font-family:var(--font-d);font-size:.85rem;font-weight:700;
+                    color:var(--teal-light);margin-bottom:8px}
+    .rights-card p{font-size:.82rem;margin-bottom:0;color:var(--muted)}
+    .legal-footer{margin-top:64px;padding-top:32px;border-top:1px solid var(--border);text-align:center}
+    .legal-footer p{font-size:.82rem;color:var(--muted)}
+    @media(max-width:640px){
+      nav{padding:14px 20px}
+      .page-wrap{padding:100px 20px 60px}
+      .rights-grid{grid-template-columns:1fr}
+    }
+  
+    .toc-toggle{display:flex;align-items:center;justify-content:space-between;
+                cursor:pointer;list-style:none;user-select:none;padding:0;
+                font-family:var(--font-d);font-size:.8rem;font-weight:700;
+                letter-spacing:.08em;text-transform:uppercase;color:var(--ghost)}
+    .toc-toggle::-webkit-details-marker{display:none}
+    .toc-toggle::after{content:'▸';font-size:.9rem;color:var(--teal-light);
+                       transition:transform .25s;display:inline-block}
+    details.toc[open] .toc-toggle::after{transform:rotate(90deg)}
+    .toc ol{padding-left:20px;margin-top:14px}
+    </style>
+<script defer src="/scripts/funnel.js"></script>
+<meta property="og:image" content="https://www.perfecttenantinnovation.com/assets/social/default.png">
+<meta name="twitter:image" content="https://www.perfecttenantinnovation.com/assets/social/default.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+<nav>
+  <a href="https://www.perfecttenantinnovation.com" class="nav-logo">Perfect <span>Tenant</span></a>
+  <a href="https://www.perfecttenantinnovation.com" class="nav-back">← Back to site</a>
+</nav>
+
+<main class="page-wrap">
+  <header class="legal-header">
+    <div class="legal-badge">Support</div>
+    <h1 class="legal-title">How can we help?</h1>
+    <p class="legal-meta">Help for tenants, landlords, service providers, merchants and Swarm members using the Perfect Tenant Innovation app.</p>
+  </header>
+
+  <section class="legal-section" id="contact">
+    <h2>Contact us</h2>
+    <p>Email us at <a href="mailto:perfecttenantinnovation@gmail.com?subject=Support%20request">perfecttenantinnovation@gmail.com</a>. Tell us the email address on your account, your role (tenant, landlord, provider, merchant or Swarm), and what happened. Screenshots help.</p>
+    <div class="callout callout-amber"><p><strong>Never send</strong> passwords, full card numbers, bank details or Social Security numbers by email. We will never ask for them.</p></div>
+    <ul>
+      <li><strong>Mail:</strong> Perfect Tenant Innovation, LLC — 2087 Harmon St, Montgomery, AL 36107</li>
+    </ul>
+  </section>
+
+  <section class="legal-section" id="account">
+    <h2>Your account</h2>
+    <h3>Delete your account</h3>
+    <p>In the app, open your <strong>Settings</strong> and choose <strong>Delete Account</strong> (for tenants and landlords it is under <strong>Danger Zone</strong>). If you can no longer sign in, email us from the address on your account with the subject <strong>"Delete my account"</strong>. Retention periods for deleted data are listed in the <a href="/legal/privacy-policy#retention">Privacy Policy</a>.</p>
+    <h3>Download your data</h3>
+    <p>In the app, open <strong>Settings → Data &amp; Privacy → Export My Data</strong>. If your account type doesn't show that option, email us with the subject <strong>"Data export"</strong>.</p>
+    <h3>Can't sign in</h3>
+    <p>Use <strong>Forgot Password?</strong> on the sign-in screen. If you signed up with Apple or Google, sign in the same way you did before. Staff accounts that lost their authenticator app need a super admin to reset two-step verification.</p>
+  </section>
+
+  <section class="legal-section" id="billing">
+    <h2>Subscriptions and payments</h2>
+    <p><strong>Bought in the app (Apple):</strong> manage or cancel it on your iPhone in <strong>Settings → your name → Subscriptions</strong>. Refunds for App Store purchases are handled by Apple at <a href="https://reportaproblem.apple.com" rel="noopener">reportaproblem.apple.com</a>.</p>
+    <p><strong>Rent, job payments, payouts and shop orders:</strong> email us with the date, amount and what it was for. Don't include card or bank numbers.</p>
+  </section>
+
+  <section class="legal-section" id="privacy">
+    <h2>Privacy requests</h2>
+    <p>To access, correct or delete your information, or to opt out, email us with <strong>"Privacy Request"</strong> in the subject line (California residents: <strong>"CCPA Request"</strong>). Details are in the <a href="/legal/privacy-policy">Privacy Policy</a>.</p>
+  </section>
+
+  <section class="legal-section" id="safety">
+    <h2>Report a problem or unsafe content</h2>
+    <p>Use the report option on the item in the app, or email us with <strong>"Report"</strong> in the subject line. If anyone is in immediate danger, call 911 first.</p>
+  </section>
+
+  <footer class="legal-footer">
+    <p>
+      &copy; 2026 Perfect Tenant Innovation, LLC. All rights reserved. &nbsp;|&nbsp;
+      <a href="/legal/privacy-policy">Privacy Policy</a> &nbsp;|&nbsp;
+      <a href="/legal/terms-of-service">Terms of Service</a> &nbsp;|&nbsp;
+      <a href="/legal/landlord-agreement">Landlord Agreement</a>
+    </p>
+  </footer>
+</main>
+</body>
+</html>
