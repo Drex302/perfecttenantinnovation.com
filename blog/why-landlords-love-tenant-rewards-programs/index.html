@@ -138,7 +138,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.perfecttenantinnovation.com/"}, {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.perfecttenantinnovation.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "Why Landlords Love Tenant Rewards Programs (What PTI Solves for Them)", "item": "https://www.perfecttenantinnovation.com/blog/why-landlords-love-tenant-rewards-programs/"}]}</script>
 <link rel="stylesheet" href="/styles/blog-funnel.css">
 </head>
-<body>
+<body data-audience="tenant">
   <nav id="nav" aria-label="Main navigation"><a href="/" class="nav-logo">Perfect<span>Tenant</span></a><ul class="nav-links"><li class="nav-blog"><a href="/blog/">Blog &amp; Guides</a></li><li><a href="/pricing/">Plans</a></li><li><a href="/join/">Other roles</a></li><li><a href="/tenants/#tenant-waitlist" class="nav-cta">Tenant access</a></li></ul></nav><div class="resource-breadcrumbs"><a href="/">Home</a> / <a href="/blog/">Resources</a> / Why Landlords Love Tenant Rewards Programs (What PTI Solves for Them)</div>
 
   <header class="blog-hero">
@@ -161,6 +161,9 @@
     <p>The stronger approach starts with your landlord's world. What keeps most landlords up at night usually boils down to three things — whether they own one unit or forty. PTI's model is designed to align tenant incentives with each of those goals when your landlord participates and features are enabled for your lease.</p>
 
     <p>This is not just invite tactics. It is a plain-language explanation of why landlords who understand PTI often adopt it — not only as a favor to tenants, but because it can make self-managed rentals more predictable.</p>
+
+
+    <div data-tenant-signup></div>
 
     <h2 id="anxieties">The three things every landlord loses sleep over</h2>
 
@@ -472,5 +475,9 @@
 
   calcSavings();
   </script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
+<script src="/scripts/web-form.js"></script>
+<script src="/scripts/tenant-signup.js"></script>
 </body>
 </html>

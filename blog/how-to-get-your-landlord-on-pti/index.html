@@ -127,7 +127,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.perfecttenantinnovation.com/"}, {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.perfecttenantinnovation.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "How to Get Your Landlord on PTI (And Why They'll Say Yes)", "item": "https://www.perfecttenantinnovation.com/blog/how-to-get-your-landlord-on-pti/"}]}</script>
 <link rel="stylesheet" href="/styles/blog-funnel.css">
 </head>
-<body>
+<body data-audience="tenant">
   <nav id="nav" aria-label="Main navigation"><a href="/" class="nav-logo">Perfect<span>Tenant</span></a><ul class="nav-links"><li class="nav-blog"><a href="/blog/">Blog &amp; Guides</a></li><li><a href="/pricing/">Plans</a></li><li><a href="/join/">Other roles</a></li><li><a href="/tenants/#tenant-waitlist" class="nav-cta">Tenant access</a></li></ul></nav><div class="resource-breadcrumbs"><a href="/">Home</a> / <a href="/blog/">Resources</a> / How to Get Your Landlord on PTI (And Why They&#x27;ll Say Yes)</div>
 
   <header class="blog-hero">
@@ -154,6 +154,9 @@
     <p>That's by design. PTI links tenant and landlord accounts so rent workflows stay verified against your actual lease — and both sides can benefit from documented payments, maintenance, and retention tools.</p>
 
     <p>This guide gives you what you need: the three reasons landlords tend to say yes, three copy-ready message templates for different relationships, how your personal invite link works, what to say when they push back, and what to do if they decline.</p>
+
+
+    <div data-tenant-signup></div>
 
     <h2 id="why">Why your landlord will actually want to do this</h2>
 
@@ -395,5 +398,9 @@
     }
   }
   </script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
+<script src="/scripts/web-form.js"></script>
+<script src="/scripts/tenant-signup.js"></script>
 </body>
 </html>

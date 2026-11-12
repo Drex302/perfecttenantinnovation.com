@@ -138,7 +138,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.perfecttenantinnovation.com/"}, {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.perfecttenantinnovation.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "How to Earn Money Toward Rent by Posting on Social Media", "item": "https://www.perfecttenantinnovation.com/blog/how-to-earn-money-toward-rent/"}]}</script>
 <link rel="stylesheet" href="/styles/blog-funnel.css">
 </head>
-<body>
+<body data-audience="tenant">
   <nav id="nav" aria-label="Main navigation"><a href="/" class="nav-logo">Perfect<span>Tenant</span></a><ul class="nav-links"><li class="nav-blog"><a href="/blog/">Blog &amp; Guides</a></li><li><a href="/pricing/">Plans</a></li><li><a href="/join/">Other roles</a></li><li><a href="/tenants/#tenant-waitlist" class="nav-cta">Tenant access</a></li></ul></nav><div class="resource-breadcrumbs"><a href="/">Home</a> / <a href="/blog/">Resources</a> / How to Earn Money Toward Rent by Posting on Social Media</div>
 
   <header class="blog-hero">
@@ -166,6 +166,9 @@
     <p>What many renters do not realize: a small, local audience can still have value — especially for neighborhood food, personal care, and local services. PTI connects that value to your tenancy when brand campaigns are available in your market and your landlord is linked on the platform.</p>
 
     <p>This is not a get-rich-quick scheme and you do not need to become a full-time influencer. It is a structured path: brands run campaigns through PTI's marketing stack (including <a href="/blog/what-is-swarm-boss-brand-marketing/">Swarm Boss</a> community campaigns where enabled), you participate in briefs that fit your profile, and compensation can apply toward rent-related rewards — with honest limits this guide states up front.</p>
+
+
+    <div data-tenant-signup></div>
 
     <h2 id="model">The model explained plainly</h2>
 
@@ -458,5 +461,9 @@
   }
   calcEarn();
   </script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
+<script src="/scripts/web-form.js"></script>
+<script src="/scripts/tenant-signup.js"></script>
 </body>
 </html>

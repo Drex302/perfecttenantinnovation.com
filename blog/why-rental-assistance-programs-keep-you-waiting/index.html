@@ -128,7 +128,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.perfecttenantinnovation.com/"}, {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.perfecttenantinnovation.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "Why Rental Assistance Programs Keep Renters Waiting", "item": "https://www.perfecttenantinnovation.com/blog/why-rental-assistance-programs-keep-you-waiting/"}]}</script>
 <link rel="stylesheet" href="/styles/blog-funnel.css">
 </head>
-<body>
+<body data-audience="tenant">
   <nav id="nav" aria-label="Main navigation"><a href="/" class="nav-logo">Perfect<span>Tenant</span></a><ul class="nav-links"><li class="nav-blog"><a href="/blog/">Blog &amp; Guides</a></li><li><a href="/pricing/">Plans</a></li><li><a href="/join/">Other roles</a></li><li><a href="/tenants/#tenant-waitlist" class="nav-cta">Tenant access</a></li></ul></nav><div class="resource-breadcrumbs"><a href="/">Home</a> / <a href="/blog/">Resources</a> / Why Rental Assistance Programs Keep Renters Waiting</div>
 
   <header class="blog-hero">
@@ -149,6 +149,9 @@
     <p>You know the feeling. You find a rental assistance program, fill out the application, gather every document they asked for — and then silence. A confirmation email. Maybe a case number. Weeks pass with only automated messages that your file is "under review."</p>
 
     <p>If you have been through this more than once, you may wonder whether you did something wrong. You probably did not. The waiting is structural — built into how these programs are funded, staffed, and designed. Understanding that helps you stop putting all your energy into a system that moves on its own timeline — and start building tools that move on yours.</p>
+
+
+    <div data-tenant-signup></div>
 
     <h2 id="why-wait">Why traditional rental assistance programs are built to make you wait</h2>
 
@@ -409,5 +412,9 @@
     }
   }
   </script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
+<script src="/scripts/web-form.js"></script>
+<script src="/scripts/tenant-signup.js"></script>
 </body>
 </html>

@@ -138,7 +138,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.perfecttenantinnovation.com/"}, {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.perfecttenantinnovation.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "How Brands Pay for Your Rent Through Social Media Campaigns", "item": "https://www.perfecttenantinnovation.com/blog/how-brands-pay-for-your-rent/"}]}</script>
 <link rel="stylesheet" href="/styles/blog-funnel.css">
 </head>
-<body>
+<body data-audience="tenant">
   <nav id="nav" aria-label="Main navigation"><a href="/" class="nav-logo">Perfect<span>Tenant</span></a><ul class="nav-links"><li class="nav-blog"><a href="/blog/">Blog &amp; Guides</a></li><li><a href="/pricing/">Plans</a></li><li><a href="/join/">Other roles</a></li><li><a href="/tenants/#tenant-waitlist" class="nav-cta">Tenant access</a></li></ul></nav><div class="resource-breadcrumbs"><a href="/">Home</a> / <a href="/blog/">Resources</a> / How Brands Pay for Your Rent Through Social Media Campaigns</div>
 
   <header class="blog-hero">
@@ -160,6 +160,9 @@
     <p>In PTI's world, a <strong>campaign</strong> is a time-limited agreement: a brand wants content featuring their product posted to a specific audience, PTI matches tenant members whose profiles fit, and members who accept can earn rent-related rewards for creating and posting that content — when campaigns run in your market and your landlord participates.</p>
 
     <p>Everything else is detail — but the details matter. Who the brands are, why they pay, what they ask you to create, and how value moves from their marketing budget to your rent workflow is what turns a vague idea into something you can act on.</p>
+
+
+    <div data-tenant-signup></div>
 
     <h2>Where the money comes from: the brand's perspective</h2>
 
@@ -434,5 +437,9 @@
     result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
   </script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
+<script src="/scripts/web-form.js"></script>
+<script src="/scripts/tenant-signup.js"></script>
 </body>
 </html>

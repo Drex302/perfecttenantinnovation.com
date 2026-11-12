@@ -137,7 +137,7 @@ footer a{color:var(--teal)}
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.perfecttenantinnovation.com/"}, {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.perfecttenantinnovation.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "Your Bathroom Must Have Privacy: What NSPIRE Requires", "item": "https://www.perfecttenantinnovation.com/blog/nspire-bathroom-privacy-requirement/"}]}</script>
 <link rel="stylesheet" href="/styles/blog-funnel.css">
 </head>
-<body>
+<body data-audience="tenant">
 
 <nav id="nav" aria-label="Main navigation"><a href="/" class="nav-logo">Perfect<span>Tenant</span></a><ul class="nav-links"><li class="nav-blog"><a href="/blog/">Blog &amp; Guides</a></li><li><a href="/pricing/">Plans</a></li><li><a href="/join/">Other roles</a></li><li><a href="/tenants/#tenant-waitlist" class="nav-cta">Tenant access</a></li></ul></nav><div class="resource-breadcrumbs"><a href="/">Home</a> / <a href="/blog/">Resources</a> / Your Bathroom Must Have Privacy: What NSPIRE Requires</div>
 
@@ -164,6 +164,9 @@ footer a{color:var(--teal)}
 <p>Most of HUD's NSPIRE inspection standards are about things that are broken or dangerous, like no heat, exposed wiring, or mold. But NSPIRE also includes a short list of things every home must <em>have</em> to count as livable. HUD calls these Affirmative Habitability Requirements, and one of them is simple: you have to be able to use the bathroom in private.</p>
 
 <p>For most renters, this is never an issue, because the bathroom has a door that closes. But doors get broken, removed, or never replaced, and some homes have unusual layouts. When that happens, the privacy rule gives you a clear standard to point to.</p>
+
+
+    <div data-tenant-signup></div>
 
 <h2 id="the-rule">The privacy rule</h2>
 
@@ -341,5 +344,9 @@ footer a{color:var(--teal)}
   <p><a href="https://www.perfecttenantinnovation.com/">Home</a> &nbsp;&middot;&nbsp; <a href="https://www.perfecttenantinnovation.com/blog/">Blog</a> &nbsp;&middot;&nbsp; <a href="/tenants/#tenant-waitlist">Join Free</a></p>
   <p style="margin-top:16px;font-size:12px">&copy; 2026 Perfect Tenant Innovation, LLC. All rights reserved. NSPIRE standards current as of September 2026. General information, not legal advice. Always verify with your PHA.</p>
 </footer>
-<aside class="resource-next" aria-label="Related resources"><h2>Keep exploring</h2><a href="/resources/section-8/">Section 8 and inspection guides</a><ul><li><a href="/blog/nspire-mold-tenant-rights/">Mold in Your Section 8 Home? Your Landlord Has to Fix It</a></li><li><a href="/blog/nspire-tenant-rights-inspection/">HUD Changed How Section 8 Homes Get Inspected</a></li><li><a href="/blog/how-to-use-section-8-voucher-tenant-guide/">How to Use a Section 8 Voucher: Complete Tenant Guide</a></li></ul><a class="resource-action" href="/tenants/#tenant-waitlist">Explore tenant launch access →</a></aside></body>
+<aside class="resource-next" aria-label="Related resources"><h2>Keep exploring</h2><a href="/resources/section-8/">Section 8 and inspection guides</a><ul><li><a href="/blog/nspire-mold-tenant-rights/">Mold in Your Section 8 Home? Your Landlord Has to Fix It</a></li><li><a href="/blog/nspire-tenant-rights-inspection/">HUD Changed How Section 8 Homes Get Inspected</a></li><li><a href="/blog/how-to-use-section-8-voucher-tenant-guide/">How to Use a Section 8 Voucher: Complete Tenant Guide</a></li></ul><a class="resource-action" href="/tenants/#tenant-waitlist">Explore tenant launch access →</a></aside><script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
+<script src="/scripts/web-form.js"></script>
+<script src="/scripts/tenant-signup.js"></script>
+</body>
 </html>

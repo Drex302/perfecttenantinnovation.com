@@ -132,7 +132,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.perfecttenantinnovation.com/"}, {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.perfecttenantinnovation.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "How to Use a Section 8 Voucher: Complete Tenant Guide (2026)", "item": "https://www.perfecttenantinnovation.com/blog/how-to-use-section-8-voucher-tenant-guide/"}]}</script>
 <link rel="stylesheet" href="/styles/blog-funnel.css">
 </head>
-<body>
+<body data-audience="tenant">
   <nav id="nav" aria-label="Main navigation"><a href="/" class="nav-logo">Perfect<span>Tenant</span></a><ul class="nav-links"><li class="nav-blog"><a href="/blog/">Blog &amp; Guides</a></li><li><a href="/pricing/">Plans</a></li><li><a href="/join/">Other roles</a></li><li><a href="/tenants/#tenant-waitlist" class="nav-cta">Tenant access</a></li></ul></nav><div class="resource-breadcrumbs"><a href="/">Home</a> / <a href="/blog/">Resources</a> / How to Use a Section 8 Voucher: Complete Tenant Guide (2026)</div>
 
   <header class="blog-hero">
@@ -170,6 +170,9 @@
     <div class="callout callout-gold">
       <p><strong>What this guide covers</strong> How payment standards and rent reasonableness work. Where to search. How RFTA / inspection / HAP sequencing usually works. Common HQS themes. Tenant rights at a high level. PHA starting points in PTI cities. How PTI can support on-time payment habits and documentation when your landlord uses the platform.</p>
     </div>
+
+
+    <div data-tenant-signup></div>
 
     <h2 id="understand">Understanding your voucher</h2>
 
@@ -449,5 +452,9 @@
       });
     })();
   </script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
+<script src="/scripts/web-form.js"></script>
+<script src="/scripts/tenant-signup.js"></script>
 </body>
 </html>
