@@ -29,5 +29,16 @@
       }
     });
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',observeForms); else observeForms();
+  // Header CTA matches the page audience. Tenant pages (data-audience="tenant" on
+  // <body>) show "Join free" → the inline signup on the page if present, else the
+  // tenant waitlist. Landlord/home pages keep their existing "Free Audit" CTA.
+  function setupAudienceCta() {
+    if (!document.body || document.body.getAttribute('data-audience') !== 'tenant') return;
+    var cta = document.querySelector('#nav .nav-cta');
+    if (!cta) return;
+    cta.textContent = 'Join free';
+    cta.setAttribute('href', document.querySelector('[data-tenant-signup]') ? '#tenant-signup' : '/tenants/#tenant-waitlist');
+  }
+  function start() { observeForms(); setupAudienceCta(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',start); else start();
 })();
