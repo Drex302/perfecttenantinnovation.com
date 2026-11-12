@@ -126,7 +126,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.perfecttenantinnovation.com/"}, {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.perfecttenantinnovation.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "First Apartment Checklist: Before, During, and After Moving", "item": "https://www.perfecttenantinnovation.com/blog/first-apartment-checklist-renters/"}]}</script>
 <link rel="stylesheet" href="/styles/blog-funnel.css">
 </head>
-<body>
+<body data-audience="tenant">
   <nav id="nav" aria-label="Main navigation"><a href="/" class="nav-logo">Perfect<span>Tenant</span></a><ul class="nav-links"><li class="nav-blog"><a href="/blog/">Blog &amp; Guides</a></li><li><a href="/pricing/">Plans</a></li><li><a href="/join/">Other roles</a></li><li><a href="/tenants/#tenant-waitlist" class="nav-cta">Tenant access</a></li></ul></nav><div class="resource-breadcrumbs"><a href="/">Home</a> / <a href="/blog/">Resources</a> / First Apartment Checklist: Before, During, and After Moving</div>
 
   <header class="blog-hero">
@@ -167,6 +167,9 @@
   <article class="blog-content">
     <p>Getting your first apartment right is less about buying stuff and more about <strong>documentation</strong>, <strong>systems</strong>, and <strong>habits</strong>. The decisions you make in the first 72 hours determine how protected you are when something breaks, whether you get your security deposit back, and how smooth rent-paying feels month to month.</p>
     <p>This checklist walks you through each stage: what to verify before you sign, how to do a move-in inspection that protects you, how to budget for the true upfront cost, what to buy first, and how PTI can reward on-time rent behavior.</p>
+
+
+    <div data-tenant-signup></div>
 
     <h2 id="before-signing">Before you sign: application and lease checklist</h2>
 
@@ -393,5 +396,9 @@
       calc();
     })();
   </script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
+<script src="/scripts/web-form.js"></script>
+<script src="/scripts/tenant-signup.js"></script>
 </body>
 </html>

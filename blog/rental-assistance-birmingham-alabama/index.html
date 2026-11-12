@@ -135,7 +135,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.perfecttenantinnovation.com/"}, {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.perfecttenantinnovation.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "Rental Assistance and Tenant Rewards in Birmingham, Alabama", "item": "https://www.perfecttenantinnovation.com/blog/rental-assistance-birmingham-alabama/"}]}</script>
 <link rel="stylesheet" href="/styles/blog-funnel.css">
 </head>
-<body>
+<body data-audience="tenant">
   <nav id="nav" aria-label="Main navigation"><a href="/" class="nav-logo">Perfect<span>Tenant</span></a><ul class="nav-links"><li class="nav-blog"><a href="/blog/">Blog &amp; Guides</a></li><li><a href="/pricing/">Plans</a></li><li><a href="/join/">Other roles</a></li><li><a href="/landlord-hours-audit/" class="nav-cta">Free Audit</a></li></ul></nav><div class="resource-breadcrumbs"><a href="/">Home</a> / <a href="/blog/">Resources</a> / Rental Assistance and Tenant Rewards in Birmingham, Alabama</div>
 
   <header class="blog-hero">
@@ -161,6 +161,9 @@
         <p class="eb-text">Call or text <span class="eb-number">211</span> — Alabama's 24/7 helpline connects you to the fastest available local resources, including emergency rental assistance programs that may currently have funds. Always start here; funding changes week to week.</p>
       </div>
     </div>
+
+    <div data-tenant-signup></div>
+
 
     <p>Birmingham has real support systems for renters in crisis — but finding them means knowing which programs are funded right now, which have realistic timelines, and what to do while you wait. This guide consolidates what Jefferson County renters need: from the fastest emergency funds to long-term stability tools, with honest notes on what each program can and cannot do.</p>
 
@@ -454,5 +457,9 @@
     <p style="margin:0 0 8px"><a href="/">Perfect Tenant Innovation</a></p>
     <p style="margin:0;font-size:.85rem;color:#8B9CB0"><a href="/blog/">Blog &amp; Guides</a> · <a href="/tenants/#tenant-waitlist">Join free</a></p>
   </footer>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
+<script src="/scripts/web-form.js"></script>
+<script src="/scripts/tenant-signup.js"></script>
 </body>
 </html>

@@ -132,7 +132,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.perfecttenantinnovation.com/"}, {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.perfecttenantinnovation.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "PTI Points: How to Earn and Redeem Your Renter Rewards (2026)", "item": "https://www.perfecttenantinnovation.com/blog/pti-points-how-to-earn-redeem/"}]}</script>
 <link rel="stylesheet" href="/styles/blog-funnel.css">
 </head>
-<body>
+<body data-audience="tenant">
   <nav id="nav" aria-label="Main navigation"><a href="/" class="nav-logo">Perfect<span>Tenant</span></a><ul class="nav-links"><li class="nav-blog"><a href="/blog/">Blog &amp; Guides</a></li><li><a href="/pricing/">Plans</a></li><li><a href="/join/">Other roles</a></li><li><a href="/tenants/#tenant-waitlist" class="nav-cta">Tenant access</a></li></ul></nav><div class="resource-breadcrumbs"><a href="/">Home</a> / <a href="/blog/">Resources</a> / PTI Points: How to Earn and Redeem Your Renter Rewards (2026)</div>
 
   <header class="blog-hero">
@@ -165,6 +165,9 @@
     <div class="callout callout-gold">
       <p><strong>What this guide covers</strong><br>How PTI Points are earned and what they’re worth. Bonus earning paths (early pay, streaks, renewals). A points accumulator. What you can redeem for in the Shopping Universe. How points connect to your Stay Grade and your long-term renter profile.</p>
     </div>
+
+
+    <div data-tenant-signup></div>
 
     <h2 id="how">How PTI Points work: the complete picture</h2>
     <div class="flow" aria-label="Points flow">
@@ -414,6 +417,10 @@
 
     calcPoints();
   </script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
+<script src="/scripts/web-form.js"></script>
+<script src="/scripts/tenant-signup.js"></script>
 </body>
 </html>
 

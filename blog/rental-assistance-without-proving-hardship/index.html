@@ -122,7 +122,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.perfecttenantinnovation.com/"}, {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.perfecttenantinnovation.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "Rental Assistance That Doesn't Make You Prove You're Desperate", "item": "https://www.perfecttenantinnovation.com/blog/rental-assistance-without-proving-hardship/"}]}</script>
 <link rel="stylesheet" href="/styles/blog-funnel.css">
 </head>
-<body>
+<body data-audience="tenant">
   <nav id="nav" aria-label="Main navigation"><a href="/" class="nav-logo">Perfect<span>Tenant</span></a><ul class="nav-links"><li class="nav-blog"><a href="/blog/">Blog &amp; Guides</a></li><li><a href="/pricing/">Plans</a></li><li><a href="/join/">Other roles</a></li><li><a href="/tenants/#tenant-waitlist" class="nav-cta">Tenant access</a></li></ul></nav><div class="resource-breadcrumbs"><a href="/">Home</a> / <a href="/blog/">Resources</a> / Rental Assistance That Doesn&#x27;t Make You Prove You&#x27;re Desperate</div>
 
   <header class="blog-hero">
@@ -147,6 +147,9 @@
     <p>And if you do receive help, it is usually one-time relief that addresses the crisis without changing the conditions that created it.</p>
 
     <p>That experience is shared by millions of renters every year. It is not personal, and it is not a reflection of your worth. Understanding why the system works that way — and how PTI was designed differently — may be the most useful thing this guide offers.</p>
+
+
+    <div data-tenant-signup></div>
 
     <h2 id="why-hardship">Why traditional programs require you to prove hardship</h2>
 
@@ -306,5 +309,9 @@
       <p style="margin-top:16px;font-size:.78rem;">© 2026 Perfect Tenant Innovation, LLC. All rights reserved.</p>
     </div>
   </footer>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
+<script src="/scripts/web-form.js"></script>
+<script src="/scripts/tenant-signup.js"></script>
 </body>
 </html>

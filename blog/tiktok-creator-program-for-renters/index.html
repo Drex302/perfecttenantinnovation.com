@@ -131,7 +131,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.perfecttenantinnovation.com/"}, {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.perfecttenantinnovation.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "TikTok Creator Earnings vs. PTI Renter Campaigns", "item": "https://www.perfecttenantinnovation.com/blog/tiktok-creator-program-for-renters/"}]}</script>
 <link rel="stylesheet" href="/styles/blog-funnel.css">
 </head>
-<body>
+<body data-audience="tenant">
   <nav id="nav" aria-label="Main navigation"><a href="/" class="nav-logo">Perfect<span>Tenant</span></a><ul class="nav-links"><li class="nav-blog"><a href="/blog/">Blog &amp; Guides</a></li><li><a href="/pricing/">Plans</a></li><li><a href="/join/">Other roles</a></li><li><a href="/tenants/#tenant-waitlist" class="nav-cta">Tenant access</a></li></ul></nav><div class="resource-breadcrumbs"><a href="/">Home</a> / <a href="/blog/">Resources</a> / TikTok Creator Earnings vs. PTI Renter Campaigns</div>
 
   <header class="blog-hero">
@@ -163,6 +163,9 @@
     <div class="callout callout-amber">
       <p><strong>Compliance note up front</strong> PTI campaign earnings are rent-related rewards, not guaranteed cash income. PTI is not emergency money. Campaign availability varies by city. Many features — including applying rewards toward your lease — require your landlord to join via your invite link.</p>
     </div>
+
+
+    <div data-tenant-signup></div>
 
     <h2 id="tiktok">How TikTok's brand deal model actually works</h2>
 
@@ -417,5 +420,9 @@
       <p style="margin-top:16px;font-size:.78rem;">© 2026 Perfect Tenant Innovation, LLC. All rights reserved.</p>
     </div>
   </footer>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check-compat.js"></script>
+<script src="/scripts/web-form.js"></script>
+<script src="/scripts/tenant-signup.js"></script>
 </body>
 </html>
