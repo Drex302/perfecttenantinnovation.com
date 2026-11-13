@@ -33,6 +33,8 @@ h1,h2,h3,h4,.hero h1,
 .article-body h2,.article-body h3,article.body h2,article.body h3,
 .start h3,.pti-first h2,.cta h2{color:#fff !important;font-family:'Syne',sans-serif !important}
 a{color:#4FB3CC !important}
+/* buttons on a teal/solid background keep white label text */
+.pti-btn,.nav-cta,.btn,.ptis-btn,.action-num{color:#fff !important}
 strong,b{color:#fff !important}
 .hero-sub,.hero-meta,.meta,.muted,.contact,.res-contact{color:#9FB0C3 !important}
 
@@ -70,7 +72,8 @@ strong,b{color:#fff !important}
 
 /* --- landlord (hardcoded) template surfaces --- */
 .stack-card,.source,.related,.row{background:#161B24 !important;border-color:#2A313C !important;color:#E8EDF2 !important}
-.row strong,.resource h3{color:#fff !important}
+.row strong{background:#1C2230 !important;color:#fff !important}
+.resource h3{color:#fff !important}
 .row span,.source,.stack-card p{color:#C5CDD8 !important}
 .resource h3 a{color:#4FB3CC !important}
 .official{background:rgba(38,140,166,.10) !important;border-color:rgba(38,140,166,.3) !important;color:#E8EDF2 !important}
@@ -86,9 +89,24 @@ table th,.verify-table th{background:#1C2230 !important;color:#CBD5E1 !important
 table td,.verify-table td{background:transparent !important;color:#E8EDF2 !important;border-color:#2A313C !important}
 table td a,.verify-table td a{color:#4FB3CC !important}
 
-/* --- landlord: workflow lists --- */
+/* --- landlord: workflow step lists --- */
 .workflow,.workflow li{color:#E8EDF2 !important}
+.workflow li{background:#161B24 !important;border-left-color:#268CA6 !important}
 .workflow strong{color:#fff !important}
+.workflow a{color:#4FB3CC !important}
+
+/* --- landlord: related-post cards (.related a) --- */
+.related a{background:#161B24 !important;border-color:#2A313C !important;color:#E8EDF2 !important}
+.related a strong,.related a h3{color:#fff !important}
+.related h2{color:#fff !important}
+
+/* --- keep the "What can PTI do in this situation?" block a LIGHT card
+   (matches the reference blogs); restore its dark-on-light text that the
+   broad dark rules above would otherwise lighten into invisibility --- */
+.ptis h2.ptis-h,.ptis .ptis-q{color:#14141A !important}
+.ptis .ptis-intro,.ptis .ptis-a,.ptis .ptis-sub,.ptis .ptis-foot{color:#374151 !important}
+.ptis a{color:#268CA6 !important}
+.ptis .ptis-btn{color:#fff !important}
 
 /* --- signup box (renter, injected by tenant-signup.js) --- */
 .waitlist-section{margin-top:40px;background:rgba(255,255,255,.03) !important;
